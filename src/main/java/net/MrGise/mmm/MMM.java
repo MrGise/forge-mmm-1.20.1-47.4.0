@@ -1,6 +1,8 @@
 package net.MrGise.mmm;
 
 import com.mojang.logging.LogUtils;
+import net.MrGise.mmm.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -34,6 +36,9 @@ public class MMM
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
+        ModItems.register(modEventBus);
+
+
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -42,7 +47,10 @@ public class MMM
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
+            event.accept(ModItems.GOLD_KEY);
+            event.accept(ModItems.MOSSY_GOLD_KEY);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
