@@ -2,5 +2,6 @@
   "item.mmm.gold_key": "Gold Key",
   "item.mmm.mossy_gold_key": "Mossy Gold Key",
 
-  "block.mmm.skysolid": "Skysolid"
+  "block.mmm.skysolid": "Skysolid",
+  "block.mmm.decorative_skysolid": "Decorative Skysolid"
 }
