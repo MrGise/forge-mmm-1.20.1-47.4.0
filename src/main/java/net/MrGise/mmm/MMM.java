@@ -1,6 +1,7 @@
 package net.MrGise.mmm;
 
 import com.mojang.logging.LogUtils;
+import net.MrGise.mmm.block.ModBlocks;
 import net.MrGise.mmm.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -37,7 +38,7 @@ public class MMM
         modEventBus.addListener(this::addCreative);
 
         ModItems.register(modEventBus);
-
+        ModBlocks.register(modEventBus);
 
     }
 
@@ -50,6 +51,15 @@ public class MMM
         if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(ModItems.GOLD_KEY);
             event.accept(ModItems.MOSSY_GOLD_KEY);
+        }
+
+        if(event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
+            event.accept(ModBlocks.SKYSOLID);
+        }
+
+        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
+            event.accept(ModBlocks.SKYSOLID);
+            event.accept(ModBlocks.DECORATIVE_SKYSOLID);
         }
     }
 
