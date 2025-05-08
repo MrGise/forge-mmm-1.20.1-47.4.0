@@ -3,5 +3,8 @@
   "item.mmm.mossy_gold_key": "Mossy Gold Key",
 
   "block.mmm.skysolid": "Skysolid",
-  "block.mmm.decorative_skysolid": "Decorative Skysolid"
+  "block.mmm.decorative_skysolid": "Decorative Skysolid",
+  "block.mmm.skiron_ore": "Skiron Ore",
+
+  "creativetab.skyland_blocks": "Skyland Blocks"
 }

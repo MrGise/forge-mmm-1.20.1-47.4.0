@@ -2,6 +2,7 @@ package net.MrGise.mmm;
 
 import com.mojang.logging.LogUtils;
 import net.MrGise.mmm.block.ModBlocks;
+import net.MrGise.mmm.item.ModCreativeModeTabs;
 import net.MrGise.mmm.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -27,6 +28,8 @@ public class MMM
 
     public MMM(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
+
+        ModCreativeModeTabs.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -55,6 +58,7 @@ public class MMM
 
         if(event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
             event.accept(ModBlocks.SKYSOLID);
+            event.accept(ModBlocks.SKIRON_ORE);
         }
 
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
