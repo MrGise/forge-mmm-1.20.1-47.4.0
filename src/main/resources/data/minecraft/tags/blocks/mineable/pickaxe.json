@@ -3,6 +3,7 @@
   "values": [
     "mmm:skiron_ore",
     "mmm:skysolid",
-    "mmm:decorative_skysolid"
+    "mmm:decorative_skysolid",
+    "mmm:broken_skysolid"
   ]
 }

@@ -1,8 +1,6 @@
 {
   "replace": false,
   "values": [
-    "mmm:skiron_ore",
-    "mmm:skysolid",
-    "mmm:decorative_skysolid"
+    "mmm:skiron_ore"
   ]
 }
