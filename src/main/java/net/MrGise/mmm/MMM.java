@@ -64,6 +64,7 @@ public class MMM
         if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
             event.accept(ModBlocks.SKYSOLID);
             event.accept(ModBlocks.DECORATIVE_SKYSOLID);
+            event.accept(ModBlocks.BROKEN_SKYSOLID);
         }
     }
 

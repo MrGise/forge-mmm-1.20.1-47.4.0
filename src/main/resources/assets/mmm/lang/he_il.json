@@ -5,6 +5,8 @@
   "block.mmm.skysolid": "חומר שמיים",
   "block.mmm.decorative_skysolid": "חומר שמיים עיצובי",
   "block.mmm.skiron_ore": "עפרת ברזל שמיימי",
+  "block.mmm.broken_skysolid": "חומר שמיים שבור",
 
-  "creativetab.skyland_blocks": "בלוקי ארץ השמיים"
+  "creativetab.skyland_blocks": "בלוקי ארץ השמיים",
+  "creativetab.ruin_items": "חפצי הריסות"
 }

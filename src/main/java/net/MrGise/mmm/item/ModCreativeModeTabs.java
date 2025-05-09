@@ -18,8 +18,16 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.SKIRON_ORE.get()))
                     .title(Component.translatable("creativetab.skyland_blocks")).displayItems((displayParameters, output) -> {
                         output.accept(ModBlocks.SKYSOLID.get());
+                        output.accept(ModBlocks.BROKEN_SKYSOLID.get());
                         output.accept(ModBlocks.DECORATIVE_SKYSOLID.get());
                         output.accept(ModBlocks.SKIRON_ORE.get());
+                    }).build());
+
+    public static final RegistryObject<CreativeModeTab> RUIN_ITEMS = CREATIVE_MODE_TABS.register("ruin_items",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.MOSSY_GOLD_KEY.get()))
+                    .title(Component.translatable("creativetab.ruin_items")).displayItems((displayParameters, output) -> {
+                        output.accept(ModItems.GOLD_KEY.get());
+                        output.accept(ModItems.MOSSY_GOLD_KEY.get());
                     }).build());
 
     public static void register(IEventBus eventBus) {
