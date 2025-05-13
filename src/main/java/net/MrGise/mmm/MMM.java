@@ -54,6 +54,7 @@ public class MMM
         if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
             event.accept(ModItems.GOLD_KEY);
             event.accept(ModItems.MOSSY_GOLD_KEY);
+            event.accept(ModItems.ORE_DETECTOR);
         }
 
         if(event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {

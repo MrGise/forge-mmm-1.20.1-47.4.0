@@ -11,7 +11,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "mmm:decorative_skysolid"
+          "name": "mmm:skysolid"
         }
       ],
       "rolls": 1.0
