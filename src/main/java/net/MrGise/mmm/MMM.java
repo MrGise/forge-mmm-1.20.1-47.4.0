@@ -24,7 +24,7 @@ public class MMM
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "mmm";
     // Directly reference a slf4j logger
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public MMM(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
@@ -66,6 +66,10 @@ public class MMM
             event.accept(ModBlocks.SKYSOLID);
             event.accept(ModBlocks.DECORATIVE_SKYSOLID);
             event.accept(ModBlocks.BROKEN_SKYSOLID);
+        }
+
+        if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
+            event.accept(ModBlocks.BIRTHDAY_CAKE);
         }
     }
 

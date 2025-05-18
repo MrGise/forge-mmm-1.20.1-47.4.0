@@ -30,6 +30,14 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.MOSSY_GOLD_KEY.get());
                     }).build());
 
+    public static final RegistryObject<CreativeModeTab> MISCELLANEOUS_MMM = CREATIVE_MODE_TABS.register("miscellaneous_mmm",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.MOSSY_GOLD_KEY.get()))
+                    .title(Component.translatable("creativetab.miscellaneous_mmm")).displayItems((displayParameters, output) -> {
+                        output.accept(ModBlocks.BIRTHDAY_CAKE.get());
+                        output.accept(ModItems.ORE_DETECTOR.get());
+                        output.accept(ModBlocks.SOUND_BLOCK.get());
+                    }).build());
+
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TABS.register(eventBus);
     }

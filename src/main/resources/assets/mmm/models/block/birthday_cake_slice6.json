@@ -1,0 +1,24 @@
+{
+	"textures": {
+		"5": "mmm:block/birthday_cake_14",
+		"bottom": "mmm:block/birthday_cake_bottom",
+		"top": "mmm:block/birthday_cake_top",
+		"side": "mmm:block/birthday_cake_side",
+		"inside": "mmm:block/birthday_cake_inner",
+		"particle": "mmm:block/birthday_cake_side"
+	},
+	"elements": [
+		{
+			"from": [13, 0, 1],
+			"to": [15, 8, 15],
+			"faces": {
+				"north": {"uv": [1, 8, 3, 16], "texture": "#side"},
+				"east": {"uv": [1, 8, 15, 16], "texture": "#side"},
+				"south": {"uv": [13, 8, 15, 16], "texture": "#side"},
+				"west": {"uv": [1, 8, 15, 16], "texture": "#inside"},
+				"up": {"uv": [13, 1, 15, 15], "texture": "#top"},
+				"down": {"uv": [13, 1, 15, 15], "texture": "#bottom", "cullface": "down"}
+			}
+		}
+	]
+}
