@@ -19,10 +19,10 @@
   "creativetab.miscellaneous_mmm": "חפצי השונות של MMM",
   "creativetab.mmm_cuisine": "האוכל של MMM",
 
-  "tooltip.mmm.description_block.tooltip.skoal_block": "§oבלוק של פחם שמיימי. נשרף לפי 10 יותר זמן מפחם שמיימי.",
+  "tooltip.mmm.description_block.tooltip.skoal_block": "§7§oבלוק של פחם שמיימי. נשרף ל-פי 10 יותר זמן מפחם שמיימי.",
 
-  "tooltip.mmm.description_item.tooltip.noshift": "לחץ על §l§eShift§r כדי לראות תיאור",
-  "tooltip.mmm.description_item.tooltip.mossy_gold_key": "§oצריך ניקוי קטן.",
-  "tooltip.mmm.description_item.tooltip.gold_key": "§oמפתח בלי דלת.",
-  "tooltip.mmm.description_item.tooltip.skoal": "§oהפחם הקסום של השמים... נשרף ליותר זמן מפחם רגיל."
+  "tooltip.mmm.description_item.tooltip.noshift": "לחץ על §l§eShift§r כדי לראות תיאור§7",
+  "tooltip.mmm.description_item.tooltip.mossy_gold_key": "§7§oצריך ניקוי קטן.",
+  "tooltip.mmm.description_item.tooltip.gold_key": "§7§oמפתח בלי דלת...",
+  "tooltip.mmm.description_item.tooltip.skoal": "§7§oהפחם הקסום של השמים... נשרף ליותר זמן מפחם רגיל."
 }

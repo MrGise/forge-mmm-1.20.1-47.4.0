@@ -19,10 +19,10 @@
   "creativetab.miscellaneous_mmm": "MMM's Miscellaneous Items",
   "creativetab.mmm_cuisine": "MMM's Food Items",
 
-  "tooltip.mmm.description_block.tooltip.skoal_block": "§oA block of Sky Coal. burns for 10x the time of Sky Coal.",
+  "tooltip.mmm.description_block.tooltip.skoal_block": "§7§oA block of Sky Coal. burns for 10x the time of Sky Coal.",
 
-  "tooltip.mmm.description_item.tooltip.noshift": "Press §l§eShift§r key to view description",
-  "tooltip.mmm.description_item.tooltip.mossy_gold_key": "§oNeeds a little cleaning, doesn't it?",
-  "tooltip.mmm.description_item.tooltip.gold_key": "§oA key. what's it for?",
-  "tooltip.mmm.description_item.tooltip.skoal": "§oThe magical coal of the skies... Burns more time than normal coal."
+  "tooltip.mmm.description_item.tooltip.noshift": "§7Press §eShift§r§7 key to view description",
+  "tooltip.mmm.description_item.tooltip.mossy_gold_key": "§7§oNeeds a little cleaning, doesn't it?",
+  "tooltip.mmm.description_item.tooltip.gold_key": "§7§oA key. what's it for?",
+  "tooltip.mmm.description_item.tooltip.skoal": "§7§oThe magical coal of the skies... Burns more time than normal coal."
 }
