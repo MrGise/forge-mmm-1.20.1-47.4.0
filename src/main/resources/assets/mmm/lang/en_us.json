@@ -2,15 +2,27 @@
   "item.mmm.gold_key": "Gold Key",
   "item.mmm.mossy_gold_key": "Mossy Gold Key",
   "item.mmm.ore_detector": "Ore Detector",
+  "item.mmm.breadstick": "Breadstick",
+  "item.mmm.skoal": "Sky Coal",
 
   "block.mmm.skysolid": "Skysolid",
   "block.mmm.decorative_skysolid": "Decorative Skysolid",
   "block.mmm.skiron_ore": "Skiron Ore",
+  "block.mmm.skoal_block": "Sky Coal block",
+  "block.mmm.skoal_ore": "Sky Coal Ore",
   "block.mmm.broken_skysolid": "Broken Skysolid",
   "block.mmm.birthday_cake": "Birthday cake",
   "block.mmm.sound_block": "Sound Block",
 
-  "creativetab.skyland_blocks": "Skyland Blocks",
+  "creativetab.the_skyland": "The Skyland",
   "creativetab.ruin_items": "Ruin Items",
-  "creativetab.miscellaneous_mmm": "MMM's Miscellaneous Items"
+  "creativetab.miscellaneous_mmm": "MMM's Miscellaneous Items",
+  "creativetab.mmm_cuisine": "MMM's Food Items",
+
+  "tooltip.mmm.description_block.tooltip.skoal_block": "§oA block of Sky Coal. burns for 10x the time of Sky Coal.",
+
+  "tooltip.mmm.description_item.tooltip.noshift": "Press §l§eShift§r key to view description",
+  "tooltip.mmm.description_item.tooltip.mossy_gold_key": "§oNeeds a little cleaning, doesn't it?",
+  "tooltip.mmm.description_item.tooltip.gold_key": "§oA key. what's it for?",
+  "tooltip.mmm.description_item.tooltip.skoal": "§oThe magical coal of the skies... Burns more time than normal coal."
 }

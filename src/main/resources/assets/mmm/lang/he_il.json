@@ -2,15 +2,27 @@
   "item.mmm.gold_key": "מפתח זהב",
   "item.mmm.mossy_gold_key": "מפתח זהב מכוסה טחב",
   "item.mmm.ore_detector": "גלאי עפרות",
+  "item.mmm.breadstick": "גריסיני",
+  "item.mmm.skoal": "פחם שמיימי",
 
   "block.mmm.skysolid": "חומר שמיים",
   "block.mmm.decorative_skysolid": "חומר שמיים עיצובי",
   "block.mmm.skiron_ore": "עפרת ברזל שמיימי",
+  "block.mmm.skoal_block": "בלוק פחם שמיימי",
+  "block.mmm.skoal_ore": "עפרת פחם שמיימי",
   "block.mmm.broken_skysolid": "חומר שמיים שבור",
   "block.mmm.birthday_cake": "עוגת יום הולדת",
   "block.mmm.sound_block": "בלוק קול",
 
-  "creativetab.skyland_blocks": "בלוקי ארץ השמיים",
+  "creativetab.the_skyland": "ארץ השמיים",
   "creativetab.ruin_items": "חפצי הריסות",
-  "creativetab.miscellaneous_mmm": "חפצי השונות של MMM"
+  "creativetab.miscellaneous_mmm": "חפצי השונות של MMM",
+  "creativetab.mmm_cuisine": "האוכל של MMM",
+
+  "tooltip.mmm.description_block.tooltip.skoal_block": "§oבלוק של פחם שמיימי. נשרף לפי 10 יותר זמן מפחם שמיימי.",
+
+  "tooltip.mmm.description_item.tooltip.noshift": "לחץ על §l§eShift§r כדי לראות תיאור",
+  "tooltip.mmm.description_item.tooltip.mossy_gold_key": "§oצריך ניקוי קטן.",
+  "tooltip.mmm.description_item.tooltip.gold_key": "§oמפתח בלי דלת.",
+  "tooltip.mmm.description_item.tooltip.skoal": "§oהפחם הקסום של השמים... נשרף ליותר זמן מפחם רגיל."
 }
