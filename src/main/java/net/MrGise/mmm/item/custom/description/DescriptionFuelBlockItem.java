@@ -1,4 +1,4 @@
-package net.MrGise.mmm.item.custom;
+package net.MrGise.mmm.item.custom.description;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;

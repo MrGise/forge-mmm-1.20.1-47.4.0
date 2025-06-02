@@ -1,4 +1,4 @@
-package net.MrGise.mmm.item.custom;
+package net.MrGise.mmm.item.custom.description;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;

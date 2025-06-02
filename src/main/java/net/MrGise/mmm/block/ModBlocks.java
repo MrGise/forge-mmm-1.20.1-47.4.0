@@ -4,7 +4,7 @@ import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.custom.BirthdayCakeBlock;
 import net.MrGise.mmm.block.custom.SoundBlock;
 import net.MrGise.mmm.item.ModItems;
-import net.MrGise.mmm.item.custom.DescriptionFuelBlockItem;
+import net.MrGise.mmm.item.custom.description.DescriptionFuelBlockItem;
 import net.MrGise.mmm.item.custom.FuelBlockItem;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -13,7 +13,6 @@ import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.properties.NoteBlockInstrument;
 import net.minecraft.world.level.material.MapColor;
-import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -26,6 +25,7 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, MMM.MOD_ID);
 
+    // Blocks
     public static final RegistryObject<Block> SKYSOLID = registerBlock("skysolid",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
 
@@ -51,6 +51,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
             () -> new SoundBlock(BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD)));
 
+    // Block registration methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
@@ -69,6 +70,7 @@ public class ModBlocks {
         return toReturn;
     }
 
+    // Block item registration methods
     private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }

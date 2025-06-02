@@ -1,9 +1,9 @@
 package net.MrGise.mmm.item;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.item.custom.DescriptionFuelItem;
-import net.MrGise.mmm.item.custom.FuelItem;
+import net.MrGise.mmm.item.custom.description.DescriptionFuelItem;
 import net.MrGise.mmm.item.custom.OreDetectorItem;
+import net.MrGise.mmm.item.custom.description.DescriptionItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -14,6 +14,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
         DeferredRegister.create(ForgeRegistries.ITEMS, MMM.MOD_ID);
 
+    // Items
     public static final RegistryObject<Item> GOLD_KEY = ITEMS.register("gold_key",
             () -> new DescriptionItem(new Item.Properties().stacksTo(1), "gold_key", false));
 

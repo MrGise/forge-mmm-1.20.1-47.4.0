@@ -1,4 +1,4 @@
-package net.MrGise.mmm.item;
+package net.MrGise.mmm.item.custom.description;
 
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
@@ -11,6 +11,8 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 
 public class DescriptionItem extends Item {
+
+    // An Item with a description added to it
 
     private String DescriptionTranslatable;
     private boolean ShiftToView = true;
@@ -26,11 +28,9 @@ public class DescriptionItem extends Item {
 
         if((!Screen.hasShiftDown() && ShiftToView) == true) {
             pTooltipComponents.add(Component.translatable("tooltip.mmm.description_item.tooltip.noshift"));
-
         } else {
             pTooltipComponents.add(Component.translatable("tooltip.mmm.description_item.tooltip." + DescriptionTranslatable));
         }
-
 
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

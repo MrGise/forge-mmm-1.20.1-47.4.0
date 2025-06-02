@@ -1,7 +1,5 @@
-package net.MrGise.mmm.item.custom;
+package net.MrGise.mmm.item.custom.description;
 
-import net.MrGise.mmm.item.DescriptionItem;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.RecipeType;
 import org.jetbrains.annotations.Nullable;

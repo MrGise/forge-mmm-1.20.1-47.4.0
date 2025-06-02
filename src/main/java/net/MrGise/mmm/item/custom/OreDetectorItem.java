@@ -27,8 +27,6 @@ public class OreDetectorItem extends Item {
             Player player = pContext.getPlayer();
             boolean FoundBlock = false;
 
-            player.sendSystemMessage(Component.literal("Ore Finder activated!"));
-
             for(int i = 0; i <= positionClicked.getY() + 64; i++) {
                 BlockState blockState = pContext.getLevel().getBlockState(positionClicked.below(i));
 
@@ -62,7 +60,7 @@ public class OreDetectorItem extends Item {
     }
 
     private void outputOrePosition(BlockPos below, Player player, Block block) {
-        player.sendSystemMessage(Component.literal("Found ore block " + I18n.get(block.getDescriptionId()) + " at: (" + below.getX() + ", " + below.getY() + ", " + below.getZ() + ")."));
+        player.sendSystemMessage(Component.literal("Found ore block: " + I18n.get(block.getDescriptionId()) + " at: (" + below.getX() + ", " + below.getY() + ", " + below.getZ() + ")."));
     }
 
     private boolean isOreBlock(BlockState blockState) {
@@ -70,7 +68,7 @@ public class OreDetectorItem extends Item {
         return blockState.is(Blocks.COAL_ORE) || blockState.is(Blocks.IRON_ORE) || blockState.is(Blocks.GOLD_ORE)|| blockState.is(Blocks.EMERALD_ORE) || blockState.is(Blocks.DIAMOND_ORE) || blockState.is(Blocks.REDSTONE_ORE) || blockState.is(Blocks.LAPIS_ORE)
         || blockState.is(Blocks.DEEPSLATE_COAL_ORE) || blockState.is(Blocks.DEEPSLATE_IRON_ORE) || blockState.is(Blocks.DEEPSLATE_GOLD_ORE)|| blockState.is(Blocks.DEEPSLATE_EMERALD_ORE) || blockState.is(Blocks.DEEPSLATE_DIAMOND_ORE) || blockState.is(Blocks.DEEPSLATE_REDSTONE_ORE) || blockState.is(Blocks.DEEPSLATE_LAPIS_ORE)
                 || blockState.is(Blocks.NETHER_GOLD_ORE) || blockState.is(Blocks.NETHER_QUARTZ_ORE) || blockState.is(Blocks.ANCIENT_DEBRIS)
-                || blockState.is(Blocks.COPPER_ORE) || blockState.is(Blocks.DEEPSLATE_COPPER_ORE) || blockState.is(ModBlocks.SKIRON_ORE.get());
+                || blockState.is(Blocks.COPPER_ORE) || blockState.is(Blocks.DEEPSLATE_COPPER_ORE) || blockState.is(ModBlocks.SKIRON_ORE.get()) || blockState.is(ModBlocks.SKOAL_BLOCK.get());
 
     }
 
