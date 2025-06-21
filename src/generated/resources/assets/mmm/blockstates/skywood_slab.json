@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "type=bottom": {
+      "model": "mmm:block/skywood_slab"
+    },
+    "type=double": {
+      "model": "mmm:block/skywood_planks"
+    },
+    "type=top": {
+      "model": "mmm:block/skywood_slab_top"
+    }
+  }
+}

@@ -21,9 +21,14 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BROKEN_SKYSOLID.get());
                         output.accept(ModBlocks.DECORATIVE_SKYSOLID.get());
                         output.accept(ModBlocks.SKIRON_ORE.get());
-                        output.accept(ModBlocks.SKOAL_BLOCK.get());
                         output.accept(ModBlocks.SKOAL_ORE.get());
                         output.accept(ModItems.SKOAL.get());
+                        output.accept(ModBlocks.SKOAL_BLOCK.get());
+                        output.accept(ModBlocks.SKYWOOD_PLANKS.get());
+                        output.accept(ModBlocks.SKYWOOD_STAIRS.get());
+                        output.accept(ModBlocks.SKYWOOD_SLAB.get());
+                        output.accept(ModBlocks.SKYWOOD_PRESSURE_PLATE.get());
+                        output.accept(ModBlocks.SKYWOOD_BUTTON.get());
                     }).build());
 
     public static final RegistryObject<CreativeModeTab> RUIN_ITEMS = CREATIVE_MODE_TABS.register("ruin_items",

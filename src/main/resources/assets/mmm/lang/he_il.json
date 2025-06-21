@@ -13,6 +13,10 @@
   "block.mmm.broken_skysolid": "חומר שמיים שבור",
   "block.mmm.birthday_cake": "עוגת יום הולדת",
   "block.mmm.sound_block": "בלוק קול",
+  "block.mmm.skywood_planks": "קרשי עץ שמיים",
+  "block.mmm.skywood_stairs": "מדרגות עץ שמיים",
+  "block.mmm.skywood_pressure_plate": "לוחית לחץ עץ שמיים",
+  "block.mmm.skywood_button": "כפתור עץ שמיים",
 
   "creativetab.the_skyland": "ארץ השמיים",
   "creativetab.ruin_items": "חפצי הריסות",

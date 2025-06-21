@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "mmm:skoal_block"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "item": "mmm:skoal"
+  }
+}

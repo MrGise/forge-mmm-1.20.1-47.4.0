@@ -1,6 +1,7 @@
 package net.MrGise.mmm.item.custom;
 
 import net.MrGise.mmm.block.ModBlocks;
+import net.MrGise.mmm.util.ModTags;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -55,20 +56,21 @@ public class OreDetectorItem extends Item {
 
     private void outputFailure(Player player) {
 
+        player.sendSystemMessage(Component.literal(" "));
         player.sendSystemMessage(Component.literal("Failed to find an ore"));
+        player.sendSystemMessage(Component.literal(" "));
 
     }
 
     private void outputOrePosition(BlockPos below, Player player, Block block) {
+        player.sendSystemMessage(Component.literal(" "));
         player.sendSystemMessage(Component.literal("Found ore block: " + I18n.get(block.getDescriptionId()) + " at: (" + below.getX() + ", " + below.getY() + ", " + below.getZ() + ")."));
+        player.sendSystemMessage(Component.literal(" "));
     }
 
     private boolean isOreBlock(BlockState blockState) {
 
-        return blockState.is(Blocks.COAL_ORE) || blockState.is(Blocks.IRON_ORE) || blockState.is(Blocks.GOLD_ORE)|| blockState.is(Blocks.EMERALD_ORE) || blockState.is(Blocks.DIAMOND_ORE) || blockState.is(Blocks.REDSTONE_ORE) || blockState.is(Blocks.LAPIS_ORE)
-        || blockState.is(Blocks.DEEPSLATE_COAL_ORE) || blockState.is(Blocks.DEEPSLATE_IRON_ORE) || blockState.is(Blocks.DEEPSLATE_GOLD_ORE)|| blockState.is(Blocks.DEEPSLATE_EMERALD_ORE) || blockState.is(Blocks.DEEPSLATE_DIAMOND_ORE) || blockState.is(Blocks.DEEPSLATE_REDSTONE_ORE) || blockState.is(Blocks.DEEPSLATE_LAPIS_ORE)
-                || blockState.is(Blocks.NETHER_GOLD_ORE) || blockState.is(Blocks.NETHER_QUARTZ_ORE) || blockState.is(Blocks.ANCIENT_DEBRIS)
-                || blockState.is(Blocks.COPPER_ORE) || blockState.is(Blocks.DEEPSLATE_COPPER_ORE) || blockState.is(ModBlocks.SKIRON_ORE.get()) || blockState.is(ModBlocks.SKOAL_BLOCK.get());
+        return blockState.is(ModTags.Blocks.DETECTABLE_ORE);
 
     }
 

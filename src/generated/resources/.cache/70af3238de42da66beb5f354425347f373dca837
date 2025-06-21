@@ -1,0 +1,7 @@
+// 1.20.1	2025-06-21T18:40:34.0627976	Block Tags
+69c0d817b8acf7006cc660cb3f9ac607404f6160 data/forge/tags/blocks/ores.json
+d1adfee18b910b5fa00966abbd39ca778e220711 data/minecraft/tags/blocks/mineable/axe.json
+a8ab5e1f70c340d36261f9a3c8571703a58c78b5 data/minecraft/tags/blocks/mineable/pickaxe.json
+8ea364e86d3a16a0e369b1ecbe915439f3166a2e data/minecraft/tags/blocks/needs_iron_tool.json
+b7bf3987b543416b0b38eb933ad6057c8165ca36 data/minecraft/tags/blocks/needs_stone_tool.json
+cb28339548a9f5c43f81c4715df14c62d24020ad data/mmm/tags/blocks/detectable_ore.json

@@ -51,23 +51,6 @@ public class MMM
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.TOOLS_AND_UTILITIES) {
-            event.accept(ModItems.GOLD_KEY);
-            event.accept(ModItems.MOSSY_GOLD_KEY);
-            event.accept(ModItems.ORE_DETECTOR);
-        }
-
-        if(event.getTabKey() == CreativeModeTabs.NATURAL_BLOCKS) {
-            event.accept(ModBlocks.SKYSOLID);
-            event.accept(ModBlocks.SKIRON_ORE);
-        }
-
-        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-            event.accept(ModBlocks.SKYSOLID);
-            event.accept(ModBlocks.DECORATIVE_SKYSOLID);
-            event.accept(ModBlocks.BROKEN_SKYSOLID);
-        }
-
         if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
             event.accept(ModBlocks.BIRTHDAY_CAKE);
         }

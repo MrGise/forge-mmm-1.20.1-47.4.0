@@ -13,6 +13,11 @@
   "block.mmm.broken_skysolid": "Broken Skysolid",
   "block.mmm.birthday_cake": "Birthday cake",
   "block.mmm.sound_block": "Sound Block",
+  "block.mmm.skywood_planks": "Skywood Planks",
+  "block.mmm.skywood_stairs": "Skywood Stairs",
+  "block.mmm.skywood_slab": "Skywood Slab",
+  "block.mmm.skywood_pressure_plate": "Skywood Pressure Plate",
+  "block.mmm.skywood_button": "Skywood Button",
 
   "creativetab.the_skyland": "The Skyland",
   "creativetab.ruin_items": "Ruin Items",
