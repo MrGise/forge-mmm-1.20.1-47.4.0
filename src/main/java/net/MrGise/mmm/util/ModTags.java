@@ -12,6 +12,8 @@ public class ModTags {
 
     public static class Items {
 
+        public static final TagKey<Item> SUGGESTED = tag("suggested");
+
         private static TagKey<Item> tag(String name) {
             return ItemTags.create(new ResourceLocation(MMM.MOD_ID, name));
         }
