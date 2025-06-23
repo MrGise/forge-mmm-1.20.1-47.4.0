@@ -51,6 +51,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 block -> createSlabItemTable(ModBlocks.SKYWOOD_SLAB.get()));
         this.dropSelf(ModBlocks.SKYWOOD_PRESSURE_PLATE.get());
         this.dropSelf(ModBlocks.SKYWOOD_BUTTON.get());
+        this.dropSelf(ModBlocks.SKYWOOD_FENCE.get());
+        this.dropSelf(ModBlocks.SKYWOOD_FENCE_GATE.get());
+        this.dropSelf(ModBlocks.SKYSOLID_WALL.get());
 
         // Ores
 

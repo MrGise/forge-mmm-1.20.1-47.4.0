@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "misc",
+  "cookingtime": 200,
+  "experience": 0.15,
+  "group": "sky_ores",
+  "ingredient": {
+    "item": "mmm:raw_skiron"
+  },
+  "result": "mmm:skiron"
+}

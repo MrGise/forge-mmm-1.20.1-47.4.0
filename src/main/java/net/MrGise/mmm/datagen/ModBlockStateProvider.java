@@ -3,6 +3,7 @@ package net.MrGise.mmm.datagen;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.ModBlocks;
 import net.minecraft.data.PackOutput;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -32,18 +33,22 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.SKIRON_BLOCK);
         blockWithItem(ModBlocks.RAW_SKIRON_BLOCK);
 
-        stairsBlock((StairBlock) ModBlocks.SKYWOOD_STAIRS.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
-        slabBlock(((SlabBlock) ModBlocks.SKYWOOD_SLAB.get()), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
+        stairsBlockWithItem(ModBlocks.SKYWOOD_STAIRS, (StairBlock) ModBlocks.SKYWOOD_STAIRS.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
+        slabBlockWithItem(ModBlocks.SKYWOOD_SLAB, ((SlabBlock) ModBlocks.SKYWOOD_SLAB.get()), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
 
         pressurePlateBlock((PressurePlateBlock) ModBlocks.SKYWOOD_PRESSURE_PLATE.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
         buttonBlock((ButtonBlock) ModBlocks.SKYWOOD_BUTTON.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
+        fenceBlock((FenceBlock) ModBlocks.SKYWOOD_FENCE.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
+        fenceGateBlock((FenceGateBlock) ModBlocks.SKYWOOD_FENCE_GATE.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
+
+        wallBlock((WallBlock) ModBlocks.SKYSOLID_WALL.get(), blockTexture(ModBlocks.SKYSOLID.get()));
 
         // Block Items
 
         blockItem(ModBlocks.SKYWOOD_STAIRS);
         blockItem(ModBlocks.SKYWOOD_SLAB);
-
         blockItem(ModBlocks.SKYWOOD_PRESSURE_PLATE);
+        blockItem(ModBlocks.SKYWOOD_FENCE_GATE);
 
     }
 
@@ -54,6 +59,16 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+    }
+
+    private void stairsBlockWithItem(RegistryObject<Block> block, StairBlock stairBlock, ResourceLocation texture) {
+        stairsBlock(stairBlock, texture);
+        blockItem(block);
+    }
+
+    public void slabBlockWithItem(RegistryObject<Block> pBlock, SlabBlock block, ResourceLocation doubleslab, ResourceLocation texture) {
+        this.slabBlock(block, doubleslab, texture, texture, texture);
+        blockItem(pBlock);
     }
 
 }

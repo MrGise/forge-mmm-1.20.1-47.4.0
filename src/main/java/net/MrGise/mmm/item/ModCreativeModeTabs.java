@@ -18,6 +18,7 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.SKIRON_ORE.get()))
                     .title(Component.translatable("creativetab.the_skyland")).displayItems((displayParameters, output) -> {
                         output.accept(ModBlocks.SKYSOLID.get());
+                        output.accept(ModBlocks.SKYSOLID_WALL.get());
                         output.accept(ModBlocks.BROKEN_SKYSOLID.get());
                         output.accept(ModBlocks.DECORATIVE_SKYSOLID.get());
                         output.accept(ModBlocks.SKIRON_ORE.get());
@@ -31,6 +32,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.SKYWOOD_PLANKS.get());
                         output.accept(ModBlocks.SKYWOOD_STAIRS.get());
                         output.accept(ModBlocks.SKYWOOD_SLAB.get());
+                        output.accept(ModBlocks.SKYWOOD_FENCE.get());
+                        output.accept(ModBlocks.SKYWOOD_FENCE_GATE.get());
                         output.accept(ModBlocks.SKYWOOD_PRESSURE_PLATE.get());
                         output.accept(ModBlocks.SKYWOOD_BUTTON.get());
                     }).build());

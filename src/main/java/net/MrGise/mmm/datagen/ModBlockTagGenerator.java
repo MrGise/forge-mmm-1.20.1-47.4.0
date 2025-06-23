@@ -57,6 +57,13 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.SKIRON_ORE.get());
 
+        this.tag(BlockTags.FENCES)
+                .add(ModBlocks.SKYWOOD_FENCE.get());
+        this.tag(BlockTags.WALLS)
+                .add(ModBlocks.SKYSOLID_WALL.get());
+        this.tag(BlockTags.FENCE_GATES)
+                .add(ModBlocks.SKYWOOD_FENCE_GATE.get());
+
     }
 
     @Override

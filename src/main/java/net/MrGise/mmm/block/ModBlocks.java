@@ -6,6 +6,7 @@ import net.MrGise.mmm.block.custom.SoundBlock;
 import net.MrGise.mmm.item.ModItems;
 import net.MrGise.mmm.item.custom.description.DescriptionFuelBlockItem;
 import net.MrGise.mmm.item.custom.FuelBlockItem;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -59,6 +60,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
             () -> new SoundBlock(BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).noLootTable().strength(-1, 0)));
 
+    public static final RegistryObject<Block> SKYSOLID_WALL = registerBlock("skysolid_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(ModBlocks.SKYSOLID.get())));
+
 
     public static final RegistryObject<Block> SKYWOOD_PLANKS = registerBlock("skywood_planks",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).instrument(NoteBlockInstrument.BASS).strength(2.0F, 3.0F).sound(SoundType.WOOD).ignitedByLava()));
@@ -70,10 +74,16 @@ public class ModBlocks {
             () -> new SlabBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB).mapColor(MapColor.GLOW_LICHEN)));
 
     public static final RegistryObject<Block> SKYWOOD_PRESSURE_PLATE = registerBlock("skywood_pressure_plate",
-            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_STAIRS).mapColor(MapColor.GLOW_LICHEN), BlockSetType.OAK));
+            () -> new PressurePlateBlock(PressurePlateBlock.Sensitivity.EVERYTHING, BlockBehaviour.Properties.copy(Blocks.OAK_PRESSURE_PLATE).mapColor(MapColor.GLOW_LICHEN), BlockSetType.OAK));
 
     public static final RegistryObject<Block> SKYWOOD_BUTTON = registerBlock("skywood_button",
-            () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.OAK_SLAB).mapColor(MapColor.GLOW_LICHEN), BlockSetType.OAK, 30, true));
+            () -> new ButtonBlock(BlockBehaviour.Properties.copy(Blocks.OAK_BUTTON).mapColor(MapColor.GLOW_LICHEN), BlockSetType.OAK, 30, true));
+
+    public static final RegistryObject<Block> SKYWOOD_FENCE = registerBlock("skywood_fence",
+            () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).mapColor(MapColor.GLOW_LICHEN)));
+
+    public static final RegistryObject<Block> SKYWOOD_FENCE_GATE = registerBlock("skywood_fence_gate",
+            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).mapColor(MapColor.GLOW_LICHEN), SoundEvents.FENCE_GATE_OPEN, SoundEvents.FENCE_GATE_CLOSE));
 
     // Block registration methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

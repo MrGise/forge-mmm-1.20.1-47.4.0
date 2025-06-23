@@ -22,6 +22,9 @@
   "block.mmm.skywood_button": "Skywood Button",
   "block.mmm.skiron_block": "Block of Skiron",
   "block.mmm.raw_skiron_block": "Block of Raw Skiron",
+  "block.mmm.skywood_fence": "Skywood Fence",
+  "block.mmm.skywood_fence_gate": "Skywood Fence Gate",
+  "block.mmm.skysolid_wall": "Skysolid Wall",
 
   "creativetab.the_skyland": "The Skyland",
   "creativetab.ruin_items": "Ruin Items",
