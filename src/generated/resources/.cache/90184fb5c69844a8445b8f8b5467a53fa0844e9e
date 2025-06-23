@@ -1,5 +1,7 @@
-// 1.20.1	2025-06-21T18:29:07.9981496	Item Models: mmm
+// 1.20.1	2025-06-23T11:05:07.145707	Item Models: mmm
 bce57dc093ad4c5a0156d302341d538c8a52d6f8 assets/mmm/models/item/breadstick.json
 3aa7745531bc59f021f6fd049478607e6f8c4163 assets/mmm/models/item/ore_detector.json
+14808f6cfa9fcb3378ec94da8cc65ca9ac9e5876 assets/mmm/models/item/raw_skiron.json
+79ec4cf78de0324e7687bd13bee02e85ac70a944 assets/mmm/models/item/skiron.json
 7a59782edc84a524816e62eb47e124fd06ffda7f assets/mmm/models/item/skoal.json
 8f63ccff0921507770df346c3912cbe2a2df2835 assets/mmm/models/item/skywood_button.json

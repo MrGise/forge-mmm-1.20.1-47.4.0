@@ -18,7 +18,7 @@ import java.util.function.Consumer;
 
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
 
-    public static final List<ItemLike> SKIRON_SMELTABLES = List.of(ModBlocks.SKIRON_ORE.get());
+    public static final List<ItemLike> SKIRON_SMELTABLES = List.of(ModBlocks.SKIRON_ORE.get(), ModItems.RAW_SKIRON.get());
     public static final List<ItemLike> SKOAL_SMELTABLES = List.of(ModBlocks.SKOAL_ORE.get());
 
     public ModRecipeProvider(PackOutput pOutput) {
@@ -32,7 +32,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         nineBlockStorageRecipes(pWriter, RecipeCategory.MISC, ModItems.SKOAL.get(), RecipeCategory.MISC, ModBlocks.SKOAL_BLOCK.get(),
                 "mmm:skoal_block", "sky_ores", "mmm:skoal", null);
 
-        oreSmeltingAndBlasting(pWriter, SKIRON_SMELTABLES, RecipeCategory.MISC, Items.IRON_INGOT, 0.15f, 0.25f,
+        nineBlockStorageRecipes(pWriter, RecipeCategory.MISC, ModItems.SKIRON.get(), RecipeCategory.MISC, ModBlocks.SKIRON_BLOCK.get(),
+                "mmm:skiron_block", "sky_ores", "mmm:skiron", null);
+
+        nineBlockStorageRecipes(pWriter, RecipeCategory.MISC, ModItems.RAW_SKIRON.get(), RecipeCategory.MISC, ModBlocks.RAW_SKIRON_BLOCK.get(),
+                "mmm:raw_skiron_block", "sky_ores", "mmm:raw_skiron", null);
+
+        oreSmeltingAndBlasting(pWriter, SKIRON_SMELTABLES, RecipeCategory.MISC, ModItems.SKIRON.get(), 0.15f, 0.25f,
                 200, 100, "sky_ores");
 
         oreSmeltingAndBlasting(pWriter, SKOAL_SMELTABLES, RecipeCategory.MISC, ModItems.SKOAL.get(), 0.25f, 0.5f,

@@ -35,6 +35,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         //Loot Tables here
         this.dropSelf(ModBlocks.SKOAL_BLOCK.get());
         this.dropSelf(ModBlocks.SKIRON_ORE.get());
+        this.dropSelf(ModBlocks.SKIRON_BLOCK.get());
+        this.dropSelf(ModBlocks.RAW_SKIRON_BLOCK.get());
 
         this.dropSelf(ModBlocks.BIRTHDAY_CAKE.get());
 

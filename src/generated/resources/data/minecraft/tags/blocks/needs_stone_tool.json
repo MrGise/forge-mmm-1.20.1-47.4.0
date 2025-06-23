@@ -1,6 +1,8 @@
 {
   "values": [
     "mmm:skoal_ore",
+    "mmm:skiron_block",
+    "mmm:raw_skiron_block",
     "mmm:skoal_block"
   ]
 }

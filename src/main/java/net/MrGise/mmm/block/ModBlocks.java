@@ -47,6 +47,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> SKOAL_ORE = registerBlock("skoal_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 3.0F), UniformInt.of(4, 10)));
 
+    public static final RegistryObject<Block> SKIRON_BLOCK = registerBlock("skiron_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
+
+    public static final RegistryObject<Block> RAW_SKIRON_BLOCK = registerBlock("raw_skiron_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
 
     public static final RegistryObject<Block> BIRTHDAY_CAKE = registerBlock("birthday_cake",
             () -> new BirthdayCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE)));

@@ -30,6 +30,12 @@ public class ModItems {
     public static final RegistryObject<Item> SKOAL = ITEMS.register("skoal",
             () -> new DescriptionFuelItem(new Item.Properties(), 1800, "skoal", true));
 
+    public static final RegistryObject<Item> SKIRON = ITEMS.register("skiron",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> RAW_SKIRON = ITEMS.register("raw_skiron",
+            () -> new Item(new Item.Properties()));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

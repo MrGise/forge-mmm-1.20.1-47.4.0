@@ -25,6 +25,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.ORE_DETECTOR);
         simpleItem(ModItems.SKOAL);
         simpleItem(ModItems.BREADSTICK);
+        simpleItem(ModItems.SKIRON);
+        simpleItem(ModItems.RAW_SKIRON);
 
         buttonItem(ModBlocks.SKYWOOD_BUTTON, ModBlocks.SKYWOOD_PLANKS);
 

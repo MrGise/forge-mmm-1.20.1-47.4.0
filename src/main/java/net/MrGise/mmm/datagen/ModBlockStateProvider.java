@@ -29,6 +29,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.SKOAL_BLOCK);
         blockWithItem(ModBlocks.SKIRON_ORE);
         blockWithItem(ModBlocks.SKOAL_ORE);
+        blockWithItem(ModBlocks.SKIRON_BLOCK);
+        blockWithItem(ModBlocks.RAW_SKIRON_BLOCK);
 
         stairsBlock((StairBlock) ModBlocks.SKYWOOD_STAIRS.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
         slabBlock(((SlabBlock) ModBlocks.SKYWOOD_SLAB.get()), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));

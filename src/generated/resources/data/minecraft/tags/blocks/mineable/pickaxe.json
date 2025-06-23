@@ -5,6 +5,8 @@
     "mmm:skoal_block",
     "mmm:skysolid",
     "mmm:decorative_skysolid",
-    "mmm:broken_skysolid"
+    "mmm:broken_skysolid",
+    "mmm:skiron_block",
+    "mmm:raw_skiron_block"
   ]
 }

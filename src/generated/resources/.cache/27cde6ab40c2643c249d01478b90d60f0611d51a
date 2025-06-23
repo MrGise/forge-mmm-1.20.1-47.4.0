@@ -1,6 +1,8 @@
-// 1.20.1	2025-06-21T18:29:08.0001498	Block States: mmm
+// 1.20.1	2025-06-23T11:05:07.1487056	Block States: mmm
 2d8c926880342bd85761f05ebc2507d4f69812e8 assets/mmm/blockstates/broken_skysolid.json
 f66fd61a43ac5698fab45efd65f3214c3a3cbe48 assets/mmm/blockstates/decorative_skysolid.json
+a10d0fd44741092d55170d45c6c0d96b548f9522 assets/mmm/blockstates/raw_skiron_block.json
+a4265610dd93e13855a3d99283bb21e1b9c8ba60 assets/mmm/blockstates/skiron_block.json
 6bcbd0122dc2dbcbe6d25a800402f3ce6ca6ff61 assets/mmm/blockstates/skiron_ore.json
 08edf559dc7a9231d923438c8be99918a58f9c07 assets/mmm/blockstates/skoal_block.json
 6784fb4d596775246735e787e88a8f38cdc07239 assets/mmm/blockstates/skoal_ore.json
@@ -13,6 +15,8 @@ e814911069e6b083eb5b52f40dfeec5fe0264e03 assets/mmm/blockstates/skywood_planks.j
 47a57e9e36b9b4c54a24c7c8c8b9f0d5953fbe68 assets/mmm/blockstates/sound_block.json
 95cbb8d9d72fe1ccbc1387605425fe3b2ac6bd7b assets/mmm/models/block/broken_skysolid.json
 48b8f19edb73415a2344f04f34857661caabda46 assets/mmm/models/block/decorative_skysolid.json
+c561852fb0ef2acda6f7d62f6e935f5462adc84e assets/mmm/models/block/raw_skiron_block.json
+e3bda103764662416b10f2e85c0effcc39be7b48 assets/mmm/models/block/skiron_block.json
 cc69c67d965a1165fa718b57471dd027366f6000 assets/mmm/models/block/skiron_ore.json
 62dcb5b33c2141279c307ed746087aa89c037299 assets/mmm/models/block/skoal_block.json
 d97f7c6197fa02b44726128b4bf57a2f2d5bcb68 assets/mmm/models/block/skoal_ore.json
@@ -30,6 +34,8 @@ f3068d1fe198a2340b2ce652346351b76479fe1d assets/mmm/models/block/skywood_stairs.
 5e352cb2e79b9dbf5438dcd05e5a62115d2f7c78 assets/mmm/models/block/sound_block.json
 41b0d40964828016863b1a4902f965f3c0ca4ae5 assets/mmm/models/item/broken_skysolid.json
 a6934004112c14796aa4f3b9068ff10510c0e016 assets/mmm/models/item/decorative_skysolid.json
+cc60bc30d2f12b2093674e218717c3f91e5b72d5 assets/mmm/models/item/raw_skiron_block.json
+62105cc4a514ab31a660fe09de6a0daefbb79f38 assets/mmm/models/item/skiron_block.json
 cc18c68afea7c502a2b0036a09569deeafc69e8b assets/mmm/models/item/skiron_ore.json
 7bbcb593f73fe0532da886d0ad89376ebdaac566 assets/mmm/models/item/skoal_block.json
 3f64b64b380497f9da5d0b3e62c6db339e064f71 assets/mmm/models/item/skoal_ore.json

@@ -24,6 +24,8 @@ public class ModTags {
 
     public static class Blocks {
 
+        public static final TagKey<Block> SKYLAND_ORES = tag("skyland/ores");
+
         public static final TagKey<Block> DETECTABLE_ORE = tag("detectable_ore");
 
         private static TagKey<Block> tag(String name) {

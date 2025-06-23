@@ -4,6 +4,8 @@
   "item.mmm.ore_detector": "Ore Detector",
   "item.mmm.breadstick": "Breadstick",
   "item.mmm.skoal": "Sky Coal",
+  "item.mmm.skiron": "Skiron Ingot",
+  "item.mmm.raw_skiron": "Raw Skiron",
 
   "block.mmm.skysolid": "Skysolid",
   "block.mmm.decorative_skysolid": "Decorative Skysolid",
@@ -18,6 +20,8 @@
   "block.mmm.skywood_slab": "Skywood Slab",
   "block.mmm.skywood_pressure_plate": "Skywood Pressure Plate",
   "block.mmm.skywood_button": "Skywood Button",
+  "block.mmm.skiron_block": "Block of Skiron",
+  "block.mmm.raw_skiron_block": "Block of Raw Skiron",
 
   "creativetab.the_skyland": "The Skyland",
   "creativetab.ruin_items": "Ruin Items",

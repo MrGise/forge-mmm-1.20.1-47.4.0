@@ -21,6 +21,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BROKEN_SKYSOLID.get());
                         output.accept(ModBlocks.DECORATIVE_SKYSOLID.get());
                         output.accept(ModBlocks.SKIRON_ORE.get());
+                        output.accept(ModItems.RAW_SKIRON.get());
+                        output.accept(ModItems.SKIRON.get());
+                        output.accept(ModBlocks.RAW_SKIRON_BLOCK.get());
+                        output.accept(ModBlocks.SKIRON_BLOCK.get());
                         output.accept(ModBlocks.SKOAL_ORE.get());
                         output.accept(ModItems.SKOAL.get());
                         output.accept(ModBlocks.SKOAL_BLOCK.get());

@@ -4,6 +4,8 @@
   "item.mmm.ore_detector": "גלאי עפרות",
   "item.mmm.breadstick": "גריסיני",
   "item.mmm.skoal": "פחם שמיימי",
+  "item.mmm.skiron": "ברזל שמיימי",
+  "item.mmm.raw_skiron": "ברזל שמיימי נא",
 
   "block.mmm.skysolid": "חומר שמיים",
   "block.mmm.decorative_skysolid": "חומר שמיים עיצובי",
@@ -17,6 +19,8 @@
   "block.mmm.skywood_stairs": "מדרגות עץ שמיים",
   "block.mmm.skywood_pressure_plate": "לוחית לחץ עץ שמיים",
   "block.mmm.skywood_button": "כפתור עץ שמיים",
+  "block.mmm.skiron_block": "בלוק ברזל שמיימי",
+  "block.mmm.raw_skiron_block": "בלוק ברזל שמיימי נא",
 
   "creativetab.the_skyland": "ארץ השמיים",
   "creativetab.ruin_items": "חפצי הריסות",

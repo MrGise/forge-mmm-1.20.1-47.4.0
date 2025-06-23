@@ -25,6 +25,10 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(ModTags.Blocks.DETECTABLE_ORE)
                 .addTag(Tags.Blocks.ORES);
 
+        this.tag(ModTags.Blocks.SKYLAND_ORES)
+                .add(ModBlocks.SKOAL_ORE.get())
+                .add(ModBlocks.SKIRON_ORE.get());
+
         this.tag(Tags.Blocks.ORES)
                 .add(ModBlocks.SKIRON_ORE.get())
                 .add(ModBlocks.SKOAL_ORE.get());
@@ -40,10 +44,14 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.SKOAL_BLOCK.get())
                 .add(ModBlocks.SKYSOLID.get())
                 .add(ModBlocks.DECORATIVE_SKYSOLID.get())
-                .add(ModBlocks.BROKEN_SKYSOLID.get());
+                .add(ModBlocks.BROKEN_SKYSOLID.get())
+                .add(ModBlocks.SKIRON_BLOCK.get())
+                .add(ModBlocks.RAW_SKIRON_BLOCK.get());
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.SKOAL_ORE.get())
+                .add(ModBlocks.SKIRON_BLOCK.get())
+                .add(ModBlocks.RAW_SKIRON_BLOCK.get())
                 .add(ModBlocks.SKOAL_BLOCK.get());
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
