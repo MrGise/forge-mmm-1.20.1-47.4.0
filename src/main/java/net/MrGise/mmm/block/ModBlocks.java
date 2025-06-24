@@ -83,7 +83,13 @@ public class ModBlocks {
             () -> new FenceBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).mapColor(MapColor.GLOW_LICHEN)));
 
     public static final RegistryObject<Block> SKYWOOD_FENCE_GATE = registerBlock("skywood_fence_gate",
-            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE).mapColor(MapColor.GLOW_LICHEN), SoundEvents.FENCE_GATE_OPEN, SoundEvents.FENCE_GATE_CLOSE));
+            () -> new FenceGateBlock(BlockBehaviour.Properties.copy(Blocks.OAK_FENCE_GATE).mapColor(MapColor.GLOW_LICHEN), SoundEvents.FENCE_GATE_OPEN, SoundEvents.FENCE_GATE_CLOSE));
+
+    public static final RegistryObject<Block> SKYWOOD_DOOR = registerBlock("skywood_door",
+            () -> new DoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_DOOR).mapColor(MapColor.GLOW_LICHEN), BlockSetType.OAK));
+
+    public static final RegistryObject<Block> SKYWOOD_TRAPDOOR = registerBlock("skywood_trapdoor",
+            () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR).mapColor(MapColor.GLOW_LICHEN), BlockSetType.OAK));
 
     // Block registration methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {

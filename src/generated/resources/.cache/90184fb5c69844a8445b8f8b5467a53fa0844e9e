@@ -1,4 +1,4 @@
-// 1.20.1	2025-06-23T14:46:49.1043247	Item Models: mmm
+// 1.20.1	2025-06-24T13:14:40.7563002	Item Models: mmm
 bce57dc093ad4c5a0156d302341d538c8a52d6f8 assets/mmm/models/item/breadstick.json
 3aa7745531bc59f021f6fd049478607e6f8c4163 assets/mmm/models/item/ore_detector.json
 14808f6cfa9fcb3378ec94da8cc65ca9ac9e5876 assets/mmm/models/item/raw_skiron.json
@@ -6,4 +6,5 @@ bce57dc093ad4c5a0156d302341d538c8a52d6f8 assets/mmm/models/item/breadstick.json
 7a59782edc84a524816e62eb47e124fd06ffda7f assets/mmm/models/item/skoal.json
 3e9a03229fcede2ae7f95157004f28ce8a85235b assets/mmm/models/item/skysolid_wall.json
 8f63ccff0921507770df346c3912cbe2a2df2835 assets/mmm/models/item/skywood_button.json
+5c405df6f6f5c3d378ad66b7d7be79f38971a1f7 assets/mmm/models/item/skywood_door.json
 5316650363da8b6b13a57e6deab00613dab1989e assets/mmm/models/item/skywood_fence.json

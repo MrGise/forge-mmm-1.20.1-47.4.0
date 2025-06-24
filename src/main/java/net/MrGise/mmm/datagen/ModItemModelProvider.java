@@ -32,6 +32,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         fenceItem(ModBlocks.SKYWOOD_FENCE, ModBlocks.SKYWOOD_PLANKS);
         wallItem(ModBlocks.SKYSOLID_WALL, ModBlocks.SKYSOLID);
 
+        simpleBlockItem(ModBlocks.SKYWOOD_DOOR);
+
     }
 
     public void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
@@ -47,6 +49,12 @@ public class ModItemModelProvider extends ItemModelProvider {
     public void buttonItem(RegistryObject<Block> block, RegistryObject<Block> blockTexture) {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/button_inventory"))
                 .texture("texture",  new ResourceLocation(MMM.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(blockTexture.get()).getPath()));
+    }
+
+    private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

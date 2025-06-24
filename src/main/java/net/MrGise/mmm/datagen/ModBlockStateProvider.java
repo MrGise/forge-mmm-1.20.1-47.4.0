@@ -2,6 +2,7 @@ package net.MrGise.mmm.datagen;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.ModBlocks;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
@@ -43,13 +44,19 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         wallBlock((WallBlock) ModBlocks.SKYSOLID_WALL.get(), blockTexture(ModBlocks.SKYSOLID.get()));
 
+        doorBlockWithRenderType((DoorBlock) ModBlocks.SKYWOOD_DOOR.get(), modLoc("block/skywood_door_bottom"), modLoc("block/skywood_door_top"), "cutout");
+        trapdoorBlockWithRenderType((TrapDoorBlock) ModBlocks.SKYWOOD_TRAPDOOR.get(), modLoc("block/skywood_trapdoor"), true, "cutout");
+
         // Block Items
 
-        blockItem(ModBlocks.SKYWOOD_STAIRS);
-        blockItem(ModBlocks.SKYWOOD_SLAB);
         blockItem(ModBlocks.SKYWOOD_PRESSURE_PLATE);
         blockItem(ModBlocks.SKYWOOD_FENCE_GATE);
+        blockItem(ModBlocks.SKYWOOD_TRAPDOOR, "_bottom");
 
+    }
+
+    private void blockItem(RegistryObject<Block> blockRegistryObject, String appendix) {
+        simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile("mmm:block/" + ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath() + appendix));
     }
 
     private void blockItem(RegistryObject<Block> blockRegistryObject) {

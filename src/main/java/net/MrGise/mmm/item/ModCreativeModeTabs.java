@@ -34,6 +34,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.SKYWOOD_SLAB.get());
                         output.accept(ModBlocks.SKYWOOD_FENCE.get());
                         output.accept(ModBlocks.SKYWOOD_FENCE_GATE.get());
+                        output.accept(ModBlocks.SKYWOOD_DOOR.get());
+                        output.accept(ModBlocks.SKYWOOD_TRAPDOOR.get());
                         output.accept(ModBlocks.SKYWOOD_PRESSURE_PLATE.get());
                         output.accept(ModBlocks.SKYWOOD_BUTTON.get());
                     }).build());
