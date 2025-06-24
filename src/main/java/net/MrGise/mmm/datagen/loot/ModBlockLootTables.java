@@ -58,7 +58,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         // Ores
 
         this.add(ModBlocks.SKIRON_ORE.get(),
-                block -> createMultipleOreDrop(ModBlocks.SKIRON_ORE.get(), Items.RAW_IRON, 1, 3));
+                block -> createMultipleOreDrop(ModBlocks.SKIRON_ORE.get(), ModItems.RAW_SKIRON.get(), 1, 3));
 
         this.add(ModBlocks.SKOAL_ORE.get(),
                 block -> createMultipleOreDrop(ModBlocks.SKOAL_ORE.get(), ModItems.SKOAL.get(), 1, 4));
