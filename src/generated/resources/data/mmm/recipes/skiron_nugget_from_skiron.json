@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "sky_ores",
+  "key": {
+    "#": {
+      "item": "mmm:skiron_nugget"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "mmm:skiron"
+  },
+  "show_notification": true
+}

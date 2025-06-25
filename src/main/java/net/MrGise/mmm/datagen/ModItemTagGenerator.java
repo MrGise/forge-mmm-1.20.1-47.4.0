@@ -1,6 +1,7 @@
 package net.MrGise.mmm.datagen;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.item.ModItems;
 import net.MrGise.mmm.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
@@ -20,7 +21,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         // Tags here
-
+        this.tag(ModTags.Items.SKIRON_NUGGETS).add(ModItems.SKIRON_NUGGET.get());
 
     }
 

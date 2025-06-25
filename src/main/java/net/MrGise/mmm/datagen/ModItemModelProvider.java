@@ -26,8 +26,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SKOAL);
         simpleItem(ModItems.BREADSTICK);
         simpleItem(ModItems.SKIRON);
+        simpleItem(ModItems.SKIRON_NUGGET);
         simpleItem(ModItems.RAW_SKIRON);
 
+
+        // Item models for blocks
         buttonItem(ModBlocks.SKYWOOD_BUTTON, ModBlocks.SKYWOOD_PLANKS);
         fenceItem(ModBlocks.SKYWOOD_FENCE, ModBlocks.SKYWOOD_PLANKS);
         wallItem(ModBlocks.SKYSOLID_WALL, ModBlocks.SKYSOLID);

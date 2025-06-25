@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_skiron_nugget": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mmm:skiron_nugget"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mmm:skiron_nugget_from_skiron"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_skiron_nugget",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mmm:skiron_nugget_from_skiron"
+    ]
+  },
+  "sends_telemetry_event": false
+}

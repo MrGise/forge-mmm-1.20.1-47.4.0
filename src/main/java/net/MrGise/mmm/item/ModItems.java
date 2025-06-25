@@ -36,6 +36,9 @@ public class ModItems {
     public static final RegistryObject<Item> RAW_SKIRON = ITEMS.register("raw_skiron",
             () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> SKIRON_NUGGET = ITEMS.register("skiron_nugget",
+            () -> new Item(new Item.Properties()));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

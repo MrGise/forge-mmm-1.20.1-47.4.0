@@ -1,12 +1,14 @@
-// 1.20.1	2025-06-23T11:11:50.0721408	Recipes
+// 1.20.1	2025-06-25T18:56:56.2477158	Recipes
 60c26344217b69fbab4c0fbc8976fc910072c1db data/mmm/advancements/recipes/misc/raw_skiron.json
 4fac90653f81c92e0357d3650c47a2ce24a44ece data/mmm/advancements/recipes/misc/raw_skiron_block.json
 8ede6d981d45c2c9a5986b2764b125ee5a0cf58f data/mmm/advancements/recipes/misc/skiron.json
 b6ced146af756cbe8e7aa14ff072ebc761d20581 data/mmm/advancements/recipes/misc/skiron_block.json
 5c55fc3883e330216a683b34e063825cb82ac79f data/mmm/advancements/recipes/misc/skiron_from_blasting_raw_skiron.json
 222b7056b992737ef6c518adcc3a4333f6890b6c data/mmm/advancements/recipes/misc/skiron_from_blasting_skiron_ore.json
+63d6ffa424412a9c99ec8ccad22b64d10a3466d3 data/mmm/advancements/recipes/misc/skiron_from_nuggets.json
 7f9a104797ffdaf5479631fd3bb6466484af6417 data/mmm/advancements/recipes/misc/skiron_from_smelting_raw_skiron.json
 5dd72bdcb30f056593f80ce220db1b8e38c871cf data/mmm/advancements/recipes/misc/skiron_from_smelting_skiron_ore.json
+3af50b5f932d2faad93ba6f29f2345e26617f956 data/mmm/advancements/recipes/misc/skiron_nugget_from_skiron.json
 0c0eb4d2fc939af4db59840fd11517cd74677d3b data/mmm/advancements/recipes/misc/skoal.json
 316bc02841eb00aac1753e58f043976c56e973ae data/mmm/advancements/recipes/misc/skoal_block.json
 4ae5757f753e8265ae30e584c3bba7fb9fd3b23d data/mmm/advancements/recipes/misc/skoal_from_blasting_skoal_ore.json
@@ -19,8 +21,10 @@ e8717403f401183d9c4a73bbc02315684af3f890 data/mmm/recipes/raw_skiron_block.json
 50b71381d29585ba8e6c03964757d2f961c7adab data/mmm/recipes/skiron_block.json
 be2cb03c1add0da413fc58e1a69b9d2f42f71ca9 data/mmm/recipes/skiron_from_blasting_raw_skiron.json
 007bb2b5472461db84cfeba2b57ecdcc7417ef17 data/mmm/recipes/skiron_from_blasting_skiron_ore.json
+f7227acf261301f54c53ef841bb0e383d31d4fb7 data/mmm/recipes/skiron_from_nuggets.json
 f42bc8d4fb5b15cd5f453ce48fbb208a2ccbe2ef data/mmm/recipes/skiron_from_smelting_raw_skiron.json
 c76e0af61fdb3b5476e6930287854c62372a5d56 data/mmm/recipes/skiron_from_smelting_skiron_ore.json
+b5ca22cb3c42303cd667bea48112070d23c5d449 data/mmm/recipes/skiron_nugget_from_skiron.json
 77d8808f7fd8cfd4db1062a1745ca57daa980570 data/mmm/recipes/skoal.json
 52995c8d2dd5689835aa5fbfd67624a66d1fe0f0 data/mmm/recipes/skoal_block.json
 db0139b2f2844fe1fdf8fb0f84e033017a9cfaed data/mmm/recipes/skoal_from_blasting_skoal_ore.json
