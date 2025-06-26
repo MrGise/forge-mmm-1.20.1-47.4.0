@@ -2,6 +2,12 @@
   "values": [
     "mmm:skywood_planks",
     "mmm:skywood_stairs",
-    "mmm:skywood_slab"
+    "mmm:skywood_slab",
+    "mmm:skywood_button",
+    "mmm:skywood_pressure_plate",
+    "mmm:skywood_fence_gate",
+    "mmm:skywood_fence",
+    "mmm:skywood_trapdoor",
+    "mmm:skywood_door"
   ]
 }

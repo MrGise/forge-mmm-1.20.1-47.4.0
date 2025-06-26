@@ -21,13 +21,20 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     @Override
     protected void registerModels() {
-
+        // Item models
         simpleItem(ModItems.ORE_DETECTOR);
         simpleItem(ModItems.SKOAL);
         simpleItem(ModItems.BREADSTICK);
         simpleItem(ModItems.SKIRON);
         simpleItem(ModItems.SKIRON_NUGGET);
         simpleItem(ModItems.RAW_SKIRON);
+
+        /* Tools */
+        handheldItem(ModItems.SKIRON_SWORD);
+        handheldItem(ModItems.SKIRON_PICKAXE);
+        handheldItem(ModItems.SKIRON_AXE);
+        handheldItem(ModItems.SKIRON_SHOVEL);
+        handheldItem(ModItems.SKIRON_HOE);
 
 
         // Item models for blocks
@@ -37,6 +44,28 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleBlockItem(ModBlocks.SKYWOOD_DOOR);
 
+    }
+
+    // Items
+
+    private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/handheld")).texture("layer0",
+                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
+    // Blocks
+
+    private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
     }
 
     public void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
@@ -52,18 +81,6 @@ public class ModItemModelProvider extends ItemModelProvider {
     public void buttonItem(RegistryObject<Block> block, RegistryObject<Block> blockTexture) {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/button_inventory"))
                 .texture("texture",  new ResourceLocation(MMM.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(blockTexture.get()).getPath()));
-    }
-
-    private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item) {
-        return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
-    }
-
-    private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
-        return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
     }
 
 }

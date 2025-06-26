@@ -32,9 +32,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> SKYSOLID = registerBlock("skysolid",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
 
-    public static final RegistryObject<Block> SKOAL_BLOCK = registerBurnableBlockWithDescription("skoal_block",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F)),
-            18000, "skoal_block", true);
+    public static final RegistryObject<Block> SKYSOLID_WALL = registerBlock("skysolid_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(ModBlocks.SKYSOLID.get())));
 
     public static final RegistryObject<Block> DECORATIVE_SKYSOLID = registerBlock("decorative_skysolid",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
@@ -42,8 +41,12 @@ public class ModBlocks {
     public static final RegistryObject<Block> BROKEN_SKYSOLID = registerBlock("broken_skysolid",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
 
+
     public static final RegistryObject<Block> SKIRON_ORE = registerBlock("skiron_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 3.0F), UniformInt.of(4, 10)));
+
+    public static final RegistryObject<Block> ACTINOLITE_ORE = registerBlock("actinolite_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.5F, 3.5F), UniformInt.of(4, 10)));
 
     public static final RegistryObject<Block> SKOAL_ORE = registerBlock("skoal_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 3.0F), UniformInt.of(4, 10)));
@@ -51,8 +54,13 @@ public class ModBlocks {
     public static final RegistryObject<Block> SKIRON_BLOCK = registerBlock("skiron_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK)));
 
+    public static final RegistryObject<Block> SKOAL_BLOCK = registerBurnableBlockWithDescription("skoal_block",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F)),
+            18000, "skoal_block", true);
+
     public static final RegistryObject<Block> RAW_SKIRON_BLOCK = registerBlock("raw_skiron_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
+
 
     public static final RegistryObject<Block> BIRTHDAY_CAKE = registerBlock("birthday_cake",
             () -> new BirthdayCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE)));
@@ -60,8 +68,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
             () -> new SoundBlock(BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).noLootTable().strength(-1, 0)));
 
-    public static final RegistryObject<Block> SKYSOLID_WALL = registerBlock("skysolid_wall",
-            () -> new WallBlock(BlockBehaviour.Properties.copy(ModBlocks.SKYSOLID.get())));
+
 
 
     public static final RegistryObject<Block> SKYWOOD_PLANKS = registerBlock("skywood_planks",

@@ -40,10 +40,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.dropSelf(ModBlocks.BIRTHDAY_CAKE.get());
 
-        this.dropSelf(ModBlocks.BROKEN_SKYSOLID.get());
         this.add(ModBlocks.SKYSOLID.get(),
                 block -> createCustomSingularDrop(ModBlocks.SKYSOLID.get(), ModBlocks.BROKEN_SKYSOLID.get()));
+        this.dropSelf(ModBlocks.SKYSOLID_WALL.get());
         this.dropSelf(ModBlocks.DECORATIVE_SKYSOLID.get());
+        this.dropSelf(ModBlocks.BROKEN_SKYSOLID.get());
 
         this.dropSelf(ModBlocks.SKYWOOD_PLANKS.get());
         this.dropSelf(ModBlocks.SKYWOOD_STAIRS.get());
@@ -53,12 +54,13 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.SKYWOOD_BUTTON.get());
         this.dropSelf(ModBlocks.SKYWOOD_FENCE.get());
         this.dropSelf(ModBlocks.SKYWOOD_FENCE_GATE.get());
-        this.dropSelf(ModBlocks.SKYSOLID_WALL.get());
         this.dropSelf(ModBlocks.SKYWOOD_TRAPDOOR.get());
         this.add(ModBlocks.SKYWOOD_DOOR.get(),
                 Block -> createDoorTable(ModBlocks.SKYWOOD_DOOR.get()));
 
         // Ores
+
+        this.dropSelf(ModBlocks.ACTINOLITE_ORE.get());
 
         this.add(ModBlocks.SKIRON_ORE.get(),
                 block -> createMultipleOreDrop(ModBlocks.SKIRON_ORE.get(), ModItems.RAW_SKIRON.get(), 1, 3));

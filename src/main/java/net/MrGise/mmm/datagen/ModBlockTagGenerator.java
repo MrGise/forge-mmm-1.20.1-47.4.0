@@ -36,17 +36,28 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(ModBlocks.SKYWOOD_PLANKS.get())
                 .add(ModBlocks.SKYWOOD_STAIRS.get())
-                .add(ModBlocks.SKYWOOD_SLAB.get());
+                .add(ModBlocks.SKYWOOD_SLAB.get())
+                .add(ModBlocks.SKYWOOD_BUTTON.get())
+                .add(ModBlocks.SKYWOOD_PRESSURE_PLATE.get())
+                .add(ModBlocks.SKYWOOD_FENCE_GATE.get())
+                .add(ModBlocks.SKYWOOD_FENCE.get())
+                .add(ModBlocks.SKYWOOD_TRAPDOOR.get())
+                .add(ModBlocks.SKYWOOD_DOOR.get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.SKOAL_ORE.get())
-                .add(ModBlocks.SKIRON_ORE.get())
-                .add(ModBlocks.SKOAL_BLOCK.get())
                 .add(ModBlocks.SKYSOLID.get())
                 .add(ModBlocks.DECORATIVE_SKYSOLID.get())
                 .add(ModBlocks.BROKEN_SKYSOLID.get())
+
+                .add(ModBlocks.SKOAL_ORE.get())
+                .add(ModBlocks.SKIRON_ORE.get())
+                .add(ModBlocks.ACTINOLITE_ORE.get())
+
+                .add(ModBlocks.SKOAL_BLOCK.get())
+
                 .add(ModBlocks.SKIRON_BLOCK.get())
                 .add(ModBlocks.RAW_SKIRON_BLOCK.get());
+
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.SKOAL_ORE.get())
@@ -56,6 +67,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(BlockTags.NEEDS_IRON_TOOL)
                 .add(ModBlocks.SKIRON_ORE.get());
+
+        this.tag(ModTags.Blocks.NEEDS_SKIRON_TOOL)
+                .add(ModBlocks.ACTINOLITE_ORE.get());
 
         this.tag(BlockTags.FENCES)
                 .add(ModBlocks.SKYWOOD_FENCE.get());

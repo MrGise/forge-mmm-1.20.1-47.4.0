@@ -1,43 +1,67 @@
 {
   "item.mmm.gold_key": "Gold Key",
   "item.mmm.mossy_gold_key": "Mossy Gold Key",
+
   "item.mmm.ore_detector": "Ore Detector",
+
   "item.mmm.breadstick": "Breadstick",
+
   "item.mmm.skoal": "Sky Coal",
+
   "item.mmm.skiron": "Skiron Ingot",
   "item.mmm.skiron_nugget": "Skiron Nugget",
   "item.mmm.raw_skiron": "Raw Skiron",
+  "item.mmm.skiron_sword": "Skiron Sword",
+  "item.mmm.skiron_pickaxe": "Skiron Pickaxe",
+  "item.mmm.skiron_axe": "Skiron Axe",
+  "item.mmm.skiron_shovel": "Skiron Shovel",
+  "item.mmm.skiron_hoe": "Skiron Hoe",
+
 
   "block.mmm.skysolid": "Skysolid",
+  "block.mmm.skysolid_wall": "Skysolid Wall",
   "block.mmm.decorative_skysolid": "Decorative Skysolid",
-  "block.mmm.skiron_ore": "Skiron Ore",
-  "block.mmm.skoal_block": "Block of Sky Coal",
-  "block.mmm.skoal_ore": "Sky Coal Ore",
   "block.mmm.broken_skysolid": "Broken Skysolid",
+
+  "block.mmm.actinolite_ore": "Actinolite Ore",
+
+  "block.mmm.skiron_ore": "Skiron Ore",
+  "block.mmm.skiron_block": "Block of Skiron",
+  "block.mmm.raw_skiron_block": "Block of Raw Skiron",
+
+  "block.mmm.skoal_ore": "Sky Coal Ore",
+  "block.mmm.skoal_block": "Block of Sky Coal",
+
   "block.mmm.birthday_cake": "Birthday cake",
+
   "block.mmm.sound_block": "Sound Block",
+
   "block.mmm.skywood_planks": "Skywood Planks",
   "block.mmm.skywood_stairs": "Skywood Stairs",
   "block.mmm.skywood_slab": "Skywood Slab",
   "block.mmm.skywood_pressure_plate": "Skywood Pressure Plate",
   "block.mmm.skywood_button": "Skywood Button",
-  "block.mmm.skiron_block": "Block of Skiron",
-  "block.mmm.raw_skiron_block": "Block of Raw Skiron",
+
   "block.mmm.skywood_fence": "Skywood Fence",
   "block.mmm.skywood_fence_gate": "Skywood Fence Gate",
-  "block.mmm.skysolid_wall": "Skysolid Wall",
+
+
   "block.mmm.skywood_door": "Skywood Door",
   "block.mmm.skywood_trapdoor": "Skywood Trapdoor",
+
 
   "creativetab.the_skyland": "The Skyland",
   "creativetab.ruin_items": "Ruin Items",
   "creativetab.miscellaneous_mmm": "MMM's Miscellaneous Items",
   "creativetab.mmm_cuisine": "MMM's Food Items",
 
+
   "tooltip.mmm.description_block.tooltip.skoal_block": "§7§oA block of Sky Coal. burns for 10x the time of Sky Coal.",
 
   "tooltip.mmm.description_item.tooltip.noshift": "§7Press §eShift§r§7 key to view description",
+
   "tooltip.mmm.description_item.tooltip.mossy_gold_key": "§7§oNeeds a little cleaning, doesn't it?",
   "tooltip.mmm.description_item.tooltip.gold_key": "§7§oA key. what's it for?",
+
   "tooltip.mmm.description_item.tooltip.skoal": "§7§oThe magical coal of the skies... Burns more time than normal coal."
 }

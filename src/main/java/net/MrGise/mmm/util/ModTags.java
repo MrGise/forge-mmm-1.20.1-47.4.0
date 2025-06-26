@@ -26,6 +26,8 @@ public class ModTags {
 
     public static class Blocks {
 
+        public static final TagKey<Block> NEEDS_SKIRON_TOOL = tag("needs_skiron_tool");
+
         public static final TagKey<Block> SKYLAND_ORES = tag("skyland/ores");
 
         public static final TagKey<Block> DETECTABLE_ORE = tag("detectable_ore");

@@ -7,6 +7,11 @@
   "item.mmm.skiron": "ברזל שמיימי",
   "item.mmm.skiron_nugget": "רסיס של ברזל שמיימי",
   "item.mmm.raw_skiron": "ברזל שמיימי גולמי",
+  "item.mmm.skiron_sword": "חרב ברזל שמיימי",
+  "item.mmm.skiron_pickaxe": "מכוש ברזל שמיימי",
+  "item.mmm.skiron_axe": "גרזן ברזל שמיימי",
+  "item.mmm.skiron_shovel": "את חפירה מברזל שמיימי",
+  "item.mmm.skiron_hoe": "כלי חסר שימוש מברזל שמיימי",
 
   "block.mmm.skysolid": "חומר שמיים",
   "block.mmm.decorative_skysolid": "חומר שמיים עיצובי",
@@ -27,6 +32,7 @@
   "block.mmm.skysolid_wall": "קיר חומר שמיים",
   "block.mmm.skywood_door": "דלת עץ שמיים",
   "block.mmm.skywood_trapdoor": "דלת סתרים מעץ שמיים",
+  "block.mmm.actinolite_ore": "עפרת אקטינוליט",
 
   "creativetab.the_skyland": "ארץ השמיים",
   "creativetab.ruin_items": "חפצי הריסות",

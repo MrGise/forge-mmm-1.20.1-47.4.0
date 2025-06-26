@@ -1,11 +1,12 @@
 {
   "values": [
-    "mmm:skoal_ore",
-    "mmm:skiron_ore",
-    "mmm:skoal_block",
     "mmm:skysolid",
     "mmm:decorative_skysolid",
     "mmm:broken_skysolid",
+    "mmm:skoal_ore",
+    "mmm:skiron_ore",
+    "mmm:actinolite_ore",
+    "mmm:skoal_block",
     "mmm:skiron_block",
     "mmm:raw_skiron_block"
   ]
