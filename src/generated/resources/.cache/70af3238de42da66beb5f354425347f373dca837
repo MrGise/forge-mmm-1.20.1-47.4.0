@@ -1,4 +1,4 @@
-// 1.20.1	2025-06-26T16:00:50.7819177	Block Tags
+// 1.20.1	2025-06-26T19:55:08.1846016	Block Tags
 69c0d817b8acf7006cc660cb3f9ac607404f6160 data/forge/tags/blocks/ores.json
 5a0014407f0025ec5707f8a1bc1ca9297c71875f data/minecraft/tags/blocks/fences.json
 41159a90889744031ce12efb949d6c1f0b491c0a data/minecraft/tags/blocks/fence_gates.json
@@ -8,5 +8,6 @@
 a416264f648d948902baaf25401d719fba699460 data/minecraft/tags/blocks/needs_stone_tool.json
 349671d2ce555f77290fb14fc366c247ab2c6f06 data/minecraft/tags/blocks/walls.json
 cb28339548a9f5c43f81c4715df14c62d24020ad data/mmm/tags/blocks/detectable_ore.json
+984a835f12c583514b244703d6bad1afa79b3402 data/mmm/tags/blocks/mineable/paxel.json
 a1e638a6a1e31c80e2bc5a44202554cc52eb7ea9 data/mmm/tags/blocks/needs_skiron_tool.json
 eb012c5048f920f19c71569c22b5e808e1aca2e2 data/mmm/tags/blocks/skyland/ores.json

@@ -35,6 +35,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.SKIRON_AXE);
         handheldItem(ModItems.SKIRON_SHOVEL);
         handheldItem(ModItems.SKIRON_HOE);
+        handheldItem(ModItems.SKIRON_PAXEL);
 
 
         // Item models for blocks

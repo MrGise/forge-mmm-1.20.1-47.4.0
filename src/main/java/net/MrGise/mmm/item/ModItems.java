@@ -1,6 +1,7 @@
 package net.MrGise.mmm.item;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.item.custom.PaxelItem;
 import net.MrGise.mmm.item.custom.description.DescriptionFuelItem;
 import net.MrGise.mmm.item.custom.OreDetectorItem;
 import net.MrGise.mmm.item.custom.description.DescriptionItem;
@@ -57,6 +58,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> SKIRON_HOE = ITEMS.register("skiron_hoe",
             () -> new HoeItem(ModToolTiers.SKIRON, -1, -0.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 150)));
+
+    public static final RegistryObject<Item> SKIRON_PAXEL = ITEMS.register("skiron_paxel",
+            () -> new PaxelItem(ModToolTiers.SKIRON, -1, -0.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 150)));
 
 
     public static void register(IEventBus eventBus) {

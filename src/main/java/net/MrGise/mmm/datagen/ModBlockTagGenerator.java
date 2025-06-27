@@ -58,6 +58,12 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.SKIRON_BLOCK.get())
                 .add(ModBlocks.RAW_SKIRON_BLOCK.get());
 
+        this.tag(ModTags.Blocks.MINEABLE_WITH_PAXEL)
+                .addTag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .addTag(BlockTags.MINEABLE_WITH_AXE)
+                .addTag(BlockTags.MINEABLE_WITH_SHOVEL)
+                .addTag(BlockTags.MINEABLE_WITH_HOE);
+
 
         this.tag(BlockTags.NEEDS_STONE_TOOL)
                 .add(ModBlocks.SKOAL_ORE.get())

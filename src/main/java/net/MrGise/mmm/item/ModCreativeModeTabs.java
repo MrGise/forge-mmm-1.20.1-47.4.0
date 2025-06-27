@@ -35,6 +35,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SKIRON_AXE.get());
                         output.accept(ModItems.SKIRON_SHOVEL.get());
                         output.accept(ModItems.SKIRON_HOE.get());
+                        output.accept(ModItems.SKIRON_PAXEL.get());
 
                         output.accept(ModBlocks.SKOAL_ORE.get());
                         output.accept(ModItems.SKOAL.get());
