@@ -1,5 +1,6 @@
 package net.MrGise.mmm.item.custom.description;
 
+import net.MrGise.mmm.item.custom.PoisonSwordItem;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -11,12 +12,12 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class DescriptionSwordItem extends SwordItem {
+public class DescriptionPoisonSwordItem extends PoisonSwordItem {
 
     private String DescriptionTranslatable;
     private boolean ShiftToView = true;
 
-    public DescriptionSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties, String DescriptionTranslatable, boolean ShiftToView) {
+    public DescriptionPoisonSwordItem(Tier pTier, int pAttackDamageModifier, float pAttackSpeedModifier, Properties pProperties, String DescriptionTranslatable, boolean ShiftToView) {
         super(pTier, pAttackDamageModifier, pAttackSpeedModifier, pProperties);
         this.DescriptionTranslatable = DescriptionTranslatable;
         this.ShiftToView = ShiftToView;
