@@ -18,4 +18,9 @@ public class ModToolTiers {
                     ModTags.Blocks.NEEDS_SKIRON_TOOL, () -> Ingredient.of(ModItems.SKIRON.get())),
             new ResourceLocation(MMM.MOD_ID, "skiron"), List.of(Tiers.IRON, Tiers.STONE, Tiers.WOOD), List.of(Tiers.DIAMOND, Tiers.NETHERITE));
 
+    public static final Tier ACTINOLITE = TierSortingRegistry.registerTier(
+            new ForgeTier(3, 550, 6f, 3, 35,
+                    ModTags.Blocks.NEEDS_ACTINOLITE_TOOL, () -> Ingredient.of(ModItems.ACTINOLITE.get())),
+            new ResourceLocation(MMM.MOD_ID, "actinolite"), List.of(ModToolTiers.SKIRON, Tiers.IRON, Tiers.STONE, Tiers.WOOD), List.of(Tiers.DIAMOND, Tiers.NETHERITE));
+
 }

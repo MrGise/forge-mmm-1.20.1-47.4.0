@@ -6,6 +6,7 @@
 
   "item.mmm.breadstick": "Breadstick",
 
+
   "item.mmm.skoal": "Sky Coal",
 
   "item.mmm.skiron": "Skiron Ingot",
@@ -17,6 +18,10 @@
   "item.mmm.skiron_shovel": "Skiron Shovel",
   "item.mmm.skiron_hoe": "Skiron Hoe",
   "item.mmm.skiron_paxel": "Skiron Paxel",
+  "item.mmm.skiron_hammer": "Skiron Hammer",
+
+  "item.mmm.actinolite": "Actinolite",
+  "item.mmm.actinolite_sword": "Actinolite Sword",
 
 
   "block.mmm.skysolid": "Skysolid",

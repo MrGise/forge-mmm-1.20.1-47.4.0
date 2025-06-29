@@ -23,13 +23,20 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         // Item models
         simpleItem(ModItems.ORE_DETECTOR);
-        simpleItem(ModItems.SKOAL);
+
         simpleItem(ModItems.BREADSTICK);
+
+        simpleItem(ModItems.SKOAL);
+
         simpleItem(ModItems.SKIRON);
         simpleItem(ModItems.SKIRON_NUGGET);
         simpleItem(ModItems.RAW_SKIRON);
 
+        simpleItem(ModItems.ACTINOLITE);
+
         /* Tools */
+        handheldItem(ModItems.ACTIONLITE_SWORD);
+
         handheldItem(ModItems.SKIRON_SWORD);
         handheldItem(ModItems.SKIRON_PICKAXE);
         handheldItem(ModItems.SKIRON_AXE);

@@ -1,6 +1,7 @@
 package net.MrGise.mmm.item;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.item.custom.HammerItem;
 import net.MrGise.mmm.item.custom.PaxelItem;
 import net.MrGise.mmm.item.custom.description.DescriptionFuelItem;
 import net.MrGise.mmm.item.custom.OreDetectorItem;
@@ -31,10 +32,19 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(ModFoodProperties.BREADSTICK)));
 
 
+    // Actinolite
+    public static final RegistryObject<Item> ACTINOLITE = ITEMS.register("actinolite",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> ACTIONLITE_SWORD = ITEMS.register("actinolite_sword",
+            () -> new SwordItem(ModToolTiers.ACTINOLITE, 5, 2, new Item.Properties().durability(ModToolTiers.ACTINOLITE.getUses())));
+
+
     public static final RegistryObject<Item> SKOAL = ITEMS.register("skoal",
             () -> new DescriptionFuelItem(new Item.Properties(), 1800, "skoal", true));
 
 
+    // skiron
     public static final RegistryObject<Item> SKIRON = ITEMS.register("skiron",
             () -> new Item(new Item.Properties()));
 
@@ -60,7 +70,11 @@ public class ModItems {
             () -> new HoeItem(ModToolTiers.SKIRON, -1, -0.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 150)));
 
     public static final RegistryObject<Item> SKIRON_PAXEL = ITEMS.register("skiron_paxel",
-            () -> new PaxelItem(ModToolTiers.SKIRON, -1, -0.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 150)));
+            () -> new PaxelItem(ModToolTiers.SKIRON, 5.5f, -1f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 150)));
+
+    public static final RegistryObject<Item> SKIRON_HAMMER = ITEMS.register("skiron_hammer",
+            () -> new HammerItem(ModToolTiers.SKIRON, 1, 6, -3, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() - 50)));
+
 
 
     public static void register(IEventBus eventBus) {

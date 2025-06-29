@@ -28,7 +28,11 @@ public class ModTags {
 
         public static final TagKey<Block> NEEDS_SKIRON_TOOL = tag("needs_skiron_tool");
 
+        public static final TagKey<Block> NEEDS_ACTINOLITE_TOOL = tag("needs_actinolite_tool");
+
         public static final TagKey<Block> MINEABLE_WITH_PAXEL = tag("mineable/paxel");
+
+        public static final TagKey<Block> MINEABLE_WITH_HAMMER = tag("mineable/hammer");
 
         public static final TagKey<Block> SKYLAND_ORES = tag("skyland/ores");
 

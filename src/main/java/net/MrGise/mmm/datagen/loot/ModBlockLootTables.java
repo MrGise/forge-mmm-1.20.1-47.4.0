@@ -60,7 +60,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         // Ores
 
-        this.dropSelf(ModBlocks.ACTINOLITE_ORE.get());
+        this.add(ModBlocks.ACTINOLITE_ORE.get(),
+                Block -> createOreDrop(ModBlocks.ACTINOLITE_ORE.get(),ModItems.ACTINOLITE.get()));
 
         this.add(ModBlocks.SKIRON_ORE.get(),
                 block -> createMultipleOreDrop(ModBlocks.SKIRON_ORE.get(), ModItems.RAW_SKIRON.get(), 1, 3));
