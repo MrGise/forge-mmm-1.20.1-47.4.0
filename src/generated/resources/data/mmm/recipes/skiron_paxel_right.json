@@ -1,0 +1,31 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "sky_ores",
+  "key": {
+    "A": {
+      "item": "mmm:skiron_pickaxe"
+    },
+    "B": {
+      "item": "mmm:skiron_axe"
+    },
+    "C": {
+      "item": "mmm:skiron_shovel"
+    },
+    "D": {
+      "item": "mmm:skiron_hoe"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "ACD",
+    "BS ",
+    " S "
+  ],
+  "result": {
+    "item": "mmm:skiron_paxel"
+  },
+  "show_notification": true
+}

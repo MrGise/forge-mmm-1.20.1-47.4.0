@@ -1,7 +1,8 @@
-// 1.20.1	2025-06-29T12:16:20.5651744	Recipes
+// 1.20.1	2025-06-29T14:47:19.638231	Recipes
 4e97fe588d9f0b0691e428875c5b9126e3cd692e data/mmm/advancements/recipes/combat/actinolite_sword.json
 57b588233ff356c49399f65727a678b66fc99646 data/mmm/advancements/recipes/combat/skiron_axe_left.json
 b0e9d29457cacd86f154d6c1ab4a1630239b3415 data/mmm/advancements/recipes/combat/skiron_axe_right.json
+2530d38312fc45dd7fd924512fd42d6671dbfb65 data/mmm/advancements/recipes/combat/skiron_hammer.json
 875be462be55fc7594b29d370359de7fe7c2c226 data/mmm/advancements/recipes/combat/skiron_hoe_left.json
 4bf97254a54710dae01f42b2b77865a31452dd4b data/mmm/advancements/recipes/combat/skiron_hoe_right.json
 a9ee22cc5d49d95685f1e0b6368e7f2593f75740 data/mmm/advancements/recipes/combat/skiron_pickaxe.json
@@ -17,6 +18,8 @@ b6ced146af756cbe8e7aa14ff072ebc761d20581 data/mmm/advancements/recipes/misc/skir
 7f9a104797ffdaf5479631fd3bb6466484af6417 data/mmm/advancements/recipes/misc/skiron_from_smelting_raw_skiron.json
 5dd72bdcb30f056593f80ce220db1b8e38c871cf data/mmm/advancements/recipes/misc/skiron_from_smelting_skiron_ore.json
 3af50b5f932d2faad93ba6f29f2345e26617f956 data/mmm/advancements/recipes/misc/skiron_nugget_from_skiron.json
+f8a8e7a8d7807b9ff812df766ce1c018a5149a28 data/mmm/advancements/recipes/misc/skiron_paxel_left.json
+f79a7af1b0727548d6d11a8735d94630ae01ae03 data/mmm/advancements/recipes/misc/skiron_paxel_right.json
 0c0eb4d2fc939af4db59840fd11517cd74677d3b data/mmm/advancements/recipes/misc/skoal.json
 316bc02841eb00aac1753e58f043976c56e973ae data/mmm/advancements/recipes/misc/skoal_block.json
 4ae5757f753e8265ae30e584c3bba7fb9fd3b23d data/mmm/advancements/recipes/misc/skoal_from_blasting_skoal_ore.json
@@ -35,9 +38,12 @@ be2cb03c1add0da413fc58e1a69b9d2f42f71ca9 data/mmm/recipes/skiron_from_blasting_r
 f7227acf261301f54c53ef841bb0e383d31d4fb7 data/mmm/recipes/skiron_from_nuggets.json
 f42bc8d4fb5b15cd5f453ce48fbb208a2ccbe2ef data/mmm/recipes/skiron_from_smelting_raw_skiron.json
 c76e0af61fdb3b5476e6930287854c62372a5d56 data/mmm/recipes/skiron_from_smelting_skiron_ore.json
+7cd4737050d934fc4261c3689abb3dd3f17de897 data/mmm/recipes/skiron_hammer.json
 79e5b6da0e6e0b2dc0be32ec9361d1aca8cf23eb data/mmm/recipes/skiron_hoe_left.json
 966549dc1e20c3c8a0243703544c5b0dd845c340 data/mmm/recipes/skiron_hoe_right.json
 b5ca22cb3c42303cd667bea48112070d23c5d449 data/mmm/recipes/skiron_nugget_from_skiron.json
+8b7909b2200c1c141ff4139496ed5812a3051f59 data/mmm/recipes/skiron_paxel_left.json
+3113cff0491aece41fa99816597e26c074ed74be data/mmm/recipes/skiron_paxel_right.json
 4393e86ff6f78eaf69a69b562906224721527027 data/mmm/recipes/skiron_pickaxe.json
 f0c8a95ea134227cf053f691bec93ca9c08470e9 data/mmm/recipes/skiron_shovel.json
 b2153ed6ab6d231ebd4f9a2932ff4acff7669d2d data/mmm/recipes/skiron_sword.json

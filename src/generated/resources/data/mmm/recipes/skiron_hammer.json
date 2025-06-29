@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "group": "sky_ores",
+  "key": {
+    "#": {
+      "item": "mmm:skiron_block"
+    },
+    "S": {
+      "item": "minecraft:stick"
+    }
+  },
+  "pattern": [
+    "###",
+    " S ",
+    " S "
+  ],
+  "result": {
+    "item": "mmm:skiron_hammer"
+  },
+  "show_notification": true
+}

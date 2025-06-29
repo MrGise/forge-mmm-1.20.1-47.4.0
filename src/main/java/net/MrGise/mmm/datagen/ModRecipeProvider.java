@@ -40,6 +40,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         axeRecipe(pWriter, RecipeCategory.COMBAT, ModItems.SKIRON.get(), null, ModItems.SKIRON_AXE.get(), "sky_ores");
         shovelRecipe(pWriter, RecipeCategory.COMBAT, ModItems.SKIRON.get(), null, ModItems.SKIRON_SHOVEL.get(), "sky_ores");
         hoeRecipe(pWriter, RecipeCategory.COMBAT, ModItems.SKIRON.get(), null, ModItems.SKIRON_HOE.get(), "sky_ores");
+        paxelRecipe(pWriter, RecipeCategory.MISC, ModItems.SKIRON_PICKAXE.get(), ModItems.SKIRON_AXE.get(), ModItems.SKIRON_SHOVEL.get(), ModItems.SKIRON_HOE.get(), null, ModItems.SKIRON.get(), ModItems.SKIRON_PAXEL.get(), "sky_ores");
+        hammerRecipe(pWriter, RecipeCategory.COMBAT, ModBlocks.SKIRON_BLOCK.get(), null, ModItems.SKIRON_HAMMER.get(), "sky_ores");
 
         // Nine-to-one ratio
         nineBlockStorageRecipes(pWriter, RecipeCategory.MISC, ModItems.SKOAL.get(), RecipeCategory.MISC, ModBlocks.SKOAL_BLOCK.get(),
@@ -141,6 +143,34 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("S")
                 .pattern("S")
                 .group(pGroup).unlockedBy(getHasName(pMaterial), has(pMaterial)).save(pFinishedRecipeConsumer, new ResourceLocation("mmm:" + getItemName(pResult)));
+    }
+
+    protected static void hammerRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pBlockItem, ItemLike pStick, Item pResult, String pGroup) {
+        if (pStick == null) {
+            pStick = Items.STICK;
+        }
+        ShapedRecipeBuilder.shaped(pCategory, pResult).define('#', pBlockItem).define('S', pStick)
+                .pattern("###")
+                .pattern(" S ")
+                .pattern(" S ")
+                .group(pGroup).unlockedBy(getHasName(pBlockItem), has(pBlockItem)).save(pFinishedRecipeConsumer, new ResourceLocation("mmm:" + getItemName(pResult)));
+    }
+
+    protected static void paxelRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pPickaxe, ItemLike pAxe, ItemLike pShovel, ItemLike pHoe, ItemLike pStick, ItemLike pUnlockedBy, Item pResult, String pGroup) {
+        if (pStick == null) {
+            pStick = Items.STICK;
+        }
+        ShapedRecipeBuilder.shaped(pCategory, pResult).define('A', pPickaxe).define('B', pAxe).define('C', pShovel).define('D', pHoe).define('S', pStick)
+                .pattern("ACD")
+                .pattern("BS ")
+                .pattern(" S ")
+                .group(pGroup).unlockedBy(getHasName(pUnlockedBy), has(pUnlockedBy)).save(pFinishedRecipeConsumer, new ResourceLocation("mmm:" + getItemName(pResult) + "_right"));
+
+        ShapedRecipeBuilder.shaped(pCategory, pResult).define('A', pPickaxe).define('B', pAxe).define('C', pShovel).define('D', pHoe).define('S', pStick)
+                .pattern("DCA")
+                .pattern(" SB")
+                .pattern(" S ")
+                .group(pGroup).unlockedBy(getHasName(pUnlockedBy), has(pUnlockedBy)).save(pFinishedRecipeConsumer, new ResourceLocation("mmm:" + getItemName(pResult) + "_left"));
     }
 
     protected static void stairs(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pPressurePlate, ItemLike pMaterial) {
