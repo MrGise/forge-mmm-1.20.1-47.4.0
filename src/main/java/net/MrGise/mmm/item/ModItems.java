@@ -38,7 +38,7 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> ACTIONLITE_SWORD = ITEMS.register("actinolite_sword",
-            () -> new DescriptionPoisonSwordItem(ModToolTiers.ACTINOLITE, 5, 3, new Item.Properties().durability(ModToolTiers.ACTINOLITE.getUses()), "actinolite_sword", false));
+            () -> new DescriptionPoisonSwordItem(ModToolTiers.ACTINOLITE, 2, 3, new Item.Properties().durability(ModToolTiers.ACTINOLITE.getUses()), "actinolite_sword", false));
 
 
     public static final RegistryObject<Item> SKOAL = ITEMS.register("skoal",
@@ -56,13 +56,13 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> SKIRON_SWORD = ITEMS.register("skiron_sword",
-            () -> new SwordItem(ModToolTiers.SKIRON, 4, -2, new Item.Properties().durability(ModToolTiers.SKIRON.getUses())));
+            () -> new SwordItem(ModToolTiers.SKIRON, 2, -3, new Item.Properties().durability(ModToolTiers.SKIRON.getUses())));
 
     public static final RegistryObject<Item> SKIRON_PICKAXE = ITEMS.register("skiron_pickaxe",
             () -> new PickaxeItem(ModToolTiers.SKIRON, 1, -2, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 100)));
 
     public static final RegistryObject<Item> SKIRON_AXE = ITEMS.register("skiron_axe",
-            () -> new AxeItem(ModToolTiers.SKIRON, 6.5f, -2.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 50)));
+            () -> new AxeItem(ModToolTiers.SKIRON, 5, -1.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 50)));
 
     public static final RegistryObject<Item> SKIRON_SHOVEL = ITEMS.register("skiron_shovel",
             () -> new ShovelItem(ModToolTiers.SKIRON, 1.75F, -2.75F, new Item.Properties().durability(ModToolTiers.SKIRON.getUses())));
@@ -74,7 +74,7 @@ public class ModItems {
             () -> new PaxelItem(ModToolTiers.SKIRON, 5.5f, -1f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 150)));
 
     public static final RegistryObject<Item> SKIRON_HAMMER = ITEMS.register("skiron_hammer",
-            () -> new HammerItem(ModToolTiers.SKIRON, 1, 6, -3, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() - 50)));
+            () -> new HammerItem(ModToolTiers.SKIRON, 1, 5, -3.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() - 50)));
 
 
 
