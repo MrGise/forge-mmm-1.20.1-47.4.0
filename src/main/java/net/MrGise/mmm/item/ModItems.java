@@ -32,6 +32,9 @@ public class ModItems {
     public static final RegistryObject<Item> BREADSTICK = ITEMS.register("breadstick",
             () -> new Item(new Item.Properties().food(ModFoodProperties.BREADSTICK)));
 
+    public static final RegistryObject<Item> STRAWBERRY = ITEMS.register("strawberry",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.STRAWBERRY)));
+
 
     // Actinolite
     public static final RegistryObject<Item> ACTINOLITE = ITEMS.register("actinolite",

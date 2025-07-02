@@ -26,6 +26,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.BREADSTICK);
 
+        simpleItem(ModItems.STRAWBERRY);
+
         simpleItem(ModItems.SKOAL);
 
         simpleItem(ModItems.SKIRON);

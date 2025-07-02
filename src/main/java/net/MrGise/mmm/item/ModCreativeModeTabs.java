@@ -15,7 +15,7 @@ public class ModCreativeModeTabs {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MMM.MOD_ID);
 
     public static final RegistryObject<CreativeModeTab> THE_SKYLAND = CREATIVE_MODE_TABS.register("the_skyland",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.SKIRON_ORE.get()))
+            () -> CreativeModeTab.builder().withTabsAfter(ModCreativeModeTabs.MISCELLANEOUS_MMM.getId()).icon(() -> new ItemStack(ModBlocks.SKIRON_ORE.get()))
                     .title(Component.translatable("creativetab.the_skyland")).displayItems((displayParameters, output) -> {
                         output.accept(ModBlocks.SKYSOLID.get());
                         output.accept(ModBlocks.SKYSOLID_WALL.get());
@@ -62,6 +62,14 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.MOSSY_GOLD_KEY.get());
                     }).build());
 
+    public static final RegistryObject<CreativeModeTab> MMM_CUISINE = CREATIVE_MODE_TABS.register("mmm_cuisine",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.BREADSTICK.get()))
+                    .title(Component.translatable("creativetab.mmm_cuisine")).displayItems((displayParameters, output) -> {
+                        output.accept(ModItems.BREADSTICK.get());
+
+                        output.accept(ModItems.STRAWBERRY.get());
+                    }).build());
+
     public static final RegistryObject<CreativeModeTab> MISCELLANEOUS_MMM = CREATIVE_MODE_TABS.register("miscellaneous_mmm",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ORE_DETECTOR.get()))
                     .title(Component.translatable("creativetab.miscellaneous_mmm")).displayItems((displayParameters, output) -> {
@@ -72,11 +80,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.SOUND_BLOCK.get());
                     }).build());
 
-    public static final RegistryObject<CreativeModeTab> MMM_CUISINE = CREATIVE_MODE_TABS.register("mmm_cuisine",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.BREADSTICK.get()))
-                    .title(Component.translatable("creativetab.mmm_cuisine")).displayItems((displayParameters, output) -> {
-                        output.accept(ModItems.BREADSTICK.get());
-                    }).build());
 
     public static void register(IEventBus eventBus) {
         CREATIVE_MODE_TABS.register(eventBus);
