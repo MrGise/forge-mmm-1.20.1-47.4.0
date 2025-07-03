@@ -78,6 +78,18 @@ public class ModItems {
 
     public static final RegistryObject<Item> SKIRON_HAMMER = ITEMS.register("skiron_hammer",
             () -> new HammerItem(ModToolTiers.SKIRON, 1, 5, -3.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() - 50)));
+    // Armor
+    public static final RegistryObject<Item> SKIRON_HELMET = ITEMS.register("skiron_helmet",
+            () -> new ArmorItem(ModArmorMaterials.SKIRON, ArmorItem.Type.HELMET, new Item.Properties()));
+
+    public static final RegistryObject<Item> SKIRON_CHESTPLATE = ITEMS.register("skiron_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.SKIRON, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+
+    public static final RegistryObject<Item> SKIRON_LEGGINGS = ITEMS.register("skiron_leggings",
+            () -> new ArmorItem(ModArmorMaterials.SKIRON, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+
+    public static final RegistryObject<Item> SKIRON_BOOTS = ITEMS.register("skiron_boots",
+            () -> new ArmorItem(ModArmorMaterials.SKIRON, ArmorItem.Type.BOOTS, new Item.Properties()));
 
 
 

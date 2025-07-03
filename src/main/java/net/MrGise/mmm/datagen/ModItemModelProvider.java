@@ -33,6 +33,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SKIRON);
         simpleItem(ModItems.SKIRON_NUGGET);
         simpleItem(ModItems.RAW_SKIRON);
+        /* Armor item models */
+        simpleItem(ModItems.SKIRON_HELMET);
+        simpleItem(ModItems.SKIRON_CHESTPLATE);
+        simpleItem(ModItems.SKIRON_LEGGINGS);
+        simpleItem(ModItems.SKIRON_BOOTS);
 
         simpleItem(ModItems.ACTINOLITE);
 
