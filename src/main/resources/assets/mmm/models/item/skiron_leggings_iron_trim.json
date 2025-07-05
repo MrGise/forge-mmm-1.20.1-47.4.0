@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "mmm:item/skiron_leggings",
+    "layer1": "minecraft:trims/items/leggings_trim"
+  }
+}

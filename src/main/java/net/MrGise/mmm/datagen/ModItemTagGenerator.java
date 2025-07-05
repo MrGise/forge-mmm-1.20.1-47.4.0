@@ -6,6 +6,7 @@ import net.MrGise.mmm.util.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
@@ -21,6 +22,13 @@ public class ModItemTagGenerator extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         // Tags here
+
+        this.tag(ItemTags.TRIMMABLE_ARMOR)
+                .add(ModItems.SKIRON_HELMET.get(),
+                        ModItems.SKIRON_CHESTPLATE.get(),
+                        ModItems.SKIRON_LEGGINGS.get(),
+                        ModItems.SKIRON_BOOTS.get());
+
         this.tag(ModTags.Items.SKIRON_NUGGETS).add(ModItems.SKIRON_NUGGET.get());
 
     }

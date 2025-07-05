@@ -1,21 +1,17 @@
-// 1.20.1	2025-07-03T12:41:02.15921	Item Models: mmm
+// 1.20.1	2025-07-05T18:29:36.5237437	Item Models: mmm
 cab82837fca58f2721c0a61040837f5ce1a3b78f assets/mmm/models/item/actinolite.json
-367230e390c7ede5f2c1f21626f033e2d7d163ee assets/mmm/models/item/actinolite_sword.json
+5350cc9db3abe8ba1c758129c689cdd9463de9b1 assets/mmm/models/item/actinolite_sword.json
 bce57dc093ad4c5a0156d302341d538c8a52d6f8 assets/mmm/models/item/breadstick.json
 3aa7745531bc59f021f6fd049478607e6f8c4163 assets/mmm/models/item/ore_detector.json
 14808f6cfa9fcb3378ec94da8cc65ca9ac9e5876 assets/mmm/models/item/raw_skiron.json
 79ec4cf78de0324e7687bd13bee02e85ac70a944 assets/mmm/models/item/skiron.json
-8faf13ba3442e94535ec78de3c5a70c23521568e assets/mmm/models/item/skiron_axe.json
-e9d177581a04474925a69046833b4169b65f28a2 assets/mmm/models/item/skiron_boots.json
-d96b3c90fd10158fc55edaadf9c0ab50b32646b5 assets/mmm/models/item/skiron_chestplate.json
-3595c8f39cbac93c9767aee0aa8c6da303797039 assets/mmm/models/item/skiron_helmet.json
-b6fddcc0e020c11a2204c4606b66af3f0c7223f9 assets/mmm/models/item/skiron_hoe.json
-73c509cfd2d136fba73f8ab3838a0750b61243a2 assets/mmm/models/item/skiron_leggings.json
+46a6af4b9fb09f02415eb1ba9e901e2cc1a98574 assets/mmm/models/item/skiron_axe.json
+9d6bbe393d01bc7bbcff9c045fcc952e793900b2 assets/mmm/models/item/skiron_hoe.json
 b3b35552e55f0e11ee763f3f6f9406347e1dfdc8 assets/mmm/models/item/skiron_nugget.json
-0488b5ec9469fe4ba3702617128bbd46655300b2 assets/mmm/models/item/skiron_paxel.json
-9cf13a0b3f88f3eccda692c990799967ea489c25 assets/mmm/models/item/skiron_pickaxe.json
-f81ce9c6549fa7d08f4c14b93364ca8de099c0ea assets/mmm/models/item/skiron_shovel.json
-e714c18b702e93b7ca2ce369900b61e20b3f1fae assets/mmm/models/item/skiron_sword.json
+679a6f816ea5fdfd85c589e870bdddb201ab3264 assets/mmm/models/item/skiron_paxel.json
+bf7cf653ab94494eeaddde5f8da4ed0ab7e3af98 assets/mmm/models/item/skiron_pickaxe.json
+3e1191c45c50b79a7a2e04d18e852ff24af6a3af assets/mmm/models/item/skiron_shovel.json
+80b2c0ba2827bf5cdf343629c08c56d4c41a99df assets/mmm/models/item/skiron_sword.json
 7a59782edc84a524816e62eb47e124fd06ffda7f assets/mmm/models/item/skoal.json
 3e9a03229fcede2ae7f95157004f28ce8a85235b assets/mmm/models/item/skysolid_wall.json
 8f63ccff0921507770df346c3912cbe2a2df2835 assets/mmm/models/item/skywood_button.json

@@ -1,14 +1,18 @@
 package net.MrGise.mmm.datagen;
 
+import com.google.common.base.Preconditions;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.ModBlocks;
 import net.MrGise.mmm.item.ModItems;
+import net.minecraft.client.Minecraft;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
+import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -33,11 +37,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SKIRON);
         simpleItem(ModItems.SKIRON_NUGGET);
         simpleItem(ModItems.RAW_SKIRON);
-        /* Armor item models */
-        simpleItem(ModItems.SKIRON_HELMET);
-        simpleItem(ModItems.SKIRON_CHESTPLATE);
-        simpleItem(ModItems.SKIRON_LEGGINGS);
-        simpleItem(ModItems.SKIRON_BOOTS);
 
         simpleItem(ModItems.ACTINOLITE);
 
@@ -62,10 +61,22 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     // Items
+    /*
+     Armor trims
+     Templates located at models/references/trims
+    */
 
+    private ItemModelBuilder trimmedArmorItemBoots(RegistryObject<Item> item, String trim) {
+        return withExistingParent(item.getId().getPath() + "_" + trim + "_trim",
+                new ResourceLocation("item/handheld")).texture("layer0",
+                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath())).texture("layer1",
+                "minecraft:trims/items/boots_trim");
+    }
+
+    /* Normal Items */
     private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/handheld")).texture("layer0",
+                new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
     }
 
@@ -97,5 +108,4 @@ public class ModItemModelProvider extends ItemModelProvider {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/button_inventory"))
                 .texture("texture",  new ResourceLocation(MMM.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(blockTexture.get()).getPath()));
     }
-
 }
