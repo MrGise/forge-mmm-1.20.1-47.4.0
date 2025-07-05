@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "minecraft:item/generated",
   "textures": {
     "layer0": "mmm:item/asdf_chestplate",
-    "layer1": "minecraft:trims/items/chestplate_trim"
+    "layer1": "minecraft:trims/items/chestplate_trim_copper"
   }
 }
