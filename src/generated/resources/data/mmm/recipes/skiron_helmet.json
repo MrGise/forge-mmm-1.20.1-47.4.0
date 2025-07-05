@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "sky_ores",
+  "key": {
+    "#": {
+      "item": "mmm:skiron"
+    }
+  },
+  "pattern": [
+    "###",
+    "# #"
+  ],
+  "result": {
+    "item": "mmm:skiron_helmet"
+  },
+  "show_notification": true
+}

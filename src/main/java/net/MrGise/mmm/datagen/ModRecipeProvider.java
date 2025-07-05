@@ -43,6 +43,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         paxelRecipe(pWriter, RecipeCategory.MISC, ModItems.SKIRON_PICKAXE.get(), ModItems.SKIRON_AXE.get(), ModItems.SKIRON_SHOVEL.get(), ModItems.SKIRON_HOE.get(), null, ModItems.SKIRON.get(), ModItems.SKIRON_PAXEL.get(), "sky_ores");
         hammerRecipe(pWriter, RecipeCategory.COMBAT, ModBlocks.SKIRON_BLOCK.get(), null, ModItems.SKIRON_HAMMER.get(), "sky_ores");
 
+        armorRecipes(pWriter, RecipeCategory.MISC, ModItems.SKIRON.get(), ModItems.SKIRON_HELMET.get(), ModItems.SKIRON_CHESTPLATE.get(), ModItems.SKIRON_LEGGINGS.get(), ModItems.SKIRON_BOOTS.get(), "sky_ores");
+
         // Nine-to-one ratio
         nineBlockStorageRecipes(pWriter, RecipeCategory.MISC, ModItems.SKOAL.get(), RecipeCategory.MISC, ModBlocks.SKOAL_BLOCK.get(),
                 "mmm:skoal_block", "sky_ores", "mmm:skoal", null);
@@ -77,6 +79,45 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("###")
                 .pattern("###")
                 .group(pPackedGroup).unlockedBy(getHasName(pUnpacked), has(pUnpacked)).save(pFinishedRecipeConsumer, new ResourceLocation(pPackedName));
+    }
+
+    protected static void armorRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pMaterial, Item pHelmet, Item pChestplate, Item pLeggings, Item pBoots, String pCollectiveGroup) {
+        helmetRecipe(pFinishedRecipeConsumer, pCategory, pMaterial, pHelmet, pCollectiveGroup);
+        chestplateRecipe(pFinishedRecipeConsumer, pCategory, pMaterial, pChestplate, pCollectiveGroup);
+        leggingsRecipe(pFinishedRecipeConsumer, pCategory, pMaterial, pLeggings, pCollectiveGroup);
+        bootsRecipe(pFinishedRecipeConsumer, pCategory, pMaterial, pBoots, pCollectiveGroup);
+
+    }
+
+        protected static void helmetRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pMaterial, Item pHelmet, String pGroup) {
+        ShapedRecipeBuilder.shaped(pCategory, pHelmet).define('#', pMaterial)
+                .pattern("###")
+                .pattern("# #")
+                .group(pGroup).unlockedBy(getHasName(pMaterial), has(pMaterial)).save(pFinishedRecipeConsumer, new ResourceLocation("mmm:" + getItemName(pHelmet)));
+    }
+
+    protected static void chestplateRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pMaterial, Item pChestplate, String pGroup) {
+        ShapedRecipeBuilder.shaped(pCategory, pChestplate).define('#', pMaterial)
+                .pattern("# #")
+                .pattern("###")
+                .pattern("###")
+                .group(pGroup).unlockedBy(getHasName(pMaterial), has(pMaterial)).save(pFinishedRecipeConsumer, new ResourceLocation("mmm:" + getItemName(pChestplate)));
+    }
+
+    protected static void leggingsRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pMaterial, Item pLeggings, String pGroup) {
+        ShapedRecipeBuilder.shaped(pCategory, pLeggings).define('#', pMaterial)
+                .pattern("###")
+                .pattern("# #")
+                .pattern("# #")
+                .group(pGroup).unlockedBy(getHasName(pMaterial), has(pMaterial)).save(pFinishedRecipeConsumer, new ResourceLocation("mmm:" + getItemName(pLeggings)));
+    }
+
+    protected static void bootsRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pMaterial, Item pBoots, String pGroup) {
+        ShapedRecipeBuilder.shaped(pCategory, pBoots).define('#', pMaterial)
+                .pattern("###")
+                .pattern("# #")
+                .pattern("# #")
+                .group(pGroup).unlockedBy(getHasName(pMaterial), has(pMaterial)).save(pFinishedRecipeConsumer, new ResourceLocation("mmm:" + getItemName(pBoots)));
     }
 
     protected static void swordRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pMaterial, ItemLike pStick, Item pResult, String pGroup) {
