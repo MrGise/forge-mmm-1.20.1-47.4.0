@@ -45,6 +45,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         armorRecipes(pWriter, RecipeCategory.MISC, ModItems.SKIRON.get(), ModItems.SKIRON_HELMET.get(), ModItems.SKIRON_CHESTPLATE.get(), ModItems.SKIRON_LEGGINGS.get(), ModItems.SKIRON_BOOTS.get(), "sky_ores");
 
+        imbuedArmorRecipes(pWriter, RecipeCategory.MISC, ModItems.ACTINOLITE.get(),
+                ModItems.SKIRON_HELMET.get(), ModItems.SKIRON_CHESTPLATE.get(), ModItems.SKIRON_LEGGINGS.get(), ModItems.SKIRON_BOOTS.get(),
+                ModItems.SKIRON_ACTINOLITE_HELMET.get(), ModItems.SKIRON_ACTINOLITE_CHESTPLATE.get(), ModItems.SKIRON_ACTINOLITE_LEGGINGS.get(), ModItems.SKIRON_ACTINOLITE_BOOTS.get(), "sky_ores");
+
+
         // Nine-to-one ratio
         nineBlockStorageRecipes(pWriter, RecipeCategory.MISC, ModItems.SKOAL.get(), RecipeCategory.MISC, ModBlocks.SKOAL_BLOCK.get(),
                 "mmm:skoal_block", "sky_ores", "mmm:skoal", null);
@@ -79,6 +84,26 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("###")
                 .pattern("###")
                 .group(pPackedGroup).unlockedBy(getHasName(pUnpacked), has(pUnpacked)).save(pFinishedRecipeConsumer, new ResourceLocation(pPackedName));
+    }
+
+    protected static void imbuedArmorRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pImbued, Item pHelmet, Item pChestplate, Item pLeggings, Item pBoots, Item pImbuedHelmet, Item pImbuedChestplate, Item pImbuedLeggings, Item pImbuedBoots, String pCollectiveGroup) {
+
+        ShapelessRecipeBuilder.shapeless(pCategory, pImbuedHelmet).requires(pImbued).requires(pHelmet)
+                .group(pCollectiveGroup).unlockedBy(getHasName(pImbued), has(pImbued)).unlockedBy(getHasName(pHelmet), has(pHelmet))
+                .save(pFinishedRecipeConsumer, new ResourceLocation("mmm:" + getItemName(pImbuedHelmet)));
+
+        ShapelessRecipeBuilder.shapeless(pCategory, pImbuedChestplate).requires(pImbued).requires(pChestplate)
+                .group(pCollectiveGroup).unlockedBy(getHasName(pImbued), has(pImbued)).unlockedBy(getHasName(pChestplate), has(pChestplate))
+                .save(pFinishedRecipeConsumer, new ResourceLocation("mmm:" + getItemName(pImbuedChestplate)));
+
+        ShapelessRecipeBuilder.shapeless(pCategory, pImbuedLeggings).requires(pImbued).requires(pLeggings)
+                .group(pCollectiveGroup).unlockedBy(getHasName(pImbued), has(pImbued)).unlockedBy(getHasName(pLeggings), has(pLeggings))
+                .save(pFinishedRecipeConsumer, new ResourceLocation("mmm:" + getItemName(pImbuedLeggings)));
+
+        ShapelessRecipeBuilder.shapeless(pCategory, pImbuedBoots).requires(pImbued).requires(pBoots)
+                .group(pCollectiveGroup).unlockedBy(getHasName(pImbued), has(pImbued)).unlockedBy(getHasName(pBoots), has(pBoots))
+                .save(pFinishedRecipeConsumer, new ResourceLocation("mmm:" + getItemName(pImbuedBoots)));
+
     }
 
     protected static void armorRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pMaterial, Item pHelmet, Item pChestplate, Item pLeggings, Item pBoots, String pCollectiveGroup) {

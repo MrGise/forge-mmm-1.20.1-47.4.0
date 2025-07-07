@@ -22,7 +22,14 @@ public enum ModArmorMaterials implements ArmorMaterial {
         p_266665_.put(ArmorItem.Type.LEGGINGS, 5);
         p_266665_.put(ArmorItem.Type.CHESTPLATE, 6);
         p_266665_.put(ArmorItem.Type.HELMET, 3);
-    }), 25, SoundEvents.ARMOR_EQUIP_NETHERITE, 0.0F, 0.0F, () -> Ingredient.of(ModItems.SKIRON.get()));
+    }), 25, SoundEvents.ARMOR_EQUIP_IRON, 0.0F, 0.0F, () -> Ingredient.of(ModItems.SKIRON.get())),
+
+    SKIRON_ACTINOLITE("skiron_actinolite", 18, Util.make(new EnumMap(ArmorItem.Type.class), (p_266665_) -> {
+        p_266665_.put(ArmorItem.Type.BOOTS, 5);
+        p_266665_.put(ArmorItem.Type.LEGGINGS, 6);
+        p_266665_.put(ArmorItem.Type.CHESTPLATE, 7);
+        p_266665_.put(ArmorItem.Type.HELMET, 4);
+    }), 25, SoundEvents.ARMOR_EQUIP_IRON, 1.0F, 0.1F, () -> Ingredient.of(ModItems.SKIRON.get()));
 
     public static final StringRepresentable.EnumCodec<ArmorMaterials> CODEC = StringRepresentable.fromEnum(ArmorMaterials::values);
     private static final EnumMap<ArmorItem.Type, Integer> HEALTH_FUNCTION_FOR_TYPE = (EnumMap)Util.make(new EnumMap(ArmorItem.Type.class), (p_266653_) -> {

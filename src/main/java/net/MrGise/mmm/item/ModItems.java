@@ -92,6 +92,19 @@ public class ModItems {
             () -> new ArmorItem(ModArmorMaterials.SKIRON, ArmorItem.Type.BOOTS, new Item.Properties()));
 
 
+    public static final RegistryObject<Item> SKIRON_ACTINOLITE_HELMET = ITEMS.register("skiron_actinolite_helmet",
+            () -> new ArmorItem(ModArmorMaterials.SKIRON_ACTINOLITE, ArmorItem.Type.HELMET, new Item.Properties()));
+
+    public static final RegistryObject<Item> SKIRON_ACTINOLITE_CHESTPLATE = ITEMS.register("skiron_actinolite_chestplate",
+            () -> new ArmorItem(ModArmorMaterials.SKIRON_ACTINOLITE, ArmorItem.Type.CHESTPLATE, new Item.Properties()));
+
+    public static final RegistryObject<Item> SKIRON_ACTINOLITE_LEGGINGS = ITEMS.register("skiron_actinolite_leggings",
+            () -> new ArmorItem(ModArmorMaterials.SKIRON_ACTINOLITE, ArmorItem.Type.LEGGINGS, new Item.Properties()));
+
+    public static final RegistryObject<Item> SKIRON_ACTINOLITE_BOOTS = ITEMS.register("skiron_actinolite_boots",
+            () -> new ArmorItem(ModArmorMaterials.SKIRON_ACTINOLITE, ArmorItem.Type.BOOTS, new Item.Properties()));
+
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

@@ -45,6 +45,11 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SKIRON_LEGGINGS.get());
                         output.accept(ModItems.SKIRON_BOOTS.get());
 
+                        output.accept(ModItems.SKIRON_ACTINOLITE_HELMET.get());
+                        output.accept(ModItems.SKIRON_ACTINOLITE_CHESTPLATE.get());
+                        output.accept(ModItems.SKIRON_ACTINOLITE_LEGGINGS.get());
+                        output.accept(ModItems.SKIRON_ACTINOLITE_BOOTS.get());
+
                         output.accept(ModBlocks.SKOAL_ORE.get());
                         output.accept(ModItems.SKOAL.get());
                         output.accept(ModBlocks.SKOAL_BLOCK.get());

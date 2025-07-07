@@ -27,7 +27,10 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.SKIRON_HELMET.get(),
                         ModItems.SKIRON_CHESTPLATE.get(),
                         ModItems.SKIRON_LEGGINGS.get(),
-                        ModItems.SKIRON_BOOTS.get());
+                        ModItems.SKIRON_BOOTS.get(), ModItems.SKIRON_ACTINOLITE_HELMET.get(),
+                        ModItems.SKIRON_ACTINOLITE_CHESTPLATE.get(),
+                        ModItems.SKIRON_ACTINOLITE_LEGGINGS.get(),
+                        ModItems.SKIRON_ACTINOLITE_BOOTS.get());
 
         this.tag(ModTags.Items.SKIRON_NUGGETS).add(ModItems.SKIRON_NUGGET.get());
 

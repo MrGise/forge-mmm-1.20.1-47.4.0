@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "group": "sky_ores",
+  "ingredients": [
+    {
+      "item": "mmm:actinolite"
+    },
+    {
+      "item": "mmm:skiron_boots"
+    }
+  ],
+  "result": {
+    "item": "mmm:skiron_actinolite_boots"
+  }
+}

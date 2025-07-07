@@ -34,7 +34,7 @@ public class ModTags {
 
         public static final TagKey<Block> MINEABLE_WITH_HAMMER = tag("mineable/hammer");
 
-        public static final TagKey<Block> SKYLAND_ORES = tag("skyland/ores");
+        public static final TagKey<Block> SKYLAND_ORES = forgeTag("ores/skyland");
 
         public static final TagKey<Block> DETECTABLE_ORE = tag("detectable_ore");
 

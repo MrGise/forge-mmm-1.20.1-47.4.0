@@ -1,0 +1,48 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_actinolite": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mmm:actinolite"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_skiron_chestplate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mmm:skiron_chestplate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mmm:skiron_actinolite_chestplate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_actinolite",
+      "has_skiron_chestplate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mmm:skiron_actinolite_chestplate"
+    ]
+  },
+  "sends_telemetry_event": false
+}
