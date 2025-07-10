@@ -13,7 +13,7 @@ import net.minecraft.world.level.Level;
 import java.util.List;
 import java.util.Map;
 
-public class ModArmorItem extends ArmorItem {
+public class EffectArmorItem extends ArmorItem {
 
 
 
@@ -23,7 +23,7 @@ public class ModArmorItem extends ArmorItem {
                             List.of(new MobEffectInstance(MobEffects.SLOW_FALLING, 100, 1), new MobEffectInstance(MobEffects.JUMP, 100, 2)))
                     .build();
 
-    public ModArmorItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
+    public EffectArmorItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
         super(pMaterial, pType, pProperties);
     }
 
