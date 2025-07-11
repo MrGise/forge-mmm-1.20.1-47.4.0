@@ -34,6 +34,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         //Recipes here
 
         swordRecipe(pWriter, RecipeCategory.COMBAT, ModItems.ACTINOLITE.get(), null, ModItems.ACTIONLITE_SWORD.get(), "sky_ores");
+        pickaxeRecipe(pWriter, RecipeCategory.COMBAT, ModItems.ACTINOLITE.get(), null, ModItems.ACTIONLITE_PICKAXE.get(), "sky_ores");
 
         swordRecipe(pWriter, RecipeCategory.COMBAT, ModItems.SKIRON.get(), null, ModItems.SKIRON_SWORD.get(), "sky_ores");
         pickaxeRecipe(pWriter, RecipeCategory.COMBAT, ModItems.SKIRON.get(), null, ModItems.SKIRON_PICKAXE.get(), "sky_ores");
@@ -139,7 +140,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     protected static void bootsRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pMaterial, Item pBoots, String pGroup) {
         ShapedRecipeBuilder.shaped(pCategory, pBoots).define('#', pMaterial)
-                .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
                 .group(pGroup).unlockedBy(getHasName(pMaterial), has(pMaterial)).save(pFinishedRecipeConsumer, new ResourceLocation("mmm:" + getItemName(pBoots)));

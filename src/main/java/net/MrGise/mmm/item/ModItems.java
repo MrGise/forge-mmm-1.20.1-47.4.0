@@ -42,7 +42,10 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     public static final RegistryObject<Item> ACTIONLITE_SWORD = ITEMS.register("actinolite_sword",
-            () -> new DescriptionPoisonSwordItem(ModToolTiers.ACTINOLITE, 2, 3, new Item.Properties().durability(ModToolTiers.ACTINOLITE.getUses()), "actinolite_sword", false));
+            () -> new DescriptionPoisonSwordItem(ModToolTiers.ACTINOLITE, 3, 3, new Item.Properties().durability(ModToolTiers.ACTINOLITE.getUses()), "actinolite_sword", false));
+
+    public static final RegistryObject<Item> ACTIONLITE_PICKAXE = ITEMS.register("actinolite_pickaxe",
+            () -> new DescriptionPoisonSwordItem(ModToolTiers.ACTINOLITE, 2, -1, new Item.Properties().durability(ModToolTiers.ACTINOLITE.getUses() + 100), "actinolite_sword", false));
 
 
     public static final RegistryObject<Item> SKOAL = ITEMS.register("skoal",

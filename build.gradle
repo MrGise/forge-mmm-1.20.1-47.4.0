@@ -83,8 +83,10 @@ minecraft {
         }
 
         client {
+            args '--uuid', 'c3f4e025-5e04-4ea4-87b1-c35092bb7909'
+            args '--username=MrGise'
             // Comma-separated list of namespaces to load gametests from. Empty = all namespaces.
-            property 'forge.enabledGameTestNamespaces', mod_id
+                property 'forge.enabledGameTestNamespaces', mod_id
         }
 
         server {

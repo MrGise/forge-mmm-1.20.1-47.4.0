@@ -30,7 +30,7 @@ public class SoundBlock extends Block {
                 return InteractionResult.SUCCESS;
             } else {
                 pLevel.playSound(null, pPos, SoundEvents.NOTE_BLOCK_BANJO.get(), SoundSource.BLOCKS, 1f, 1f);
-                return InteractionResult.CONSUME;
+                return InteractionResult.sidedSuccess(true);
             }
         }
 

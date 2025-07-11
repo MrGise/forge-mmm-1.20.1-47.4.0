@@ -25,6 +25,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.ACTINOLITE_ORE.get());
                         output.accept(ModItems.ACTINOLITE.get());
                         output.accept(ModItems.ACTIONLITE_SWORD.get());
+                        output.accept(ModItems.ACTIONLITE_PICKAXE.get());
 
                         output.accept(ModBlocks.SKIRON_ORE.get());
                         output.accept(ModItems.RAW_SKIRON.get());

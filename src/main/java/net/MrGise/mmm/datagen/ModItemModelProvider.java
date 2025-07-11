@@ -38,6 +38,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         /* Tools */
         handheldItem(ModItems.ACTIONLITE_SWORD);
+        handheldItem(ModItems.ACTIONLITE_PICKAXE);
 
         handheldItem(ModItems.SKIRON_SWORD);
         handheldItem(ModItems.SKIRON_PICKAXE);
