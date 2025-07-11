@@ -1,0 +1,9 @@
+{
+  "asset_name": "skiron",
+  "description": {
+    "color": "#d4e4e4",
+    "translate": "trim_material.mmm.skiron"
+  },
+  "ingredient": "mmm:skiron",
+  "item_model_index": 0.25
+}
