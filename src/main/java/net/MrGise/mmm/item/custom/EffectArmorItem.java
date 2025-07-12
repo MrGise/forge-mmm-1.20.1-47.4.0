@@ -2,6 +2,8 @@ package net.MrGise.mmm.item.custom;
 
 import com.google.common.collect.ImmutableMap;
 import net.MrGise.mmm.item.ModArmorMaterials;
+import net.minecraft.client.gui.screens.Screen;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;
@@ -20,7 +22,7 @@ public class EffectArmorItem extends ArmorItem {
     private static final Map<ArmorMaterial, List<MobEffectInstance>> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, List<MobEffectInstance>>())
                     .put(ModArmorMaterials.SKIRON_ACTINOLITE,
-                            List.of(new MobEffectInstance(MobEffects.SLOW_FALLING, 100, 1), new MobEffectInstance(MobEffects.JUMP, 100, 2)))
+                            List.of(new MobEffectInstance(MobEffects.SLOW_FALLING, 5, 1), new MobEffectInstance(MobEffects.JUMP, 5, 2)))
                     .build();
 
     public EffectArmorItem(ArmorMaterial pMaterial, Type pType, Properties pProperties) {
@@ -29,7 +31,15 @@ public class EffectArmorItem extends ArmorItem {
 
     @Override
     public void onArmorTick(ItemStack stack, Level level, Player player) {
-        if(!level.isClientSide() && hasFullSuitOfArmorOn(player)) {
+
+        boolean applyEffect = true;
+
+        if(player.isShiftKeyDown()) {
+            if (applyEffect == true) {
+                applyEffect = false;
+            }
+        }
+        if(!level.isClientSide() && hasFullSuitOfArmorOn(player) && applyEffect) {
             evaluateArmorEffects(player);
         }
     }
