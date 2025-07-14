@@ -17,8 +17,6 @@ import java.util.Map;
 
 public class EffectArmorItem extends ArmorItem {
 
-
-
     private static final Map<ArmorMaterial, List<MobEffectInstance>> MATERIAL_TO_EFFECT_MAP =
             (new ImmutableMap.Builder<ArmorMaterial, List<MobEffectInstance>>())
                     .put(ModArmorMaterials.SKIRON_ACTINOLITE,
@@ -62,7 +60,7 @@ public class EffectArmorItem extends ArmorItem {
         if(!hasPlayerEffect) {
             for (MobEffectInstance effect : mapEffect) {
                 player.addEffect(new MobEffectInstance(effect.getEffect(),
-                        effect.getDuration(), effect.getAmplifier()));
+                        effect.getDuration(), effect.getAmplifier(), false, false));
             }
         }
     }

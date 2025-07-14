@@ -1,13 +1,11 @@
 package net.MrGise.mmm.item;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.item.custom.EffectArmorItem;
-import net.MrGise.mmm.item.custom.HammerItem;
-import net.MrGise.mmm.item.custom.PaxelItem;
+import net.MrGise.mmm.item.custom.*;
 import net.MrGise.mmm.item.custom.description.DescriptionFuelItem;
-import net.MrGise.mmm.item.custom.OreDetectorItem;
 import net.MrGise.mmm.item.custom.description.DescriptionItem;
 import net.MrGise.mmm.item.custom.description.DescriptionPoisonSwordItem;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -61,7 +59,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> SKIRON_NUGGET = ITEMS.register("skiron_nugget",
             () -> new Item(new Item.Properties()));
-
+    /* Tools */
     public static final RegistryObject<Item> SKIRON_SWORD = ITEMS.register("skiron_sword",
             () -> new SwordItem(ModToolTiers.SKIRON, 2, -3, new Item.Properties().durability(ModToolTiers.SKIRON.getUses())));
 
@@ -82,7 +80,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> SKIRON_HAMMER = ITEMS.register("skiron_hammer",
             () -> new HammerItem(ModToolTiers.SKIRON, 1, 5, -3.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() - 50)));
-    // Armor
+    /* Armor */
     public static final RegistryObject<Item> SKIRON_HELMET = ITEMS.register("skiron_helmet",
             () -> new EffectArmorItem(ModArmorMaterials.SKIRON, ArmorItem.Type.HELMET, new Item.Properties()));
 
@@ -94,6 +92,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> SKIRON_BOOTS = ITEMS.register("skiron_boots",
             () -> new EffectArmorItem(ModArmorMaterials.SKIRON, ArmorItem.Type.BOOTS, new Item.Properties()));
+    // Horse Armor
+    public static final RegistryObject<Item> SKIRON_HORSE_ARMOR = ITEMS.register("skiron_horse_armor",
+            () -> new HorseArmorItem(6, new ResourceLocation(MMM.MOD_ID, "textures/entity/horse/armor/horse_armor_skiron.png"), new Item.Properties()));
 
 
     public static final RegistryObject<Item> SKIRON_ACTINOLITE_HELMET = ITEMS.register("skiron_actinolite_helmet",

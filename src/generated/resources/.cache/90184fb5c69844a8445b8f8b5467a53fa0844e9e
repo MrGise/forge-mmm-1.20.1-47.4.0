@@ -1,4 +1,4 @@
-// 1.20.1	2025-07-11T19:27:42.3720265	Item Models: mmm
+// 1.20.1	2025-07-13T19:54:25.6862631	Item Models: mmm
 cab82837fca58f2721c0a61040837f5ce1a3b78f assets/mmm/models/item/actinolite.json
 9804b6bda9456b58518303a95fc7368d7164916d assets/mmm/models/item/actinolite_pickaxe.json
 367230e390c7ede5f2c1f21626f033e2d7d163ee assets/mmm/models/item/actinolite_sword.json
@@ -8,6 +8,7 @@ bce57dc093ad4c5a0156d302341d538c8a52d6f8 assets/mmm/models/item/breadstick.json
 79ec4cf78de0324e7687bd13bee02e85ac70a944 assets/mmm/models/item/skiron.json
 8faf13ba3442e94535ec78de3c5a70c23521568e assets/mmm/models/item/skiron_axe.json
 b6fddcc0e020c11a2204c4606b66af3f0c7223f9 assets/mmm/models/item/skiron_hoe.json
+a13caf75d7680a9274a1dd69cd873a26cba76f0e assets/mmm/models/item/skiron_horse_armor.json
 b3b35552e55f0e11ee763f3f6f9406347e1dfdc8 assets/mmm/models/item/skiron_nugget.json
 0488b5ec9469fe4ba3702617128bbd46655300b2 assets/mmm/models/item/skiron_paxel.json
 9cf13a0b3f88f3eccda692c990799967ea489c25 assets/mmm/models/item/skiron_pickaxe.json

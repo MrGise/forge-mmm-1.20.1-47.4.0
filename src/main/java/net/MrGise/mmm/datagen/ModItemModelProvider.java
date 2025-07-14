@@ -34,6 +34,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SKIRON_NUGGET);
         simpleItem(ModItems.RAW_SKIRON);
 
+        simpleItem(ModItems.SKIRON_HORSE_ARMOR);
+
         simpleItem(ModItems.ACTINOLITE);
 
         /* Tools */
