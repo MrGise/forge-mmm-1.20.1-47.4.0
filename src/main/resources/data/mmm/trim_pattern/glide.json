@@ -1,0 +1,7 @@
+{
+  "asset_id": "mmm:glide",
+  "description": {
+    "translate": "trim_pattern.mmm.glide"
+  },
+  "template_item": "mmm:glide_armor_trim_smithing_template"
+}

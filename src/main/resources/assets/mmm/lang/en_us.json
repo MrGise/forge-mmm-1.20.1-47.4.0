@@ -11,6 +11,8 @@
 
   "item.mmm.skoal": "Sky Coal",
 
+  "item.mmm.glide_armor_trim_smithing_template": "Glide Armor Trim Smithing Template",
+
   "item.mmm.skiron": "Skiron Ingot",
   "item.mmm.skiron_nugget": "Skiron Nugget",
   "item.mmm.raw_skiron": "Raw Skiron",
@@ -38,6 +40,7 @@
   "item.mmm.actinolite_pickaxe": "Actinolite Pickaxe",
 
   "trim_material.mmm.skiron": "Skiron Material",
+  "trim_pattern.mmm.glide": "Glide Armor Trim",
 
 
 

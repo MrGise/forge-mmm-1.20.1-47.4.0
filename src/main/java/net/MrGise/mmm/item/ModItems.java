@@ -23,6 +23,9 @@ public class ModItems {
     public static final RegistryObject<Item> MOSSY_GOLD_KEY = ITEMS.register("mossy_gold_key",
             () -> new DescriptionItem(new Item.Properties().stacksTo(1), "mossy_gold_key", false));
 
+    public static final RegistryObject<Item> GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.register("glide_armor_trim_smithing_template",
+            () -> new Item(new Item.Properties()));
+
 
     public static final RegistryObject<Item> ORE_DETECTOR = ITEMS.register("ore_detector",
             () -> new OreDetectorItem(new Item.Properties().stacksTo(1).durability(512)));

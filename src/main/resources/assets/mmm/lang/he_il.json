@@ -1,6 +1,8 @@
 {
   "item.mmm.gold_key": "מפתח זהב",
   "item.mmm.mossy_gold_key": "מפתח זהב מכוסה טחב",
+  "item.mmm.glide_armor_trim_smithing_template": "תבנית להכנת קישוט שריון דאייה",
+
   "item.mmm.ore_detector": "גלאי עפרות",
   "item.mmm.breadstick": "גריסיני",
   "item.mmm.strawberry": "תות",
@@ -22,6 +24,7 @@
   "item.mmm.skiron_horse_armor": "שריון סוסים מברזל שמיימי",
 
   "trim_material.mmm.skiron": "ברזל שמיימי",
+  "trim_pattern.mmm.glide": "קישוט דאייה",
 
   "item.mmm.skiron_actinolite_helmet": "קסדת ברזל שמיימי עם אקטינוליט",
   "item.mmm.skiron_actinolite_chestplate": "לוחית חזה מברזל שמיימי עם אקטינוליט",

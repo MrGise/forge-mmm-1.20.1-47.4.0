@@ -22,6 +22,8 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         // Item models
+        simpleItem(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE);
+
         simpleItem(ModItems.ORE_DETECTOR);
 
         simpleItem(ModItems.BREADSTICK);

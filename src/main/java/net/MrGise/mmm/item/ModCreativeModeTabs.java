@@ -65,6 +65,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.SKYWOOD_TRAPDOOR.get());
                         output.accept(ModBlocks.SKYWOOD_PRESSURE_PLATE.get());
                         output.accept(ModBlocks.SKYWOOD_BUTTON.get());
+
+                        output.accept(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
                     }).build());
 
     public static final RegistryObject<CreativeModeTab> RUIN_ITEMS = CREATIVE_MODE_TABS.register("ruin_items",
@@ -72,6 +74,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.ruin_items")).displayItems((displayParameters, output) -> {
                         output.accept(ModItems.GOLD_KEY.get());
                         output.accept(ModItems.MOSSY_GOLD_KEY.get());
+                        output.accept(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
                     }).build());
 
     public static final RegistryObject<CreativeModeTab> MMM_CUISINE = CREATIVE_MODE_TABS.register("mmm_cuisine",

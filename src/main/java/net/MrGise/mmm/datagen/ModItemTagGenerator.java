@@ -35,6 +35,9 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         this.tag(ItemTags.TRIM_MATERIALS)
                 .add(ModItems.SKIRON.get());
 
+        this.tag(ItemTags.TRIM_TEMPLATES)
+                .add(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
+
         this.tag(ModTags.Items.SKIRON_NUGGETS).add(ModItems.SKIRON_NUGGET.get());
 
     }
