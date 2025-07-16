@@ -2,6 +2,7 @@ package net.MrGise.mmm;
 
 import com.mojang.logging.LogUtils;
 import net.MrGise.mmm.block.ModBlocks;
+import net.MrGise.mmm.enchantment.ModEnchantments;
 import net.MrGise.mmm.item.ModCreativeModeTabs;
 import net.MrGise.mmm.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -29,8 +30,6 @@ public class MMM
     public MMM(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
-        ModCreativeModeTabs.register(modEventBus);
-
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -40,8 +39,14 @@ public class MMM
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
+        // Everything else
+
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModCreativeModeTabs.register(modEventBus);
+
+        ModEnchantments.register(modEventBus);
 
     }
 

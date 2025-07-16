@@ -43,7 +43,6 @@
   "trim_pattern.mmm.glide": "Glide Armor Trim",
 
 
-
   "block.mmm.skysolid": "Skysolid",
   "block.mmm.skysolid_wall": "Skysolid Wall",
   "block.mmm.decorative_skysolid": "Decorative Skysolid",
@@ -80,6 +79,9 @@
   "creativetab.ruin_items": "Ruin Items",
   "creativetab.miscellaneous_mmm": "MMM's Miscellaneous Items",
   "creativetab.mmm_cuisine": "MMM's Food Items",
+
+
+  "enchantment.mmm.lightning_striker": "Lightning Striker",
 
 
   "tooltip.mmm.description_block.tooltip.skoal_block": "§7§oA block of Sky Coal. burns for 10x the time of Sky Coal.",
