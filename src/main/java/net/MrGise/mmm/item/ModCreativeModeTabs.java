@@ -93,6 +93,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ORE_DETECTOR.get());
 
                         output.accept(ModBlocks.SOUND_BLOCK.get());
+
+                        output.accept(ModBlocks.PORTAL_BLOCK.get());
                     }).build());
 
 

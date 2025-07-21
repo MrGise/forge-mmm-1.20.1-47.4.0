@@ -1,7 +1,8 @@
-// 1.20.1	2025-06-26T16:00:50.7839186	Block States: mmm
+// 1.20.1	2025-07-18T17:59:56.8514888	Block States: mmm
 1fd9342f3c0d5ebccf217996515f997f48dbba36 assets/mmm/blockstates/actinolite_ore.json
 2d8c926880342bd85761f05ebc2507d4f69812e8 assets/mmm/blockstates/broken_skysolid.json
 f66fd61a43ac5698fab45efd65f3214c3a3cbe48 assets/mmm/blockstates/decorative_skysolid.json
+3cb41aed8dc77f1f1122ef7294423ce464118270 assets/mmm/blockstates/portal_block.json
 a10d0fd44741092d55170d45c6c0d96b548f9522 assets/mmm/blockstates/raw_skiron_block.json
 a4265610dd93e13855a3d99283bb21e1b9c8ba60 assets/mmm/blockstates/skiron_block.json
 6bcbd0122dc2dbcbe6d25a800402f3ce6ca6ff61 assets/mmm/blockstates/skiron_ore.json
@@ -22,6 +23,8 @@ c7db315f3c6c4067a1e5fbb0b128e3b26144b5d3 assets/mmm/blockstates/skywood_trapdoor
 33c12059088bd46893d53d62fde613f490c7f97d assets/mmm/models/block/actinolite_ore.json
 95cbb8d9d72fe1ccbc1387605425fe3b2ac6bd7b assets/mmm/models/block/broken_skysolid.json
 48b8f19edb73415a2344f04f34857661caabda46 assets/mmm/models/block/decorative_skysolid.json
+f573ddd7435de95f7f7c011e606f97052a60e9f7 assets/mmm/models/block/portal_block_eye.json
+3fa71dca2bfdb2a131e668844d28935d105dd470 assets/mmm/models/block/portal_block_noeye.json
 c561852fb0ef2acda6f7d62f6e935f5462adc84e assets/mmm/models/block/raw_skiron_block.json
 e3bda103764662416b10f2e85c0effcc39be7b48 assets/mmm/models/block/skiron_block.json
 cc69c67d965a1165fa718b57471dd027366f6000 assets/mmm/models/block/skiron_ore.json
@@ -62,6 +65,7 @@ d39459403ee26b376e1588f2bf0489f3ce52b36e assets/mmm/models/block/skywood_trapdoo
 58bf63219892d6927fde5051821f8022834152fc assets/mmm/models/item/actinolite_ore.json
 41b0d40964828016863b1a4902f965f3c0ca4ae5 assets/mmm/models/item/broken_skysolid.json
 a6934004112c14796aa4f3b9068ff10510c0e016 assets/mmm/models/item/decorative_skysolid.json
+b13cf696b0cbe6ad99aba8a33320f69e3436765e assets/mmm/models/item/portal_block.json
 cc60bc30d2f12b2093674e218717c3f91e5b72d5 assets/mmm/models/item/raw_skiron_block.json
 62105cc4a514ab31a660fe09de6a0daefbb79f38 assets/mmm/models/item/skiron_block.json
 cc18c68afea7c502a2b0036a09569deeafc69e8b assets/mmm/models/item/skiron_ore.json

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "eye=false": {
+      "model": "mmm:block/portal_block_noeye"
+    },
+    "eye=true": {
+      "model": "mmm:block/portal_block_eye"
+    }
+  }
+}

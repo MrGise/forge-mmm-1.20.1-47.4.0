@@ -2,10 +2,13 @@ package net.MrGise.mmm.block;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.custom.BirthdayCakeBlock;
+import net.MrGise.mmm.block.custom.PortalBlock;
 import net.MrGise.mmm.block.custom.SoundBlock;
 import net.MrGise.mmm.item.ModItems;
+import net.MrGise.mmm.item.custom.description.DescriptionBlockItem;
 import net.MrGise.mmm.item.custom.description.DescriptionFuelBlockItem;
 import net.MrGise.mmm.item.custom.FuelBlockItem;
+import net.MrGise.mmm.item.custom.description.DescriptionPortalBlockItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
@@ -68,6 +71,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
             () -> new SoundBlock(BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).noLootTable().strength(-1, 0)));
 
+    public static final RegistryObject<Block> PORTAL_BLOCK = registerPortalBlockWithDescription("portal_block",
+            () -> new PortalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).strength(8, 10).sound(SoundType.GLASS)
+                    .lightLevel(state -> state.getValue(PortalBlock.EYE) ? 4 : 0).noLootTable(), ModItems.ACTINOLITE), "actinolite");
 
 
 
@@ -105,6 +111,24 @@ public class ModBlocks {
         return toReturn;
     }
 
+    private static <T extends Block> RegistryObject<T> registerBlockWithDescription(String name, Supplier<T> block, String DescriptionTranslatable, boolean ShiftToView) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerDescriptionBlockItem(name, toReturn, DescriptionTranslatable, ShiftToView);
+        return toReturn;
+    }
+
+    private static <T extends Block> RegistryObject<T> registerPortalBlockWithDescription(String name, Supplier<T> block, String DescriptionTranslatable, boolean ShiftToView) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerDescriptionPortalBlockItem(name, toReturn, DescriptionTranslatable, ShiftToView);
+        return toReturn;
+    }
+
+    private static <T extends Block> RegistryObject<T> registerPortalBlockWithDescription(String name, Supplier<T> block, String EyeName) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerDescriptionPortalBlockItem(name, toReturn, EyeName);
+        return toReturn;
+    }
+
     private static <T extends Block> RegistryObject<T> registerBurnableBlock(String name, Supplier<T> block, int BurnTime) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerFuelBlockItem(name, toReturn, BurnTime);
@@ -120,6 +144,18 @@ public class ModBlocks {
     // Block item registration methods
     private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
+    private static <T extends Block>RegistryObject<Item> registerDescriptionBlockItem(String name, RegistryObject<T> block, String DescriptionTranslatable, boolean ShiftToView) {
+        return ModItems.ITEMS.register(name, () -> new DescriptionBlockItem(new Item.Properties(), block.get(), DescriptionTranslatable, ShiftToView));
+    }
+
+    private static <T extends Block>RegistryObject<Item> registerDescriptionPortalBlockItem(String name, RegistryObject<T> block, String DescriptionTranslatable, boolean ShiftToView) {
+        return ModItems.ITEMS.register(name, () -> new DescriptionPortalBlockItem(block.get(), new Item.Properties(), DescriptionTranslatable, ShiftToView));
+    }
+
+    private static <T extends Block>RegistryObject<Item> registerDescriptionPortalBlockItem(String name, RegistryObject<T> block, String EyeName) {
+        return ModItems.ITEMS.register(name, () -> new DescriptionPortalBlockItem(block.get(), new Item.Properties(), EyeName));
     }
 
     private static <T extends Block> RegistryObject<Item> registerFireResistantBlockItem(String name, RegistryObject<T> block) {

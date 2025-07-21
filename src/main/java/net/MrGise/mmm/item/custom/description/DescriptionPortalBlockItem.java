@@ -11,15 +11,20 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class DescriptionBlockItem extends BlockItem {
+public class DescriptionPortalBlockItem extends BlockItem {
 
-    private String DescriptionTranslatable;
+    private String EyeName;
     private boolean ShiftToView = true;
 
-    public DescriptionBlockItem(Properties pProperties, Block pBlock, String DescriptionTranslatable, boolean ShiftToView) {
+    public DescriptionPortalBlockItem(Block pBlock, Properties pProperties, String EyeName, boolean ShiftToView) {
         super(pBlock, pProperties);
-        this.DescriptionTranslatable = DescriptionTranslatable;
+        this.EyeName = EyeName;
         this.ShiftToView = ShiftToView;
+    }
+
+    public DescriptionPortalBlockItem(Block pBlock, Properties pProperties, String EyeName) {
+        super(pBlock, pProperties);
+        this.EyeName = EyeName;
     }
 
     @Override
@@ -28,10 +33,15 @@ public class DescriptionBlockItem extends BlockItem {
         if((!Screen.hasShiftDown() && ShiftToView) == true) {
             pTooltipComponents.add(Component.translatable("tooltip.mmm.description_item.tooltip.noshift"));
         } else {
-            pTooltipComponents.add(Component.translatable("tooltip.mmm.description_block.tooltip." + DescriptionTranslatable));
+            pTooltipComponents.add(Component.literal(" "));
+            pTooltipComponents.add(Component.translatable("tooltip.mmm.portal_block.tooltip.common_line_1"));
+            pTooltipComponents.add(Component.translatable("tooltip.mmm.portal_block.tooltip.common_line_2"));
         }
-
+        pTooltipComponents.add(Component.literal(" "));
+        pTooltipComponents.add(Component.translatable("tooltip.mmm.portal_block.tooltip.eye"));
+        pTooltipComponents.add(Component.translatable("tooltip.mmm.portal_block.tooltip." + EyeName));
 
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }
+
 }

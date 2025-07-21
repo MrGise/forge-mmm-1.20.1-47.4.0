@@ -2,11 +2,13 @@ package net.MrGise.mmm.datagen;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.ModBlocks;
+import net.MrGise.mmm.block.custom.PortalBlock;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
+import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -54,6 +56,22 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.SKYWOOD_FENCE_GATE);
         blockItem(ModBlocks.SKYWOOD_TRAPDOOR, "_bottom");
 
+        portalBlock(ModBlocks.PORTAL_BLOCK, "portal_block");
+
+    }
+
+    private void portalBlock(RegistryObject<Block> pBlock, String name) {
+        getVariantBuilder(pBlock.get()).forAllStates(state -> {
+            if(state.getValue(PortalBlock.EYE)) {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_eye",
+                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_eye")))};
+            } else {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_noeye",
+                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_noeye")))};
+            }
+        });
+        simpleBlockItem(pBlock.get(), models().cubeAll(name + "_eye",
+                new ResourceLocation(MMM.MOD_ID, "block/" + name + "_eye")));
     }
 
     private void blockItem(RegistryObject<Block> blockRegistryObject, String appendix) {

@@ -57,9 +57,13 @@
   "block.mmm.skoal_ore": "Sky Coal Ore",
   "block.mmm.skoal_block": "Block of Sky Coal",
 
+
   "block.mmm.birthday_cake": "Birthday cake",
 
   "block.mmm.sound_block": "Sound Block",
+
+  "block.mmm.portal_block": "Portal Block",
+
 
   "block.mmm.skywood_planks": "Skywood Planks",
   "block.mmm.skywood_stairs": "Skywood Stairs",
@@ -84,7 +88,16 @@
   "enchantment.mmm.lightning_striker": "Lightning Striker",
 
 
+
   "tooltip.mmm.description_block.tooltip.skoal_block": "§7§oA block of Sky Coal. burns for 10x the time of Sky Coal.",
+
+  "tooltip.mmm.portal_block.tooltip.common_line_1": "§7Click this block with the correct item to activate it.",
+  "tooltip.mmm.portal_block.tooltip.common_line_2": "§7Click again with an empty hand to take the item back.",
+
+  "tooltip.mmm.portal_block.tooltip.eye": "§7This block's eye:",
+
+  "tooltip.mmm.portal_block.tooltip.actinolite": "§2 Actinolite (mmm:actinolite)",
+
 
   "tooltip.mmm.description_item.tooltip.noshift": "§7Press §eShift§r§7 key to view description",
 
