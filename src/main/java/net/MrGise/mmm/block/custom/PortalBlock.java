@@ -8,7 +8,6 @@ import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,7 +20,6 @@ public class PortalBlock extends Block {
     boolean debug = false;
     private RegistryObject<Item> Eye = ModItems.SKIRON;
     public static final BooleanProperty EYE = BooleanProperty.create("eye");
-    public boolean setTo = false;
 
     public PortalBlock(Properties pProperties, RegistryObject<Item> Eye) {
         super(pProperties);
@@ -44,11 +42,13 @@ public class PortalBlock extends Block {
                 // Insert eye if not present and player holds correct item
                 if (!hasEye && heldItem.getItem() == Eye.get()) {
                     pLevel.setBlock(pPos, pState.setValue(EYE, true), 3);
+                    pLevel.updateNeighborsAt(pPos, this);
                     heldItem.shrink(1); // remove item from hand
                 }
                 // Remove eye if present and player hand is empty
                 else if (hasEye && heldItem.isEmpty()) {
                     pLevel.setBlock(pPos, pState.setValue(EYE, false), 3);
+                    pLevel.updateNeighborsAt(pPos, this);
                     ItemStack stack = new ItemStack(Eye.get());
 
                     boolean added = pPlayer.getInventory().add(stack);
@@ -62,6 +62,16 @@ public class PortalBlock extends Block {
         }
 
         return super.use(pState, pLevel, pPos, pPlayer, pHand, pHit);
+    }
+
+    @Override
+    public boolean hasAnalogOutputSignal(BlockState state) {
+        return true;
+    }
+
+    @Override
+    public int getAnalogOutputSignal(BlockState state, Level level, BlockPos pos) {
+        return state.getValue(EYE) ? 8 : 0;
     }
 
     @Override

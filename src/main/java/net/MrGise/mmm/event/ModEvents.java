@@ -1,12 +1,18 @@
 package net.MrGise.mmm.event;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.enchantment.ModEnchantments;
+import net.MrGise.mmm.item.ModCreativeModeTabs;
 import net.MrGise.mmm.item.ModItems;
 import net.MrGise.mmm.item.custom.HammerItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.Enchantment;
+import net.minecraft.world.item.enchantment.EnchantmentInstance;
+import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -43,4 +49,5 @@ public class ModEvents {
             }
         }
     }
+
 }

@@ -73,8 +73,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> PORTAL_BLOCK = registerPortalBlockWithDescription("portal_block",
             () -> new PortalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).strength(8, 10).sound(SoundType.GLASS)
-                    .lightLevel(state -> state.getValue(PortalBlock.EYE) ? 4 : 0).noLootTable(), ModItems.ACTINOLITE), "actinolite");
-
+                    .lightLevel(state -> state.getValue(PortalBlock.EYE) ? 6 : 0).isRedstoneConductor(((blockState, blockGetter, blockPos) -> false)).noLootTable(), ModItems.ACTINOLITE), "actinolite");
 
 
     public static final RegistryObject<Block> SKYWOOD_PLANKS = registerBlock("skywood_planks",
