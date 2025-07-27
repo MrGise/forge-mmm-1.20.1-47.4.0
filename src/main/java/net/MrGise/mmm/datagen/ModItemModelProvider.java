@@ -25,6 +25,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE);
 
         simpleItem(ModItems.ORE_DETECTOR);
+        simpleItem(ModItems.ORE_REDETECTOR);
 
         simpleItem(ModItems.BREADSTICK);
 

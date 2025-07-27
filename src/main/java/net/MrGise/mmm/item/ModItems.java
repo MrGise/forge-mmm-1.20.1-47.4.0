@@ -30,6 +30,9 @@ public class ModItems {
     public static final RegistryObject<Item> ORE_DETECTOR = ITEMS.register("ore_detector",
             () -> new OreDetectorItem(new Item.Properties().stacksTo(1).durability(512)));
 
+    public static final RegistryObject<Item> ORE_REDETECTOR = ITEMS.register("ore_redetector",
+            () -> new OreRedetectorItem(new Item.Properties().stacksTo(1)));
+
 
     public static final RegistryObject<Item> BREADSTICK = ITEMS.register("breadstick",
             () -> new Item(new Item.Properties().food(ModFoodProperties.BREADSTICK)));

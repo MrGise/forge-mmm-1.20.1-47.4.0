@@ -1,13 +1,17 @@
 package net.MrGise.mmm.item.custom;
 
 import net.MrGise.mmm.block.ModBlocks;
+import net.MrGise.mmm.item.ModItems;
+import net.MrGise.mmm.util.InventoryUtil;
 import net.MrGise.mmm.util.ModTags;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -36,6 +40,10 @@ public class OreDetectorItem extends Item {
                     outputOrePosition(positionClicked.below(i), player, blockState.getBlock());
                     FoundBlock = true;
 
+                    if (InventoryUtil.hasPlayerStackInInventory(player, ModItems.ORE_REDETECTOR.get())) {
+                        addDataToRedetector(player, positionClicked.below(i), blockState.getBlock());
+                    }
+
                     break;
 
                 }
@@ -52,6 +60,16 @@ public class OreDetectorItem extends Item {
                 player -> player.broadcastBreakEvent(player.getUsedItemHand()));
 
         return InteractionResult.SUCCESS;
+    }
+
+    private void addDataToRedetector(Player player, BlockPos pos, Block block) {
+        ItemStack redetector = player.getInventory().getItem(InventoryUtil.getFirstInventoryIndex(player, ModItems.ORE_REDETECTOR.get()));
+
+        CompoundTag data = new CompoundTag();
+        data.putString("mmm.current_ore", "Last found ore block: " + I18n.get(block.getDescriptionId()) + " at: (" + pos.getX() + ", " + pos.getY() + ", " + pos.getZ() + ").");
+
+        redetector.setTag(data);
+
     }
 
     private void outputFailure(Player player) {

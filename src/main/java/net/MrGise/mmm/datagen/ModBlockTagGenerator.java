@@ -30,6 +30,7 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.SKIRON_ORE.get());
 
         this.tag(Tags.Blocks.ORES)
+                .add(ModBlocks.ACTINOLITE_ORE.get())
                 .add(ModBlocks.SKIRON_ORE.get())
                 .add(ModBlocks.SKOAL_ORE.get());
 

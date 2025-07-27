@@ -92,6 +92,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.BIRTHDAY_CAKE.get());
 
                         output.accept(ModItems.ORE_DETECTOR.get());
+                        output.accept(ModItems.ORE_REDETECTOR.get());
 
                         output.accept(ModBlocks.SOUND_BLOCK.get());
 
