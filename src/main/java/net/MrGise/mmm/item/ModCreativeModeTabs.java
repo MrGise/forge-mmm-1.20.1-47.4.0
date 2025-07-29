@@ -76,6 +76,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.GOLD_KEY.get());
                         output.accept(ModItems.MOSSY_GOLD_KEY.get());
                         output.accept(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
+                        output.accept(ModItems.SKYSOLID_TABLET.get());
                     }).build());
 
     public static final RegistryObject<CreativeModeTab> MMM_CUISINE = CREATIVE_MODE_TABS.register("mmm_cuisine",

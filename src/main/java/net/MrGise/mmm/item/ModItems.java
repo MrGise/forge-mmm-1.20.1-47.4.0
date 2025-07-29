@@ -26,6 +26,9 @@ public class ModItems {
     public static final RegistryObject<Item> GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.register("glide_armor_trim_smithing_template",
             () -> new Item(new Item.Properties()));
 
+    public static final RegistryObject<Item> SKYSOLID_TABLET = ITEMS.register("skysolid_tablet",
+            () -> new TabletItem(new Item.Properties(), 4));
+
 
     public static final RegistryObject<Item> ORE_DETECTOR = ITEMS.register("ore_detector",
             () -> new OreDetectorItem(new Item.Properties().stacksTo(1).durability(512)));
