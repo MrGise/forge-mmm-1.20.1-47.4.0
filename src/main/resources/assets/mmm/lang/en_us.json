@@ -40,6 +40,8 @@
   "item.mmm.actinolite_sword": "Actinolite Sword",
   "item.mmm.actinolite_pickaxe": "Actinolite Pickaxe",
 
+  "item.mmm.skysolid_tablet": "Skysolid Tablet",
+
   "trim_material.mmm.skiron": "Skiron Material",
   "trim_pattern.mmm.glide": "Glide Armor Trim",
 
@@ -89,23 +91,27 @@
   "enchantment.mmm.lightning_striker": "Lightning Striker",
 
 
+  "tooltip.mmm.glyphs.title": "When used as a spell:",
+  "tooltip.mmm.glyphs.empty": "No Glyphs",
 
-  "tooltip.mmm.description_block.tooltip.skoal_block": "§7§oA block of Sky Coal. burns for 10x the time of Sky Coal.",
+  "tooltip.mmm.glyphs.name.quick": " The spell would be quickened",
+  "tooltip.mmm.glyphs.name.fire": " A fire type spell will be cast",
 
-  "tooltip.mmm.portal_block.tooltip.common_line_1": "§7Click this block with the correct item to activate it.",
-  "tooltip.mmm.portal_block.tooltip.common_line_2": "§7Click again with an empty hand to take the item back.",
+  "tooltip.mmm.description_block.tooltip.skoal_block": "A block of Sky Coal. burns for 10x the time of Sky Coal.",
 
-  "tooltip.mmm.portal_block.tooltip.eye": "§7This block's eye:",
+  "tooltip.mmm.portal_block.tooltip.common_line_1": "Click this block with the correct item to activate it.",
+  "tooltip.mmm.portal_block.tooltip.common_line_2": "Click again with an empty hand to take the item back.",
+
+  "tooltip.mmm.portal_block.tooltip.eye": "This block's eye:",
 
   "tooltip.mmm.portal_block.tooltip.actinolite": "§2 Actinolite (mmm:actinolite)",
 
-
   "tooltip.mmm.description_item.tooltip.noshift": "§7Press §eShift§r§7 key to view description",
 
-  "tooltip.mmm.description_item.tooltip.mossy_gold_key": "§7§oNeeds a little cleaning, doesn't it?",
-  "tooltip.mmm.description_item.tooltip.gold_key": "§7§oA key. what's it for?",
+  "tooltip.mmm.description_item.tooltip.mossy_gold_key": "Needs a little cleaning, doesn't it?",
+  "tooltip.mmm.description_item.tooltip.gold_key": "A key. what's it for?",
+  "tooltip.mmm.description_item.tooltip.skoal": "The magical coal of the skies... Burns more time than normal coal.",
 
-  "tooltip.mmm.description_item.tooltip.actinolite_sword": "§7§oBasically 1.8 PVP, but with poison!",
+  "tooltip.mmm.description_item.tooltip.actinolite_sword": "§7§oBasically 1.8 PVP, but with poison!"
 
-  "tooltip.mmm.description_item.tooltip.skoal": "§7§oThe magical coal of the skies... Burns more time than normal coal."
 }

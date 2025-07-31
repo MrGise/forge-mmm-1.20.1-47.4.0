@@ -14,6 +14,8 @@ public class ModTags {
 
         public static final TagKey<Item> SKIRON_NUGGETS = tag("skiron_nuggets");
 
+        public static final TagKey<Item> TABLETS = tag("tablets");
+
         public static final TagKey<Item> SUGGESTED = tag("suggested");
 
         private static TagKey<Item> tag(String name) {

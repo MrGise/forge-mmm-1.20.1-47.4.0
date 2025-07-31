@@ -1,6 +1,10 @@
 package net.MrGise.mmm.item.custom;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.StringTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -23,30 +27,26 @@ public class TabletItem extends Item {
     }
 
     @Override
-    public InteractionResultHolder<ItemStack> use(Level pLevel, Player pPlayer, InteractionHand pUsedHand) {
-
-        ItemStack stack = pPlayer.getItemInHand(pUsedHand);
-        CompoundTag tag = new CompoundTag();
-        if (!stack.hasTag()) {
-            if (pUsedHand == InteractionHand.MAIN_HAND) {
-                tag.putString("glyphs", "quick");
-
-                stack.setTag(tag);
-            }
-            if (pUsedHand == InteractionHand.OFF_HAND) {
-                tag.putString("glyphs", "fire");
-
-                stack.setTag(tag);
-            }
-
-        }
-
-        return super.use(pLevel, pPlayer, pUsedHand);
-    }
-
-    @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
+
+        pTooltipComponents.add(Component.literal(" "));
+        CompoundTag tag = pStack.getTag();
+        if (tag != null && tag.contains("glyphs", Tag.TAG_LIST)) {
+            ListTag glyphs = tag.getList("glyphs", Tag.TAG_STRING);
+
+            if (!glyphs.isEmpty()) {
+                pTooltipComponents.add(Component.translatable("tooltip.mmm.glyphs.title").withStyle(ChatFormatting.GRAY));
+                for (int i = 0; i < glyphs.size(); i++) {
+                    pTooltipComponents.add(Component.translatable("tooltip.mmm.glyphs.name." + glyphs.getString(i)).withStyle(ChatFormatting.AQUA));
+                }
+            } else {
+                pTooltipComponents.add(Component.translatable("tooltip.mmm.glyphs.empty").withStyle(ChatFormatting.GRAY));
+            }
+        } else {
+            pTooltipComponents.add(Component.translatable("tooltip.mmm.glyphs.empty").withStyle(ChatFormatting.GRAY));
+        }
+
     }
 
     public int getMaxGlyphs() {

@@ -1,6 +1,7 @@
 package net.MrGise.mmm.item.custom.description;
 
 import net.MrGise.mmm.item.custom.PoisonSwordItem;
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
@@ -29,7 +30,7 @@ public class DescriptionPoisonSwordItem extends PoisonSwordItem {
         if((!Screen.hasShiftDown() && ShiftToView) == true) {
             pTooltipComponents.add(Component.translatable("tooltip.mmm.description_item.tooltip.noshift"));
         } else {
-            pTooltipComponents.add(Component.translatable("tooltip.mmm.description_item.tooltip." + DescriptionTranslatable));
+            pTooltipComponents.add(Component.translatable("tooltip.mmm.description_item.tooltip." + DescriptionTranslatable).withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
 
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);

@@ -1,5 +1,6 @@
 package net.MrGise.mmm.item.custom.description;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
@@ -28,7 +29,7 @@ public class DescriptionBlockItem extends BlockItem {
         if((!Screen.hasShiftDown() && ShiftToView) == true) {
             pTooltipComponents.add(Component.translatable("tooltip.mmm.description_item.tooltip.noshift"));
         } else {
-            pTooltipComponents.add(Component.translatable("tooltip.mmm.description_block.tooltip." + DescriptionTranslatable));
+            pTooltipComponents.add(Component.translatable("tooltip.mmm.description_block.tooltip." + DescriptionTranslatable).withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));
         }
 
 

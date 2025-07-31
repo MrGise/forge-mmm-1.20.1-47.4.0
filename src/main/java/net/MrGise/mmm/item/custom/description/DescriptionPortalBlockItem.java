@@ -1,5 +1,6 @@
 package net.MrGise.mmm.item.custom.description;
 
+import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;
@@ -34,11 +35,11 @@ public class DescriptionPortalBlockItem extends BlockItem {
             pTooltipComponents.add(Component.translatable("tooltip.mmm.description_item.tooltip.noshift"));
         } else {
             pTooltipComponents.add(Component.literal(" "));
-            pTooltipComponents.add(Component.translatable("tooltip.mmm.portal_block.tooltip.common_line_1"));
-            pTooltipComponents.add(Component.translatable("tooltip.mmm.portal_block.tooltip.common_line_2"));
+            pTooltipComponents.add(Component.translatable("tooltip.mmm.portal_block.tooltip.common_line_1").withStyle(ChatFormatting.GRAY));
+            pTooltipComponents.add(Component.translatable("tooltip.mmm.portal_block.tooltip.common_line_2").withStyle(ChatFormatting.GRAY));
         }
         pTooltipComponents.add(Component.literal(" "));
-        pTooltipComponents.add(Component.translatable("tooltip.mmm.portal_block.tooltip.eye"));
+        pTooltipComponents.add(Component.translatable("tooltip.mmm.portal_block.tooltip.eye").withStyle(ChatFormatting.GRAY));
         pTooltipComponents.add(Component.translatable("tooltip.mmm.portal_block.tooltip." + EyeName));
 
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
