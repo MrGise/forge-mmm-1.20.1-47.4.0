@@ -40,7 +40,7 @@ public class DescriptionPortalBlockItem extends BlockItem {
         }
         pTooltipComponents.add(Component.literal(" "));
         pTooltipComponents.add(Component.translatable("tooltip.mmm.portal_block.tooltip.eye").withStyle(ChatFormatting.GRAY));
-        pTooltipComponents.add(Component.translatable("tooltip.mmm.portal_block.tooltip." + EyeName));
+        pTooltipComponents.add(Component.translatable("tooltip.mmm.portal_block.tooltip." + EyeName).withStyle(ChatFormatting.GREEN));
 
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
     }

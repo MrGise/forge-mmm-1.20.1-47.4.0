@@ -30,12 +30,12 @@ public class TabletItem extends Item {
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
         super.appendHoverText(pStack, pLevel, pTooltipComponents, pIsAdvanced);
 
-        pTooltipComponents.add(Component.literal(" "));
         CompoundTag tag = pStack.getTag();
         if (tag != null && tag.contains("glyphs", Tag.TAG_LIST)) {
             ListTag glyphs = tag.getList("glyphs", Tag.TAG_STRING);
 
             if (!glyphs.isEmpty()) {
+                pTooltipComponents.add(Component.literal(" "));
                 pTooltipComponents.add(Component.translatable("tooltip.mmm.glyphs.title").withStyle(ChatFormatting.GRAY));
                 for (int i = 0; i < glyphs.size(); i++) {
                     pTooltipComponents.add(Component.translatable("tooltip.mmm.glyphs.name." + glyphs.getString(i)).withStyle(ChatFormatting.AQUA));

@@ -104,13 +104,15 @@
 
   "tooltip.mmm.portal_block.tooltip.eye": "This block's eye:",
 
-  "tooltip.mmm.portal_block.tooltip.actinolite": "§2 Actinolite (mmm:actinolite)",
+  "tooltip.mmm.portal_block.tooltip.actinolite": " Actinolite (mmm:actinolite)",
 
   "tooltip.mmm.description_item.tooltip.noshift": "§7Press §eShift§r§7 key to view description",
 
   "tooltip.mmm.description_item.tooltip.mossy_gold_key": "Needs a little cleaning, doesn't it?",
   "tooltip.mmm.description_item.tooltip.gold_key": "A key. what's it for?",
   "tooltip.mmm.description_item.tooltip.skoal": "The magical coal of the skies... Burns more time than normal coal.",
+
+  "tooltip.mmm.description_item.tooltip.actinolite": "An overexaggerated representation of the real thing, but who cares!",
 
   "tooltip.mmm.description_item.tooltip.actinolite_sword": "§7§oBasically 1.8 PVP, but with poison!"
 

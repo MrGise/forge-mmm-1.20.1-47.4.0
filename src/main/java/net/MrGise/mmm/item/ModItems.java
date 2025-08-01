@@ -5,6 +5,7 @@ import net.MrGise.mmm.item.custom.*;
 import net.MrGise.mmm.item.custom.description.DescriptionFuelItem;
 import net.MrGise.mmm.item.custom.description.DescriptionItem;
 import net.MrGise.mmm.item.custom.description.DescriptionPoisonSwordItem;
+import net.MrGise.mmm.item.custom.description.HiddenShiftDescriptionItem;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -46,7 +47,7 @@ public class ModItems {
 
     // Actinolite
     public static final RegistryObject<Item> ACTINOLITE = ITEMS.register("actinolite",
-            () -> new Item(new Item.Properties()));
+            () -> new HiddenShiftDescriptionItem(new Item.Properties(), "actinolite"));
 
     public static final RegistryObject<Item> ACTIONLITE_SWORD = ITEMS.register("actinolite_sword",
             () -> new DescriptionPoisonSwordItem(ModToolTiers.ACTINOLITE, 3, 3, new Item.Properties().durability(ModToolTiers.ACTINOLITE.getUses()), "actinolite_sword", false));
