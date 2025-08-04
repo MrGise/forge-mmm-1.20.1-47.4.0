@@ -60,6 +60,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         mimicDisguise("chest", pWriter, RecipeCategory.MISC, ModItems.MIMIC.get(), Blocks.CHEST.asItem(), "mimic_chest");
 
+        mimicDisguise("carrot", pWriter, RecipeCategory.MISC, ModItems.MIMIC.get(), Items.CARROT, "mimic_carrot");
+
         // Trims
         trimSmithing(pWriter, ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get(), new ResourceLocation(MMM.MOD_ID, "glide_armor_trim"));
 

@@ -1,4 +1,4 @@
-// 1.20.1	2025-08-03T20:00:39.0389588	Recipes
+// 1.20.1	2025-08-04T16:15:08.3775613	Recipes
 da9072fadb602091b226cc2091a712e9c7a97ccc data/mmm/advancements/recipes/combat/actinolite_pickaxe.json
 4e97fe588d9f0b0691e428875c5b9126e3cd692e data/mmm/advancements/recipes/combat/actinolite_sword.json
 57b588233ff356c49399f65727a678b66fc99646 data/mmm/advancements/recipes/combat/skiron_axe_left.json
@@ -40,6 +40,7 @@ f0b2f05ad8a15ee65fc94dac1b63186f3dbb7716 data/mmm/recipes/actinolite_pickaxe.jso
 83094a0bf54c2e0f7c61de9d38af8b79f8249821 data/mmm/recipes/actinolite_sword.json
 70f8a716b0b42b9fdaf7e70a511bfa12d74cef57 data/mmm/recipes/fire_glyph_recipe.json
 d4e2b706accce69ce192461a63b5f38096049f0f data/mmm/recipes/glide_armor_trim.json
+b38f34d694d8383bc4e331556be266a482d484b5 data/mmm/recipes/mimic_carrot.json
 4776648cca45994abc9938b2361258b1b6bfc246 data/mmm/recipes/mimic_chest.json
 d384e5aa06ffebb2f2024dfc8e5ecf211905db7b data/mmm/recipes/raw_skiron.json
 e8717403f401183d9c4a73bbc02315684af3f890 data/mmm/recipes/raw_skiron_block.json
