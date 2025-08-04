@@ -15,6 +15,7 @@ public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MMM.MOD_ID);
 
+    //. The Skyland
     public static final RegistryObject<CreativeModeTab> THE_SKYLAND = CREATIVE_MODE_TABS.register("the_skyland",
             () -> CreativeModeTab.builder().withTabsAfter(ModCreativeModeTabs.MISCELLANEOUS_MMM.getId()).icon(() -> new ItemStack(ModBlocks.SKIRON_ORE.get()))
                     .title(Component.translatable("creativetab.the_skyland")).displayItems((displayParameters, output) -> {
@@ -71,6 +72,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
                     }).build());
 
+    //. Ruin Items
     public static final RegistryObject<CreativeModeTab> RUIN_ITEMS = CREATIVE_MODE_TABS.register("ruin_items",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.MOSSY_GOLD_KEY.get()))
                     .title(Component.translatable("creativetab.ruin_items")).displayItems((displayParameters, output) -> {
@@ -78,8 +80,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.MOSSY_GOLD_KEY.get());
                         output.accept(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
                         output.accept(ModItems.SKYSOLID_TABLET.get());
+                        output.accept(ModItems.MIMIC.get());
                     }).build());
 
+    //. Food
     public static final RegistryObject<CreativeModeTab> MMM_CUISINE = CREATIVE_MODE_TABS.register("mmm_cuisine",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.BREADSTICK.get()))
                     .title(Component.translatable("creativetab.mmm_cuisine")).displayItems((displayParameters, output) -> {
@@ -88,6 +92,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.STRAWBERRY.get());
                     }).build());
 
+    //. Misc
     public static final RegistryObject<CreativeModeTab> MISCELLANEOUS_MMM = CREATIVE_MODE_TABS.register("miscellaneous_mmm",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ORE_DETECTOR.get()))
                     .title(Component.translatable("creativetab.miscellaneous_mmm")).displayItems((displayParameters, output) -> {

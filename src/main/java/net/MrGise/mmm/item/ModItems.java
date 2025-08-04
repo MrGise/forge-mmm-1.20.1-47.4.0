@@ -17,7 +17,7 @@ public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
         DeferredRegister.create(ForgeRegistries.ITEMS, MMM.MOD_ID);
 
-    // Items
+    //. Items
     public static final RegistryObject<Item> GOLD_KEY = ITEMS.register("gold_key",
             () -> new DescriptionItem(new Item.Properties().stacksTo(1), "gold_key", false));
 
@@ -29,6 +29,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> SKYSOLID_TABLET = ITEMS.register("skysolid_tablet",
             () -> new TabletItem(new Item.Properties(), 4));
+
+    public static final RegistryObject<Item> MIMIC = ITEMS.register("mimic",
+            () -> new MimicItem(new Item.Properties().stacksTo(1)));
 
 
     public static final RegistryObject<Item> ORE_DETECTOR = ITEMS.register("ore_detector",
@@ -45,7 +48,7 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(ModFoodProperties.STRAWBERRY)));
 
 
-    // Actinolite
+    // -Actinolite
     public static final RegistryObject<Item> ACTINOLITE = ITEMS.register("actinolite",
             () -> new HiddenShiftDescriptionItem(new Item.Properties(), "actinolite"));
 
@@ -60,7 +63,7 @@ public class ModItems {
             () -> new DescriptionFuelItem(new Item.Properties(), 1800, "skoal", true));
 
 
-    // skiron
+    // -Skiron
     public static final RegistryObject<Item> SKIRON = ITEMS.register("skiron",
             () -> new Item(new Item.Properties()));
 
@@ -69,7 +72,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> SKIRON_NUGGET = ITEMS.register("skiron_nugget",
             () -> new Item(new Item.Properties()));
-    /* Tools */
+
+    /*. Tools */
     public static final RegistryObject<Item> SKIRON_SWORD = ITEMS.register("skiron_sword",
             () -> new SwordItem(ModToolTiers.SKIRON, 2, -3, new Item.Properties().durability(ModToolTiers.SKIRON.getUses())));
 
@@ -90,7 +94,8 @@ public class ModItems {
 
     public static final RegistryObject<Item> SKIRON_HAMMER = ITEMS.register("skiron_hammer",
             () -> new HammerItem(ModToolTiers.SKIRON, 1, 5, -3.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() - 50)));
-    /* Armor */
+
+    /*. Armor */
     public static final RegistryObject<Item> SKIRON_HELMET = ITEMS.register("skiron_helmet",
             () -> new EffectArmorItem(ModArmorMaterials.SKIRON, ArmorItem.Type.HELMET, new Item.Properties()));
 
@@ -102,7 +107,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> SKIRON_BOOTS = ITEMS.register("skiron_boots",
             () -> new EffectArmorItem(ModArmorMaterials.SKIRON, ArmorItem.Type.BOOTS, new Item.Properties()));
-    // Horse Armor
+    //- Horse Armor
     public static final RegistryObject<Item> SKIRON_HORSE_ARMOR = ITEMS.register("skiron_horse_armor",
             () -> new HorseArmorItem(6, new ResourceLocation(MMM.MOD_ID, "textures/entity/horse/armor/horse_armor_skiron.png"), new Item.Properties()));
 

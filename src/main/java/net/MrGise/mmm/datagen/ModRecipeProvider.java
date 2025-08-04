@@ -3,6 +3,7 @@ package net.MrGise.mmm.datagen;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.ModBlocks;
 import net.MrGise.mmm.datagen.recipe.NBTShapelessRecipeBuilder;
+import net.MrGise.mmm.datagen.recipe.NBTSingularShapelessRecipeBuilder;
 import net.MrGise.mmm.item.ModItems;
 import net.MrGise.mmm.item.custom.TabletItem;
 import net.minecraft.data.PackOutput;
@@ -18,6 +19,7 @@ import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.Iterator;
@@ -55,6 +57,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.SKIRON_ACTINOLITE_HELMET.get(), ModItems.SKIRON_ACTINOLITE_CHESTPLATE.get(), ModItems.SKIRON_ACTINOLITE_LEGGINGS.get(), ModItems.SKIRON_ACTINOLITE_BOOTS.get(), "sky_ores");
 
         glyphRecipe("fire", pWriter, RecipeCategory.MISC, ModItems.SKYSOLID_TABLET.get(), (TabletItem) ModItems.SKYSOLID_TABLET.get(), Items.BLAZE_POWDER, "fire_glyph_recipe");
+
+        mimicDisguise("chest", pWriter, RecipeCategory.MISC, ModItems.MIMIC.get(), Blocks.CHEST.asItem(), "mimic_chest");
 
         // Trims
         trimSmithing(pWriter, ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get(), new ResourceLocation(MMM.MOD_ID, "glide_armor_trim"));
@@ -101,6 +105,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(Ingredient.of(tabletItem))
                 .requires(Ingredient.of(ingredient))
                 .save(pFinishedRecipeConsumer, new ResourceLocation(MMM.MOD_ID, pName));
+    }
+
+    protected static void mimicDisguise(String pForm, Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pMimic, ItemLike pToForm, String pName) {
+        ItemStack output = new ItemStack(pMimic);
+
+        CompoundTag nbt = new CompoundTag();
+        nbt.putString("form", pForm);
+        output.setTag(nbt);
+
+        NBTSingularShapelessRecipeBuilder.shapeless(pCategory, output)
+                .requires(pMimic)
+                .requires(pToForm)
+                .save(pFinishedRecipeConsumer, new ResourceLocation(MMM.MOD_ID, pName));
+
     }
 
     protected static void nineItemIngotRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pUnpackedCategory, ItemLike pUnpacked, RecipeCategory pPackedCategory, ItemLike pPacked, String pPackedName, @javax.annotation.Nullable String pPackedGroup, String pUnpackedName, @javax.annotation.Nullable String pUnpackedGroup) {

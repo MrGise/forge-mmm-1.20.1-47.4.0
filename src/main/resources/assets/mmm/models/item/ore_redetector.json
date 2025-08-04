@@ -1,0 +1,14 @@
+{
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "mmm:item/ore_redetector_off"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "mmm:on": 1
+      },
+      "model": "mmm:item/ore_redetector_on"
+    }
+  ]
+}

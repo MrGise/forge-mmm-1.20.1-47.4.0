@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import net.MrGise.mmm.block.ModBlocks;
 import net.MrGise.mmm.enchantment.ModEnchantments;
 import net.MrGise.mmm.item.ModCreativeModeTabs;
+import net.MrGise.mmm.item.ModIItemProperties;
 import net.MrGise.mmm.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
@@ -73,7 +74,9 @@ public class MMM
 
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            event.enqueueWork(() -> {
+                ModIItemProperties.addCustomItemProperties();
+            });
         }
     }
 }

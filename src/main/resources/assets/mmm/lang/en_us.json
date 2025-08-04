@@ -42,6 +42,11 @@
 
   "item.mmm.skysolid_tablet": "Skysolid Tablet",
 
+  "item.mmm.mimic": "Mimic",
+  "item.mmm.mimic.fail": "Failed Mimic",
+  "item.mmm.mimic.chest": "Chest",
+
+
   "trim_material.mmm.skiron": "Skiron Material",
   "trim_pattern.mmm.glide": "Glide Armor Trim",
 

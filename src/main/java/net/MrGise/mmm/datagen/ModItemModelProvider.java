@@ -27,7 +27,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SKYSOLID_TABLET);
 
         simpleItem(ModItems.ORE_DETECTOR);
-        simpleItem(ModItems.ORE_REDETECTOR);
 
         simpleItem(ModItems.BREADSTICK);
 

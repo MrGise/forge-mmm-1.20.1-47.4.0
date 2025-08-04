@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "mmm:mimic"
+    },
+    {
+      "item": "minecraft:chest"
+    }
+  ],
+  "result": {
+    "item": "mmm:mimic",
+    "nbt": {
+      "form": "chest"
+    }
+  }
+}
