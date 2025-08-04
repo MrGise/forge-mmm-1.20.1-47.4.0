@@ -107,6 +107,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> SKIRON_BOOTS = ITEMS.register("skiron_boots",
             () -> new EffectArmorItem(ModArmorMaterials.SKIRON, ArmorItem.Type.BOOTS, new Item.Properties()));
+
     //- Horse Armor
     public static final RegistryObject<Item> SKIRON_HORSE_ARMOR = ITEMS.register("skiron_horse_armor",
             () -> new HorseArmorItem(6, new ResourceLocation(MMM.MOD_ID, "textures/entity/horse/armor/horse_armor_skiron.png"), new Item.Properties()));
