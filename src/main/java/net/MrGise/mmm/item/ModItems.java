@@ -48,7 +48,7 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(ModFoodProperties.STRAWBERRY)));
 
 
-    // -Actinolite
+    //--Actinolite
     public static final RegistryObject<Item> ACTINOLITE = ITEMS.register("actinolite",
             () -> new HiddenShiftDescriptionItem(new Item.Properties(), "actinolite"));
 
@@ -63,7 +63,7 @@ public class ModItems {
             () -> new DescriptionFuelItem(new Item.Properties(), 1800, "skoal", true));
 
 
-    // -Skiron
+    //--Skiron
     public static final RegistryObject<Item> SKIRON = ITEMS.register("skiron",
             () -> new Item(new Item.Properties()));
 
