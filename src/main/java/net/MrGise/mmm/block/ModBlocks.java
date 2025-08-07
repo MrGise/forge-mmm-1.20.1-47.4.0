@@ -2,9 +2,11 @@ package net.MrGise.mmm.block;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.custom.BirthdayCakeBlock;
+import net.MrGise.mmm.block.custom.MimicBlock;
 import net.MrGise.mmm.block.custom.PortalBlock;
 import net.MrGise.mmm.block.custom.SoundBlock;
 import net.MrGise.mmm.item.ModItems;
+import net.MrGise.mmm.item.custom.MimicBlockItem;
 import net.MrGise.mmm.item.custom.description.DescriptionBlockItem;
 import net.MrGise.mmm.item.custom.description.DescriptionFuelBlockItem;
 import net.MrGise.mmm.item.custom.FuelBlockItem;
@@ -30,7 +32,11 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, MMM.MOD_ID);
 
-    // Blocks
+    //. Blocks
+
+    public static final RegistryObject<Block> MIMIC_BLOCK = registerBlock("mimic_block",
+            () -> new MimicBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(2.5F)));
+
 
     public static final RegistryObject<Block> SKYSOLID = registerBlock("skysolid",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
@@ -110,6 +116,12 @@ public class ModBlocks {
         return toReturn;
     }
 
+    private static <T extends Block> RegistryObject<T> registerMimicBlock(String name, Supplier<T> block) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerBlockItem(name, toReturn);
+        return toReturn;
+    }
+
     private static <T extends Block> RegistryObject<T> registerBlockWithDescription(String name, Supplier<T> block, String DescriptionTranslatable, boolean ShiftToView) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerDescriptionBlockItem(name, toReturn, DescriptionTranslatable, ShiftToView);
@@ -143,6 +155,10 @@ public class ModBlocks {
     // Block item registration methods
     private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
+    private static <T extends Block>RegistryObject<Item> registerMimicBlockItem(String name, RegistryObject<T> block) {
+        return ModItems.ITEMS.register(name, () -> new MimicBlockItem(block.get(), new Item.Properties()));
     }
 
     private static <T extends Block>RegistryObject<Item> registerDescriptionBlockItem(String name, RegistryObject<T> block, String DescriptionTranslatable, boolean ShiftToView) {

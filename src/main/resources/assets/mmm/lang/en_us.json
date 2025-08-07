@@ -42,9 +42,11 @@
 
   "item.mmm.skysolid_tablet": "Skysolid Tablet",
 
+  "block.mmm.mimic_block": "Mimic",
   "item.mmm.mimic": "Mimic",
   "item.mmm.mimic.fail": "Failed Mimic",
   "item.mmm.mimic.chest": "Chest",
+  "item.mmm.mimic.shulker_box": "Shulker Box",
   "item.mmm.mimic.carrot": "Carrot",
 
 

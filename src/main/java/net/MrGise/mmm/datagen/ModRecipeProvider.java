@@ -58,13 +58,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         glyphRecipe("fire", pWriter, RecipeCategory.MISC, ModItems.SKYSOLID_TABLET.get(), (TabletItem) ModItems.SKYSOLID_TABLET.get(), Items.BLAZE_POWDER, "fire_glyph_recipe");
 
-        mimicDisguise("chest", pWriter, RecipeCategory.MISC, ModItems.MIMIC.get(), Blocks.CHEST.asItem(), "mimic_chest");
+        //Region Mimics
+        mimicDisguise("carrot", pWriter, RecipeCategory.MISC, ModItems.MIMIC.get(), Items.CARROT, ModItems.MIMIC.get(), "mimic_carrot");
 
-        mimicDisguise("carrot", pWriter, RecipeCategory.MISC, ModItems.MIMIC.get(), Items.CARROT, "mimic_carrot");
-
+        mimicDisguise("chest", pWriter, RecipeCategory.MISC, ModBlocks.MIMIC_BLOCK.get(), Blocks.CHEST.asItem(), ModBlocks.MIMIC_BLOCK.get(), "mimic_chest");
+        mimicDisguise("shulker_box", pWriter, RecipeCategory.MISC, ModBlocks.MIMIC_BLOCK.get(), Blocks.SHULKER_BOX.asItem(), ModBlocks.MIMIC_BLOCK.get(), "mimic_shulker_box");
+        //End
         // Trims
         trimSmithing(pWriter, ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get(), new ResourceLocation(MMM.MOD_ID, "glide_armor_trim"));
 
+        copySmithingTemplate(pWriter, ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModBlocks.BROKEN_SKYSOLID.get());
 
         // Nine-to-one ratio
         nineBlockStorageRecipes(pWriter, RecipeCategory.MISC, ModItems.SKOAL.get(), RecipeCategory.MISC, ModBlocks.SKOAL_BLOCK.get(),
@@ -109,8 +112,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .save(pFinishedRecipeConsumer, new ResourceLocation(MMM.MOD_ID, pName));
     }
 
-    protected static void mimicDisguise(String pForm, Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pMimic, ItemLike pToForm, String pName) {
-        ItemStack output = new ItemStack(pMimic);
+    protected static void mimicDisguise(String pForm, Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pMimic, ItemLike pToForm, ItemLike pResultMimic, String pName) {
+        ItemStack output = new ItemStack(pResultMimic);
 
         CompoundTag nbt = new CompoundTag();
         nbt.putString("form", pForm);

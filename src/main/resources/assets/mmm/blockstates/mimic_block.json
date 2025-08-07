@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "form=no_form": {
+      "model": "mmm:block/mimic_block_noform"
+    },
+    "form=shulker_box": {
+      "model": "mmm:block/mimic_shulker_box"
+    }
+  }
+}

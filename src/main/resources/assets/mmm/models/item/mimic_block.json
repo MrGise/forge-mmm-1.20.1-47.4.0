@@ -1,0 +1,7 @@
+{
+  "parent": "mmm:block/mimic_block_noform",
+  "overrides": [
+    {"predicate": {"mmm:form": 0.1}, "model": "mmm:item/mimic_chest"},
+    {"predicate": {"mmm:form": 0.3}, "model": "mmm:item/mimic_shulker_box"}
+  ]
+}

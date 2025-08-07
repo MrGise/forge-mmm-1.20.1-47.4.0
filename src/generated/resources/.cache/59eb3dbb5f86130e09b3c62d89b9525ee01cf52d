@@ -1,8 +1,9 @@
-// 1.20.1	2025-06-29T10:54:15.7065912	Loot Tables
+// 1.20.1	2025-08-05T13:42:14.1152144	Loot Tables
 304bc14bc9e1f04828096388b5b5c3c6b3be2931 data/mmm/loot_tables/blocks/actinolite_ore.json
 4ecea7d1aaa11b4bd1d9ffd2eed07729b6c6889f data/mmm/loot_tables/blocks/birthday_cake.json
 c1fbe35af1992706dc9926314cb16b0d3e978be0 data/mmm/loot_tables/blocks/broken_skysolid.json
 c0726be03be74356e3a8085ecbcded341276f46a data/mmm/loot_tables/blocks/decorative_skysolid.json
+d8a5cc943dc18da1cebe5b7c8f30a635052b9232 data/mmm/loot_tables/blocks/mimic_block.json
 2653d9cada6c29347b580f52109f60c19841d667 data/mmm/loot_tables/blocks/raw_skiron_block.json
 6969fc3dc99bf5a288213703eb091a61ba8eca68 data/mmm/loot_tables/blocks/skiron_block.json
 bc446bc765e24b2c006945ca6e8ac6d46c84b173 data/mmm/loot_tables/blocks/skiron_ore.json

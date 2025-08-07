@@ -1,4 +1,4 @@
-// 1.20.1	2025-08-04T16:15:08.3775613	Recipes
+// 1.20.1	2025-08-05T13:42:14.1162248	Recipes
 da9072fadb602091b226cc2091a712e9c7a97ccc data/mmm/advancements/recipes/combat/actinolite_pickaxe.json
 4e97fe588d9f0b0691e428875c5b9126e3cd692e data/mmm/advancements/recipes/combat/actinolite_sword.json
 57b588233ff356c49399f65727a678b66fc99646 data/mmm/advancements/recipes/combat/skiron_axe_left.json
@@ -10,6 +10,7 @@ a9ee22cc5d49d95685f1e0b6368e7f2593f75740 data/mmm/advancements/recipes/combat/sk
 baf39deb9ee9a90fedf1aa5f3f85c3702a92e93b data/mmm/advancements/recipes/combat/skiron_shovel.json
 fad59674e32b6ec8fbf6de85b9fce1d2d7e798c3 data/mmm/advancements/recipes/combat/skiron_sword.json
 96be080c43e987120ba572e344642ac87b826518 data/mmm/advancements/recipes/misc/glide_armor_trim.json
+e76703c6a481e624a22fc69f05e849a00f1404a5 data/mmm/advancements/recipes/misc/glide_armor_trim_smithing_template.json
 60c26344217b69fbab4c0fbc8976fc910072c1db data/mmm/advancements/recipes/misc/raw_skiron.json
 4fac90653f81c92e0357d3650c47a2ce24a44ece data/mmm/advancements/recipes/misc/raw_skiron_block.json
 8ede6d981d45c2c9a5986b2764b125ee5a0cf58f data/mmm/advancements/recipes/misc/skiron.json
@@ -40,8 +41,10 @@ f0b2f05ad8a15ee65fc94dac1b63186f3dbb7716 data/mmm/recipes/actinolite_pickaxe.jso
 83094a0bf54c2e0f7c61de9d38af8b79f8249821 data/mmm/recipes/actinolite_sword.json
 70f8a716b0b42b9fdaf7e70a511bfa12d74cef57 data/mmm/recipes/fire_glyph_recipe.json
 d4e2b706accce69ce192461a63b5f38096049f0f data/mmm/recipes/glide_armor_trim.json
+70c2d1add873e734c1cdfe40c70e57eea01c40d1 data/mmm/recipes/glide_armor_trim_smithing_template.json
 b38f34d694d8383bc4e331556be266a482d484b5 data/mmm/recipes/mimic_carrot.json
-4776648cca45994abc9938b2361258b1b6bfc246 data/mmm/recipes/mimic_chest.json
+47de967e51911f55eb29f12d13b8253970d32c90 data/mmm/recipes/mimic_chest.json
+59841ffd10b863be1182e176722c2d0fafd05b88 data/mmm/recipes/mimic_shulker_box.json
 d384e5aa06ffebb2f2024dfc8e5ecf211905db7b data/mmm/recipes/raw_skiron.json
 e8717403f401183d9c4a73bbc02315684af3f890 data/mmm/recipes/raw_skiron_block.json
 2326cfae97c90e0df97f162345bb3a93fbafd3b2 data/mmm/recipes/skiron.json

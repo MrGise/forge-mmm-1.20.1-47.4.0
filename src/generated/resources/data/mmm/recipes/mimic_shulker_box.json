@@ -5,13 +5,13 @@
       "item": "mmm:mimic_block"
     },
     {
-      "item": "minecraft:chest"
+      "item": "minecraft:shulker_box"
     }
   ],
   "result": {
     "item": "mmm:mimic_block",
     "nbt": {
-      "form": "chest"
+      "form": "shulker_box"
     }
   }
 }
