@@ -42,16 +42,19 @@
 
   "item.mmm.skysolid_tablet": "Skysolid Tablet",
 
-  "block.mmm.mimic_block": "Mimic",
+  "block.mmm.mimic_block": "Mimic (Block)",
+  "block.mmm.mimic_block.chest": "Chest",
+  "block.mmm.mimic_block.shulker_box": "Shulker Box",
   "item.mmm.mimic": "Mimic",
   "item.mmm.mimic.fail": "Failed Mimic",
-  "item.mmm.mimic.chest": "Chest",
-  "item.mmm.mimic.shulker_box": "Shulker Box",
   "item.mmm.mimic.carrot": "Carrot",
 
 
   "trim_material.mmm.skiron": "Skiron Material",
   "trim_pattern.mmm.glide": "Glide Armor Trim",
+
+
+  "block.mmm.test_block": "Test Block",
 
 
   "block.mmm.skysolid": "Skysolid",
@@ -92,6 +95,7 @@
 
   "creativetab.the_skyland": "The Skyland",
   "creativetab.ruin_items": "Ruin Items",
+  "creativetab.test_tab": "Test Tab",
   "creativetab.miscellaneous_mmm": "MMM's Miscellaneous Items",
   "creativetab.mmm_cuisine": "MMM's Food Items",
 

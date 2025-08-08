@@ -34,7 +34,7 @@ public class ModBlocks {
 
     //. Blocks
 
-    public static final RegistryObject<Block> MIMIC_BLOCK = registerBlock("mimic_block",
+    public static final RegistryObject<Block> MIMIC_BLOCK = registerMimicBlock("mimic_block",
             () -> new MimicBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(2.5F)));
 
 
@@ -109,7 +109,13 @@ public class ModBlocks {
     public static final RegistryObject<Block> SKYWOOD_TRAPDOOR = registerBlock("skywood_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR).mapColor(MapColor.GLOW_LICHEN), BlockSetType.OAK));
 
-    // Block registration methods
+    //-- Test blocks
+
+    public static final RegistryObject<Block> TEST_BLOCK = registerBlock("test_block",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(3.5f).sound(SoundType.METAL)));
+
+
+    //. Block registration methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
@@ -118,7 +124,7 @@ public class ModBlocks {
 
     private static <T extends Block> RegistryObject<T> registerMimicBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn);
+        registerMimicBlockItem(name, toReturn);
         return toReturn;
     }
 
@@ -158,7 +164,7 @@ public class ModBlocks {
     }
 
     private static <T extends Block>RegistryObject<Item> registerMimicBlockItem(String name, RegistryObject<T> block) {
-        return ModItems.ITEMS.register(name, () -> new MimicBlockItem(block.get(), new Item.Properties()));
+        return ModItems.ITEMS.register(name, () -> new MimicBlockItem(block.get(), new Item.Properties().stacksTo(1)));
     }
 
     private static <T extends Block>RegistryObject<Item> registerDescriptionBlockItem(String name, RegistryObject<T> block, String DescriptionTranslatable, boolean ShiftToView) {

@@ -1,12 +1,12 @@
 {
 	"format_version": "1.21.6",
-	"credit": "Made with Blockbench",
+	"ambientocclusion": false,
 	"texture_size": [48, 48],
 	"textures": {
 		"0": "mmm:item/models/mimic/mimic_noform_teeth",
 		"1": "mmm:item/models/mimic/mimic_noform_eyes",
 		"2": "mmm:item/models/mimic/mimic_noform_body",
-		"particle": "mmm:item/models/mimic/mimic_noform_teeth"
+		"particle": "mmm:item/models/mimic/mimic_noform_body"
 	},
 	"elements": [
 		{

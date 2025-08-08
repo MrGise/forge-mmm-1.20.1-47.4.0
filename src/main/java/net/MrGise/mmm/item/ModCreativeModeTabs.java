@@ -81,6 +81,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
                         output.accept(ModItems.SKYSOLID_TABLET.get());
                         output.accept(ModItems.MIMIC.get());
+                        output.accept(ModBlocks.MIMIC_BLOCK.get());
                     }).build());
 
     //. Food
@@ -90,6 +91,13 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BREADSTICK.get());
 
                         output.accept(ModItems.STRAWBERRY.get());
+                    }).build());
+
+    //. Test Tab
+    public static final RegistryObject<CreativeModeTab> TEST_TAB = CREATIVE_MODE_TABS.register("test_tab",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.TEST_BLOCK.get()))
+                    .title(Component.translatable("creativetab.test_tab")).displayItems((displayParameters, output) -> {
+                        output.accept(ModBlocks.TEST_BLOCK.get());
                     }).build());
 
     //. Misc
@@ -105,6 +113,7 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModBlocks.PORTAL_BLOCK.get());
                     }).build());
+
 
 
     public static void register(IEventBus eventBus) {

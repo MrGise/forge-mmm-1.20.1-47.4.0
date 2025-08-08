@@ -2,7 +2,7 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "item": "mmm:mimic_block"
+      "item": "mmm:mimic"
     },
     {
       "item": "minecraft:chest"

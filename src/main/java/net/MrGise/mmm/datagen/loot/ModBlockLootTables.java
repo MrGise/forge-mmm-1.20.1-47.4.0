@@ -32,7 +32,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     @Override
     protected void generate() {
-        //Loot Tables here
+        //--Loot Tables here
+        this.dropSelf(ModBlocks.TEST_BLOCK.get());
+
+
         this.dropSelf(ModBlocks.SKOAL_BLOCK.get());
         this.dropSelf(ModBlocks.SKIRON_ORE.get());
         this.dropSelf(ModBlocks.SKIRON_BLOCK.get());

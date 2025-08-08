@@ -3,6 +3,8 @@ package net.MrGise.mmm.block.custom;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.StringRepresentable;
 import net.minecraft.world.InteractionHand;
@@ -90,7 +92,32 @@ public class MimicBlock extends HorizontalDirectionalBlock {
 
     @Override
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return super.getShape(pState, pLevel, pPos, pContext);
+        return switch (pState.getValue(FORM)){
+            case NO_FORM -> Block.box(1, 0, 1, 15, 12, 15);
+            case CHEST -> Block.box(1, 0, 1, 15, 14, 15);
+            default -> Block.box(0,0,0,16,16,16);
+        };
+    }
+
+    @Override
+    public float getShadeBrightness(BlockState state, BlockGetter world, BlockPos pos) {
+        return switch (state.getValue(FORM)) {
+            case NO_FORM, CHEST -> 1.0f;
+            default -> 0.2f;
+        };
+    }
+
+    @Override
+    public boolean propagatesSkylightDown(BlockState state, BlockGetter world, BlockPos pos) {
+        return switch (state.getValue(FORM)) {
+            case NO_FORM, CHEST -> true;
+            default -> false;
+        };
+    }
+
+    @Override
+    public VoxelShape getOcclusionShape(BlockState state, BlockGetter world, BlockPos pos) {
+        return getShape(state, world, pos, CollisionContext.empty());
     }
 
 }

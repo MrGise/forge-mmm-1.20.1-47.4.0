@@ -22,6 +22,12 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     @Override
     protected void registerStatesAndModels() {
+        //. Test blocks
+
+        blockWithItem(ModBlocks.TEST_BLOCK);
+
+
+        //-- Block with item
 
         blockWithItem(ModBlocks.SOUND_BLOCK);
 
@@ -36,6 +42,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.SKIRON_BLOCK);
         blockWithItem(ModBlocks.RAW_SKIRON_BLOCK);
         blockWithItem(ModBlocks.SKOAL_BLOCK);
+
+        //-- Other blocks
 
         stairsBlockWithItem(ModBlocks.SKYWOOD_STAIRS, (StairBlock) ModBlocks.SKYWOOD_STAIRS.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
         slabBlockWithItem(ModBlocks.SKYWOOD_SLAB, ((SlabBlock) ModBlocks.SKYWOOD_SLAB.get()), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));

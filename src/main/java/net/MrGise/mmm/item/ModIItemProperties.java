@@ -43,6 +43,7 @@ public class ModIItemProperties {
 
                             return switch (form) {
                                 case "chest" -> 0.1f;
+                                case "shulker_box" -> 0.3f;
                                 default -> 0.0f;
                             };
                         }

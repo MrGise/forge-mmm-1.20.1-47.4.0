@@ -1,4 +1,4 @@
-// 1.20.1	2025-07-18T17:59:56.8514888	Block States: mmm
+// 1.20.1	2025-08-08T11:43:16.1790968	Block States: mmm
 1fd9342f3c0d5ebccf217996515f997f48dbba36 assets/mmm/blockstates/actinolite_ore.json
 2d8c926880342bd85761f05ebc2507d4f69812e8 assets/mmm/blockstates/broken_skysolid.json
 f66fd61a43ac5698fab45efd65f3214c3a3cbe48 assets/mmm/blockstates/decorative_skysolid.json
@@ -20,6 +20,7 @@ e814911069e6b083eb5b52f40dfeec5fe0264e03 assets/mmm/blockstates/skywood_planks.j
 871dca9330018b8f3a0fda764165176bfa35ef74 assets/mmm/blockstates/skywood_stairs.json
 c7db315f3c6c4067a1e5fbb0b128e3b26144b5d3 assets/mmm/blockstates/skywood_trapdoor.json
 47a57e9e36b9b4c54a24c7c8c8b9f0d5953fbe68 assets/mmm/blockstates/sound_block.json
+88b60eb372fcbfac64e3dbd20f0928464f0b6e48 assets/mmm/blockstates/test_block.json
 33c12059088bd46893d53d62fde613f490c7f97d assets/mmm/models/block/actinolite_ore.json
 95cbb8d9d72fe1ccbc1387605425fe3b2ac6bd7b assets/mmm/models/block/broken_skysolid.json
 48b8f19edb73415a2344f04f34857661caabda46 assets/mmm/models/block/decorative_skysolid.json
@@ -62,6 +63,7 @@ f3068d1fe198a2340b2ce652346351b76479fe1d assets/mmm/models/block/skywood_stairs.
 e9f811c2612f337d0b366d36959f6d311fd3d205 assets/mmm/models/block/skywood_trapdoor_open.json
 d39459403ee26b376e1588f2bf0489f3ce52b36e assets/mmm/models/block/skywood_trapdoor_top.json
 5e352cb2e79b9dbf5438dcd05e5a62115d2f7c78 assets/mmm/models/block/sound_block.json
+ab74a36bba4c26f1abf580bae7cd9b47926e867f assets/mmm/models/block/test_block.json
 58bf63219892d6927fde5051821f8022834152fc assets/mmm/models/item/actinolite_ore.json
 41b0d40964828016863b1a4902f965f3c0ca4ae5 assets/mmm/models/item/broken_skysolid.json
 a6934004112c14796aa4f3b9068ff10510c0e016 assets/mmm/models/item/decorative_skysolid.json
@@ -79,3 +81,4 @@ c3885f7fc9ad49fe9de49ee805d6bf53fa756a9e assets/mmm/models/item/skywood_pressure
 07298a8bf782de7880a4ea74070f27995baae87d assets/mmm/models/item/skywood_stairs.json
 3f505c7cfe929db3b843caa547eb9e644a6e6a26 assets/mmm/models/item/skywood_trapdoor.json
 4dd5ba9df241273711f3b208e8487f8e92311bef assets/mmm/models/item/sound_block.json
+a99d9bce532bbfb7636fe8767499d203243578aa assets/mmm/models/item/test_block.json
