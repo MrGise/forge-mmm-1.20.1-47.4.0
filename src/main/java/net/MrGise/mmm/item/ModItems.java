@@ -1,6 +1,7 @@
 package net.MrGise.mmm.item;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.block.ModBlocks;
 import net.MrGise.mmm.item.custom.*;
 import net.MrGise.mmm.item.custom.description.DescriptionFuelItem;
 import net.MrGise.mmm.item.custom.description.DescriptionItem;
@@ -18,6 +19,12 @@ public class ModItems {
         DeferredRegister.create(ForgeRegistries.ITEMS, MMM.MOD_ID);
 
     //. Items
+
+
+    public static final RegistryObject<Item> TEST_ITEM = ITEMS.register("test_item",
+            () -> new Item(new Item.Properties()));
+
+
     public static final RegistryObject<Item> GOLD_KEY = ITEMS.register("gold_key",
             () -> new DescriptionItem(new Item.Properties().stacksTo(1), "gold_key", false));
 
@@ -46,6 +53,15 @@ public class ModItems {
 
     public static final RegistryObject<Item> STRAWBERRY = ITEMS.register("strawberry",
             () -> new Item(new Item.Properties().food(ModFoodProperties.STRAWBERRY)));
+
+    public static final RegistryObject<Item> STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.STRAWBERRY.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds",
+            () -> new ItemNameBlockItem(ModBlocks.CUCUMBER.get(), new Item.Properties()));
+
+    public static final RegistryObject<Item> CUCUMBER = ITEMS.register("cucumber",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.CUCUMBER)));
 
 
     //--Actinolite

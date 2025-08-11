@@ -1,10 +1,7 @@
 package net.MrGise.mmm.block;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.block.custom.BirthdayCakeBlock;
-import net.MrGise.mmm.block.custom.MimicBlock;
-import net.MrGise.mmm.block.custom.PortalBlock;
-import net.MrGise.mmm.block.custom.SoundBlock;
+import net.MrGise.mmm.block.custom.*;
 import net.MrGise.mmm.item.ModItems;
 import net.MrGise.mmm.item.custom.MimicBlockItem;
 import net.MrGise.mmm.item.custom.description.DescriptionBlockItem;
@@ -109,10 +106,20 @@ public class ModBlocks {
     public static final RegistryObject<Block> SKYWOOD_TRAPDOOR = registerBlock("skywood_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR).mapColor(MapColor.GLOW_LICHEN), BlockSetType.OAK));
 
+
+    public static final RegistryObject<Block> STRAWBERRY = BLOCKS.register("strawberry",
+            () -> new StrawberryCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noCollission().noOcclusion()));
+
+    public static final RegistryObject<Block> CUCUMBER = BLOCKS.register("cucumber",
+            () -> new CucumberCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noCollission().noOcclusion()));
+
     //-- Test blocks
 
     public static final RegistryObject<Block> TEST_BLOCK = registerBlock("test_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(3.5f).sound(SoundType.METAL)));
+
+    public static final RegistryObject<Block> ANIMATED_TEST_BLOCK = registerBlock("animated_test_block",
+            () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.TEST_BLOCK.get())));
 
 
     //. Block registration methods

@@ -1,22 +1,26 @@
 package net.MrGise.mmm.datagen.loot;
 
 import net.MrGise.mmm.block.ModBlocks;
+import net.MrGise.mmm.block.custom.AccessibleCropBlock;
+import net.MrGise.mmm.block.custom.CucumberCropBlock;
+import net.MrGise.mmm.block.custom.StrawberryCropBlock;
 import net.MrGise.mmm.item.ModItems;
+import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
-import net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer;
-import net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
+import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
+import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
+import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -34,6 +38,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     protected void generate() {
         //--Loot Tables here
         this.dropSelf(ModBlocks.TEST_BLOCK.get());
+        this.dropSelf(ModBlocks.ANIMATED_TEST_BLOCK.get());
 
 
         this.dropSelf(ModBlocks.SKOAL_BLOCK.get());
@@ -63,7 +68,14 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.SKYWOOD_DOOR.get(),
                 Block -> createDoorTable(ModBlocks.SKYWOOD_DOOR.get()));
 
-        // Ores
+        this.createCustomCropDrops((AccessibleCropBlock) ModBlocks.CUCUMBER.get(), ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get(),
+                true, 0, 0, 0, 0, 0);
+
+        this.createCustomCropDrops((AccessibleCropBlock) ModBlocks.STRAWBERRY.get(), ModItems.STRAWBERRY.get(), ModItems.STRAWBERRY_SEEDS.get(),
+                false, 2, 6, 0, 0, 0);
+
+
+        //- Ores
 
         this.add(ModBlocks.ACTINOLITE_ORE.get(),
                 Block -> createOreDrop(ModBlocks.ACTINOLITE_ORE.get(),ModItems.ACTINOLITE.get()));
@@ -75,6 +87,47 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 block -> createMultipleOreDrop(ModBlocks.SKOAL_ORE.get(), ModItems.SKOAL.get(), 1, 4));
 
     }
+
+    private void createCustomCropDrops(
+            AccessibleCropBlock cropBlock,
+            ItemLike dropItem,
+            ItemLike seedItem,
+            boolean vanillaBehavior, // Toggle between vanilla-like and custom
+            float minCropDrop,
+            float maxCropDrop,
+            float minSeedDrop,
+            float maxSeedDrop,
+            float seedDropChance
+    ) {
+        LootItemCondition.Builder fullyGrownCondition = LootItemBlockStatePropertyCondition
+                .hasBlockStateProperties(cropBlock)
+                .setProperties(StatePropertiesPredicate.Builder.properties()
+                        .hasProperty(cropBlock.getAgeProperty(), cropBlock.getMaxAge())
+                );
+
+        if (vanillaBehavior) {
+            // Vanilla-like: 1 crop, 0–3 seeds (using createCropDrops helper)
+            this.add(cropBlock, createCropDrops(cropBlock, dropItem.asItem(), seedItem.asItem(), fullyGrownCondition));
+        } else {
+            // Fully custom drop counts
+            this.add(cropBlock, LootTable.lootTable()
+                    // Crop drops
+                    .withPool(LootPool.lootPool()
+                            .when(fullyGrownCondition)
+                            .add(LootItem.lootTableItem(dropItem)
+                                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(minCropDrop, maxCropDrop))))
+                    )
+                    // Seed drops
+                    .withPool(LootPool.lootPool()
+                            .when(fullyGrownCondition)
+                            .add(LootItem.lootTableItem(seedItem)
+                                    .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0f, seedDropChance)))
+                                    .apply(SetItemCountFunction.setCount(UniformGenerator.between(minSeedDrop, maxSeedDrop)))
+                    )
+            ));
+        }
+    }
+
 
     protected LootTable.Builder createCustomSingularDrop(Block pBlock, ItemLike pItem) {
         return createSilkTouchDispatchTable(pBlock, this.applyExplosionDecay(pBlock, LootItem.lootTableItem(pItem)

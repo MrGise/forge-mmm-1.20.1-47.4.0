@@ -2,17 +2,23 @@ package net.MrGise.mmm.datagen;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.ModBlocks;
+import net.MrGise.mmm.block.custom.AccessibleCropBlock;
+import net.MrGise.mmm.block.custom.CucumberCropBlock;
 import net.MrGise.mmm.block.custom.PortalBlock;
-import net.minecraft.client.renderer.RenderType;
+import net.MrGise.mmm.block.custom.StrawberryCropBlock;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.Set;
+import java.util.function.Function;
 
 public class ModBlockStateProvider extends BlockStateProvider {
 
@@ -25,6 +31,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         //. Test blocks
 
         blockWithItem(ModBlocks.TEST_BLOCK);
+        blockWithItem(ModBlocks.ANIMATED_TEST_BLOCK);
 
 
         //-- Block with item
@@ -58,7 +65,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         doorBlockWithRenderType((DoorBlock) ModBlocks.SKYWOOD_DOOR.get(), modLoc("block/skywood_door_bottom"), modLoc("block/skywood_door_top"), "cutout");
         trapdoorBlockWithRenderType((TrapDoorBlock) ModBlocks.SKYWOOD_TRAPDOOR.get(), modLoc("block/skywood_trapdoor"), true, "cutout");
 
-        // Block Items
+        makeCustomCrop((CucumberCropBlock)ModBlocks.CUCUMBER.get(), "cucumber_", "cucumber_", new ResourceLocation(MMM.MOD_ID, "cucumber_base"), new ResourceLocation(MMM.MOD_ID, "cucumber_base_tiny"), "0", 5, 6);
+        makeCustomCrop((StrawberryCropBlock)ModBlocks.STRAWBERRY.get(), "strawberry", "strawberry_", new ResourceLocation(MMM.MOD_ID, "crop_cross"), new ResourceLocation(MMM.MOD_ID, "crop_cross"), "0");
+
+        //-- Block Items
 
         blockItem(ModBlocks.SKYWOOD_PRESSURE_PLATE);
         blockItem(ModBlocks.SKYWOOD_FENCE_GATE);
@@ -67,6 +77,50 @@ public class ModBlockStateProvider extends BlockStateProvider {
         portalBlock(ModBlocks.PORTAL_BLOCK, "portal_block");
 
     }
+
+    //Region Crops
+
+    public void makeSimpleCrop(CropBlock block, String modelName, String textureName) {
+        Function<BlockState, ConfiguredModel[]> function = state -> states(state, block, modelName, textureName);
+
+        getVariantBuilder(block).forAllStates(function);
+    }
+
+    private ConfiguredModel[] states(BlockState state, CropBlock block, String modelName, String textureName) {
+        ConfiguredModel[] models = new ConfiguredModel[1];
+        models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((CucumberCropBlock) block).getAgeProperty()),
+                new ResourceLocation(MMM.MOD_ID, "block/" + textureName + state.getValue(((CucumberCropBlock) block).getAgeProperty()))).renderType("cutout"));
+
+        return models;
+    }
+
+    public void makeCustomCrop(AccessibleCropBlock block,
+                               String modelName,
+                               String textureName,
+                               ResourceLocation defaultParent,
+                               ResourceLocation customParent,
+                               String textureLayer,
+                               Integer... specialStages) {
+
+        Set<Integer> stageSet = Set.of(specialStages);
+
+        getVariantBuilder(block).forAllStates(state -> {
+            int age = state.getValue(block.getAgeProperty());
+            boolean isCustomStage = stageSet.contains(age);
+
+            return new ConfiguredModel[]{
+                    new ConfiguredModel(
+                            models().getBuilder(modelName + age)
+                                    .parent(models().getExistingFile(isCustomStage ? customParent : defaultParent))
+                                    .texture(textureLayer, new ResourceLocation(MMM.MOD_ID, "block/" + textureName + age))
+                                    .renderType("cutout")
+                    )
+            };
+        });
+    }
+
+
+    //End
 
     private void portalBlock(RegistryObject<Block> pBlock, String name) {
         getVariantBuilder(pBlock.get()).forAllStates(state -> {

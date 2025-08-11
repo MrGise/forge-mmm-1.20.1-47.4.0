@@ -8,6 +8,10 @@
   "item.mmm.breadstick": "Breadstick",
 
   "item.mmm.strawberry": "Strawberry",
+  "item.mmm.strawberry_seeds": "Strawberry Seeds",
+
+  "item.mmm.cucumber": "Cucumber",
+  "item.mmm.cucumber_seeds": "Cucumber Seeds",
 
 
   "item.mmm.skoal": "Sky Coal",
@@ -54,7 +58,9 @@
   "trim_pattern.mmm.glide": "Glide Armor Trim",
 
 
+  "item.mmm.test_item": "Test Item",
   "block.mmm.test_block": "Test Block",
+  "block.mmm.animated_test_block": "Animated Test Block",
 
 
   "block.mmm.skysolid": "Skysolid",
@@ -94,10 +100,10 @@
 
 
   "creativetab.the_skyland": "The Skyland",
-  "creativetab.ruin_items": "Ruin Items",
+  "creativetab.ruin_items": "Treasures of Ruins",
   "creativetab.test_tab": "Test Tab",
-  "creativetab.miscellaneous_mmm": "MMM's Miscellaneous Items",
-  "creativetab.mmm_cuisine": "MMM's Food Items",
+  "creativetab.miscellaneous_mmm": "The Other MMM Stuff",
+  "creativetab.mmm_cuisine": "Farm's Products",
 
 
   "enchantment.mmm.lightning_striker": "Lightning Striker",

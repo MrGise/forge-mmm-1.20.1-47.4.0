@@ -91,6 +91,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BREADSTICK.get());
 
                         output.accept(ModItems.STRAWBERRY.get());
+
+                        output.accept(ModItems.CUCUMBER.get());
+                        output.accept(ModItems.CUCUMBER_SEEDS.get());
                     }).build());
 
     //. Test Tab
@@ -98,6 +101,8 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.TEST_BLOCK.get()))
                     .title(Component.translatable("creativetab.test_tab")).displayItems((displayParameters, output) -> {
                         output.accept(ModBlocks.TEST_BLOCK.get());
+                        output.accept(ModBlocks.ANIMATED_TEST_BLOCK.get());
+                        output.accept(ModItems.TEST_ITEM.get());
                     }).build());
 
     //. Misc

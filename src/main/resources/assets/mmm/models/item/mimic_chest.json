@@ -1,8 +1,7 @@
 {
 	"format_version": "1.9.0",
-	"credit": "Made with Blockbench",
 	"textures": {
-		"0": "mmm:models/custom/mimic/chest"
+		"0": "mmm:item/models/mimic/chest"
 	},
 	"elements": [
 		{

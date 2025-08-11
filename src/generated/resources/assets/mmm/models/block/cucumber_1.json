@@ -1,0 +1,7 @@
+{
+  "parent": "mmm:block/cucumber_base",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "0": "mmm:block/cucumber_1"
+  }
+}

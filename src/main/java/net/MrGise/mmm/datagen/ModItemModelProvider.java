@@ -22,6 +22,10 @@ public class ModItemModelProvider extends ItemModelProvider {
     @Override
     protected void registerModels() {
         // Item models
+
+        simpleItem(ModItems.TEST_ITEM);
+
+
         simpleItem(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE);
 
         simpleItem(ModItems.SKYSOLID_TABLET);
@@ -31,6 +35,10 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.BREADSTICK);
 
         simpleItem(ModItems.STRAWBERRY);
+        simpleItem(ModItems.STRAWBERRY_SEEDS);
+
+        simpleItem(ModItems.CUCUMBER_SEEDS);
+        simpleItem(ModItems.CUCUMBER);
 
         simpleItem(ModItems.SKOAL);
 
@@ -41,6 +49,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SKIRON_HORSE_ARMOR);
 
         simpleItem(ModItems.ACTINOLITE);
+
 
         /* Tools */
         handheldItem(ModItems.ACTIONLITE_SWORD);

@@ -1,0 +1,31 @@
+{
+  "variants": {
+    "age=0": {
+      "model": "mmm:block/cucumber_0"
+    },
+    "age=1": {
+      "model": "mmm:block/cucumber_1"
+    },
+    "age=2": {
+      "model": "mmm:block/cucumber_2"
+    },
+    "age=3": {
+      "model": "mmm:block/cucumber_3"
+    },
+    "age=4": {
+      "model": "mmm:block/cucumber_4"
+    },
+    "age=5": {
+      "model": "mmm:block/cucumber_5"
+    },
+    "age=6": {
+      "model": "mmm:block/cucumber_6"
+    },
+    "age=7": {
+      "model": "mmm:block/cucumber_7"
+    },
+    "age=8": {
+      "model": "mmm:block/cucumber_8"
+    }
+  }
+}

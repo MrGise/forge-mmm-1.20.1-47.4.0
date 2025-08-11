@@ -39,6 +39,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
         //Recipes here
 
+        exchangeRecipe(pWriter, RecipeCategory.FOOD, ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get());
+        exchangeRecipe(pWriter, RecipeCategory.FOOD, ModItems.STRAWBERRY.get(), ModItems.STRAWBERRY_SEEDS.get());
+
         swordRecipe(pWriter, RecipeCategory.COMBAT, ModItems.ACTINOLITE.get(), null, ModItems.ACTIONLITE_SWORD.get(), "sky_ores");
         pickaxeRecipe(pWriter, RecipeCategory.COMBAT, ModItems.ACTINOLITE.get(), null, ModItems.ACTIONLITE_PICKAXE.get(), "sky_ores");
 
@@ -99,7 +102,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected static void glyphRecipe(String pGlyph, Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pResult, TabletItem tabletItem, ItemLike ingredient, String pName) {
         ItemStack output = new ItemStack(pResult);
 
-        // Add your desired tag to the output NBT
         CompoundTag nbt = new CompoundTag();
         ListTag glyphs = new ListTag();
         glyphs.add(StringTag.valueOf(pGlyph));
@@ -123,7 +125,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .requires(pMimic)
                 .requires(pToForm)
                 .save(pFinishedRecipeConsumer, new ResourceLocation(MMM.MOD_ID, pName));
+    }
 
+    protected static void exchangeRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer, RecipeCategory category, ItemLike ingredient, ItemLike result) {
+        ShapelessRecipeBuilder.shapeless(category, result).requires(ingredient).unlockedBy(getHasName(ingredient), has(ingredient)).save(finishedRecipeConsumer);
     }
 
     protected static void nineItemIngotRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pUnpackedCategory, ItemLike pUnpacked, RecipeCategory pPackedCategory, ItemLike pPacked, String pPackedName, @javax.annotation.Nullable String pPackedGroup, String pUnpackedName, @javax.annotation.Nullable String pUnpackedGroup) {
