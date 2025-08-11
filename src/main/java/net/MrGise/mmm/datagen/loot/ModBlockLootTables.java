@@ -2,8 +2,6 @@ package net.MrGise.mmm.datagen.loot;
 
 import net.MrGise.mmm.block.ModBlocks;
 import net.MrGise.mmm.block.custom.AccessibleCropBlock;
-import net.MrGise.mmm.block.custom.CucumberCropBlock;
-import net.MrGise.mmm.block.custom.StrawberryCropBlock;
 import net.MrGise.mmm.item.ModItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -16,7 +14,6 @@ import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.ApplyBonusCount;
-import net.minecraft.world.level.storage.loot.functions.LootingEnchantFunction;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
@@ -68,11 +65,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.SKYWOOD_DOOR.get(),
                 Block -> createDoorTable(ModBlocks.SKYWOOD_DOOR.get()));
 
-        this.createCustomCropDrops((AccessibleCropBlock) ModBlocks.CUCUMBER.get(), ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get(),
-                true, 0, 0, 0, 0, 0);
+        this.createCustomCropDrops((AccessibleCropBlock) ModBlocks.CUCUMBER.get(), ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get(), 1, 4, 0, 3);
 
-        this.createCustomCropDrops((AccessibleCropBlock) ModBlocks.STRAWBERRY.get(), ModItems.STRAWBERRY.get(), ModItems.STRAWBERRY_SEEDS.get(),
-                false, 2, 6, 0, 0, 0);
+        this.createCustomCropDrops((AccessibleCropBlock) ModBlocks.STRAWBERRY.get(), ModItems.STRAWBERRY.get(), ModItems.STRAWBERRY_SEEDS.get(), 2, 6, 0, 0);
 
 
         //- Ores
@@ -88,17 +83,45 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
     }
 
-    private void createCustomCropDrops(
-            AccessibleCropBlock cropBlock,
-            ItemLike dropItem,
-            ItemLike seedItem,
+    //- Reference:
+    //-
+    //- Vanilla:
+    //- minCropDrop = 1
+    //- maxCropDrop = 1
+    //- minSeedDrop = 0
+    //- maxSeedDrop = 3
+
+    private void createCustomCropDrops(AccessibleCropBlock cropBlock, ItemLike dropItem, ItemLike seedItem,
             boolean vanillaBehavior, // Toggle between vanilla-like and custom
-            float minCropDrop,
-            float maxCropDrop,
-            float minSeedDrop,
-            float maxSeedDrop,
-            float seedDropChance
+            float minCropDrop, float maxCropDrop,
+            float minSeedDrop, float maxSeedDrop
     ) {
+        createCustomCropDrops(cropBlock, dropItem, seedItem, vanillaBehavior, minCropDrop, maxCropDrop, minSeedDrop, maxSeedDrop, 1);
+    }
+
+    private void createCustomCropDrops(AccessibleCropBlock cropBlock, ItemLike dropItem, ItemLike seedItem,
+            float minCropDrop, float maxCropDrop,
+            float minSeedDrop, float maxSeedDrop
+    ) {
+        createCustomCropDrops(cropBlock, dropItem, seedItem, false, minCropDrop, maxCropDrop, minSeedDrop, maxSeedDrop, 1);
+    }
+
+    private void createCustomCropDrops(AccessibleCropBlock cropBlock, ItemLike dropItem, ItemLike seedItem,
+            float minCropDrop, float maxCropDrop,
+            float minSeedDrop, float maxSeedDrop,
+           float seedDropChance
+    ) {
+        createCustomCropDrops(cropBlock, dropItem, seedItem, false, minCropDrop, maxCropDrop, minSeedDrop, maxSeedDrop, seedDropChance);
+    }
+
+    private void createCustomCropDrops(
+            AccessibleCropBlock cropBlock, ItemLike dropItem, ItemLike seedItem,
+            boolean vanillaBehavior, // Toggle between vanilla-like and custom
+            float minCropDrop, float maxCropDrop,
+            float minSeedDrop, float maxSeedDrop,
+            float seedDropChance
+            ) {
+
         LootItemCondition.Builder fullyGrownCondition = LootItemBlockStatePropertyCondition
                 .hasBlockStateProperties(cropBlock)
                 .setProperties(StatePropertiesPredicate.Builder.properties()
@@ -120,11 +143,12 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                     // Seed drops
                     .withPool(LootPool.lootPool()
                             .when(fullyGrownCondition)
+                            .when(LootItemRandomChanceCondition.randomChance(seedDropChance))
                             .add(LootItem.lootTableItem(seedItem)
-                                    .apply(LootingEnchantFunction.lootingMultiplier(UniformGenerator.between(0.0f, seedDropChance)))
                                     .apply(SetItemCountFunction.setCount(UniformGenerator.between(minSeedDrop, maxSeedDrop)))
+                            )
                     )
-            ));
+            );
         }
     }
 

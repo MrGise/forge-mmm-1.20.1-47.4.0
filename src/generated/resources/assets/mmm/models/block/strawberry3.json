@@ -1,0 +1,7 @@
+{
+  "parent": "mmm:block/crop_cross",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "0": "mmm:block/strawberry_3"
+  }
+}

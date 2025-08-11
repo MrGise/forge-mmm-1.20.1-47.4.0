@@ -91,6 +91,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.BREADSTICK.get());
 
                         output.accept(ModItems.STRAWBERRY.get());
+                        output.accept(ModItems.STRAWBERRY_SEEDS.get());
 
                         output.accept(ModItems.CUCUMBER.get());
                         output.accept(ModItems.CUCUMBER_SEEDS.get());

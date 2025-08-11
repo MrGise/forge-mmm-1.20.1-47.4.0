@@ -1,35 +1,32 @@
 {
   "type": "minecraft:block",
-  "functions": [
-    {
-      "function": "minecraft:explosion_decay"
-    }
-  ],
   "pools": [
     {
       "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "mmm:strawberry",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "age": "6"
+          }
+        }
+      ],
       "entries": [
         {
-          "type": "minecraft:alternatives",
-          "children": [
+          "type": "minecraft:item",
+          "functions": [
             {
-              "type": "minecraft:item",
-              "conditions": [
-                {
-                  "block": "mmm:strawberry",
-                  "condition": "minecraft:block_state_property",
-                  "properties": {
-                    "age": "5"
-                  }
-                }
-              ],
-              "name": "mmm:strawberry"
-            },
-            {
-              "type": "minecraft:item",
-              "name": "mmm:strawberry_seeds"
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 6.0,
+                "min": 2.0
+              },
+              "function": "minecraft:set_count"
             }
-          ]
+          ],
+          "name": "mmm:strawberry"
         }
       ],
       "rolls": 1.0
@@ -41,8 +38,12 @@
           "block": "mmm:strawberry",
           "condition": "minecraft:block_state_property",
           "properties": {
-            "age": "5"
+            "age": "6"
           }
+        },
+        {
+          "chance": 1.0,
+          "condition": "minecraft:random_chance"
         }
       ],
       "entries": [
@@ -50,13 +51,13 @@
           "type": "minecraft:item",
           "functions": [
             {
-              "enchantment": "minecraft:fortune",
-              "formula": "minecraft:binomial_with_bonus_count",
-              "function": "minecraft:apply_bonus",
-              "parameters": {
-                "extra": 3,
-                "probability": 0.5714286
-              }
+              "add": false,
+              "count": {
+                "type": "minecraft:uniform",
+                "max": 0.0,
+                "min": 0.0
+              },
+              "function": "minecraft:set_count"
             }
           ],
           "name": "mmm:strawberry_seeds"
