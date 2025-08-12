@@ -1,4 +1,4 @@
-// 1.20.1	2025-08-11T19:38:53.9224473	Recipes
+// 1.20.1	2025-08-12T14:44:04.5765522	Recipes
 da9072fadb602091b226cc2091a712e9c7a97ccc data/mmm/advancements/recipes/combat/actinolite_pickaxe.json
 4e97fe588d9f0b0691e428875c5b9126e3cd692e data/mmm/advancements/recipes/combat/actinolite_sword.json
 57b588233ff356c49399f65727a678b66fc99646 data/mmm/advancements/recipes/combat/skiron_axe_left.json
@@ -37,6 +37,7 @@ f79a7af1b0727548d6d11a8735d94630ae01ae03 data/mmm/advancements/recipes/misc/skir
 316bc02841eb00aac1753e58f043976c56e973ae data/mmm/advancements/recipes/misc/skoal_block.json
 4ae5757f753e8265ae30e584c3bba7fb9fd3b23d data/mmm/advancements/recipes/misc/skoal_from_blasting_skoal_ore.json
 2b404491249338a609a995f902fe2d42bf9f9ab3 data/mmm/advancements/recipes/misc/skoal_from_smelting_skoal_ore.json
+d250013a82f29b601b48801a55e5c1834b333791 data/mmm/advancements/recipes/misc/skysolid_from_smelting_broken_skysolid.json
 1a3616c85b4fc682798c239d67fe0f0629ec634d data/mmm/advancements/recipes/misc/skywood_slab.json
 4335345e5dfe949114cf0d44e7b7cd2d72ff0857 data/mmm/advancements/recipes/misc/skywood_stairs.json
 f0b2f05ad8a15ee65fc94dac1b63186f3dbb7716 data/mmm/recipes/actinolite_pickaxe.json
@@ -80,6 +81,7 @@ b2153ed6ab6d231ebd4f9a2932ff4acff7669d2d data/mmm/recipes/skiron_sword.json
 52995c8d2dd5689835aa5fbfd67624a66d1fe0f0 data/mmm/recipes/skoal_block.json
 db0139b2f2844fe1fdf8fb0f84e033017a9cfaed data/mmm/recipes/skoal_from_blasting_skoal_ore.json
 c0d8293bb67536ca70c895ed300d85fdec7d4772 data/mmm/recipes/skoal_from_smelting_skoal_ore.json
+7809df6ebbb58fa53d9623ef1794e2c1ff811295 data/mmm/recipes/skysolid_from_smelting_broken_skysolid.json
 cb04047d753fdf90c675d02d3f19c7b34150bd5e data/mmm/recipes/skywood_slab.json
 9c5dd4ad3f4d99c7c51cc683eee1f17db3fc4e94 data/mmm/recipes/skywood_stairs.json
 b190a27996b767272f7351882c486c7e5929da72 data/mmm/recipes/strawberry_seeds.json

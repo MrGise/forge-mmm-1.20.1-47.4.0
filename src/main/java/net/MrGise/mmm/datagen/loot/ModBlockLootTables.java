@@ -50,7 +50,6 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.SKYSOLID.get(),
                 block -> createCustomSingularDrop(ModBlocks.SKYSOLID.get(), ModBlocks.BROKEN_SKYSOLID.get()));
         this.dropSelf(ModBlocks.SKYSOLID_WALL.get());
-        this.dropSelf(ModBlocks.DECORATIVE_SKYSOLID.get());
         this.dropSelf(ModBlocks.BROKEN_SKYSOLID.get());
 
         this.dropSelf(ModBlocks.SKYWOOD_PLANKS.get());

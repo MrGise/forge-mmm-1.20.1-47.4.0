@@ -40,7 +40,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.BROKEN_SKYSOLID);
         blockWithItem(ModBlocks.SKYSOLID);
-        blockWithItem(ModBlocks.DECORATIVE_SKYSOLID);
         blockWithItem(ModBlocks.SKYWOOD_PLANKS);
 
         blockWithItem(ModBlocks.ACTINOLITE_ORE);

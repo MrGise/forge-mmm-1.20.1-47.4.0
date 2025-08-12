@@ -1,0 +1,11 @@
+{
+  "type": "minecraft:smelting",
+  "category": "blocks",
+  "cookingtime": 100,
+  "experience": 0.0,
+  "group": "skyland_misc",
+  "ingredient": {
+    "item": "mmm:broken_skysolid"
+  },
+  "result": "mmm:skysolid"
+}

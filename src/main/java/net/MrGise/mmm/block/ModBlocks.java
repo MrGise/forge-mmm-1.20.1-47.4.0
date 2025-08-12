@@ -41,9 +41,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> SKYSOLID_WALL = registerBlock("skysolid_wall",
             () -> new WallBlock(BlockBehaviour.Properties.copy(ModBlocks.SKYSOLID.get())));
 
-    public static final RegistryObject<Block> DECORATIVE_SKYSOLID = registerBlock("decorative_skysolid",
-            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
-
     public static final RegistryObject<Block> BROKEN_SKYSOLID = registerBlock("broken_skysolid",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
 

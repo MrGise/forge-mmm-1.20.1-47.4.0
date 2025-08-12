@@ -67,7 +67,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         mimicDisguise("chest", pWriter, RecipeCategory.MISC, ModItems.MIMIC.get(), Blocks.CHEST.asItem(), ModBlocks.MIMIC_BLOCK.get(), "mimic_chest");
         mimicDisguise("shulker_box", pWriter, RecipeCategory.MISC, ModItems.MIMIC.get(), Blocks.SHULKER_BOX.asItem(), ModBlocks.MIMIC_BLOCK.get(), "mimic_shulker_box");
         //End
-        // Trims
+
+        //-- Trims
         trimSmithing(pWriter, ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get(), new ResourceLocation(MMM.MOD_ID, "glide_armor_trim"));
 
         copySmithingTemplate(pWriter, ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModBlocks.BROKEN_SKYSOLID.get());
@@ -85,15 +86,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         nineItemIngotRecipes(pWriter, RecipeCategory.MISC, ModItems.SKIRON_NUGGET.get(), RecipeCategory.MISC, ModItems.SKIRON.get(), "mmm:skiron_nugget_from_skiron", "sky_ores", "mmm:skiron_from_nuggets", "sky_ores");
 
 
-        // Smelting and stuff
+        //-- Smelting and stuff
         oreSmeltingAndBlasting(pWriter, SKIRON_SMELTABLES, RecipeCategory.MISC, ModItems.SKIRON.get(), 0.15f, 0.25f,
                 200, 100, "sky_ores");
 
         oreSmeltingAndBlasting(pWriter, SKOAL_SMELTABLES, RecipeCategory.MISC, ModItems.SKOAL.get(), 0.25f, 0.5f,
                 200, 100, "sky_ores");
 
+        smelting(pWriter, ModBlocks.BROKEN_SKYSOLID.get(), RecipeCategory.MISC, ModBlocks.SKYSOLID.get(), 100, "skyland_misc");
 
-        // Wood
+        //-- Wood
         slab(pWriter, RecipeCategory.MISC, ModBlocks.SKYWOOD_SLAB.get(), ModBlocks.SKYWOOD_PLANKS.get());
         stairs(pWriter, RecipeCategory.MISC, ModBlocks.SKYWOOD_STAIRS.get(), ModBlocks.SKYWOOD_PLANKS.get());
 
@@ -303,10 +305,26 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("###");
     }
 
+    protected static void smelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ItemLike pIngredient, RecipeCategory pCategory, ItemLike pResult,
+                                   int pCookingTIme, String pGroup) {
+        cooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredient, pCategory, pResult, pCookingTIme, pGroup, "_from_smelting");
+    }
+
+    protected static void blasting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ItemLike pIngredient, RecipeCategory pCategory, ItemLike pResult,
+                                         int pCookingTIme, String pGroup) {
+        cooking(pFinishedRecipeConsumer, RecipeSerializer.BLASTING_RECIPE, pIngredient, pCategory, pResult, pCookingTIme, pGroup, "_from_blasting");
+    }
+
+    protected static void smoking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, ItemLike pIngredient, RecipeCategory pCategory, ItemLike pResult,
+                                  int pCookingTIme, String pGroup) {
+        cooking(pFinishedRecipeConsumer, RecipeSerializer.SMOKING_RECIPE, pIngredient, pCategory, pResult, pCookingTIme, pGroup, "_from_smoking");
+    }
+
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
                                       float pExperience, int pCookingTIme, String pGroup) {
         oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTIme, pGroup, "_from_smelting");
     }
+
 
     protected static void oreBlasting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
                                       float pExperience, int pCookingTime, String pGroup) {
@@ -319,6 +337,12 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         oreCooking(pFinishedRecipeConsumer, RecipeSerializer.BLASTING_RECIPE, pIngredients, pCategory, pResult, pExperienceBlasting, pCookingTImeBlasting, pGroup, "_from_blasting");
     }
 
+    protected static void automaticOreSmeltingAndBlasting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
+                                      float pExperienceSmelting, float pExperienceBlasting, int pCookingTImeSmelting, String pGroup) {
+        oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperienceSmelting, pCookingTImeSmelting, pGroup, "_from_smelting");
+        oreCooking(pFinishedRecipeConsumer, RecipeSerializer.BLASTING_RECIPE, pIngredients, pCategory, pResult, pExperienceBlasting, pCookingTImeSmelting - 100, pGroup, "_from_blasting");
+    }
+
     protected static void oreCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
         Iterator var9 = pIngredients.iterator();
 
@@ -327,6 +351,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             SimpleCookingRecipeBuilder.generic(Ingredient.of(new ItemLike[]{itemlike}), pCategory, pResult, pExperience, pCookingTime, pCookingSerializer).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
                     .save(pFinishedRecipeConsumer, MMM.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike));
         }
+
+    }
+
+    protected static void cooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, ItemLike pIngredient, RecipeCategory pCategory, ItemLike pResult, int pCookingTime, String pGroup, String pRecipeName) {
+
+            SimpleCookingRecipeBuilder.generic(Ingredient.of(pIngredient), pCategory, pResult, 0, pCookingTime, pCookingSerializer).group(pGroup).unlockedBy(getHasName(pIngredient), has(pIngredient))
+                    .save(pFinishedRecipeConsumer, MMM.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(pIngredient));
 
     }
 

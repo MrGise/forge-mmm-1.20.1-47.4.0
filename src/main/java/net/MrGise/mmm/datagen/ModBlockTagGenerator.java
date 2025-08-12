@@ -47,7 +47,6 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.SKYSOLID.get())
-                .add(ModBlocks.DECORATIVE_SKYSOLID.get())
                 .add(ModBlocks.BROKEN_SKYSOLID.get())
 
                 .add(ModBlocks.SKOAL_ORE.get())

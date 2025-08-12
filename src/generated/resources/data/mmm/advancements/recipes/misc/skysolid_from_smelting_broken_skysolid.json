@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_broken_skysolid": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mmm:broken_skysolid"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mmm:skysolid_from_smelting_broken_skysolid"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_broken_skysolid",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mmm:skysolid_from_smelting_broken_skysolid"
+    ]
+  },
+  "sends_telemetry_event": false
+}

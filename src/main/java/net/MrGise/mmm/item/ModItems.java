@@ -3,10 +3,8 @@ package net.MrGise.mmm.item;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.ModBlocks;
 import net.MrGise.mmm.item.custom.*;
-import net.MrGise.mmm.item.custom.description.DescriptionFuelItem;
-import net.MrGise.mmm.item.custom.description.DescriptionItem;
-import net.MrGise.mmm.item.custom.description.DescriptionPoisonSwordItem;
-import net.MrGise.mmm.item.custom.description.HiddenShiftDescriptionItem;
+import net.MrGise.mmm.item.custom.description.*;
+import net.minecraft.ChatFormatting;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -32,7 +30,8 @@ public class ModItems {
             () -> new DescriptionItem(new Item.Properties().stacksTo(1), "mossy_gold_key", false));
 
     public static final RegistryObject<Item> GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE = ITEMS.register("glide_armor_trim_smithing_template",
-            () -> new Item(new Item.Properties()));
+            () -> new MultiLineDescriptionItem(new Item.Properties(), "smithing_template", false,
+                    ChatFormatting.GRAY, ChatFormatting.GRAY, ChatFormatting.GRAY, ChatFormatting.BLUE, ChatFormatting.GRAY, ChatFormatting.BLUE));
 
     public static final RegistryObject<Item> SKYSOLID_TABLET = ITEMS.register("skysolid_tablet",
             () -> new TabletItem(new Item.Properties(), 4));

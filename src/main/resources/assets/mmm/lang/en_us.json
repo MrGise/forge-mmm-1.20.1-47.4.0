@@ -16,7 +16,7 @@
 
   "item.mmm.skoal": "Sky Coal",
 
-  "item.mmm.glide_armor_trim_smithing_template": "Glide Armor Trim Smithing Template",
+  "item.mmm.glide_armor_trim_smithing_template": "Smithing Template",
 
   "item.mmm.skiron": "Skiron Ingot",
   "item.mmm.skiron_nugget": "Skiron Nugget",
@@ -65,7 +65,6 @@
 
   "block.mmm.skysolid": "Skysolid",
   "block.mmm.skysolid_wall": "Skysolid Wall",
-  "block.mmm.decorative_skysolid": "Decorative Skysolid",
   "block.mmm.broken_skysolid": "Broken Skysolid",
 
   "block.mmm.actinolite_ore": "Actinolite Ore",
@@ -131,6 +130,12 @@
   "tooltip.mmm.description_item.tooltip.skoal": "The magical coal of the skies... Burns more time than normal coal.",
 
   "tooltip.mmm.description_item.tooltip.actinolite": "An overexaggerated representation of the real thing, but who cares!",
+  "tooltip.mmm.description_item.tooltip.smithing_template_0": "Glide Armor Trim",
+  "tooltip.mmm.description_item.tooltip.smithing_template_1": " ",
+  "tooltip.mmm.description_item.tooltip.smithing_template_2": "Applies to:",
+  "tooltip.mmm.description_item.tooltip.smithing_template_3": " Armor",
+  "tooltip.mmm.description_item.tooltip.smithing_template_4": "Ingredients:",
+  "tooltip.mmm.description_item.tooltip.smithing_template_5": " Ingots & Crystals",
 
   "tooltip.mmm.description_item.tooltip.actinolite_sword": "§7§oBasically 1.8 PVP, but with poison!"
 

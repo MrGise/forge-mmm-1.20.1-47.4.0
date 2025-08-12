@@ -22,7 +22,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.SKYSOLID.get());
                         output.accept(ModBlocks.SKYSOLID_WALL.get());
                         output.accept(ModBlocks.BROKEN_SKYSOLID.get());
-                        output.accept(ModBlocks.DECORATIVE_SKYSOLID.get());
                         output.accept(ModItems.SKYSOLID_TABLET.get());
 
                         output.accept(ModBlocks.ACTINOLITE_ORE.get());
