@@ -86,7 +86,7 @@ public class ModCreativeModeTabs {
 
     //. Food
     public static final RegistryObject<CreativeModeTab> MMM_CUISINE = CREATIVE_MODE_TABS.register("mmm_cuisine",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.BREADSTICK.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CUCUMBER.get()))
                     .title(Component.translatable("creativetab.mmm_cuisine")).displayItems((displayParameters, output) -> {
                         output.accept(ModItems.BREADSTICK.get());
 
