@@ -2,6 +2,7 @@
   "parent": "mmm:block/crop_cross",
   "render_type": "minecraft:cutout",
   "textures": {
-    "0": "mmm:block/strawberry_4"
+    "0": "mmm:block/strawberry_4",
+    "particle": "mmm:block/strawberry_4"
   }
 }

@@ -65,7 +65,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         trapdoorBlockWithRenderType((TrapDoorBlock) ModBlocks.SKYWOOD_TRAPDOOR.get(), modLoc("block/skywood_trapdoor"), true, "cutout");
 
         makeCustomCrop((CucumberCropBlock)ModBlocks.CUCUMBER.get(), "cucumber_", "cucumber_", new ResourceLocation(MMM.MOD_ID, "cucumber_base"), new ResourceLocation(MMM.MOD_ID, "cucumber_base_tiny"), "0", 5, 6);
-        makeCustomCrop((StrawberryCropBlock)ModBlocks.STRAWBERRY.get(), "strawberry", "strawberry_", new ResourceLocation(MMM.MOD_ID, "crop_cross"), new ResourceLocation(MMM.MOD_ID, "crop_cross"), "0");
+        makeCustomCrop((StrawberryCropBlock)ModBlocks.STRAWBERRY.get(), "strawberry", "strawberry_", new ResourceLocation(MMM.MOD_ID, "crop_cross"), new ResourceLocation(MMM.MOD_ID, "crop_cross"), "0", false, "block/strawberry");
 
         //-- Block Items
 
@@ -115,6 +115,46 @@ public class ModBlockStateProvider extends BlockStateProvider {
                                     .renderType("cutout")
                     )
             };
+        });
+    }
+
+    public void makeCustomCrop(AccessibleCropBlock block,
+                               String modelName,
+                               String textureName,
+                               ResourceLocation defaultParent,
+                               ResourceLocation customParent,
+                               String textureLayer,
+                               boolean hasCustomParticleName,
+                               String customParticleName,
+                               Integer... specialStages) {
+
+        Set<Integer> stageSet = Set.of(specialStages);
+
+        getVariantBuilder(block).forAllStates(state -> {
+            int age = state.getValue(block.getAgeProperty());
+            boolean isCustomStage = stageSet.contains(age);
+
+            if (hasCustomParticleName) {
+                return new ConfiguredModel[]{
+                        new ConfiguredModel(
+                                models().getBuilder(modelName + age)
+                                        .parent(models().getExistingFile(isCustomStage ? customParent : defaultParent))
+                                        .texture(textureLayer, new ResourceLocation(MMM.MOD_ID, "block/" + textureName + age))
+                                        .texture("particle", new ResourceLocation(MMM.MOD_ID, customParticleName))
+                                        .renderType("cutout")
+                        )
+                };
+            } else {
+                return new ConfiguredModel[]{
+                        new ConfiguredModel(
+                                models().getBuilder(modelName + age)
+                                        .parent(models().getExistingFile(isCustomStage ? customParent : defaultParent))
+                                        .texture(textureLayer, new ResourceLocation(MMM.MOD_ID, "block/" + textureName + age))
+                                        .texture("particle", new ResourceLocation(MMM.MOD_ID, "block/" + textureName + age))
+                                        .renderType("cutout")
+                        )
+                };
+            }
         });
     }
 

@@ -1,4 +1,4 @@
-// 1.20.1	2025-08-12T14:44:04.5787341	Block States: mmm
+// 1.20.1	2025-08-13T10:24:08.6427497	Block States: mmm
 1fd9342f3c0d5ebccf217996515f997f48dbba36 assets/mmm/blockstates/actinolite_ore.json
 6c41a02b9f9404c701fb8b17b16e879eb0b065b1 assets/mmm/blockstates/animated_test_block.json
 2d8c926880342bd85761f05ebc2507d4f69812e8 assets/mmm/blockstates/broken_skysolid.json
@@ -74,13 +74,13 @@ f3068d1fe198a2340b2ce652346351b76479fe1d assets/mmm/models/block/skywood_stairs.
 e9f811c2612f337d0b366d36959f6d311fd3d205 assets/mmm/models/block/skywood_trapdoor_open.json
 d39459403ee26b376e1588f2bf0489f3ce52b36e assets/mmm/models/block/skywood_trapdoor_top.json
 5e352cb2e79b9dbf5438dcd05e5a62115d2f7c78 assets/mmm/models/block/sound_block.json
-4244442d363451017b303905669e5bfcdd453560 assets/mmm/models/block/strawberry0.json
-6216648a27f529986ecaa5a1bf7e99f0bbfba6cb assets/mmm/models/block/strawberry1.json
-c42f99925ce70bcc7b0199b70bdfe4c405f2c30b assets/mmm/models/block/strawberry2.json
-ff8e158cdc75a92b0ad6850ca2d9d5440b636339 assets/mmm/models/block/strawberry3.json
-67e15eb1c252f0cced61f345fb788d8c8ee9dfd7 assets/mmm/models/block/strawberry4.json
-40eb53eea677033c8cb31cc2725fb985690d4b97 assets/mmm/models/block/strawberry5.json
-e45bb4270a23cb711113fd317e9a425e113d8645 assets/mmm/models/block/strawberry6.json
+da1952ffb523af809f45c79f6340e997bfb6b866 assets/mmm/models/block/strawberry0.json
+2e92f09943d24a5a1789b82e7c81986d4fb16a27 assets/mmm/models/block/strawberry1.json
+eb2f3a05603cf93e0f773b0c6fe175089341dce2 assets/mmm/models/block/strawberry2.json
+afb94eede0497bcd87dcdbbad5734e727094f1a8 assets/mmm/models/block/strawberry3.json
+97084234504a04b457618bdcc3c0284fc3a05943 assets/mmm/models/block/strawberry4.json
+79f40f24409db95fa2cddd492c8655584d90c661 assets/mmm/models/block/strawberry5.json
+939af8800191ed45a948dab4768c2e88366dff6a assets/mmm/models/block/strawberry6.json
 ab74a36bba4c26f1abf580bae7cd9b47926e867f assets/mmm/models/block/test_block.json
 58bf63219892d6927fde5051821f8022834152fc assets/mmm/models/item/actinolite_ore.json
 884ceb70a85e52d33d4bab02e6c76ed35064db43 assets/mmm/models/item/animated_test_block.json
