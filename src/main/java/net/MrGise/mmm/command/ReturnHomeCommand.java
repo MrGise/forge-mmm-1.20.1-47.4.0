@@ -21,7 +21,7 @@ public class ReturnHomeCommand {
             int[] playerPos = player.getPersistentData().getIntArray("mmm.homepos");
             player.teleportTo(playerPos[0], playerPos[1], playerPos[2]);
 
-            context.getSource().sendSuccess(() -> Component.literal("Player" + player.getName().getString() + "returned Home!"), false);
+            context.getSource().sendSuccess(() -> Component.literal("Player " + player.getName().getString() + " returned Home!"), false);
             return 1;
         } else {
             context.getSource().sendFailure(Component.literal("No Home Position has been set!"));
