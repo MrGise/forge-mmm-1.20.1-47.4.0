@@ -11,6 +11,7 @@ import net.MrGise.mmm.item.custom.description.DescriptionPortalBlockItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
@@ -43,6 +44,12 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> BROKEN_SKYSOLID = registerBlock("broken_skysolid",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
+
+    public static final RegistryObject<Block> SKYSOIL = registerBlock("skysoil",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).mapColor(DyeColor.CYAN)));
+
+    public static final RegistryObject<Block> HEAVENLY_GRASS_BLOCK = registerBlock("heavenly_grass_block",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).mapColor(DyeColor.CYAN)));
 
 
     public static final RegistryObject<Block> SKIRON_ORE = registerBlock("skiron_ore",

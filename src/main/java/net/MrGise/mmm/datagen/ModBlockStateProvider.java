@@ -6,6 +6,7 @@ import net.MrGise.mmm.block.custom.AccessibleCropBlock;
 import net.MrGise.mmm.block.custom.CucumberCropBlock;
 import net.MrGise.mmm.block.custom.PortalBlock;
 import net.MrGise.mmm.block.custom.StrawberryCropBlock;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
@@ -40,6 +41,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.BROKEN_SKYSOLID);
         blockWithItem(ModBlocks.SKYSOLID);
+        blockWithItem(ModBlocks.SKYSOIL);
+        uniqueBottomCubeBottomTop(ModBlocks.HEAVENLY_GRASS_BLOCK.get(), "heavenly_grass_block", "skysoil");
         blockWithItem(ModBlocks.SKYWOOD_PLANKS);
 
         blockWithItem(ModBlocks.ACTINOLITE_ORE);
@@ -48,6 +51,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.SKIRON_BLOCK);
         blockWithItem(ModBlocks.RAW_SKIRON_BLOCK);
         blockWithItem(ModBlocks.SKOAL_BLOCK);
+
+
 
         //-- Other blocks
 
@@ -67,6 +72,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         makeCustomCrop((CucumberCropBlock)ModBlocks.CUCUMBER.get(), "cucumber_", "cucumber_", new ResourceLocation(MMM.MOD_ID, "cucumber_base"), new ResourceLocation(MMM.MOD_ID, "cucumber_base_tiny"), "0", 5, 6);
         makeCustomCrop((StrawberryCropBlock)ModBlocks.STRAWBERRY.get(), "strawberry", "strawberry_", new ResourceLocation(MMM.MOD_ID, "crop_cross"), new ResourceLocation(MMM.MOD_ID, "crop_cross"), "0", false, "block/strawberry");
 
+
         //-- Block Items
 
         blockItem(ModBlocks.SKYWOOD_PRESSURE_PLATE);
@@ -75,6 +81,27 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         portalBlock(ModBlocks.PORTAL_BLOCK, "portal_block");
 
+    }
+
+    private void simpleCubeBottomTop(Block block, String textureName) {
+        cubeBottomTop(block, textureName + "_top", textureName + "_side", textureName + "_bottom", textureName);
+    }
+
+    private void uniqueBottomCubeBottomTop(Block block, String topNSide, String bottom) {
+        cubeBottomTop(block, topNSide + "_top", topNSide + "_side", bottom, topNSide);
+    }
+
+    private void cubeBottomTop(Block block, String topName, String sideName, String bottomName, String modelName) {
+        // Block model without tintindex — just uses baked-in texture colors
+        ModelFile model = models().cubeBottomTop(
+                modelName, // model name
+                modLoc("block/" + sideName),   // side texture
+                modLoc("block/" + bottomName), // bottom texture
+                modLoc("block/" + topName)     // top texture
+        );
+
+        // Simple blockstate with one model
+        simpleBlockWithItem(block, model);
     }
 
     //Region Crops

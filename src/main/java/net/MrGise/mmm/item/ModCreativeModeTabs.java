@@ -19,6 +19,9 @@ public class ModCreativeModeTabs {
     public static final RegistryObject<CreativeModeTab> THE_SKYLAND = CREATIVE_MODE_TABS.register("the_skyland",
             () -> CreativeModeTab.builder().withTabsAfter(ModCreativeModeTabs.MISCELLANEOUS_MMM.getId()).icon(() -> new ItemStack(ModBlocks.SKIRON_ORE.get()))
                     .title(Component.translatable("creativetab.the_skyland")).displayItems((displayParameters, output) -> {
+                        output.accept(ModBlocks.HEAVENLY_GRASS_BLOCK.get());
+                        output.accept(ModBlocks.SKYSOIL.get());
+
                         output.accept(ModBlocks.SKYSOLID.get());
                         output.accept(ModBlocks.SKYSOLID_WALL.get());
                         output.accept(ModBlocks.BROKEN_SKYSOLID.get());

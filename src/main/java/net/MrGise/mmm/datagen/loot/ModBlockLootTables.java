@@ -55,6 +55,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.SKYSOLID_WALL.get());
         this.dropSelf(ModBlocks.BROKEN_SKYSOLID.get());
 
+        this.add(ModBlocks.HEAVENLY_GRASS_BLOCK.get(),
+                block -> createCustomSingularDrop(ModBlocks.HEAVENLY_GRASS_BLOCK.get(), ModBlocks.SKYSOIL.get()));
+        this.dropSelf(ModBlocks.SKYSOIL.get());
+
         this.dropSelf(ModBlocks.SKYWOOD_PLANKS.get());
         this.dropSelf(ModBlocks.SKYWOOD_STAIRS.get());
         this.add(ModBlocks.SKYWOOD_SLAB.get(),

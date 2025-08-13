@@ -7,6 +7,7 @@ import net.MrGise.mmm.item.ModCreativeModeTabs;
 import net.MrGise.mmm.item.ModIItemProperties;
 import net.MrGise.mmm.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -52,7 +53,13 @@ public class MMM
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
+        event.enqueueWork(() -> {
+            ComposterBlock.COMPOSTABLES.put(ModItems.CUCUMBER.get(), 0.3f);
+            ComposterBlock.COMPOSTABLES.put(ModItems.CUCUMBER_SEEDS.get(), 0.2f);
 
+            ComposterBlock.COMPOSTABLES.put(ModItems.STRAWBERRY.get(), 0.2f);
+            ComposterBlock.COMPOSTABLES.put(ModItems.STRAWBERRY_SEEDS.get(), 0.1f);
+        });
     }
 
     // Add the example block item to the building blocks tab
