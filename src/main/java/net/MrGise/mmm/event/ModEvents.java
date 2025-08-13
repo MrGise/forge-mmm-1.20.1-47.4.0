@@ -1,6 +1,9 @@
 package net.MrGise.mmm.event;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.command.FindHomeCommand;
+import net.MrGise.mmm.command.ReturnHomeCommand;
+import net.MrGise.mmm.command.SetHomeCommand;
 import net.MrGise.mmm.enchantment.ModEnchantments;
 import net.MrGise.mmm.item.ModCreativeModeTabs;
 import net.MrGise.mmm.item.ModItems;
@@ -13,9 +16,12 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.server.command.ConfigCommand;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -48,6 +54,20 @@ public class ModEvents {
                 HARVESTED_BLOCKS.remove(pos);
             }
         }
+    }
+
+    @SubscribeEvent
+    public static void onCommandsRegister(RegisterCommandsEvent event) {
+        new SetHomeCommand(event.getDispatcher());
+        new ReturnHomeCommand(event.getDispatcher());
+        new FindHomeCommand(event.getDispatcher());
+
+        ConfigCommand.register(event.getDispatcher());
+    }
+
+    @SubscribeEvent
+    public static void onPlayerCloned(PlayerEvent.Clone event) {
+        event.getEntity().getPersistentData().putIntArray("mmm.homepos", event.getOriginal().getPersistentData().getIntArray("mmm.homepos"));
     }
 
 }
