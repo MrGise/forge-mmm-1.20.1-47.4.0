@@ -61,6 +61,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SKOAL.get());
                         output.accept(ModBlocks.SKOAL_BLOCK.get());
 
+                        output.accept(ModBlocks.SKYWOOD_LOG.get());
                         output.accept(ModBlocks.SKYWOOD_PLANKS.get());
                         output.accept(ModBlocks.SKYWOOD_STAIRS.get());
                         output.accept(ModBlocks.SKYWOOD_SLAB.get());

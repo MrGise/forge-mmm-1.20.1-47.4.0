@@ -1,4 +1,4 @@
-// 1.20.1	2025-08-13T15:42:38.4298997	Loot Tables
+// 1.20.1	2025-08-14T10:55:24.6100816	Loot Tables
 304bc14bc9e1f04828096388b5b5c3c6b3be2931 data/mmm/loot_tables/blocks/actinolite_ore.json
 05b6ea431f70e2f445e44d02a41d4e14dbd1a880 data/mmm/loot_tables/blocks/animated_test_block.json
 4ecea7d1aaa11b4bd1d9ffd2eed07729b6c6889f data/mmm/loot_tables/blocks/birthday_cake.json
@@ -18,6 +18,7 @@ f0711983668f48f728a1fca06ae556408668c6be data/mmm/loot_tables/blocks/skywood_but
 b650f6303c71827786eff0fddef22e39e4d8d5ec data/mmm/loot_tables/blocks/skywood_door.json
 1a9dd509995b9fc76667e38485521cc17efe545c data/mmm/loot_tables/blocks/skywood_fence.json
 ce994a064d2133e2808b6e8eb67ddbff029e5147 data/mmm/loot_tables/blocks/skywood_fence_gate.json
+c9cdf05eec6e305d4b8bb53ae12894e6bbe808d1 data/mmm/loot_tables/blocks/skywood_log.json
 5f3d5e1af57d8f7af25fde69cf697eca5e4d654b data/mmm/loot_tables/blocks/skywood_planks.json
 ac819848a93e17b3aff0da6e8f41aec5549f93ff data/mmm/loot_tables/blocks/skywood_pressure_plate.json
 1be2e7861becce003dc369e4fc1e57f3100f0fea data/mmm/loot_tables/blocks/skywood_slab.json

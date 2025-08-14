@@ -6,7 +6,6 @@ import net.MrGise.mmm.block.custom.AccessibleCropBlock;
 import net.MrGise.mmm.block.custom.CucumberCropBlock;
 import net.MrGise.mmm.block.custom.PortalBlock;
 import net.MrGise.mmm.block.custom.StrawberryCropBlock;
-import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
@@ -44,6 +43,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.SKYSOIL);
         uniqueBottomCubeBottomTop(ModBlocks.HEAVENLY_GRASS_BLOCK.get(), "heavenly_grass_block", "skysoil");
         blockWithItem(ModBlocks.SKYWOOD_PLANKS);
+        logBlockWithItem((RotatedPillarBlock) ModBlocks.SKYWOOD_LOG.get(), "skywood_log", "skywood_log_top", "skywood_log");
 
         blockWithItem(ModBlocks.ACTINOLITE_ORE);
         blockWithItem(ModBlocks.SKIRON_ORE);
@@ -102,6 +102,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         // Simple blockstate with one model
         simpleBlockWithItem(block, model);
+    }
+
+    private void logBlockWithItem(RotatedPillarBlock block, String sideName, String topName, String baseModelName) {
+        ResourceLocation side = modLoc("block/" + sideName);
+        ResourceLocation top = modLoc("block/" + topName);
+
+        // Vertical log model
+        ModelFile vertical = models().cubeColumn(baseModelName, side, top);
+
+        // Horizontal log model
+        ModelFile horizontal = models().cubeColumnHorizontal(baseModelName + "_horizontal", side, top);
+
+        // Blockstate builder: chooses correct model based on AXIS
+        axisBlock(block, vertical, horizontal);
+
+        // Item model uses vertical log model
+        simpleBlockItem(block, vertical);
     }
 
     //Region Crops

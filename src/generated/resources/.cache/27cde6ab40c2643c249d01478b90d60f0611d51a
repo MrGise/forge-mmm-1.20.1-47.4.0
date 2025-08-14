@@ -1,4 +1,4 @@
-// 1.20.1	2025-08-13T16:14:09.1605027	Block States: mmm
+// 1.20.1	2025-08-14T10:55:24.61244	Block States: mmm
 1fd9342f3c0d5ebccf217996515f997f48dbba36 assets/mmm/blockstates/actinolite_ore.json
 6c41a02b9f9404c701fb8b17b16e879eb0b065b1 assets/mmm/blockstates/animated_test_block.json
 2d8c926880342bd85761f05ebc2507d4f69812e8 assets/mmm/blockstates/broken_skysolid.json
@@ -17,6 +17,7 @@ df6c61067d0031c3cd7030a9505968b435610afe assets/mmm/blockstates/skywood_button.j
 a23e49cf5457e94425dec76657d0fb3671cb7d68 assets/mmm/blockstates/skywood_door.json
 d4b379127078ecb225ab2fd91092b5b0aa0d835b assets/mmm/blockstates/skywood_fence.json
 26343b3bd9e5d4fa3671a4879d254d6b0860220d assets/mmm/blockstates/skywood_fence_gate.json
+d3053c8c87576b02bd4d339d46d1e270ca43b005 assets/mmm/blockstates/skywood_log.json
 e814911069e6b083eb5b52f40dfeec5fe0264e03 assets/mmm/blockstates/skywood_planks.json
 58523f3e180ee2691604cf1ef18513a0bd471d20 assets/mmm/blockstates/skywood_pressure_plate.json
 5cd0ebff505eda53c7a42ae0831be475d2795991 assets/mmm/blockstates/skywood_slab.json
@@ -66,6 +67,8 @@ e37c99f664b8c18b028f194d30e50c41cc76188a assets/mmm/models/block/skywood_door_to
 c182f38bfb78ef48fb6b23598367a7d2216c5a5c assets/mmm/models/block/skywood_fence_gate_wall_open.json
 56b8680a3aadb92457d0240b68ec971340f97b3f assets/mmm/models/block/skywood_fence_post.json
 6e5729d8b05b3e6e57e8df38b1810778aee8b002 assets/mmm/models/block/skywood_fence_side.json
+4948b96faff5451133cf7f005d2bf5db32db7998 assets/mmm/models/block/skywood_log.json
+147530f1d1deab0d27f39e55dac146958d380d8d assets/mmm/models/block/skywood_log_horizontal.json
 daf3204cdd045739c17fb802b94088703555cde2 assets/mmm/models/block/skywood_planks.json
 f4cda46ee978b543ca77413127c0d87ec06f9e80 assets/mmm/models/block/skywood_pressure_plate.json
 e8d10eeea92cad50d2a7a3f1b047cff2d52d1771 assets/mmm/models/block/skywood_pressure_plate_down.json
@@ -99,6 +102,7 @@ cc18c68afea7c502a2b0036a09569deeafc69e8b assets/mmm/models/item/skiron_ore.json
 213484e86b21f00ae8ef8d9b2b6ba265fe5a982a assets/mmm/models/item/skysoil.json
 ab11a43dae5ccaeaa30dbc394601ff5d4d891836 assets/mmm/models/item/skysolid.json
 877f18c7df9b5ce2b8f488ed6dcc1a746f867f47 assets/mmm/models/item/skywood_fence_gate.json
+ee88b7145f9f555c5567dd392d5213eae3e5fe29 assets/mmm/models/item/skywood_log.json
 5eb91a1b48df0c0e151d88b651e341f42b54e554 assets/mmm/models/item/skywood_planks.json
 c3885f7fc9ad49fe9de49ee805d6bf53fa756a9e assets/mmm/models/item/skywood_pressure_plate.json
 7b7fe1204922a90e5c257205824c2266a3ea1262 assets/mmm/models/item/skywood_slab.json
