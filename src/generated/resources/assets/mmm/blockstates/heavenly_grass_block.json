@@ -1,7 +1,18 @@
 {
   "variants": {
-    "": {
-      "model": "mmm:block/heavenly_grass_block"
-    }
+    "": [
+      {
+        "model": "mmm:block/heavenly_grass_block_rot0"
+      },
+      {
+        "model": "mmm:block/heavenly_grass_block_rot90"
+      },
+      {
+        "model": "mmm:block/heavenly_grass_block_rot180"
+      },
+      {
+        "model": "mmm:block/heavenly_grass_block_rot270"
+      }
+    ]
   }
 }

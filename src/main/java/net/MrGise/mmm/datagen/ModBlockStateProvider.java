@@ -6,6 +6,7 @@ import net.MrGise.mmm.block.custom.AccessibleCropBlock;
 import net.MrGise.mmm.block.custom.CucumberCropBlock;
 import net.MrGise.mmm.block.custom.PortalBlock;
 import net.MrGise.mmm.block.custom.StrawberryCropBlock;
+import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
@@ -16,7 +17,9 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import net.minecraftforge.client.model.generators.ModelBuilder.FaceRotation;
 
+import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
 
@@ -41,7 +44,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.BROKEN_SKYSOLID);
         blockWithItem(ModBlocks.SKYSOLID);
         blockWithItem(ModBlocks.SKYSOIL);
-        uniqueBottomCubeBottomTop(ModBlocks.HEAVENLY_GRASS_BLOCK.get(), "heavenly_grass_block", "skysoil");
+        uniqueBottomCubeBottomTop(ModBlocks.HEAVENLY_GRASS_BLOCK.get(), "heavenly_grass_block", "skysoil", true);
         blockWithItem(ModBlocks.SKYWOOD_PLANKS);
         logBlockWithItem((RotatedPillarBlock) ModBlocks.SKYWOOD_LOG.get(), "skywood_log", "skywood_log_top", "skywood_log");
 
@@ -83,25 +86,85 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     }
 
-    private void simpleCubeBottomTop(Block block, String textureName) {
-        cubeBottomTop(block, textureName + "_top", textureName + "_side", textureName + "_bottom", textureName);
+    private void simpleCubeBottomTop(Block block, String textureName, boolean rotateTop) {
+        cubeBottomTop(block, textureName + "_top", textureName + "_side", textureName + "_bottom", textureName, rotateTop);
     }
 
-    private void uniqueBottomCubeBottomTop(Block block, String topNSide, String bottom) {
-        cubeBottomTop(block, topNSide + "_top", topNSide + "_side", bottom, topNSide);
+    private void uniqueBottomCubeBottomTop(Block block, String topNSide, String bottom, boolean rotateTop) {
+        cubeBottomTop(block, topNSide + "_top", topNSide + "_side", bottom, topNSide, rotateTop);
     }
 
-    private void cubeBottomTop(Block block, String topName, String sideName, String bottomName, String modelName) {
-        // Block model without tintindex — just uses baked-in texture colors
+    private void cubeBottomTop(Block block,
+                               String topName, String sideName, String bottomName,
+                               String modelName,
+                               boolean rotateTop) {
+        if (rotateTop) {
+            cubeBottomTopRandomRotation(block, bottomName, topName, sideName);
+        } else {
+            cubeBottomTop(block, topName, sideName, bottomName, modelName);
+        }
+    }
+
+    private void cubeBottomTop(Block block,
+                               String topName, String sideName, String bottomName,
+                               String modelName) {
+
+        // Block model that uses block/ textures
         ModelFile model = models().cubeBottomTop(
-                modelName, // model name
-                modLoc("block/" + sideName),   // side texture
-                modLoc("block/" + bottomName), // bottom texture
-                modLoc("block/" + topName)     // top texture
+                modelName,
+                modLoc("block/" + sideName),
+                modLoc("block/" + bottomName),
+                modLoc("block/" + topName)
         );
 
-        // Simple blockstate with one model
-        simpleBlockWithItem(block, model);
+            simpleBlockWithItem(block, model);
+    }
+
+    protected void cubeBottomTopRandomRotation(Block block, String bottomName, String topName, String sideName) {
+        ResourceLocation side = modLoc("block/" + sideName);
+        ResourceLocation bottom = modLoc("block/" + bottomName);
+        ResourceLocation top = modLoc("block/" + topName);
+
+        FaceRotation[] rotations = {FaceRotation.ZERO, FaceRotation.CLOCKWISE_90, FaceRotation.UPSIDE_DOWN, FaceRotation.COUNTERCLOCKWISE_90};
+
+        // Create four models with top rotated by 0, 90, 180, 270 degrees
+        for (int i = 0; i < rotations.length; i++) {
+            String modelName = blockName(block) + "_rot" + (i * 90);
+            models().withExistingParent(modelName, mcLoc("block/cube_bottom_top"))
+                    .texture("bottom", bottom)
+                    .texture("top", top)
+                    .texture("side", side)
+                    .element()
+                    .from(0, 0, 0).to(16, 16, 16)
+                    .face(Direction.UP).texture("#top").rotation(rotations[i]).end()
+                    .face(Direction.DOWN).texture("#bottom").end()
+                    .face(Direction.NORTH).texture("#side").end()
+                    .face(Direction.SOUTH).texture("#side").end()
+                    .face(Direction.WEST).texture("#side").end()
+                    .face(Direction.EAST).texture("#side").end()
+                    .end();
+        }
+
+        // Blockstate definition: all four models, no rotation on block itself
+        getVariantBuilder(block).partialState().addModels(
+                new ConfiguredModel(models().getExistingFile(modLoc("block/" + blockName(block) + "_rot0"))),
+                new ConfiguredModel(models().getExistingFile(modLoc("block/" + blockName(block) + "_rot90"))),
+                new ConfiguredModel(models().getExistingFile(modLoc("block/" + blockName(block) + "_rot180"))),
+                new ConfiguredModel(models().getExistingFile(modLoc("block/" + blockName(block) + "_rot270")))
+        );
+
+        ModelFile model = models().getExistingFile(modLoc("block/" + blockName(block) + "_rot0"));
+
+        simpleBlockItem(block, model);
+
+    }
+
+    private String blockName(Block block) {
+        return ForgeRegistries.BLOCKS.getKey(block).getPath();
+    }
+
+    private String name(Block block) {
+        return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath();
     }
 
     private void logBlockWithItem(RotatedPillarBlock block, String sideName, String topName, String baseModelName) {
