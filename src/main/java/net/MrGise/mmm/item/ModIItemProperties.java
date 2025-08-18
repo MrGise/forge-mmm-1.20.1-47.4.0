@@ -54,6 +54,22 @@ public class ModIItemProperties {
 
                 });
 
+        ItemProperties.register(ModBlocks.HEAVENLY_GRASS.get().asItem(), new ResourceLocation(MMM.MOD_ID, "long"),
+                (pStack, pLevel, pEntity, pSeed) -> {
+                    if (pStack.hasTag()) {
+                        CompoundTag tag = pStack.getTag();
+
+                        if (tag.contains("long")) {
+                            if (tag.getBoolean("long")) {
+                                return 1.0f;
+                            }
+                            return 0.0f;
+                        }
+                    }
+
+                    return 0.0f;
+                });
+
     }
 
 }

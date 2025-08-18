@@ -1,12 +1,10 @@
 package net.MrGise.mmm.datagen.loot;
 
-import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.ModBlocks;
 import net.MrGise.mmm.block.custom.AccessibleCropBlock;
 import net.MrGise.mmm.item.ModItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
@@ -20,7 +18,6 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -58,6 +55,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.HEAVENLY_GRASS_BLOCK.get(),
                 block -> createCustomSingularDrop(ModBlocks.HEAVENLY_GRASS_BLOCK.get(), ModBlocks.SKYSOIL.get()));
         this.dropSelf(ModBlocks.SKYSOIL.get());
+        createCustomMultiItemDropsWithChance(ModBlocks.HEAVENLY_GRASS.get(),
+                        new ItemDropData(ModItems.STRAWBERRY_SEEDS.get(), 0.1f, 1, 4));
 
         this.dropSelf(ModBlocks.SKYWOOD_LOG.get());
         this.dropSelf(ModBlocks.SKYWOOD_PLANKS.get());
@@ -97,6 +96,25 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     //- maxCropDrop = 1
     //- minSeedDrop = 0
     //- maxSeedDrop = 3
+    //-
+    private void createCustomMultiItemDropsWithChance(Block block, ItemDropData... drops) {
+        LootTable.Builder tableBuilder = LootTable.lootTable();
+
+        for (ItemDropData data : drops) {
+            tableBuilder.withPool(LootPool.lootPool()
+                    .when(LootItemRandomChanceCondition.randomChance(data.dropChance()))
+                    .add(LootItem.lootTableItem(data.item())
+                            .apply(SetItemCountFunction.setCount(
+                                    UniformGenerator.between(data.minDrop(), data.maxDrop())
+                            ))
+                    )
+            );
+        }
+
+        this.add(block, tableBuilder);
+    }
+
+    public record ItemDropData(ItemLike item, float dropChance, float minDrop, float maxDrop) {}
 
     private void createCustomCropDrops(AccessibleCropBlock cropBlock, ItemLike dropItem, ItemLike seedItem,
             boolean vanillaBehavior, // Toggle between vanilla-like and custom
@@ -183,4 +201,5 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     protected Iterable<Block> getKnownBlocks() {
         return ModBlocks.BLOCKS.getEntries().stream().map(RegistryObject::get)::iterator;
     }
+
 }

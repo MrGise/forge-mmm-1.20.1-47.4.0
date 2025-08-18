@@ -2,13 +2,11 @@ package net.MrGise.mmm.datagen;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.ModBlocks;
-import net.MrGise.mmm.block.custom.AccessibleCropBlock;
-import net.MrGise.mmm.block.custom.CucumberCropBlock;
-import net.MrGise.mmm.block.custom.PortalBlock;
-import net.MrGise.mmm.block.custom.StrawberryCropBlock;
+import net.MrGise.mmm.block.custom.*;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -45,6 +43,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.SKYSOLID);
         blockWithItem(ModBlocks.SKYSOIL);
         uniqueBottomCubeBottomTop(ModBlocks.HEAVENLY_GRASS_BLOCK.get(), "heavenly_grass_block", "skysoil", true);
+        customGrass((CustomGrass) ModBlocks.HEAVENLY_GRASS.get(), "heavenly_grass");
+
         blockWithItem(ModBlocks.SKYWOOD_PLANKS);
         logBlockWithItem((RotatedPillarBlock) ModBlocks.SKYWOOD_LOG.get(), "skywood_log", "skywood_log_top", "skywood_log");
 
@@ -85,6 +85,42 @@ public class ModBlockStateProvider extends BlockStateProvider {
         portalBlock(ModBlocks.PORTAL_BLOCK, "portal_block");
 
     }
+
+    private void customGrass(CustomGrass block, String textureName) {
+        // Short variant (cross model)
+        ModelFile shortModel = models()
+                .withExistingParent("block/" + textureName, "block/cross")
+                .texture("cross", "block/" + textureName).renderType("cutout");
+
+        // Tall grass bottom
+        ModelFile bottomModel = models()
+                .withExistingParent("block/" + textureName + "_bottom", "block/cross")
+                .texture("cross", "block/" + textureName + "_bottom").renderType("cutout");
+
+        // Tall grass top
+        ModelFile topModel = models()
+                .withExistingParent("block/" + textureName + "_top", "block/cross")
+                .texture("cross", "block/" + textureName + "_top").renderType("cutout");
+
+        // Blockstates
+        getVariantBuilder(block).forAllStates(state -> {
+            return switch (state.getValue(CustomGrass.LENGTH)) {
+                case SHORT -> ConfiguredModel.allYRotations(shortModel, 0, false);
+                case BOTTOM -> new ConfiguredModel[] {
+                        new ConfiguredModel(bottomModel)
+                };
+                case TOP -> new ConfiguredModel[] {
+                        new ConfiguredModel(topModel)
+                };
+            };
+        });
+
+        // Item model (always the short variant)
+        itemModels().withExistingParent(
+                ForgeRegistries.BLOCKS.getKey(block).getPath(), "item/generated"
+        ).texture("layer0", "block/" + textureName);
+    }
+
 
     private void simpleCubeBottomTop(Block block, String textureName, boolean rotateTop) {
         cubeBottomTop(block, textureName + "_top", textureName + "_side", textureName + "_bottom", textureName, rotateTop);
@@ -163,10 +199,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         return ForgeRegistries.BLOCKS.getKey(block).getPath();
     }
 
-    private String name(Block block) {
-        return Objects.requireNonNull(ForgeRegistries.BLOCKS.getKey(block)).getPath();
-    }
-
     private void logBlockWithItem(RotatedPillarBlock block, String sideName, String topName, String baseModelName) {
         ResourceLocation side = modLoc("block/" + sideName);
         ResourceLocation top = modLoc("block/" + topName);
@@ -201,12 +233,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     public void makeCustomCrop(AccessibleCropBlock block,
-                               String modelName,
-                               String textureName,
-                               ResourceLocation defaultParent,
-                               ResourceLocation customParent,
-                               String textureLayer,
-                               Integer... specialStages) {
+                               String modelName, String textureName,
+                               ResourceLocation defaultParent, ResourceLocation customParent,
+                               String textureLayer, Integer... specialStages) {
 
         Set<Integer> stageSet = Set.of(specialStages);
 
@@ -226,14 +255,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     public void makeCustomCrop(AccessibleCropBlock block,
-                               String modelName,
-                               String textureName,
-                               ResourceLocation defaultParent,
-                               ResourceLocation customParent,
-                               String textureLayer,
-                               boolean hasCustomParticleName,
-                               String customParticleName,
-                               Integer... specialStages) {
+                               String modelName, String textureName,
+                               ResourceLocation defaultParent, ResourceLocation customParent,
+                               String textureLayer, boolean hasCustomParticleName,
+                               String customParticleName, Integer... specialStages) {
 
         Set<Integer> stageSet = Set.of(specialStages);
 

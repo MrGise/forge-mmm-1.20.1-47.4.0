@@ -1,9 +1,12 @@
 package net.MrGise.mmm.event;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.block.ModBlocks;
 import net.MrGise.mmm.enchantment.ModEnchantments;
 import net.MrGise.mmm.item.ModCreativeModeTabs;
 import net.MrGise.mmm.item.ModItems;
+import net.minecraft.nbt.CompoundTag;
+import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.EnchantedBookItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -12,6 +15,8 @@ import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+
+import java.util.List;
 
 @Mod.EventBusSubscriber(modid = MMM.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class ModCreativeTabEvents {
@@ -33,19 +38,15 @@ public class ModCreativeTabEvents {
 
         }
 
-        if (event.getTab() == ModCreativeModeTabs.MISCELLANEOUS_MMM.get()) {
-            Enchantment enchantment1 = ModEnchantments.LIGHTENING_STRIKER.get();
+        if (event.getTab() == ModCreativeModeTabs.THE_SKYLAND.get()) {
+            CompoundTag tag = new CompoundTag();
 
-            ItemStack enchantedBook = EnchantedBookItem.createForEnchantment(new EnchantmentInstance(enchantment1, 3));
-            event.accept(enchantedBook);
+            ItemStack short_grass = ModBlocks.HEAVENLY_GRASS.get().asItem().getDefaultInstance();
+            ItemStack long_grass = ModBlocks.HEAVENLY_GRASS.get().asItem().getDefaultInstance();
 
-            ItemStack sword = new ItemStack(ModItems.ACTIONLITE_SWORD.get());
-            sword.enchant(enchantment1, 3);
-            event.accept(sword);
+            long_grass.getOrCreateTag().putBoolean("long", true);
 
-            ItemStack sword1 = new ItemStack(ModItems.ACTIONLITE_SWORD.get());
-            sword1.enchant(enchantment1, 3);
-            event.accept(sword1);
+            event.getEntries().putAfter(short_grass, long_grass, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
 
         }
 

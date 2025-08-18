@@ -63,10 +63,15 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.SKIRON_PAXEL);
 
 
-        // Item models for blocks
+        //- Item models for blocks
         buttonItem(ModBlocks.SKYWOOD_BUTTON, ModBlocks.SKYWOOD_PLANKS);
         fenceItem(ModBlocks.SKYWOOD_FENCE, ModBlocks.SKYWOOD_PLANKS);
         wallItem(ModBlocks.SKYSOLID_WALL, ModBlocks.SKYSOLID);
+
+        notSoSimpleBlockItem(ModBlocks.HEAVENLY_GRASS, false, "_top");
+        notSoSimpleBlockItemUnseperate(ModBlocks.HEAVENLY_GRASS, false, "_short");
+        itemWithPredicate(ModBlocks.HEAVENLY_GRASS.get().asItem(), "long",
+                modLoc("item/heavenly_grass_short"), modLoc("item/heavenly_grass_top"));
 
         simpleBlockItem(ModBlocks.SKYWOOD_DOOR);
 
@@ -78,11 +83,46 @@ public class ModItemModelProvider extends ItemModelProvider {
      Templates located at models/references/trims
     */
 
-    private ItemModelBuilder trimmedArmorItemBoots(RegistryObject<Item> item, String trim) {
-        return withExistingParent(item.getId().getPath() + "_" + trim + "_trim",
-                new ResourceLocation("item/handheld")).texture("layer0",
-                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath())).texture("layer1",
-                "minecraft:trims/items/boots_trim");
+
+    private ItemModelBuilder notSoSimpleBlockItem(RegistryObject<Block> item, boolean before, String name) {
+        if (before) {
+            return withExistingParent(name + item.getId().getPath(),
+                    new ResourceLocation("item/generated")).texture("layer0",
+                    new ResourceLocation(MMM.MOD_ID, "block/" + name + item.getId().getPath()));
+        } else {
+            return withExistingParent(item.getId().getPath() + name,
+                    new ResourceLocation("item/generated")).texture("layer0",
+                    new ResourceLocation(MMM.MOD_ID, "block/" + item.getId().getPath() + name));
+        }
+    }
+
+    private ItemModelBuilder notSoSimpleBlockItemUnseperate(RegistryObject<Block> item, boolean before, String name) {
+        if (before) {
+            return withExistingParent(name + item.getId().getPath(),
+                    new ResourceLocation("item/generated")).texture("layer0",
+                    new ResourceLocation(MMM.MOD_ID, "block/" + item.getId().getPath()));
+        } else {
+            return withExistingParent(item.getId().getPath() + name,
+                    new ResourceLocation("item/generated")).texture("layer0",
+                    new ResourceLocation(MMM.MOD_ID, "block/" + item.getId().getPath()));
+        }
+    }
+
+    private ItemModelBuilder notSoSimpleItem(RegistryObject<Item> item, String name) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath() + name));
+    }
+
+    private void itemWithPredicate(Item item, String predicateName,
+                                   ResourceLocation baseModel,
+                                   ResourceLocation overrideModel) {
+        ItemModelBuilder builder = getBuilder(item.toString())
+                .parent(getExistingFile(baseModel));
+
+        builder.override()
+                .predicate(new ResourceLocation(MMM.MOD_ID, predicateName), 1.0f)
+                .model(getExistingFile(overrideModel));
     }
 
     /* Normal Items */
@@ -90,6 +130,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/handheld")).texture("layer0",
                 new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder simpleBlocksItem(RegistryObject<Block> block) {
+        return withExistingParent(block.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(MMM.MOD_ID, "block/" + block.getId().getPath()));
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

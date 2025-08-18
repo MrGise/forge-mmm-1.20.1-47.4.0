@@ -1,0 +1,27 @@
+{
+  "variants": {
+    "length=bottom": {
+      "model": "mmm:block/heavenly_grass_bottom"
+    },
+    "length=short": [
+      {
+        "model": "mmm:block/heavenly_grass"
+      },
+      {
+        "model": "mmm:block/heavenly_grass",
+        "y": 90
+      },
+      {
+        "model": "mmm:block/heavenly_grass",
+        "y": 180
+      },
+      {
+        "model": "mmm:block/heavenly_grass",
+        "y": 270
+      }
+    ],
+    "length=top": {
+      "model": "mmm:block/heavenly_grass_top"
+    }
+  }
+}

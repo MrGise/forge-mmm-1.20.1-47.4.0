@@ -4,6 +4,7 @@ import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.custom.*;
 import net.MrGise.mmm.item.ModItems;
 import net.MrGise.mmm.block.custom.CustomGrassBlock;
+import net.MrGise.mmm.item.custom.CustomGrassItem;
 import net.MrGise.mmm.item.custom.MimicBlockItem;
 import net.MrGise.mmm.item.custom.description.DescriptionBlockItem;
 import net.MrGise.mmm.item.custom.description.DescriptionFuelBlockItem;
@@ -50,7 +51,11 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).mapColor(DyeColor.CYAN).randomTicks()));
 
     public static final RegistryObject<Block> HEAVENLY_GRASS_BLOCK = registerBlock("heavenly_grass_block",
-            () -> new CustomGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).mapColor(DyeColor.CYAN), ModBlocks.SKYSOIL));
+            () -> new CustomGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).mapColor(DyeColor.CYAN),
+                    ModBlocks.SKYSOIL, ModBlocks.HEAVENLY_GRASS));
+
+    public static final RegistryObject<Block> HEAVENLY_GRASS = registerCustomGrass("heavenly_grass",
+            () -> new CustomGrass(BlockBehaviour.Properties.copy(Blocks.GRASS), ModBlocks.HEAVENLY_GRASS_BLOCK, ModBlocks.SKYSOIL));
 
 
     public static final RegistryObject<Block> SKIRON_ORE = registerBlock("skiron_ore",
@@ -137,6 +142,12 @@ public class ModBlocks {
         return toReturn;
     }
 
+    private static <T extends Block> RegistryObject<T> registerCustomGrass(String name, Supplier<T> block) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerCustomGrassItem(name, toReturn);
+        return toReturn;
+    }
+
     private static <T extends Block> RegistryObject<T> registerMimicBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerMimicBlockItem(name, toReturn);
@@ -173,9 +184,13 @@ public class ModBlocks {
         return toReturn;
     }
 
-    // Block item registration methods
+    //. Block item registration methods
     private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
+    private static <T extends Block>RegistryObject<Item> registerCustomGrassItem(String name, RegistryObject<T> block) {
+        return ModItems.ITEMS.register(name, () -> new CustomGrassItem(block.get(), new Item.Properties()));
     }
 
     private static <T extends Block>RegistryObject<Item> registerMimicBlockItem(String name, RegistryObject<T> block) {

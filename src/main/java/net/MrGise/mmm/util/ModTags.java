@@ -34,11 +34,14 @@ public class ModTags {
 
         public static final TagKey<Block> MINEABLE_WITH_PAXEL = tag("mineable/paxel");
 
+        public static final TagKey<Block> HEAVENLY_GRASS_PLACEABLES = tag("heavenly_grass_placeables");
+
         public static final TagKey<Block> MINEABLE_WITH_HAMMER = tag("mineable/hammer");
 
         public static final TagKey<Block> SKYLAND_ORES = forgeTag("ores/skyland");
 
         public static final TagKey<Block> DETECTABLE_ORE = tag("detectable_ore");
+
 
         private static TagKey<Block> tag(String name) {
             return BlockTags.create(new ResourceLocation(MMM.MOD_ID, name));

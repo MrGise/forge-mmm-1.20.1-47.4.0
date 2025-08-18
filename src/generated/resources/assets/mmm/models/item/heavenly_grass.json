@@ -1,0 +1,11 @@
+{
+  "parent": "mmm:item/heavenly_grass_short",
+  "overrides": [
+    {
+      "model": "mmm:item/heavenly_grass_top",
+      "predicate": {
+        "mmm:long": 1.0
+      }
+    }
+  ]
+}

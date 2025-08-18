@@ -1,4 +1,4 @@
-// 1.20.1	2025-08-12T14:44:04.5740484	Block Tags
+// 1.20.1	2025-08-18T11:39:57.7964691	Block Tags
 bf613e81f09b65da3f25e3ed0f16d63a33e7e03d data/forge/tags/blocks/ores.json
 eb012c5048f920f19c71569c22b5e808e1aca2e2 data/forge/tags/blocks/ores/skyland.json
 5a0014407f0025ec5707f8a1bc1ca9297c71875f data/minecraft/tags/blocks/fences.json
@@ -9,6 +9,7 @@ f254faabef2971a9ae2d7b4b48d16dcc708c7af1 data/minecraft/tags/blocks/mineable/pic
 a416264f648d948902baaf25401d719fba699460 data/minecraft/tags/blocks/needs_stone_tool.json
 349671d2ce555f77290fb14fc366c247ab2c6f06 data/minecraft/tags/blocks/walls.json
 cb28339548a9f5c43f81c4715df14c62d24020ad data/mmm/tags/blocks/detectable_ore.json
+2349869b3388da5c742eb216fa36a7ddf5e5a26b data/mmm/tags/blocks/heavenly_grass_placeables.json
 73d66f372d8c4d1b45f3aa477fbb0a97cfa88b10 data/mmm/tags/blocks/mineable/hammer.json
 984a835f12c583514b244703d6bad1afa79b3402 data/mmm/tags/blocks/mineable/paxel.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/mmm/tags/blocks/needs_actinolite_tool.json

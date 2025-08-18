@@ -22,6 +22,11 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         // Tags here
+
+        this.tag(ModTags.Blocks.HEAVENLY_GRASS_PLACEABLES)
+                .add(ModBlocks.HEAVENLY_GRASS_BLOCK.get())
+                .add(ModBlocks.SKYSOIL.get());
+
         this.tag(ModTags.Blocks.DETECTABLE_ORE)
                 .addTag(Tags.Blocks.ORES);
 
