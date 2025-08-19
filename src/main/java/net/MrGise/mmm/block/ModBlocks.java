@@ -37,7 +37,6 @@ public class ModBlocks {
     public static final RegistryObject<Block> MIMIC_BLOCK = registerMimicBlock("mimic_block",
             () -> new MimicBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(2.5F)));
 
-
     //- Skyland
     public static final RegistryObject<Block> SKYSOLID = registerBlock("skysolid",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));

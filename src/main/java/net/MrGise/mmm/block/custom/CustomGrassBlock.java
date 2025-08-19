@@ -1,26 +1,19 @@
 package net.MrGise.mmm.block.custom;
 
+import net.MrGise.mmm.MMM;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.data.worldgen.placement.VegetationPlacements;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.BonemealableBlock;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.level.levelgen.feature.ConfiguredFeature;
-import net.minecraft.world.level.levelgen.feature.configurations.RandomPatchConfiguration;
-import net.minecraft.world.level.levelgen.placement.PlacedFeature;
 import net.minecraftforge.registries.RegistryObject;
 
-import java.util.List;
-import java.util.Optional;
-
 public class CustomGrassBlock extends Block implements BonemealableBlock {
+
+    private static boolean log = false;
 
     private final RegistryObject<Block> grassless;
 
@@ -50,8 +43,19 @@ public class CustomGrassBlock extends Block implements BonemealableBlock {
                 BlockPos targetPos = pos.offset(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
                 BlockState targetState = level.getBlockState(targetPos);
 
+                if (log) {
+                    MMM.LOGGER.info("Tried spreading to (" + targetPos.getX() + ", " + targetPos.getY() + ", " + targetPos.getZ() + "), which is block: " + targetState.getBlock().getName());
+                }
+
                 if (targetState.is(grassless.get()) && canStayGrass(level, targetPos)) {
                     level.setBlockAndUpdate(targetPos, this.defaultBlockState());
+                    if (log) {
+                        MMM.LOGGER.info("Success");
+                    }
+                }
+
+                if (log) {
+                    MMM.LOGGER.info("If not success, fail");
                 }
             }
         }
