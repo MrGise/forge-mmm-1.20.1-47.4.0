@@ -38,6 +38,7 @@ public class ModBlocks {
             () -> new MimicBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(2.5F)));
 
 
+    //- Skyland
     public static final RegistryObject<Block> SKYSOLID = registerBlock("skysolid",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
 
@@ -57,7 +58,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> HEAVENLY_GRASS = registerCustomGrass("heavenly_grass",
             () -> new CustomGrass(BlockBehaviour.Properties.copy(Blocks.GRASS), ModBlocks.HEAVENLY_GRASS_BLOCK, ModBlocks.SKYSOIL));
 
-
+    //- Ores
     public static final RegistryObject<Block> SKIRON_ORE = registerBlock("skiron_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 3.0F), UniformInt.of(4, 10)));
 
@@ -78,6 +79,7 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
 
 
+    //- Misc
     public static final RegistryObject<Block> BIRTHDAY_CAKE = registerBlock("birthday_cake",
             () -> new BirthdayCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE)));
 
@@ -89,6 +91,7 @@ public class ModBlocks {
                     .lightLevel(state -> state.getValue(PortalBlock.EYE) ? 6 : 0).isRedstoneConductor(((blockState, blockGetter, blockPos) -> false)).noLootTable(), ModItems.ACTINOLITE), "actinolite");
 
 
+    //- Skyland pt. 2
     public static final RegistryObject<Block> SKYWOOD_LOG = registerBlock("skywood_log",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).mapColor(MapColor.GLOW_LICHEN)));
 
@@ -120,6 +123,7 @@ public class ModBlocks {
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR).mapColor(MapColor.GLOW_LICHEN), BlockSetType.OAK));
 
 
+    //- Crops
     public static final RegistryObject<Block> STRAWBERRY = BLOCKS.register("strawberry",
             () -> new StrawberryCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noCollission().noOcclusion()));
 

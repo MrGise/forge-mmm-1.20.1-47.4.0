@@ -17,7 +17,7 @@ public class ModCreativeModeTabs {
 
     //. The Skyland
     public static final RegistryObject<CreativeModeTab> THE_SKYLAND = CREATIVE_MODE_TABS.register("the_skyland",
-            () -> CreativeModeTab.builder().withTabsAfter(ModCreativeModeTabs.MISCELLANEOUS_MMM.getId()).icon(() -> new ItemStack(ModBlocks.SKIRON_ORE.get()))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.SKIRON_ORE.get()))
                     .title(Component.translatable("creativetab.the_skyland")).displayItems((displayParameters, output) -> {
                         output.accept(ModBlocks.HEAVENLY_GRASS.get());
                         output.accept(ModBlocks.HEAVENLY_GRASS_BLOCK.get());
@@ -112,7 +112,10 @@ public class ModCreativeModeTabs {
 
     //. Misc
     public static final RegistryObject<CreativeModeTab> MISCELLANEOUS_MMM = CREATIVE_MODE_TABS.register("miscellaneous_mmm",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.ORE_DETECTOR.get()))
+            () -> CreativeModeTab.builder()
+                    .withTabsBefore(ModCreativeModeTabs.TEST_TAB.getId(), ModCreativeModeTabs.MMM_CUISINE.getId(),
+                            ModCreativeModeTabs.THE_SKYLAND.getId(), ModCreativeModeTabs.RUIN_ITEMS.getId())
+                    .icon(() -> new ItemStack(ModItems.ORE_DETECTOR.get()))
                     .title(Component.translatable("creativetab.miscellaneous_mmm")).displayItems((displayParameters, output) -> {
                         output.accept(ModBlocks.BIRTHDAY_CAKE.get());
 
