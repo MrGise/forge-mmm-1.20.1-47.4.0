@@ -10,6 +10,7 @@ import net.MrGise.mmm.item.FuelBlockItem;
 import net.MrGise.mmm.item.description.DescriptionPortalBlockItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -126,6 +127,14 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> CUCUMBER = BLOCKS.register("cucumber",
             () -> new CucumberCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noCollission().noOcclusion()));
+
+
+    //- nature
+    public static final RegistryObject<Block> OXALIS = registerBlock("oxalis",
+            () -> new FlowerBlock(() -> MobEffects.LUCK, 4, BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).noCollission().noOcclusion()));
+
+    public static final RegistryObject<Block> POTTED_OXALIS = BLOCKS.register("potted_oxalis",
+            () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), OXALIS, BlockBehaviour.Properties.copy(Blocks.POTTED_OXEYE_DAISY).noOcclusion()));
 
     //-- Test blocks
 

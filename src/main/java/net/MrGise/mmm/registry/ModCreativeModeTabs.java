@@ -99,6 +99,12 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CUCUMBER_SEEDS.get());
                     }).build());
 
+    public static final RegistryObject<CreativeModeTab> PLANTS = CREATIVE_MODE_TABS.register("plants",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.OXALIS.get()))
+                    .title(Component.translatable("creativetab.plants")).displayItems((displayParameters, output) -> {
+                        output.accept(ModBlocks.OXALIS.get());
+                    }).build());
+
     //. Test Tab
     public static final RegistryObject<CreativeModeTab> TEST_TAB = CREATIVE_MODE_TABS.register("test_tab",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.TEST_BLOCK.get()))

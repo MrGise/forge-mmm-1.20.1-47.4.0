@@ -1,11 +1,13 @@
-// 1.20.1	2025-08-20T14:05:23.0684603	Block States: mmm
+// 1.20.1	2025-08-20T15:42:41.7138776	Block States: mmm
 1fd9342f3c0d5ebccf217996515f997f48dbba36 assets/mmm/blockstates/actinolite_ore.json
 6c41a02b9f9404c701fb8b17b16e879eb0b065b1 assets/mmm/blockstates/animated_test_block.json
 2d8c926880342bd85761f05ebc2507d4f69812e8 assets/mmm/blockstates/broken_skysolid.json
 4dcb1f31f5ef4d84cb05e871d7fa2630413bd5b5 assets/mmm/blockstates/cucumber.json
 0df06b123e94fcddfdf7790a661d17e6a5859016 assets/mmm/blockstates/heavenly_grass.json
 d0eb6c6750dd85f72dbd22a4a21dde6e9995a61e assets/mmm/blockstates/heavenly_grass_block.json
+1af7f780a976ebe083ca5ce410fe9b7a51a2ffd0 assets/mmm/blockstates/oxalis.json
 3cb41aed8dc77f1f1122ef7294423ce464118270 assets/mmm/blockstates/portal_block.json
+e8e565fe073a5b2ce50f58f6ead460ebf043a956 assets/mmm/blockstates/potted_oxalis.json
 a10d0fd44741092d55170d45c6c0d96b548f9522 assets/mmm/blockstates/raw_skiron_block.json
 a4265610dd93e13855a3d99283bb21e1b9c8ba60 assets/mmm/blockstates/skiron_block.json
 6bcbd0122dc2dbcbe6d25a800402f3ce6ca6ff61 assets/mmm/blockstates/skiron_ore.json
@@ -46,8 +48,10 @@ d1adbe31c4ce3e0df5e3809a62b39528a31d01ef assets/mmm/models/block/heavenly_grass_
 b8231739623e2d8c524dc2137782d23122a5f42d assets/mmm/models/block/heavenly_grass_block_rot90.json
 2ae2ca7e51115813b4e42381a917065cca23876f assets/mmm/models/block/heavenly_grass_bottom.json
 dc15702c0f9a86f37d3726a488de56e1b6f99342 assets/mmm/models/block/heavenly_grass_top.json
+f30ffcc06d52af51eaa40f6ff8a386cd159e8745 assets/mmm/models/block/oxalis.json
 f573ddd7435de95f7f7c011e606f97052a60e9f7 assets/mmm/models/block/portal_block_eye.json
 3fa71dca2bfdb2a131e668844d28935d105dd470 assets/mmm/models/block/portal_block_noeye.json
+24445d82f8ffd88a303e24e70478099bf5f12b87 assets/mmm/models/block/potted_oxalis.json
 c561852fb0ef2acda6f7d62f6e935f5462adc84e assets/mmm/models/block/raw_skiron_block.json
 e3bda103764662416b10f2e85c0effcc39be7b48 assets/mmm/models/block/skiron_block.json
 cc69c67d965a1165fa718b57471dd027366f6000 assets/mmm/models/block/skiron_ore.json

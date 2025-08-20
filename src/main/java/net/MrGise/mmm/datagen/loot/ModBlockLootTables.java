@@ -71,10 +71,14 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.SKYWOOD_DOOR.get(),
                 Block -> createDoorTable(ModBlocks.SKYWOOD_DOOR.get()));
 
+
         this.createCustomCropDrops((AccessibleCropBlock) ModBlocks.CUCUMBER.get(), ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get(), 1, 4, 0, 3);
 
         this.createCustomCropDrops((AccessibleCropBlock) ModBlocks.STRAWBERRY.get(), ModItems.STRAWBERRY.get(), ModItems.STRAWBERRY_SEEDS.get(), 2, 6, 0, 0);
 
+        this.dropSelf(ModBlocks.OXALIS.get());
+        this.add(ModBlocks.POTTED_OXALIS.get(),
+                Block-> createPotFlowerItemTable(ModBlocks.OXALIS.get()));
 
         //- Ores
 

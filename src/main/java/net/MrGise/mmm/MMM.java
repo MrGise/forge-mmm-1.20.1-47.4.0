@@ -7,7 +7,9 @@ import net.MrGise.mmm.registry.ModCreativeModeTabs;
 import net.MrGise.mmm.registry.ModIItemProperties;
 import net.MrGise.mmm.registry.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
+import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -59,7 +61,12 @@ public class MMM
 
             ComposterBlock.COMPOSTABLES.put(ModItems.STRAWBERRY.get(), 0.2f);
             ComposterBlock.COMPOSTABLES.put(ModItems.STRAWBERRY_SEEDS.get(), 0.1f);
+
+            ComposterBlock.COMPOSTABLES.put(ModBlocks.OXALIS.get(), 0.25f);
+
+            ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.OXALIS.getId(), ModBlocks.POTTED_OXALIS);
         });
+
     }
 
     // Add the example block item to the building blocks tab

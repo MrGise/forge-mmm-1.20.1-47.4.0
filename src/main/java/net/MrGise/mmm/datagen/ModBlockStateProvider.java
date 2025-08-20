@@ -73,6 +73,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         makeCustomCrop((CucumberCropBlock)ModBlocks.CUCUMBER.get(), "cucumber_", "cucumber_", new ResourceLocation(MMM.MOD_ID, "cucumber_base"), new ResourceLocation(MMM.MOD_ID, "cucumber_base_tiny"), "0", 5, 6);
         makeCustomCrop((StrawberryCropBlock)ModBlocks.STRAWBERRY.get(), "strawberry", "strawberry_", new ResourceLocation(MMM.MOD_ID, "crop_cross"), new ResourceLocation(MMM.MOD_ID, "crop_cross"), "0", false, "block/strawberry");
 
+        flower(ModBlocks.OXALIS.get());
+        pottedFlower(ModBlocks.POTTED_OXALIS.get(), "potted_oxalis", "oxalis");
 
         //-- Block Items
 
@@ -82,6 +84,18 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         portalBlock(ModBlocks.PORTAL_BLOCK, "portal_block");
 
+    }
+
+    private void pottedFlower(Block block, String name, String plantName) {
+        simpleBlock(block, models().singleTexture(name, new ResourceLocation("flower_pot_cross"), "plant",
+                modLoc("block/" + plantName)).renderType("cutout"));
+    }
+
+    private void flower(Block block) {
+        simpleBlock(block,
+                models().cross(blockTexture(block).getPath(), blockTexture(block)).renderType("cutout"));
+
+        //- Has no item model
     }
 
     private void customGrass(CustomGrass block, String textureName) {
@@ -119,7 +133,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         ).texture("layer0", "block/" + textureName);
     }
 
-
     private void simpleCubeBottomTop(Block block, String textureName, boolean rotateTop) {
         cubeBottomTop(block, textureName + "_top", textureName + "_side", textureName + "_bottom", textureName, rotateTop);
     }
@@ -129,9 +142,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void cubeBottomTop(Block block,
-                               String topName, String sideName, String bottomName,
-                               String modelName,
-                               boolean rotateTop) {
+                                String topName, String sideName, String bottomName,
+                                String modelName,
+                                boolean rotateTop) {
         if (rotateTop) {
             cubeBottomTopRandomRotation(block, bottomName, topName, sideName);
         } else {
@@ -140,8 +153,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void cubeBottomTop(Block block,
-                               String topName, String sideName, String bottomName,
-                               String modelName) {
+                                String topName, String sideName, String bottomName,
+                                String modelName) {
 
         // Block model that uses block/ textures
         ModelFile model = models().cubeBottomTop(
@@ -231,9 +244,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     public void makeCustomCrop(AccessibleCropBlock block,
-                               String modelName, String textureName,
-                               ResourceLocation defaultParent, ResourceLocation customParent,
-                               String textureLayer, Integer... specialStages) {
+                                String modelName, String textureName,
+                                ResourceLocation defaultParent, ResourceLocation customParent,
+                                String textureLayer, Integer... specialStages) {
 
         Set<Integer> stageSet = Set.of(specialStages);
 
@@ -253,10 +266,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     public void makeCustomCrop(AccessibleCropBlock block,
-                               String modelName, String textureName,
-                               ResourceLocation defaultParent, ResourceLocation customParent,
-                               String textureLayer, boolean hasCustomParticleName,
-                               String customParticleName, Integer... specialStages) {
+                                String modelName, String textureName,
+                                ResourceLocation defaultParent, ResourceLocation customParent,
+                                String textureLayer, boolean hasCustomParticleName,
+                                String customParticleName, Integer... specialStages) {
 
         Set<Integer> stageSet = Set.of(specialStages);
 

@@ -74,13 +74,14 @@ public class ModItemModelProvider extends ItemModelProvider {
                 modLoc("item/heavenly_grass_short"), modLoc("item/heavenly_grass_top"));
 
         simpleBlockItem(ModBlocks.SKYWOOD_DOOR);
+        simpleBlockItem(ModBlocks.OXALIS);
 
     }
 
     // Items
     /*
-     Armor trims
-     Templates located at models/references/trims
+    Armor trims
+    Templates located at models/references/trims
     */
 
 
@@ -115,8 +116,8 @@ public class ModItemModelProvider extends ItemModelProvider {
     }
 
     private void itemWithPredicate(Item item, String predicateName,
-                                   ResourceLocation baseModel,
-                                   ResourceLocation overrideModel) {
+                                    ResourceLocation baseModel,
+                                    ResourceLocation overrideModel) {
         ItemModelBuilder builder = getBuilder(item.toString())
                 .parent(getExistingFile(baseModel));
 
@@ -132,19 +133,13 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
     }
 
-    private ItemModelBuilder simpleBlocksItem(RegistryObject<Block> block) {
-        return withExistingParent(block.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(MMM.MOD_ID, "block/" + block.getId().getPath()));
-    }
-
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
     }
 
-    // Blocks
+    //- Blocks
 
     private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item) {
         return withExistingParent(item.getId().getPath(),
