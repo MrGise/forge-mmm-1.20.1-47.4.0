@@ -3,6 +3,7 @@ package net.MrGise.mmm.registry;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.*;
 import net.MrGise.mmm.item.CustomGrassItem;
+import net.MrGise.mmm.item.EdibleBlockItem;
 import net.MrGise.mmm.item.MimicBlockItem;
 import net.MrGise.mmm.item.description.DescriptionBlockItem;
 import net.MrGise.mmm.item.description.DescriptionFuelBlockItem;
@@ -11,6 +12,7 @@ import net.MrGise.mmm.item.description.DescriptionPortalBlockItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -130,8 +132,9 @@ public class ModBlocks {
 
 
     //- nature
-    public static final RegistryObject<Block> OXALIS = registerBlock("oxalis",
-            () -> new FlowerBlock(() -> MobEffects.LUCK, 4, BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).noCollission().noOcclusion()));
+    public static final RegistryObject<Block> OXALIS = registerEdibleBlock("oxalis",
+            () -> new FlowerBlock(() -> MobEffects.LUCK, 4, BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).noCollission().noOcclusion()),
+            ModFoodProperties.OXALIS, false);
 
     public static final RegistryObject<Block> POTTED_OXALIS = BLOCKS.register("potted_oxalis",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), OXALIS, BlockBehaviour.Properties.copy(Blocks.POTTED_OXEYE_DAISY).noOcclusion()));
@@ -149,6 +152,12 @@ public class ModBlocks {
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
+        return toReturn;
+    }
+
+    private static <T extends Block> RegistryObject<T> registerEdibleBlock(String name, Supplier<T> block, FoodProperties foodProperties, boolean alwaysEat) {
+        RegistryObject<T> toReturn = BLOCKS.register(name, block);
+        registerEdibleBlockItem(name, toReturn, foodProperties, alwaysEat);
         return toReturn;
     }
 
@@ -197,6 +206,10 @@ public class ModBlocks {
     //. Block item registration methods
     private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
+    }
+
+    private static <T extends Block>RegistryObject<Item> registerEdibleBlockItem(String name, RegistryObject<T> block, FoodProperties foodProperties, boolean alwasEat) {
+        return ModItems.ITEMS.register(name, () -> new EdibleBlockItem(block.get(), new Item.Properties(), ModFoodProperties.OXALIS, alwasEat));
     }
 
     private static <T extends Block>RegistryObject<Item> registerCustomGrassItem(String name, RegistryObject<T> block) {
