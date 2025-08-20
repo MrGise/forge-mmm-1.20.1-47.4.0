@@ -1,8 +1,8 @@
 package net.MrGise.mmm.datagen.loot;
 
-import net.MrGise.mmm.block.ModBlocks;
-import net.MrGise.mmm.block.custom.AccessibleCropBlock;
-import net.MrGise.mmm.item.ModItems;
+import net.MrGise.mmm.registry.ModBlocks;
+import net.MrGise.mmm.block.AccessibleCropBlock;
+import net.MrGise.mmm.registry.ModItems;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;

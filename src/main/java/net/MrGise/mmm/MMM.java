@@ -1,11 +1,11 @@
 package net.MrGise.mmm;
 
 import com.mojang.logging.LogUtils;
-import net.MrGise.mmm.block.ModBlocks;
-import net.MrGise.mmm.enchantment.ModEnchantments;
-import net.MrGise.mmm.item.ModCreativeModeTabs;
-import net.MrGise.mmm.item.ModIItemProperties;
-import net.MrGise.mmm.item.ModItems;
+import net.MrGise.mmm.registry.ModBlocks;
+import net.MrGise.mmm.registry.ModEnchantments;
+import net.MrGise.mmm.registry.ModCreativeModeTabs;
+import net.MrGise.mmm.registry.ModIItemProperties;
+import net.MrGise.mmm.registry.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraftforge.api.distmarker.Dist;

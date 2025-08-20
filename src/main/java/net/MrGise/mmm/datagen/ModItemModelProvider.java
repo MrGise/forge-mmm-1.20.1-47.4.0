@@ -1,8 +1,8 @@
 package net.MrGise.mmm.datagen;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.block.ModBlocks;
-import net.MrGise.mmm.item.ModItems;
+import net.MrGise.mmm.registry.ModBlocks;
+import net.MrGise.mmm.registry.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;

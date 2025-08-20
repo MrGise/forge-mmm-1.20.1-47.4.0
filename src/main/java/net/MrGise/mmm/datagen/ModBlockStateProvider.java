@@ -1,12 +1,11 @@
 package net.MrGise.mmm.datagen;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.block.ModBlocks;
-import net.MrGise.mmm.block.custom.*;
+import net.MrGise.mmm.block.*;
+import net.MrGise.mmm.registry.ModBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
@@ -17,7 +16,6 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.client.model.generators.ModelBuilder.FaceRotation;
 
-import java.util.Objects;
 import java.util.Set;
 import java.util.function.Function;
 

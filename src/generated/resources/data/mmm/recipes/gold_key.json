@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "G": {
+      "item": "minecraft:gold_nugget"
+    }
+  },
+  "pattern": [
+    "  G",
+    "GGG",
+    "GG "
+  ],
+  "result": {
+    "item": "mmm:gold_key"
+  },
+  "show_notification": true
+}
