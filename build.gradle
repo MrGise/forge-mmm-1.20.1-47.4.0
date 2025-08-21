@@ -180,6 +180,9 @@ dependencies {
     compileOnly(annotationProcessor("io.github.llamalad7:mixinextras-common:0.4.1"))
     implementation("io.github.llamalad7:mixinextras-forge:0.4.1")
 
+    //. Farmer's Delight
+    implementation(fg.deobf("curse.maven:farmers-delight-398521:6597298"))
+
     // Example mod dependency using a mod jar from ./libs with a flat dir repository
     // This maps to ./libs/coolmod-${mc_version}-${coolmod_version}.jar
     // The group id is ignored when searching -- in this case, it is "blank"
