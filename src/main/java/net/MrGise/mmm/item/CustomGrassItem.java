@@ -1,7 +1,7 @@
 package net.MrGise.mmm.item;
 
 import net.MrGise.mmm.block.CustomGrass;
-import net.MrGise.mmm.util.ModTags;
+import net.MrGise.mmm.registry.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;

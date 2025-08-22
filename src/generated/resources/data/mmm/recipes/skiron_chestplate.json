@@ -4,7 +4,7 @@
   "group": "sky_ores",
   "key": {
     "#": {
-      "item": "mmm:skiron"
+      "tag": "forge:ingots/skiron"
     }
   },
   "pattern": [

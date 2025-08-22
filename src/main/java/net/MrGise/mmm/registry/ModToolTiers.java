@@ -1,7 +1,6 @@
 package net.MrGise.mmm.registry;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.util.ModTags;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;

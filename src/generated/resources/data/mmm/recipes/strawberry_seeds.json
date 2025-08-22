@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "mmm:strawberry"
+      "tag": "forge:crops/strawberry"
     }
   ],
   "result": {

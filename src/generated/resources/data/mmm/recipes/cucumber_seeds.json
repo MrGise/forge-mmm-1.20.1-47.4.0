@@ -3,7 +3,7 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "mmm:cucumber"
+      "tag": "forge:crops/cucumber"
     }
   ],
   "result": {

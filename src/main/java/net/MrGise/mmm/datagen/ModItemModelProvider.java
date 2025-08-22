@@ -39,6 +39,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.CUCUMBER_SEEDS);
         simpleItem(ModItems.CUCUMBER);
+        simpleItem(ModItems.CUT_CUCUMBER);
 
         simpleItem(ModItems.SKOAL);
 
@@ -51,7 +52,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.ACTINOLITE);
 
 
-        /* Tools */
+        /*- Tools -*/
         handheldItem(ModItems.ACTIONLITE_SWORD);
         handheldItem(ModItems.ACTIONLITE_PICKAXE);
 
@@ -60,6 +61,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.SKIRON_AXE);
         handheldItem(ModItems.SKIRON_SHOVEL);
         handheldItem(ModItems.SKIRON_HOE);
+        handheldItem(ModItems.SKIRON_KNIFE);
         handheldItem(ModItems.SKIRON_PAXEL);
 
 

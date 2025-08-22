@@ -2,7 +2,7 @@ package net.MrGise.mmm.item;
 
 import net.MrGise.mmm.registry.ModItems;
 import net.MrGise.mmm.util.InventoryUtil;
-import net.MrGise.mmm.util.ModTags;
+import net.MrGise.mmm.registry.ModTags;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;

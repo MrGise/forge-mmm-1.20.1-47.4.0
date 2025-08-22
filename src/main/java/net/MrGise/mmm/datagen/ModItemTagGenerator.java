@@ -1,8 +1,10 @@
 package net.MrGise.mmm.datagen;
 
+import com.simibubi.create.AllTags;
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.registry.ModBlocks;
 import net.MrGise.mmm.registry.ModItems;
-import net.MrGise.mmm.util.ModTags;
+import net.MrGise.mmm.registry.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;
@@ -11,6 +13,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.common.tag.ForgeTags;
 
 import java.util.concurrent.CompletableFuture;
 
@@ -23,6 +26,40 @@ public class ModItemTagGenerator extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         // Tags here
+
+        this.tag(ModTags.Items.CUCUMBERS)
+                .add(ModItems.CUCUMBER.get());
+
+        this.tag(ModTags.Items.CUCUMBER_SEEDS)
+                .add(ModItems.CUCUMBER_SEEDS.get());
+
+        this.tag(ModTags.Items.STRAWBERRIES)
+                .add(ModItems.STRAWBERRY.get());
+
+        this.tag(ModTags.Items.STRAWBERRY_SEEDS)
+                .add(ModItems.STRAWBERRY_SEEDS.get());
+
+        this.tag(ModTags.Items.SKIRON_BLOCKS)
+                .add(ModBlocks.SKIRON_BLOCK.get().asItem());
+
+        this.tag(ModTags.Items.SKIRON_INGOTS)
+                .add(ModItems.SKIRON.get());
+
+        this.tag(ForgeTags.TOOLS_AXES)
+                .add(ModItems.SKIRON_AXE.get());
+
+        this.tag(ForgeTags.TOOLS_PICKAXES)
+                .add(ModItems.SKIRON_PICKAXE.get())
+                .add(ModItems.ACTIONLITE_PICKAXE.get());
+
+        this.tag(ForgeTags.TOOLS_SHOVELS)
+                .add(ModItems.SKIRON_SHOVEL.get());
+
+        this.tag(vectorwing.farmersdelight.common.tag.ModTags.KNIVES)
+                .add(ModItems.SKIRON_KNIFE.get());
+
+        this.tag(ForgeTags.TOOLS_KNIVES)
+                .add(ModItems.SKIRON_KNIFE.get());
 
         this.tag(Tags.Items.SEEDS)
                 .add(ModItems.CUCUMBER_SEEDS.get())

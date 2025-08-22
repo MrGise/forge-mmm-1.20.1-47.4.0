@@ -4,7 +4,7 @@
   "group": "sky_ores",
   "key": {
     "#": {
-      "item": "mmm:skiron_block"
+      "tag": "forge:storage_blocks/skiron"
     },
     "S": {
       "item": "minecraft:stick"

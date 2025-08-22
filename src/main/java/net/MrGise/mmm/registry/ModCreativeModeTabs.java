@@ -42,6 +42,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SKIRON_AXE.get());
                         output.accept(ModItems.SKIRON_SHOVEL.get());
                         output.accept(ModItems.SKIRON_HOE.get());
+                        output.accept(ModItems.SKIRON_KNIFE.get());
                         output.accept(ModItems.SKIRON_PAXEL.get());
                         output.accept(ModItems.SKIRON_HAMMER.get());
 
@@ -96,6 +97,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.STRAWBERRY_SEEDS.get());
 
                         output.accept(ModItems.CUCUMBER.get());
+                        output.accept(ModItems.CUT_CUCUMBER.get());
                         output.accept(ModItems.CUCUMBER_SEEDS.get());
                     }).build());
 

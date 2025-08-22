@@ -4,7 +4,7 @@
   "group": "sky_ores",
   "key": {
     "#": {
-      "item": "mmm:actinolite"
+      "tag": "forge:gems/actinolite"
     },
     "S": {
       "item": "minecraft:stick"

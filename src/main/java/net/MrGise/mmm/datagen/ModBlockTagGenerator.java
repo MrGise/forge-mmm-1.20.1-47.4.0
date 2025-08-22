@@ -1,8 +1,9 @@
 package net.MrGise.mmm.datagen;
 
+import com.simibubi.create.AllTags;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.ModBlocks;
-import net.MrGise.mmm.util.ModTags;
+import net.MrGise.mmm.registry.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.tags.BlockTags;

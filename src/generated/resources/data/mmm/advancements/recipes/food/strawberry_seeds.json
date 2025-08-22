@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_strawberry": {
+    "has_cucumber": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mmm:strawberry"
+              "mmm:cucumber"
             ]
           }
         ]
@@ -22,7 +22,7 @@
   },
   "requirements": [
     [
-      "has_strawberry",
+      "has_cucumber",
       "has_the_recipe"
     ]
   ],

@@ -10,6 +10,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import vectorwing.farmersdelight.common.item.KnifeItem;
 
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
@@ -51,14 +52,14 @@ public class ModItems {
 
     public static final RegistryObject<Item> STRAWBERRY = ITEMS.register("strawberry",
             () -> new Item(new Item.Properties().food(ModFoodProperties.STRAWBERRY)));
-
     public static final RegistryObject<Item> STRAWBERRY_SEEDS = ITEMS.register("strawberry_seeds",
             () -> new ItemNameBlockItem(ModBlocks.STRAWBERRY.get(), new Item.Properties()));
 
     public static final RegistryObject<Item> CUCUMBER_SEEDS = ITEMS.register("cucumber_seeds",
             () -> new ItemNameBlockItem(ModBlocks.CUCUMBER.get(), new Item.Properties()));
-
     public static final RegistryObject<Item> CUCUMBER = ITEMS.register("cucumber",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.CUCUMBER)));
+    public static final RegistryObject<Item> CUT_CUCUMBER = ITEMS.register("cut_cucumber",
             () -> new Item(new Item.Properties().food(ModFoodProperties.CUCUMBER)));
 
 
@@ -72,9 +73,6 @@ public class ModItems {
     public static final RegistryObject<Item> ACTIONLITE_PICKAXE = ITEMS.register("actinolite_pickaxe",
             () -> new PickaxeItem(ModToolTiers.ACTINOLITE, 2, -1, new Item.Properties().durability(ModToolTiers.ACTINOLITE.getUses() + 100)));
 
-
-    public static final RegistryObject<Item> SKOAL = ITEMS.register("skoal",
-            () -> new DescriptionFuelItem(new Item.Properties(), 1800, "skoal", true));
 
 
     //--Skiron
@@ -95,13 +93,16 @@ public class ModItems {
             () -> new PickaxeItem(ModToolTiers.SKIRON, 1, -2, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 100)));
 
     public static final RegistryObject<Item> SKIRON_AXE = ITEMS.register("skiron_axe",
-            () -> new AxeItem(ModToolTiers.SKIRON, 5, -1.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 50)));
+            () -> new AxeItem(ModToolTiers.SKIRON, 2, -1.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 50)));
 
     public static final RegistryObject<Item> SKIRON_SHOVEL = ITEMS.register("skiron_shovel",
             () -> new ShovelItem(ModToolTiers.SKIRON, 1.75F, -2.75F, new Item.Properties().durability(ModToolTiers.SKIRON.getUses())));
 
     public static final RegistryObject<Item> SKIRON_HOE = ITEMS.register("skiron_hoe",
             () -> new HoeItem(ModToolTiers.SKIRON, -1, -0.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 150)));
+
+    public static final RegistryObject<Item> SKIRON_KNIFE = ITEMS.register("skiron_knife",
+            () -> new KnifeItem(ModToolTiers.SKIRON, 0.5F, -1.0F, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 50)));
 
     public static final RegistryObject<Item> SKIRON_PAXEL = ITEMS.register("skiron_paxel",
             () -> new PaxelItem(ModToolTiers.SKIRON, 5.5f, -1f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 150)));
@@ -140,6 +141,8 @@ public class ModItems {
             () -> new EffectArmorItem(ModArmorMaterials.SKIRON_ACTINOLITE, ArmorItem.Type.BOOTS, new Item.Properties()));
 
 
+    public static final RegistryObject<Item> SKOAL = ITEMS.register("skoal",
+            () -> new DescriptionFuelItem(new Item.Properties(), 1800, "skoal", true));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
