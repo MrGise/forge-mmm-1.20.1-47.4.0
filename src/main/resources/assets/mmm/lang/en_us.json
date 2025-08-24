@@ -83,13 +83,9 @@
   "block.mmm.skoal_ore": "Sky Coal Ore",
   "block.mmm.skoal_block": "Block of Sky Coal",
 
-
   "block.mmm.birthday_cake": "Birthday cake",
-
   "block.mmm.sound_block": "Sound Block",
-
   "block.mmm.portal_block": "Portal Block",
-
 
   "block.mmm.skywood_log": "Skywood Log",
   "block.mmm.skywood_planks": "Skywood Planks",
@@ -102,18 +98,28 @@
   "block.mmm.skywood_door": "Skywood Door",
   "block.mmm.skywood_trapdoor": "Skywood Trapdoor",
 
+  "block.mmm.null_block": "Null",
+
   "block.mmm.oxalis": "Oxalis",
 
 
   "creativetab.the_skyland": "The Skyland",
   "creativetab.ruin_items": "Treasures of Ruins",
-  "creativetab.test_tab": "Test Tab",
+  "creativetab.dimensions": "Dimensions",
   "creativetab.miscellaneous_mmm": "The Other MMM Stuff",
   "creativetab.mmm_cuisine": "Kitchen & Farm's Products",
   "creativetab.plants": "Plants & Nature",
 
 
   "enchantment.mmm.lightning_striker": "Lightning Striker",
+
+
+  "sounds.mmm.ore_detector_success": "Ore detector succeeds",
+
+  "sounds.mmm.null_block_break": "Null broken",
+  "sounds.mmm.null_block_place": "Null placed",
+  "sounds.mmm.null_block_hit": "Null hit",
+  "sounds.mmm.null_block_step": "Walking on Null",
 
 
   "tooltip.mmm.glyphs.title": "When used as a spell:",

@@ -107,22 +107,24 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.OXALIS.get());
                     }).build());
 
-    //. Test Tab
-    public static final RegistryObject<CreativeModeTab> TEST_TAB = CREATIVE_MODE_TABS.register("test_tab",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.TEST_BLOCK.get()))
-                    .title(Component.translatable("creativetab.test_tab")).displayItems((displayParameters, output) -> {
-                        output.accept(ModBlocks.TEST_BLOCK.get());
-                        output.accept(ModBlocks.ANIMATED_TEST_BLOCK.get());
-                        output.accept(ModItems.TEST_ITEM.get());
+    //\ Dimensions
+    public static final RegistryObject<CreativeModeTab> DIMENSIONS = CREATIVE_MODE_TABS.register("dimensions",
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.NULL_BLOCK.get()))
+                    .title(Component.translatable("creativetab.dimensions")).displayItems((displayParameters, output) -> {
+                        output.accept(ModBlocks.NULL_BLOCK.get());
                     }).build());
 
     //. Misc
     public static final RegistryObject<CreativeModeTab> MISCELLANEOUS_MMM = CREATIVE_MODE_TABS.register("miscellaneous_mmm",
             () -> CreativeModeTab.builder()
-                    .withTabsBefore(ModCreativeModeTabs.TEST_TAB.getId(), ModCreativeModeTabs.MMM_CUISINE.getId(),
+                    .withTabsBefore(ModCreativeModeTabs.DIMENSIONS.getId(), ModCreativeModeTabs.MMM_CUISINE.getId(),
                             ModCreativeModeTabs.THE_SKYLAND.getId(), ModCreativeModeTabs.RUIN_ITEMS.getId())
                     .icon(() -> new ItemStack(ModItems.ORE_DETECTOR.get()))
                     .title(Component.translatable("creativetab.miscellaneous_mmm")).displayItems((displayParameters, output) -> {
+                        output.accept(ModBlocks.TEST_BLOCK.get());
+                        output.accept(ModBlocks.ANIMATED_TEST_BLOCK.get());
+                        output.accept(ModItems.TEST_ITEM.get());
+
                         output.accept(ModBlocks.BIRTHDAY_CAKE.get());
 
                         output.accept(ModItems.ORE_DETECTOR.get());

@@ -139,6 +139,11 @@ public class ModBlocks {
     public static final RegistryObject<Block> POTTED_OXALIS = BLOCKS.register("potted_oxalis",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), OXALIS, BlockBehaviour.Properties.copy(Blocks.POTTED_OXEYE_DAISY).noOcclusion()));
 
+    //\ Dimensions
+    public static final RegistryObject<Block> NULL_BLOCK = registerBlock("null_block",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(DyeColor.WHITE).noOcclusion().lightLevel(state -> 15)
+                    .strength(3.0f, 10.0f).requiresCorrectToolForDrops().sound(ModSounds.NULL_BLOCK_SOUNDS)));
+
     //-- Test blocks
 
     public static final RegistryObject<Block> TEST_BLOCK = registerBlock("test_block",

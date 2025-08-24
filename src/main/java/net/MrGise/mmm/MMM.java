@@ -1,11 +1,7 @@
 package net.MrGise.mmm;
 
 import com.mojang.logging.LogUtils;
-import net.MrGise.mmm.registry.ModBlocks;
-import net.MrGise.mmm.registry.ModEnchantments;
-import net.MrGise.mmm.registry.ModCreativeModeTabs;
-import net.MrGise.mmm.registry.ModIItemProperties;
-import net.MrGise.mmm.registry.ModItems;
+import net.MrGise.mmm.registry.*;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -43,7 +39,7 @@ public class MMM
         // Register the item to a creative tab
         modEventBus.addListener(this::addCreative);
 
-        // Everything else
+        //\ Everything else
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
@@ -51,6 +47,10 @@ public class MMM
         ModCreativeModeTabs.register(modEventBus);
 
         ModEnchantments.register(modEventBus);
+
+        //, Resources
+
+        ModSounds.register(modEventBus);
 
     }
 

@@ -1,6 +1,5 @@
 package net.MrGise.mmm.datagen;
 
-import com.simibubi.create.AllTags;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.ModBlocks;
 import net.MrGise.mmm.registry.ModTags;
@@ -54,15 +53,14 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ModBlocks.SKYSOLID.get())
                 .add(ModBlocks.BROKEN_SKYSOLID.get())
-
                 .add(ModBlocks.SKOAL_ORE.get())
                 .add(ModBlocks.SKIRON_ORE.get())
                 .add(ModBlocks.ACTINOLITE_ORE.get())
-
                 .add(ModBlocks.SKOAL_BLOCK.get())
-
                 .add(ModBlocks.SKIRON_BLOCK.get())
-                .add(ModBlocks.RAW_SKIRON_BLOCK.get());
+                .add(ModBlocks.RAW_SKIRON_BLOCK.get())
+
+                .add(ModBlocks.NULL_BLOCK.get());
 
         this.tag(ModTags.Blocks.MINEABLE_WITH_HAMMER)
                 .addTag(BlockTags.MINEABLE_WITH_PICKAXE);

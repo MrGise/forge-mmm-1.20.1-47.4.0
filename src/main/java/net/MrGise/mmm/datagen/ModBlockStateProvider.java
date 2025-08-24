@@ -53,6 +53,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.RAW_SKIRON_BLOCK);
         blockWithItem(ModBlocks.SKOAL_BLOCK);
 
+        blockWithItem(ModBlocks.NULL_BLOCK);
+
 
 
         //-- Other blocks

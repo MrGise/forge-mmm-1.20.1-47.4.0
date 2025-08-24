@@ -38,7 +38,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.ANIMATED_TEST_BLOCK.get());
 
 
-        this.dropSelf(ModBlocks.SKOAL_BLOCK.get());
+        this.dropSelf(ModBlocks.SKOAL_BLOCK.get()); //, Skyland bit
         this.dropSelf(ModBlocks.SKIRON_ORE.get());
         this.dropSelf(ModBlocks.SKIRON_BLOCK.get());
         this.dropSelf(ModBlocks.RAW_SKIRON_BLOCK.get());
@@ -48,17 +48,17 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.MIMIC_BLOCK.get());
 
         this.add(ModBlocks.SKYSOLID.get(),
-                block -> createCustomSingularDrop(ModBlocks.SKYSOLID.get(), ModBlocks.BROKEN_SKYSOLID.get()));
+                block -> createCustomSingularDrop(ModBlocks.SKYSOLID.get(), ModBlocks.BROKEN_SKYSOLID.get())); //, Skysolid
         this.dropSelf(ModBlocks.SKYSOLID_WALL.get());
         this.dropSelf(ModBlocks.BROKEN_SKYSOLID.get());
 
         this.add(ModBlocks.HEAVENLY_GRASS_BLOCK.get(),
-                block -> createCustomSingularDrop(ModBlocks.HEAVENLY_GRASS_BLOCK.get(), ModBlocks.SKYSOIL.get()));
+                block -> createCustomSingularDrop(ModBlocks.HEAVENLY_GRASS_BLOCK.get(), ModBlocks.SKYSOIL.get())); //, Heavenly grass
         this.dropSelf(ModBlocks.SKYSOIL.get());
         createCustomMultiItemDropsWithChance(ModBlocks.HEAVENLY_GRASS.get(),
                         new ItemDropData(ModItems.STRAWBERRY_SEEDS.get(), 0.1f, 1, 4));
 
-        this.dropSelf(ModBlocks.SKYWOOD_LOG.get());
+        this.dropSelf(ModBlocks.SKYWOOD_LOG.get()); //, Skywood
         this.dropSelf(ModBlocks.SKYWOOD_PLANKS.get());
         this.dropSelf(ModBlocks.SKYWOOD_STAIRS.get());
         this.add(ModBlocks.SKYWOOD_SLAB.get(),
@@ -71,10 +71,12 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.SKYWOOD_DOOR.get(),
                 Block -> createDoorTable(ModBlocks.SKYWOOD_DOOR.get()));
 
+        //, My custom crops
+        this.createCustomCropDrops((AccessibleCropBlock) ModBlocks.CUCUMBER.get(), ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get(),
+                1, 4, 0, 3);
 
-        this.createCustomCropDrops((AccessibleCropBlock) ModBlocks.CUCUMBER.get(), ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get(), 1, 4, 0, 3);
-
-        this.createCustomCropDrops((AccessibleCropBlock) ModBlocks.STRAWBERRY.get(), ModItems.STRAWBERRY.get(), ModItems.STRAWBERRY_SEEDS.get(), 2, 6, 0, 0);
+        this.createCustomCropDrops((AccessibleCropBlock) ModBlocks.STRAWBERRY.get(), ModItems.STRAWBERRY.get(), ModItems.STRAWBERRY_SEEDS.get(),
+                2, 6, 0, 0);
 
         this.dropSelf(ModBlocks.OXALIS.get());
         this.add(ModBlocks.POTTED_OXALIS.get(),
@@ -90,6 +92,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.add(ModBlocks.SKOAL_ORE.get(),
                 block -> createMultipleOreDrop(ModBlocks.SKOAL_ORE.get(), ModItems.SKOAL.get(), 1, 4));
+
+        //\ Dimensions' blocks loot tables
+        this.dropSelf(ModBlocks.NULL_BLOCK.get());
 
     }
 

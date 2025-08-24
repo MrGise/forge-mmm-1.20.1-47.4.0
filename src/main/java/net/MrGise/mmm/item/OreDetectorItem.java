@@ -1,12 +1,14 @@
 package net.MrGise.mmm.item;
 
 import net.MrGise.mmm.registry.ModItems;
+import net.MrGise.mmm.registry.ModSounds;
 import net.MrGise.mmm.util.InventoryUtil;
 import net.MrGise.mmm.registry.ModTags;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -41,6 +43,9 @@ public class OreDetectorItem extends Item {
                     if (InventoryUtil.hasPlayerStackInInventory(player, ModItems.ORE_REDETECTOR.get())) {
                         addDataToRedetector(player, positionClicked.below(i), blockState.getBlock());
                     }
+
+                    pContext.getLevel().playSeededSound(null, player.getX(), player.getY(), player.getZ(),
+                            ModSounds.ORE_DETECTOR_SUCCESS.get(), SoundSource.BLOCKS, 1f, 1f, 0);
 
                     break;
 

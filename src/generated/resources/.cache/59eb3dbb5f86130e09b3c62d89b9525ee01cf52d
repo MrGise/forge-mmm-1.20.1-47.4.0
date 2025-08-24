@@ -1,4 +1,4 @@
-// 1.20.1	2025-08-20T14:49:10.0871942	Loot Tables
+// 1.20.1	2025-08-24T14:53:26.6961768	Loot Tables
 304bc14bc9e1f04828096388b5b5c3c6b3be2931 data/mmm/loot_tables/blocks/actinolite_ore.json
 05b6ea431f70e2f445e44d02a41d4e14dbd1a880 data/mmm/loot_tables/blocks/animated_test_block.json
 4ecea7d1aaa11b4bd1d9ffd2eed07729b6c6889f data/mmm/loot_tables/blocks/birthday_cake.json
@@ -7,6 +7,7 @@ c1fbe35af1992706dc9926314cb16b0d3e978be0 data/mmm/loot_tables/blocks/broken_skys
 df60d57e7fd9628fa35e38fb0a83956fb8e40e60 data/mmm/loot_tables/blocks/heavenly_grass.json
 62e808048e300570b74b951bbc077231174dbc94 data/mmm/loot_tables/blocks/heavenly_grass_block.json
 d8a5cc943dc18da1cebe5b7c8f30a635052b9232 data/mmm/loot_tables/blocks/mimic_block.json
+c696ef42d2254e680b428fe6a5ae8472ab661d91 data/mmm/loot_tables/blocks/null_block.json
 5f129514e9530e8ff7ad0a2257ea7d4629b1ff1a data/mmm/loot_tables/blocks/oxalis.json
 a51923536eeccd287573a0854ea8fdcddf0eada2 data/mmm/loot_tables/blocks/potted_oxalis.json
 2653d9cada6c29347b580f52109f60c19841d667 data/mmm/loot_tables/blocks/raw_skiron_block.json

@@ -1,0 +1,36 @@
+{
+  "ore_detector_success": {
+    "subtitle": "sounds.mmm.ore_detector_success",
+    "sounds": [
+      "mmm:ore_detector_success"
+    ]
+  },
+  "null_block_break": {
+    "subtitle": "sounds.mmm.null_block_break",
+    "sounds": [
+      "mmm:null_block_break"
+    ]
+  },
+  "null_block_hit": {
+    "subtitle": "sounds.mmm.null_block_hit",
+    "sounds": [
+      "mmm:null_block_hit1",
+      "mmm:null_block_hit2"
+    ]
+  },
+  "null_block_step": {
+    "subtitle": "sounds.mmm.null_block_step",
+    "sounds": [
+      "mmm:null_block_step1",
+      "mmm:null_block_step2",
+      "mmm:null_block_step3",
+      "mmm:null_block_step4"
+    ]
+  },
+  "null_block_place": {
+    "subtitle": "sounds.mmm.null_block_place",
+    "sounds": [
+      "mmm:null_block_place"
+    ]
+  }
+}
