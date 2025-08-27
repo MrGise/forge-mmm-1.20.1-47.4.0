@@ -8,6 +8,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -55,7 +56,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.NULL_BLOCK);
 
-
+        thinLogBlockWithItem(((ThinLogBlock) ModBlocks.THIN_PINE_LOG.get()),
+                "thin_pine_log", "thin_pine_log_top", "thin_pine_log");
 
         //-- Other blocks
 
@@ -226,6 +228,33 @@ public class ModBlockStateProvider extends BlockStateProvider {
         axisBlock(block, vertical, horizontal);
 
         // Item model uses vertical log model
+        simpleBlockItem(block, vertical);
+    }
+
+    private void thinLogBlockWithItem(RotatedPillarBlock block, String sideName, String topName, String baseModelName) {
+        ResourceLocation side = modLoc("block/" + sideName);
+        ResourceLocation top = modLoc("block/" + topName);
+
+        // === Axis-specific models just extend parent ===
+        ModelFile vertical = models().withExistingParent(baseModelName, modLoc("block/thin_log"))
+                .texture("side", side).texture("end", top);
+
+        ModelFile logX = models().withExistingParent(baseModelName + "_x", modLoc("block/thin_log_x"))
+                .texture("side", side).texture("end", top);
+
+        ModelFile logZ = models().withExistingParent(baseModelName + "_z", modLoc("block/thin_log_z"))
+                .texture("side", side).texture("end", top);
+
+        // === Blockstate builder ===
+        getVariantBuilder(block)
+                .partialState().with(RotatedPillarBlock.AXIS, Direction.Axis.Y)
+                .modelForState().modelFile(vertical).addModel()
+                .partialState().with(RotatedPillarBlock.AXIS, Direction.Axis.X)
+                .modelForState().modelFile(logX).addModel()
+                .partialState().with(RotatedPillarBlock.AXIS, Direction.Axis.Z)
+                .modelForState().modelFile(logZ).addModel();
+
+        // === Item model ===
         simpleBlockItem(block, vertical);
     }
 

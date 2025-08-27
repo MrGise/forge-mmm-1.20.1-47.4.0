@@ -139,8 +139,8 @@ public class CustomGrass extends BushBlock implements BonemealableBlock {
     /* ---------- shapes ---------- */
 
     private static final VoxelShape SHAPE_SHORT  = Shapes.box(2/16.0, 0.0, 2/16.0, 14/16.0, 14/16.0, 14/16.0);
-    private static final VoxelShape SHAPE_TALL   = Shapes.box(0/16.0, 0.0, 0/16.0, 16/16.0, 16/16.0, 16/16.0);
-    private static final VoxelShape SHAPE_TOP    = Shapes.box(0/16.0, 0.0, 0/16.0, 16/16.0, 16/16.0, 16/16.0);
+    private static final VoxelShape SHAPE_TALL   = Shapes.box(0.0, 0.0, 0.0, 16/16.0, 16/16.0, 16/16.0);
+    private static final VoxelShape SHAPE_TOP    = Shapes.box(0.0, 0.0, 0.0, 16/16.0, 16/16.0, 16/16.0);
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter level, BlockPos pos, CollisionContext ctx) {

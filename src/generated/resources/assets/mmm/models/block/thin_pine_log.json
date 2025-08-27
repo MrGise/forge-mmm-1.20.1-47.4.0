@@ -1,0 +1,7 @@
+{
+  "parent": "mmm:block/thin_log",
+  "textures": {
+    "end": "mmm:block/thin_pine_log_top",
+    "side": "mmm:block/thin_pine_log"
+  }
+}

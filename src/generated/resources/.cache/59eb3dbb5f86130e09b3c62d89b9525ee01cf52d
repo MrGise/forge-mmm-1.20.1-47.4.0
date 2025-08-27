@@ -1,4 +1,4 @@
-// 1.20.1	2025-08-24T14:53:26.6961768	Loot Tables
+// 1.20.1	2025-08-27T09:10:17.5905651	Loot Tables
 304bc14bc9e1f04828096388b5b5c3c6b3be2931 data/mmm/loot_tables/blocks/actinolite_ore.json
 05b6ea431f70e2f445e44d02a41d4e14dbd1a880 data/mmm/loot_tables/blocks/animated_test_block.json
 4ecea7d1aaa11b4bd1d9ffd2eed07729b6c6889f data/mmm/loot_tables/blocks/birthday_cake.json
@@ -31,3 +31,4 @@ cebdbc055598ff90c150e8e8a9d3b8face7129a9 data/mmm/loot_tables/blocks/skywood_sta
 48f3798feaed066f95a733d4dc85940cddcd63f8 data/mmm/loot_tables/blocks/strawberry.json
 fa13b7d728a42b487a5d01d8370007932b25852b data/mmm/loot_tables/blocks/strawberry_rclick.json
 1e1e03a6ab932d99252b04605439470f71d19b38 data/mmm/loot_tables/blocks/test_block.json
+35fab8e72ca60595d79363b85043312af7c5237b data/mmm/loot_tables/blocks/thin_pine_log.json

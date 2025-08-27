@@ -71,7 +71,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.SKYWOOD_DOOR.get(),
                 Block -> createDoorTable(ModBlocks.SKYWOOD_DOOR.get()));
 
-        //, My custom crops
+        //, Nature
+
+        this.dropSelf(ModBlocks.THIN_PINE_LOG.get());
+
         this.createCustomCropDrops((AccessibleCropBlock) ModBlocks.CUCUMBER.get(), ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get(),
                 1, 4, 0, 3);
 

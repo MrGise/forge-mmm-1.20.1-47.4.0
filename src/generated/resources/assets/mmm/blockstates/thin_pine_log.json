@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "axis=x": {
+      "model": "mmm:block/thin_pine_log_x"
+    },
+    "axis=y": {
+      "model": "mmm:block/thin_pine_log"
+    },
+    "axis=z": {
+      "model": "mmm:block/thin_pine_log_z"
+    }
+  }
+}

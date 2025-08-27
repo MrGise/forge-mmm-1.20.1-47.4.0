@@ -1,4 +1,4 @@
-// 1.20.1	2025-08-24T10:37:12.1201771	Block States: mmm
+// 1.20.1	2025-08-27T11:25:59.5671865	Block States: mmm
 1fd9342f3c0d5ebccf217996515f997f48dbba36 assets/mmm/blockstates/actinolite_ore.json
 6c41a02b9f9404c701fb8b17b16e879eb0b065b1 assets/mmm/blockstates/animated_test_block.json
 2d8c926880342bd85761f05ebc2507d4f69812e8 assets/mmm/blockstates/broken_skysolid.json
@@ -30,6 +30,7 @@ c7db315f3c6c4067a1e5fbb0b128e3b26144b5d3 assets/mmm/blockstates/skywood_trapdoor
 47a57e9e36b9b4c54a24c7c8c8b9f0d5953fbe68 assets/mmm/blockstates/sound_block.json
 ec207c3aab3df2efa801ba2c771cd7a46b2e6f67 assets/mmm/blockstates/strawberry.json
 88b60eb372fcbfac64e3dbd20f0928464f0b6e48 assets/mmm/blockstates/test_block.json
+a423caaf7e550e66f53d83640fd72f84a8538fdb assets/mmm/blockstates/thin_pine_log.json
 33c12059088bd46893d53d62fde613f490c7f97d assets/mmm/models/block/actinolite_ore.json
 110ff84a609547d85c275b14b17be369f08bba30 assets/mmm/models/block/animated_test_block.json
 95cbb8d9d72fe1ccbc1387605425fe3b2ac6bd7b assets/mmm/models/block/broken_skysolid.json
@@ -102,6 +103,9 @@ afb94eede0497bcd87dcdbbad5734e727094f1a8 assets/mmm/models/block/strawberry3.jso
 79f40f24409db95fa2cddd492c8655584d90c661 assets/mmm/models/block/strawberry5.json
 939af8800191ed45a948dab4768c2e88366dff6a assets/mmm/models/block/strawberry6.json
 ab74a36bba4c26f1abf580bae7cd9b47926e867f assets/mmm/models/block/test_block.json
+3e970d00e3b3f895bef90f51ed333931e367566b assets/mmm/models/block/thin_pine_log.json
+37f26a2fc95185e14e41d6ba3b6458ad6b0cd751 assets/mmm/models/block/thin_pine_log_x.json
+c6267aabb4e7b09a03985019d5de524af5856d49 assets/mmm/models/block/thin_pine_log_z.json
 58bf63219892d6927fde5051821f8022834152fc assets/mmm/models/item/actinolite_ore.json
 884ceb70a85e52d33d4bab02e6c76ed35064db43 assets/mmm/models/item/animated_test_block.json
 41b0d40964828016863b1a4902f965f3c0ca4ae5 assets/mmm/models/item/broken_skysolid.json
@@ -125,3 +129,4 @@ c3885f7fc9ad49fe9de49ee805d6bf53fa756a9e assets/mmm/models/item/skywood_pressure
 3f505c7cfe929db3b843caa547eb9e644a6e6a26 assets/mmm/models/item/skywood_trapdoor.json
 4dd5ba9df241273711f3b208e8487f8e92311bef assets/mmm/models/item/sound_block.json
 a99d9bce532bbfb7636fe8767499d203243578aa assets/mmm/models/item/test_block.json
+6ece2453a832a74a28a8da8e6b95828efa79c336 assets/mmm/models/item/thin_pine_log.json

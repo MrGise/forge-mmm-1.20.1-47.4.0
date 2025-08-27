@@ -132,6 +132,10 @@ public class ModBlocks {
 
 
     //- nature
+
+    public static final RegistryObject<Block> THIN_PINE_LOG = registerBlock("thin_pine_log",
+            () -> new ThinLogBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_LOG)));
+
     public static final RegistryObject<Block> OXALIS = registerEdibleBlock("oxalis",
             () -> new FlowerBlock(() -> MobEffects.LUCK, 4, BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).noCollission().noOcclusion()),
             ModFoodProperties.OXALIS, false);
