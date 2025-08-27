@@ -101,10 +101,12 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CUCUMBER_SEEDS.get());
                     }).build());
 
+    //. Nature
     public static final RegistryObject<CreativeModeTab> PLANTS = CREATIVE_MODE_TABS.register("plants",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.OXALIS.get()))
                     .title(Component.translatable("creativetab.plants")).displayItems((displayParameters, output) -> {
                         output.accept(ModBlocks.OXALIS.get());
+                        output.accept(ModBlocks.THIN_PINE_LOG.get());
                     }).build());
 
     //\ Dimensions
