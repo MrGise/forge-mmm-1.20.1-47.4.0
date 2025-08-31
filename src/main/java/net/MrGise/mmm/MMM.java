@@ -73,7 +73,6 @@ public class MMM
 
 
             ModEvents.LogMap.put(ModBlocks.SKYWOOD_LOG.get(), ModBlocks.STRIPPED_SKYWOOD_LOG.get());
-            ModEvents.BarkMap.put(ModBlocks.SKYWOOD_LOG.get(), ModBlocks.SKYWOOD_PLANKS.get());
         });
 
     }
