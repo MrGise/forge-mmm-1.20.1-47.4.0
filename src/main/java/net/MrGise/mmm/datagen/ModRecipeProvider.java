@@ -112,6 +112,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         //-- Wood
         exchangeRecipe(pWriter, RecipeCategory.MISC, Ingredient.of(ModBlocks.SKYWOOD_LOG.get()), ModBlocks.SKYWOOD_LOG.get(), ModBlocks.SKYWOOD_PLANKS.get(), 4);
+        exchangeRecipe(pWriter, RecipeCategory.MISC, Ingredient.of(ModBlocks.STRIPPED_SKYWOOD_LOG.get()), ModBlocks.STRIPPED_SKYWOOD_LOG.get(), ModBlocks.SKYWOOD_PLANKS.get(), 4);
 
         slab(pWriter, RecipeCategory.MISC, ModBlocks.SKYWOOD_SLAB.get(), ModBlocks.SKYWOOD_PLANKS.get());
         stairs(pWriter, RecipeCategory.MISC, ModBlocks.SKYWOOD_STAIRS.get(), Ingredient.of(ModBlocks.SKYWOOD_PLANKS.get()), ModBlocks.SKYWOOD_PLANKS.get());
@@ -194,7 +195,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
     protected static void exchangeRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer, RecipeCategory category,
                                             Ingredient ingredient, ItemLike unlockedBy, ItemLike result, int count) {
-        ShapelessRecipeBuilder.shapeless(category, result, count).requires(ingredient).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(finishedRecipeConsumer);
+        ShapelessRecipeBuilder.shapeless(category, result, count).requires(ingredient)
+                .unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(finishedRecipeConsumer,
+                        new ResourceLocation(result.asItem().toString().toLowerCase() + "_from_" + unlockedBy.asItem().toString().toLowerCase()));
     }
 
     protected static void nineItemIngotRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pUnpackedCategory,

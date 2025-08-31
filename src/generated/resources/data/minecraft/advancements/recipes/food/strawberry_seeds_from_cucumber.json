@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mmm:cucumber_seeds"
+        "recipe": "minecraft:strawberry_seeds_from_cucumber"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "mmm:cucumber_seeds"
+      "minecraft:strawberry_seeds_from_cucumber"
     ]
   },
   "sends_telemetry_event": false

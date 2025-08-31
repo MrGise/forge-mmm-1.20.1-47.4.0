@@ -95,6 +95,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> SKYWOOD_LOG = registerBlock("skywood_log",
             () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG).mapColor(MapColor.GLOW_LICHEN)));
 
+    public static final RegistryObject<Block> STRIPPED_SKYWOOD_LOG = registerBlock("stripped_skywood_log",
+            () -> new RotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG).mapColor(MapColor.GLOW_LICHEN)));
+
     public static final RegistryObject<Block> SKYWOOD_PLANKS = registerBlock("skywood_planks",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS).mapColor(MapColor.GLOW_LICHEN)));
 

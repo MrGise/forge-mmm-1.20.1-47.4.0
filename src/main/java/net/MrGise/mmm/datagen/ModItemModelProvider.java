@@ -76,7 +76,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 modLoc("item/heavenly_grass_short"), modLoc("item/heavenly_grass_top"));
 
         simpleBlockItem(ModBlocks.SKYWOOD_DOOR);
-        simpleBlockItem(ModBlocks.OXALIS);
+        simpleBlockItem(ModBlocks.OXALIS, "block/oxalis");
 
     }
 
@@ -147,6 +147,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item, String textureName) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(MMM.MOD_ID, textureName));
     }
 
     public void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {

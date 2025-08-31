@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cucumber": {
+    "has_skywood_log": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mmm:cucumber"
+              "mmm:skywood_log"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mmm:strawberry_seeds"
+        "recipe": "minecraft:skywood_planks_from_skywood_log"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_cucumber",
+      "has_skywood_log",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mmm:strawberry_seeds"
+      "minecraft:skywood_planks_from_skywood_log"
     ]
   },
   "sends_telemetry_event": false

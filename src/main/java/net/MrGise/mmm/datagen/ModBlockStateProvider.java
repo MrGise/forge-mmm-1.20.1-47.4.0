@@ -45,7 +45,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         customGrass((CustomGrass) ModBlocks.HEAVENLY_GRASS.get(), "heavenly_grass");
 
         blockWithItem(ModBlocks.SKYWOOD_PLANKS);
-        logBlockWithItem((RotatedPillarBlock) ModBlocks.SKYWOOD_LOG.get(), "skywood_log", "skywood_log_top", "skywood_log");
+        logBlockWithItem((RotatedPillarBlock) ModBlocks.SKYWOOD_LOG.get(),
+                "skywood_log", "skywood_log_top", "skywood_log");
+        logBlockWithItem((RotatedPillarBlock) ModBlocks.STRIPPED_SKYWOOD_LOG.get(),
+                "stripped_skywood_log", "stripped_skywood_log_top", "stripped_skywood_log");
 
         blockWithItem(ModBlocks.ACTINOLITE_ORE);
         blockWithItem(ModBlocks.SKIRON_ORE);

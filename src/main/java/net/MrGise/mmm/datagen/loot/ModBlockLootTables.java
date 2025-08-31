@@ -59,6 +59,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                         new ItemDropData(ModItems.STRAWBERRY_SEEDS.get(), 0.1f, 1, 4));
 
         this.dropSelf(ModBlocks.SKYWOOD_LOG.get()); //, Skywood
+        this.dropSelf(ModBlocks.STRIPPED_SKYWOOD_LOG.get());
         this.dropSelf(ModBlocks.SKYWOOD_PLANKS.get());
         this.dropSelf(ModBlocks.SKYWOOD_STAIRS.get());
         this.add(ModBlocks.SKYWOOD_SLAB.get(),

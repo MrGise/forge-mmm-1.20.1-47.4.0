@@ -13,30 +13,35 @@ public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MMM.MOD_ID);
 
-    //. The Skyland
+    //,- The Skyland
     public static final RegistryObject<CreativeModeTab> THE_SKYLAND = CREATIVE_MODE_TABS.register("the_skyland",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.SKIRON_ORE.get()))
                     .title(Component.translatable("creativetab.the_skyland")).displayItems((displayParameters, output) -> {
+                        //- Heavenly grass
                         output.accept(ModBlocks.HEAVENLY_GRASS.get());
                         output.accept(ModBlocks.HEAVENLY_GRASS_BLOCK.get());
                         output.accept(ModBlocks.SKYSOIL.get());
 
+                        //- Skysolid
                         output.accept(ModBlocks.SKYSOLID.get());
                         output.accept(ModBlocks.SKYSOLID_WALL.get());
                         output.accept(ModBlocks.BROKEN_SKYSOLID.get());
                         output.accept(ModItems.SKYSOLID_TABLET.get());
 
+                        //- Actinolite
                         output.accept(ModBlocks.ACTINOLITE_ORE.get());
                         output.accept(ModItems.ACTINOLITE.get());
                         output.accept(ModItems.ACTIONLITE_SWORD.get());
                         output.accept(ModItems.ACTIONLITE_PICKAXE.get());
 
+                        //- Skiron
                         output.accept(ModBlocks.SKIRON_ORE.get());
                         output.accept(ModItems.RAW_SKIRON.get());
                         output.accept(ModItems.SKIRON.get());
                         output.accept(ModItems.SKIRON_NUGGET.get());
                         output.accept(ModBlocks.RAW_SKIRON_BLOCK.get());
                         output.accept(ModBlocks.SKIRON_BLOCK.get());
+
                         output.accept(ModItems.SKIRON_SWORD.get());
                         output.accept(ModItems.SKIRON_PICKAXE.get());
                         output.accept(ModItems.SKIRON_AXE.get());
@@ -52,16 +57,20 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SKIRON_BOOTS.get());
                         output.accept(ModItems.SKIRON_HORSE_ARMOR.get());
 
+                        //- Skiron + Actinolite
                         output.accept(ModItems.SKIRON_ACTINOLITE_HELMET.get());
                         output.accept(ModItems.SKIRON_ACTINOLITE_CHESTPLATE.get());
                         output.accept(ModItems.SKIRON_ACTINOLITE_LEGGINGS.get());
                         output.accept(ModItems.SKIRON_ACTINOLITE_BOOTS.get());
 
+                        //- Skoal
                         output.accept(ModBlocks.SKOAL_ORE.get());
                         output.accept(ModItems.SKOAL.get());
                         output.accept(ModBlocks.SKOAL_BLOCK.get());
 
+                        //- Skywood
                         output.accept(ModBlocks.SKYWOOD_LOG.get());
+                        output.accept(ModBlocks.STRIPPED_SKYWOOD_LOG.get());
                         output.accept(ModBlocks.SKYWOOD_PLANKS.get());
                         output.accept(ModBlocks.SKYWOOD_STAIRS.get());
                         output.accept(ModBlocks.SKYWOOD_SLAB.get());
