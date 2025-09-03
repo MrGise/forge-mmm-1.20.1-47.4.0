@@ -3,7 +3,6 @@ package net.MrGise.mmm;
 import com.mojang.logging.LogUtils;
 import net.MrGise.mmm.event.ModEvents;
 import net.MrGise.mmm.registry.*;
-import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
@@ -19,8 +18,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-
-import java.util.HashMap;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(MMM.MOD_ID)
@@ -97,7 +94,7 @@ public class MMM
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             event.enqueueWork(() -> {
-                ModIItemProperties.addCustomItemProperties();
+                ModItemProperties.addCustomItemProperties();
             });
         }
     }

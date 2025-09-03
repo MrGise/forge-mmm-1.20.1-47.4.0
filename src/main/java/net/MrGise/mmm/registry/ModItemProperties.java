@@ -5,7 +5,7 @@ import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 
-public class ModIItemProperties {
+public class ModItemProperties {
 
     public static void addCustomItemProperties() {
 
