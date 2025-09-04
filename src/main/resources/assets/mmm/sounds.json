@@ -1,4 +1,12 @@
 {
+  "droppy_likes_ricochet": {
+    "sounds": [
+      {
+        "name": "mmm:droppy_likes_ricochet",
+        "stream": true
+      }
+    ]
+  },
   "ore_detector_success": {
     "subtitle": "sounds.mmm.ore_detector_success",
     "sounds": [

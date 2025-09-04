@@ -21,6 +21,8 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> NULL_BLOCK_STEP = registerSoundEvent("null_block_step");
     public static final RegistryObject<SoundEvent> NULL_BLOCK_PLACE = registerSoundEvent("null_block_place");
 
+    public static final RegistryObject<SoundEvent> DROPPY_LIKES_RICOCHET = registerSoundEvent("droppy_likes_ricochet");
+
 
     public static final ForgeSoundType NULL_BLOCK_SOUNDS = new ForgeSoundType(1.0f, 1.0f,
             ModSounds.NULL_BLOCK_BREAK, ModSounds.NULL_BLOCK_STEP, ModSounds.NULL_BLOCK_PLACE,

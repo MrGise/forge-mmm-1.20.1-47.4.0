@@ -27,6 +27,9 @@ public class ModItemTagGenerator extends ItemTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         // Tags here
 
+        this.tag(ItemTags.MUSIC_DISCS)
+                .add(ModItems.DROPPY_LIKES_RICOCHET_MUSIC_DISC.get());
+
         this.tag(ModTags.Items.CUCUMBERS)
                 .add(ModItems.CUCUMBER.get());
 

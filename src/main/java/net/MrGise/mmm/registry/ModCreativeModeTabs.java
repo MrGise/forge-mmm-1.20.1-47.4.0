@@ -90,6 +90,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.ruin_items")).displayItems((displayParameters, output) -> {
                         output.accept(ModItems.GOLD_KEY.get());
                         output.accept(ModItems.MOSSY_GOLD_KEY.get());
+                        output.accept(ModItems.DROPPY_LIKES_RICOCHET_MUSIC_DISC.get());
                         output.accept(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
                         output.accept(ModItems.SKYSOLID_TABLET.get());
                         output.accept(ModItems.MIMIC.get());

@@ -22,10 +22,10 @@ public class ModItems {
     public static final RegistryObject<Item> TEST_ITEM = ITEMS.register("test_item",
             () -> new Item(new Item.Properties()));
 
+    //--Treasures
 
     public static final RegistryObject<Item> GOLD_KEY = ITEMS.register("gold_key",
             () -> new DescriptionItem(new Item.Properties().stacksTo(1), "gold_key", false));
-
     public static final RegistryObject<Item> MOSSY_GOLD_KEY = ITEMS.register("mossy_gold_key",
             () -> new DescriptionItem(new Item.Properties().stacksTo(1), "mossy_gold_key", false));
 
@@ -36,16 +36,23 @@ public class ModItems {
     public static final RegistryObject<Item> SKYSOLID_TABLET = ITEMS.register("skysolid_tablet",
             () -> new TabletItem(new Item.Properties(), 4));
 
+    public static final RegistryObject<Item> DROPPY_LIKES_RICOCHET_MUSIC_DISC = ITEMS.register("droppy_likes_ricochet_music_disc",
+            () -> new RecordItem(7, ModSounds.DROPPY_LIKES_RICOCHET,
+                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 1920));
+
+
     public static final RegistryObject<Item> MIMIC = ITEMS.register("mimic",
             () -> new MimicItem(new Item.Properties().stacksTo(1)));
 
-
+    //-- Ore detector
     public static final RegistryObject<Item> ORE_DETECTOR = ITEMS.register("ore_detector",
             () -> new OreDetectorItem(new Item.Properties().stacksTo(1).durability(512)));
 
     public static final RegistryObject<Item> ORE_REDETECTOR = ITEMS.register("ore_redetector",
             () -> new OreRedetectorItem(new Item.Properties().stacksTo(1)));
 
+
+    //-- Food
 
     public static final RegistryObject<Item> BREADSTICK = ITEMS.register("breadstick",
             () -> new Item(new Item.Properties().food(ModFoodProperties.BREADSTICK)));
@@ -123,11 +130,7 @@ public class ModItems {
     public static final RegistryObject<Item> SKIRON_BOOTS = ITEMS.register("skiron_boots",
             () -> new EffectArmorItem(ModArmorMaterials.SKIRON, ArmorItem.Type.BOOTS, new Item.Properties()));
 
-    //- Horse Armor
-    public static final RegistryObject<Item> SKIRON_HORSE_ARMOR = ITEMS.register("skiron_horse_armor",
-            () -> new HorseArmorItem(6, new ResourceLocation(MMM.MOD_ID, "textures/entity/horse/armor/horse_armor_skiron.png"), new Item.Properties()));
-
-
+    //- Skiron actinolite
     public static final RegistryObject<Item> SKIRON_ACTINOLITE_HELMET = ITEMS.register("skiron_actinolite_helmet",
             () -> new EffectArmorItem(ModArmorMaterials.SKIRON_ACTINOLITE, ArmorItem.Type.HELMET, new Item.Properties()));
 
@@ -143,6 +146,11 @@ public class ModItems {
 
     public static final RegistryObject<Item> SKOAL = ITEMS.register("skoal",
             () -> new DescriptionFuelItem(new Item.Properties(), 1800, "skoal", true));
+
+    //- Horse Armor
+    public static final RegistryObject<Item> SKIRON_HORSE_ARMOR = ITEMS.register("skiron_horse_armor",
+            () -> new HorseArmorItem(6, new ResourceLocation(MMM.MOD_ID, "textures/entity/horse/armor/horse_armor_skiron.png"), new Item.Properties()));
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

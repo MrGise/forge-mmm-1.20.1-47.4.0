@@ -26,11 +26,17 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.TEST_ITEM);
 
 
+        //- Treasures
+
         simpleItem(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE);
+
+        simpleItem(ModItems.DROPPY_LIKES_RICOCHET_MUSIC_DISC);
 
         simpleItem(ModItems.SKYSOLID_TABLET);
 
         simpleItem(ModItems.ORE_DETECTOR);
+
+        //- Food
 
         simpleItem(ModItems.BREADSTICK);
 
@@ -40,6 +46,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CUCUMBER_SEEDS);
         simpleItem(ModItems.CUCUMBER);
         simpleItem(ModItems.CUT_CUCUMBER);
+
+        //- Materials
 
         simpleItem(ModItems.SKOAL);
 
