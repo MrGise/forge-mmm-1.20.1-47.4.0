@@ -31,6 +31,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE);
 
         simpleItem(ModItems.DROPPY_LIKES_RICOCHET_MUSIC_DISC);
+        simpleItem(ModItems.DROPPY_LIKES_EVERYTHING_MUSIC_DISC);
 
         simpleItem(ModItems.SKYSOLID_TABLET);
 

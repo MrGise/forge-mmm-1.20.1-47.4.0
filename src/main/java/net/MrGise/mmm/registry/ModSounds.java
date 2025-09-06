@@ -22,6 +22,7 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> NULL_BLOCK_PLACE = registerSoundEvent("null_block_place");
 
     public static final RegistryObject<SoundEvent> DROPPY_LIKES_RICOCHET = registerSoundEvent("droppy_likes_ricochet");
+    public static final RegistryObject<SoundEvent> DROPPY_LIKES_RICOCHET_FULL = registerSoundEvent("droppy_likes_ricochet_full");
 
 
     public static final ForgeSoundType NULL_BLOCK_SOUNDS = new ForgeSoundType(1.0f, 1.0f,

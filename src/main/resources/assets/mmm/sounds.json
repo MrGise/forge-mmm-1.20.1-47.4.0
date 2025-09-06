@@ -7,6 +7,14 @@
       }
     ]
   },
+  "droppy_likes_ricochet_full": {
+    "sounds": [
+      {
+        "name": "mmm:droppy_likes",
+        "stream": true
+      }
+    ]
+  },
   "ore_detector_success": {
     "subtitle": "sounds.mmm.ore_detector_success",
     "sounds": [

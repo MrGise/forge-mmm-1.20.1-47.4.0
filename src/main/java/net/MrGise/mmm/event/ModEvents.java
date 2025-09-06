@@ -5,7 +5,6 @@ import net.MrGise.mmm.command.FindHomeCommand;
 import net.MrGise.mmm.command.ReturnHomeCommand;
 import net.MrGise.mmm.command.SetHomeCommand;
 import net.MrGise.mmm.item.HammerItem;
-import net.MrGise.mmm.registry.ModBlocks;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;

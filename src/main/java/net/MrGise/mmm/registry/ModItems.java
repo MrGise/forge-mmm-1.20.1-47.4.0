@@ -22,7 +22,7 @@ public class ModItems {
     public static final RegistryObject<Item> TEST_ITEM = ITEMS.register("test_item",
             () -> new Item(new Item.Properties()));
 
-    //--Treasures
+    //-- Ruins
 
     public static final RegistryObject<Item> GOLD_KEY = ITEMS.register("gold_key",
             () -> new DescriptionItem(new Item.Properties().stacksTo(1), "gold_key", false));
@@ -39,6 +39,10 @@ public class ModItems {
     public static final RegistryObject<Item> DROPPY_LIKES_RICOCHET_MUSIC_DISC = ITEMS.register("droppy_likes_ricochet_music_disc",
             () -> new RecordItem(7, ModSounds.DROPPY_LIKES_RICOCHET,
                     new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 1920));
+
+    public static final RegistryObject<Item> DROPPY_LIKES_EVERYTHING_MUSIC_DISC = ITEMS.register("droppy_likes_everything_music_disc",
+            () -> new RecordItem(7, ModSounds.DROPPY_LIKES_RICOCHET_FULL,
+                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 4255));
 
 
     public static final RegistryObject<Item> MIMIC = ITEMS.register("mimic",

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "mmm:item/droppy_likes_everything_music_disc"
+  }
+}

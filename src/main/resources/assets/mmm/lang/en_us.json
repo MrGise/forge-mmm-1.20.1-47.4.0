@@ -4,6 +4,8 @@
 
   "item.mmm.droppy_likes_ricochet_music_disc": "Music Disc",
   "item.mmm.droppy_likes_ricochet_music_disc.desc": "C418 - Droppy Likes Ricochet",
+  "item.mmm.droppy_likes_everything_music_disc": "Music Disc",
+  "item.mmm.droppy_likes_everything_music_disc.desc": "C418 - Droppy Likes Ricochet + Droppy Likes Your Face",
 
   "item.mmm.ore_detector": "Ore Detector",
   "item.mmm.ore_redetector": "Ore Redetector",
@@ -117,6 +119,8 @@
 
 
   "enchantment.mmm.lightning_striker": "Lightning Striker",
+
+  "enchantment.mmm.glide": "Glide",
 
 
   "sounds.mmm.ore_detector_success": "Ore detector succeeds",

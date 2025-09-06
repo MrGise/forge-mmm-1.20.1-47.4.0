@@ -28,7 +28,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         // Tags here
 
         this.tag(ItemTags.MUSIC_DISCS)
-                .add(ModItems.DROPPY_LIKES_RICOCHET_MUSIC_DISC.get());
+                .add(ModItems.DROPPY_LIKES_RICOCHET_MUSIC_DISC.get())
+                .add(ModItems.DROPPY_LIKES_EVERYTHING_MUSIC_DISC.get());
 
         this.tag(ModTags.Items.CUCUMBERS)
                 .add(ModItems.CUCUMBER.get());
