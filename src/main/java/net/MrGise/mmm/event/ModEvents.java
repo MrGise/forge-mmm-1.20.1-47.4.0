@@ -2,11 +2,13 @@ package net.MrGise.mmm.event;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.command.FindHomeCommand;
+import net.MrGise.mmm.command.ReJoinCommand;
 import net.MrGise.mmm.command.ReturnHomeCommand;
 import net.MrGise.mmm.command.SetHomeCommand;
 import net.MrGise.mmm.item.HammerItem;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -32,8 +34,36 @@ import java.util.*;
 @Mod.EventBusSubscriber(modid = MMM.MOD_ID)
 public class ModEvents {
 
-    // Done with the help of https://github.com/CoFH/CoFHCore/blob/1.19.x/src/main/java/cofh/core/event/AreaEffectEvents.java
+    @SubscribeEvent
+    public static void onPlayerFirstJoin(PlayerEvent.PlayerLoggedInEvent event) {
+        if (event.getEntity().level().isClientSide) return;
+        Player player = event.getEntity();
 
+        CompoundTag data = player.getPersistentData();
+        CompoundTag persistent = data.getCompound(Player.PERSISTED_NBT_TAG);
+
+        if (!persistent.contains("mmm.first")) {
+            persistent.putBoolean("mmm.first", true);
+            //. First time Logic
+
+            MMM.LOGGER.info("Player {} joined for the first time!", player.getName().getString());
+        } else {
+            if (data.getBoolean("mmm.first")) {
+                persistent.putBoolean("mmm.first", false);
+                //. Second time logic
+
+                MMM.LOGGER.info("Player {} joined for the second time!", player.getName().getString());
+            } else {
+                //. Every other time logic
+                MMM.LOGGER.info("Player {} joined!", player.getName().getString());
+            }
+        }
+
+        // Write back the persistent tag (important!)
+        data.put(Player.PERSISTED_NBT_TAG, persistent);
+    }
+
+    // Done with the help of https://github.com/CoFH/CoFHCore/blob/1.19.x/src/main/java/cofh/core/event/AreaEffectEvents.java
     public static final Set<BlockPos> HARVESTED_BLOCKS = new HashSet<>();
     @SubscribeEvent
     public static void onHammerUsage(BlockEvent.BreakEvent event) {
@@ -64,6 +94,8 @@ public class ModEvents {
         new SetHomeCommand(event.getDispatcher());
         new ReturnHomeCommand(event.getDispatcher());
         new FindHomeCommand(event.getDispatcher());
+
+        new ReJoinCommand(event.getDispatcher());
 
         ConfigCommand.register(event.getDispatcher());
     }
