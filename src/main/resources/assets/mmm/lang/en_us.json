@@ -19,6 +19,8 @@
   "item.mmm.cut_cucumber": "Cut Cucumber",
   "item.mmm.cucumber_seeds": "Cucumber Seeds",
 
+  "item.mmm.solidified_mana": "Solidified Mana",
+
 
   "item.mmm.skoal": "Sky Coal",
 
@@ -108,6 +110,7 @@
 
   "block.mmm.oxalis": "Oxalis",
   "block.mmm.thin_pine_log": "Pine Log",
+  "block.mmm.mana_ore": "Mana Ore",
 
 
   "creativetab.the_skyland": "The Skyland",
@@ -115,7 +118,7 @@
   "creativetab.dimensions": "Dimensions",
   "creativetab.miscellaneous_mmm": "The Other MMM Stuff",
   "creativetab.mmm_cuisine": "Kitchen & Farm's Products",
-  "creativetab.plants": "Plants & Nature",
+  "creativetab.world": "World",
 
 
   "enchantment.mmm.lightning_striker": "Lightning Striker",

@@ -37,7 +37,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(Tags.Blocks.ORES)
                 .add(ModBlocks.ACTINOLITE_ORE.get())
                 .add(ModBlocks.SKIRON_ORE.get())
-                .add(ModBlocks.SKOAL_ORE.get());
+                .add(ModBlocks.SKOAL_ORE.get())
+
+                .add(ModBlocks.MANA_ORE.get());
 
         this.tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(ModBlocks.SKYWOOD_PLANKS.get())
@@ -59,6 +61,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.SKOAL_BLOCK.get())
                 .add(ModBlocks.SKIRON_BLOCK.get())
                 .add(ModBlocks.RAW_SKIRON_BLOCK.get())
+
+                .add(ModBlocks.MANA_ORE.get())
 
                 .add(ModBlocks.NULL_BLOCK.get());
 
@@ -84,7 +88,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
         this.tag(ModTags.Blocks.NEEDS_SKIRON_TOOL)
                 .add(ModBlocks.ACTINOLITE_ORE.get());
 
-        this.tag(ModTags.Blocks.NEEDS_ACTINOLITE_TOOL);
+        this.tag(ModTags.Blocks.NEEDS_ACTINOLITE_TOOL)
+                .add(ModBlocks.MANA_ORE.get());
 
         this.tag(BlockTags.FENCES)
                 .add(ModBlocks.SKYWOOD_FENCE.get());

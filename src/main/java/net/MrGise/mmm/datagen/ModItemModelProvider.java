@@ -49,6 +49,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CUT_CUCUMBER);
 
         //- Materials
+        //* Skyland
 
         simpleItem(ModItems.SKOAL);
 
@@ -60,6 +61,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.ACTINOLITE);
 
+        //* Magic
+
+        simpleItem(ModItems.SOLIDIFIED_MANA);
 
         /*- Tools -*/
         handheldItem(ModItems.ACTIONLITE_SWORD);

@@ -73,8 +73,12 @@ public class ModItems {
     public static final RegistryObject<Item> CUT_CUCUMBER = ITEMS.register("cut_cucumber",
             () -> new Item(new Item.Properties().food(ModFoodProperties.CUCUMBER)));
 
+    //-- Magic
+    public static final RegistryObject<Item> SOLIDIFIED_MANA = ITEMS.register("solidified_mana",
+            () -> new Item(new Item.Properties()));
 
-    //--Actinolite
+
+    //-- Actinolite
     public static final RegistryObject<Item> ACTINOLITE = ITEMS.register("actinolite",
             () -> new HiddenShiftDescriptionItem(new Item.Properties(), "actinolite"));
 
@@ -86,7 +90,7 @@ public class ModItems {
 
 
 
-    //--Skiron
+    //--        Skiron
     public static final RegistryObject<Item> SKIRON = ITEMS.register("skiron",
             () -> new Item(new Item.Properties()));
 

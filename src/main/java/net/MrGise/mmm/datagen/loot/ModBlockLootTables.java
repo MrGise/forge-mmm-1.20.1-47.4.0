@@ -87,6 +87,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 Block-> createPotFlowerItemTable(ModBlocks.OXALIS.get()));
 
         //- Ores
+        //* Skyland
 
         this.add(ModBlocks.ACTINOLITE_ORE.get(),
                 Block -> createOreDrop(ModBlocks.ACTINOLITE_ORE.get(),ModItems.ACTINOLITE.get()));
@@ -96,6 +97,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.add(ModBlocks.SKOAL_ORE.get(),
                 block -> createMultipleOreDrop(ModBlocks.SKOAL_ORE.get(), ModItems.SKOAL.get(), 1, 4));
+
+        //* World
+        this.add(ModBlocks.MANA_ORE.get(),
+                block -> createMultipleOreDrop(ModBlocks.MANA_ORE.get(), ModItems.SOLIDIFIED_MANA.get(), 3, 8));
 
         //\ Dimensions' blocks loot tables
         this.dropSelf(ModBlocks.NULL_BLOCK.get());

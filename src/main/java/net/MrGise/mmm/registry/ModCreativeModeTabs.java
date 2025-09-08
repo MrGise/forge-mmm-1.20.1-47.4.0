@@ -112,12 +112,16 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CUCUMBER_SEEDS.get());
                     }).build());
 
-    //. Nature
-    public static final RegistryObject<CreativeModeTab> PLANTS = CREATIVE_MODE_TABS.register("plants",
+    //. World
+    public static final RegistryObject<CreativeModeTab> WORLD = CREATIVE_MODE_TABS.register("world",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.OXALIS.get()))
-                    .title(Component.translatable("creativetab.plants")).displayItems((displayParameters, output) -> {
+                    .title(Component.translatable("creativetab.world")).displayItems((displayParameters, output) -> {
                         output.accept(ModBlocks.OXALIS.get());
+                        output.accept(ModItems.STRAWBERRY_SEEDS.get());
+                        output.accept(ModItems.CUCUMBER_SEEDS.get());
                         output.accept(ModBlocks.THIN_PINE_LOG.get());
+                        output.accept(ModBlocks.MANA_ORE.get());
+                        output.accept(ModItems.SOLIDIFIED_MANA.get());
                     }).build());
 
     //\ Dimensions
@@ -130,8 +134,8 @@ public class ModCreativeModeTabs {
     //. Misc
     public static final RegistryObject<CreativeModeTab> MISCELLANEOUS_MMM = CREATIVE_MODE_TABS.register("miscellaneous_mmm",
             () -> CreativeModeTab.builder()
-                    .withTabsBefore(ModCreativeModeTabs.DIMENSIONS.getId(), ModCreativeModeTabs.MMM_CUISINE.getId(),
-                            ModCreativeModeTabs.THE_SKYLAND.getId(), ModCreativeModeTabs.RUIN_ITEMS.getId())
+                    .withTabsBefore(WORLD.getId(), DIMENSIONS.getId(), MMM_CUISINE.getId(),
+                            THE_SKYLAND.getId(), RUIN_ITEMS.getId())
                     .icon(() -> new ItemStack(ModItems.ORE_DETECTOR.get()))
                     .title(Component.translatable("creativetab.miscellaneous_mmm")).displayItems((displayParameters, output) -> {
                         output.accept(ModBlocks.TEST_BLOCK.get());

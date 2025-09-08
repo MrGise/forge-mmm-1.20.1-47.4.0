@@ -59,11 +59,13 @@ public class ModBlocks {
             () -> new CustomGrass(BlockBehaviour.Properties.copy(Blocks.GRASS), ModBlocks.HEAVENLY_GRASS_BLOCK, ModBlocks.SKYSOIL));
 
     //- Ores
+    //* Skyland ores
+
     public static final RegistryObject<Block> SKIRON_ORE = registerBlock("skiron_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 3.0F), UniformInt.of(4, 10)));
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 3.0F), UniformInt.of(2, 8)));
 
     public static final RegistryObject<Block> ACTINOLITE_ORE = registerBlock("actinolite_ore",
-            () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.5F, 3.5F), UniformInt.of(4, 10)));
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.5F, 3.5F), UniformInt.of(8, 12)));
 
     public static final RegistryObject<Block> SKOAL_ORE = registerBlock("skoal_ore",
             () -> new DropExperienceBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(3.0F, 3.0F), UniformInt.of(4, 10)));
@@ -77,6 +79,12 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> RAW_SKIRON_BLOCK = registerBlock("raw_skiron_block",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.RAW_IRON_BLOCK)));
+
+
+    //* World ores
+
+    public static final RegistryObject<Block> MANA_ORE = registerBlock("mana_ore",
+            () -> new DropExperienceBlock(BlockBehaviour.Properties.copy(Blocks.IRON_ORE), UniformInt.of(7, 20)));
 
 
     //- Misc
@@ -255,6 +263,7 @@ public class ModBlocks {
     private static <T extends Block> RegistryObject<Item> registerDescriptionFuelBlockItem(String name, RegistryObject<T> block, int BurnTime, String DescriptionTranslatable, boolean ShiftToView) {
         return ModItems.ITEMS.register(name, () -> new DescriptionFuelBlockItem(new Item.Properties(), block.get(), BurnTime, DescriptionTranslatable, ShiftToView));
     }
+
 
     public static void register(IEventBus eventBus) {
         BLOCKS.register(eventBus);

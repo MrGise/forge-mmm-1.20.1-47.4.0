@@ -38,6 +38,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.SOUND_BLOCK);
 
+        //| Skyland
         blockWithItem(ModBlocks.BROKEN_SKYSOLID);
         blockWithItem(ModBlocks.SKYSOLID);
         blockWithItem(ModBlocks.SKYSOIL);
@@ -57,12 +58,18 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.RAW_SKIRON_BLOCK);
         blockWithItem(ModBlocks.SKOAL_BLOCK);
 
-        blockWithItem(ModBlocks.NULL_BLOCK);
+        //. World
+        blockWithItem(ModBlocks.MANA_ORE);
 
         thinLogBlockWithItem(((ThinLogBlock) ModBlocks.THIN_PINE_LOG.get()),
                 "thin_pine_log", "thin_pine_log_top", "thin_pine_log");
 
+        //\ Dimensions
+        blockWithItem(ModBlocks.NULL_BLOCK);
+
+
         //-- Other blocks
+        //| Skyland
 
         stairsBlockWithItem(ModBlocks.SKYWOOD_STAIRS, (StairBlock) ModBlocks.SKYWOOD_STAIRS.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
         slabBlockWithItem(ModBlocks.SKYWOOD_SLAB, ((SlabBlock) ModBlocks.SKYWOOD_SLAB.get()), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
@@ -76,6 +83,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         doorBlockWithRenderType((DoorBlock) ModBlocks.SKYWOOD_DOOR.get(), modLoc("block/skywood_door_bottom"), modLoc("block/skywood_door_top"), "cutout");
         trapdoorBlockWithRenderType((TrapDoorBlock) ModBlocks.SKYWOOD_TRAPDOOR.get(), modLoc("block/skywood_trapdoor"), true, "cutout");
+
+        //. World
 
         makeCustomCrop((CucumberCropBlock)ModBlocks.CUCUMBER.get(), "cucumber_", "cucumber_", new ResourceLocation(MMM.MOD_ID, "cucumber_base"), new ResourceLocation(MMM.MOD_ID, "cucumber_base_tiny"), "0", 5, 6);
         makeCustomCrop((StrawberryCropBlock)ModBlocks.STRAWBERRY.get(), "strawberry", "strawberry_", new ResourceLocation(MMM.MOD_ID, "crop_cross"), new ResourceLocation(MMM.MOD_ID, "crop_cross"), "0", false, "block/strawberry");
