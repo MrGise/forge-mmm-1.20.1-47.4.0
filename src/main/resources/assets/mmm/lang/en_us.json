@@ -7,6 +7,10 @@
   "item.mmm.droppy_likes_everything_music_disc": "Music Disc",
   "item.mmm.droppy_likes_everything_music_disc.desc": "C418 - Droppy Likes Ricochet + Droppy Likes Your Face",
 
+  "item.mmm.reinforced_stone_bow": "Reinforced Stone Bow",
+  "item.mmm.reinforced_iron_bow": "Reinforced Iron Bow",
+  "item.mmm.reinforced_gold_bow": "Reinforced Gold Bow",
+
   "item.mmm.ore_detector": "Ore Detector",
   "item.mmm.ore_redetector": "Ore Redetector",
 
@@ -113,12 +117,11 @@
   "block.mmm.mana_ore": "Mana Ore",
 
 
-  "creativetab.the_skyland": "The Skyland",
+  "creativetab.overworld": "Overworld & Co.",
   "creativetab.ruin_items": "Treasures of Ruins",
   "creativetab.dimensions": "Dimensions",
-  "creativetab.miscellaneous_mmm": "The Other MMM Stuff",
+  "creativetab.tools_and_misc": "Tools & Misc",
   "creativetab.mmm_cuisine": "Kitchen & Farm's Products",
-  "creativetab.world": "World",
 
 
   "enchantment.mmm.lightning_striker": "Lightning Striker",

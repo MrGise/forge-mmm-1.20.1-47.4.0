@@ -1,0 +1,6 @@
+{
+    "parent": "mmm:item/asdf",
+    "textures": {
+        "layer0": "mmm:item/asdf_pulling_0"
+    }
+}

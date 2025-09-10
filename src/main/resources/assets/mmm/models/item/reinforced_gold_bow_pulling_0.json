@@ -1,0 +1,6 @@
+{
+    "parent": "mmm:item/reinforced_gold_bow",
+    "textures": {
+        "layer0": "mmm:item/reinforced_gold_bow_pulling_0"
+    }
+}

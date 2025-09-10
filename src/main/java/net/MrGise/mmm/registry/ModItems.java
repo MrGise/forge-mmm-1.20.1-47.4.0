@@ -90,7 +90,7 @@ public class ModItems {
 
 
 
-    //--        Skiron
+    //-- Skiron
     public static final RegistryObject<Item> SKIRON = ITEMS.register("skiron",
             () -> new Item(new Item.Properties()));
 
@@ -101,6 +101,7 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
     /*. Tools */
+    //- Skiron
     public static final RegistryObject<Item> SKIRON_SWORD = ITEMS.register("skiron_sword",
             () -> new SwordItem(ModToolTiers.SKIRON, 2, -3, new Item.Properties().durability(ModToolTiers.SKIRON.getUses())));
 
@@ -124,6 +125,16 @@ public class ModItems {
 
     public static final RegistryObject<Item> SKIRON_HAMMER = ITEMS.register("skiron_hammer",
             () -> new HammerItem(ModToolTiers.SKIRON, 1, 5, -3.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() - 50)));
+
+    //- Bows
+    public static final RegistryObject<Item> REINFORCED_STONE_BOW = ITEMS.register("reinforced_stone_bow",
+            () -> new BowItem(new Item.Properties().durability(452)));
+
+    public static final RegistryObject<Item> REINFORCED_GOLD_BOW = ITEMS.register("reinforced_gold_bow",
+            () -> new BowItem(new Item.Properties().durability(244)));
+
+    public static final RegistryObject<Item> REINFORCED_IRON_BOW = ITEMS.register("reinforced_iron_bow",
+            () -> new BowItem(new Item.Properties().durability(506)));
 
     /*. Armor */
     public static final RegistryObject<Item> SKIRON_HELMET = ITEMS.register("skiron_helmet",

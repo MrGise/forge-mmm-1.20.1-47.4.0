@@ -13,10 +13,10 @@ public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MMM.MOD_ID);
 
-    //,- The Skyland
-    public static final RegistryObject<CreativeModeTab> THE_SKYLAND = CREATIVE_MODE_TABS.register("the_skyland",
+    public static final RegistryObject<CreativeModeTab> OVERWORLD = CREATIVE_MODE_TABS.register("the_skyland",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.SKIRON_ORE.get()))
-                    .title(Component.translatable("creativetab.the_skyland")).displayItems((displayParameters, output) -> {
+                    .title(Component.translatable("creativetab.overworld")).displayItems((displayParameters, output) -> {
+                        //,- The Skyland
                         //- Heavenly grass
                         output.accept(ModBlocks.HEAVENLY_GRASS.get());
                         output.accept(ModBlocks.HEAVENLY_GRASS_BLOCK.get());
@@ -82,6 +82,15 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.SKYWOOD_BUTTON.get());
 
                         output.accept(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
+
+
+                        //| World
+                        output.accept(ModBlocks.OXALIS.get());
+                        output.accept(ModItems.STRAWBERRY_SEEDS.get());
+                        output.accept(ModItems.CUCUMBER_SEEDS.get());
+                        output.accept(ModBlocks.THIN_PINE_LOG.get());
+                        output.accept(ModBlocks.MANA_ORE.get());
+                        output.accept(ModItems.SOLIDIFIED_MANA.get());
                     }).build());
 
     //. Ruin Items
@@ -112,18 +121,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CUCUMBER_SEEDS.get());
                     }).build());
 
-    //. World
-    public static final RegistryObject<CreativeModeTab> WORLD = CREATIVE_MODE_TABS.register("world",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.OXALIS.get()))
-                    .title(Component.translatable("creativetab.world")).displayItems((displayParameters, output) -> {
-                        output.accept(ModBlocks.OXALIS.get());
-                        output.accept(ModItems.STRAWBERRY_SEEDS.get());
-                        output.accept(ModItems.CUCUMBER_SEEDS.get());
-                        output.accept(ModBlocks.THIN_PINE_LOG.get());
-                        output.accept(ModBlocks.MANA_ORE.get());
-                        output.accept(ModItems.SOLIDIFIED_MANA.get());
-                    }).build());
-
     //\ Dimensions
     public static final RegistryObject<CreativeModeTab> DIMENSIONS = CREATIVE_MODE_TABS.register("dimensions",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.NULL_BLOCK.get()))
@@ -131,13 +128,17 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.NULL_BLOCK.get());
                     }).build());
 
-    //. Misc
-    public static final RegistryObject<CreativeModeTab> MISCELLANEOUS_MMM = CREATIVE_MODE_TABS.register("miscellaneous_mmm",
+    //. Tools and Misc
+    public static final RegistryObject<CreativeModeTab> TOOLS_AND_MISC = CREATIVE_MODE_TABS.register("tools_and_misc",
             () -> CreativeModeTab.builder()
-                    .withTabsBefore(WORLD.getId(), DIMENSIONS.getId(), MMM_CUISINE.getId(),
-                            THE_SKYLAND.getId(), RUIN_ITEMS.getId())
+                    .withTabsBefore(DIMENSIONS.getId(), MMM_CUISINE.getId(),
+                            OVERWORLD.getId(), RUIN_ITEMS.getId())
                     .icon(() -> new ItemStack(ModItems.ORE_DETECTOR.get()))
-                    .title(Component.translatable("creativetab.miscellaneous_mmm")).displayItems((displayParameters, output) -> {
+                    .title(Component.translatable("creativetab.tools_and_misc")).displayItems((displayParameters, output) -> {
+                        output.accept(ModItems.REINFORCED_STONE_BOW.get());
+                        output.accept(ModItems.REINFORCED_IRON_BOW.get());
+                        output.accept(ModItems.REINFORCED_GOLD_BOW.get());
+
                         output.accept(ModBlocks.TEST_BLOCK.get());
                         output.accept(ModBlocks.ANIMATED_TEST_BLOCK.get());
                         output.accept(ModItems.TEST_ITEM.get());

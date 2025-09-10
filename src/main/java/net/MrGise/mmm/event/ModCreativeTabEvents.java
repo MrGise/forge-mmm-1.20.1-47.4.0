@@ -33,7 +33,7 @@ public class ModCreativeTabEvents {
             }
         }
 
-        if (event.getTab() == ModCreativeModeTabs.THE_SKYLAND.get()) {
+        if (event.getTab() == ModCreativeModeTabs.OVERWORLD.get()) {
             CompoundTag tag = new CompoundTag();
 
             ItemStack short_grass = ModBlocks.HEAVENLY_GRASS.get().asItem().getDefaultInstance();

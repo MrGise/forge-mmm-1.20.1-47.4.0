@@ -4,6 +4,8 @@ import net.MrGise.mmm.MMM;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 
 public class ModItemProperties {
 
@@ -11,6 +13,10 @@ public class ModItemProperties {
 
         ItemProperties.register(ModItems.ORE_REDETECTOR.get(), new ResourceLocation(MMM.MOD_ID, "on"),
                 (itemStack, clientLevel, livingEntity, i) -> itemStack.hasTag() ? 1f : 0f);
+
+        makeBow(ModItems.REINFORCED_STONE_BOW.get());
+        makeBow(ModItems.REINFORCED_IRON_BOW.get());
+        makeBow(ModItems.REINFORCED_GOLD_BOW.get());
 
         ItemProperties.register(ModItems.MIMIC.get(), new ResourceLocation(MMM.MOD_ID, "form"),
                 (itemStack, clientLevel, livingEntity, i) -> {
@@ -68,7 +74,20 @@ public class ModItemProperties {
 
                     return 0.0f;
                 });
+    }
 
+    public static void makeBow(Item item) {
+        ItemProperties.register(item, new ResourceLocation("pull"), (stack, level, entity, i) -> {
+            if (entity == null) {
+                return 0.0F;
+            } else {
+                return entity.getUseItem() != stack ? 0.0F : (float)(stack.getUseDuration() - entity.getUseItemRemainingTicks()) / 20.0F;
+            }
+        });
+
+        ItemProperties.register(item, new ResourceLocation("pulling"), (stack, level, entity, i) -> {
+            return entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F;
+        });
     }
 
 }
