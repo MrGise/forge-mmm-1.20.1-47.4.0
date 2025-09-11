@@ -139,9 +139,9 @@ public class ModItems {
     public static final RegistryObject<Item> REINFORCED_DIAMOND_BOW = ITEMS.register("reinforced_diamond_bow",
             () -> new ReinforcedBowItem(new Item.Properties().durability(400), 4.0f));
 
-    //public static final RegistryObject<Item> REINFORCED_NETHERITE_BOW = ITEMS.register("reinforced_netherite_bow",
-    //() -> new ReinforcedBowItem(new Item.Properties().durability(400), 4.0f));
-    //On hold for now ^
+    public static final RegistryObject<Item> REINFORCED_NETHERITE_BOW = ITEMS.register("reinforced_netherite_bow",
+    () -> new ReinforcedBowItem(new Item.Properties().durability(400), 5.5f));
+
 
     /*. Armor */
     public static final RegistryObject<Item> SKIRON_HELMET = ITEMS.register("skiron_helmet",
