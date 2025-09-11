@@ -17,6 +17,7 @@ public class ModItemProperties {
         makeBow(ModItems.REINFORCED_STONE_BOW.get());
         makeBow(ModItems.REINFORCED_IRON_BOW.get());
         makeBow(ModItems.REINFORCED_GOLD_BOW.get());
+        makeBow(ModItems.REINFORCED_DIAMOND_BOW.get());
 
         ItemProperties.register(ModItems.MIMIC.get(), new ResourceLocation(MMM.MOD_ID, "form"),
                 (itemStack, clientLevel, livingEntity, i) -> {

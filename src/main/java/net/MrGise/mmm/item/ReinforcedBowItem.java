@@ -90,7 +90,7 @@ public class ReinforcedBowItem extends BowItem {
 
     @Override
     public void appendHoverText(ItemStack stack, @Nullable Level level, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
-        tooltipComponents.add(Component.translatable("reinforcedbow.power_title").append("§9 x" + String.valueOf(extraVelocity)).withStyle(ChatFormatting.DARK_GRAY));
+        tooltipComponents.add(Component.translatable("reinforcedbow.power_title").append("§ex" + String.valueOf(extraVelocity)).withStyle(ChatFormatting.DARK_GRAY));
         super.appendHoverText(stack, level, tooltipComponents, tooltipFlag);
     }
 }
