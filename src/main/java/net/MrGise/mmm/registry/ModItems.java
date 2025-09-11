@@ -128,13 +128,13 @@ public class ModItems {
 
     //- Bows
     public static final RegistryObject<Item> REINFORCED_STONE_BOW = ITEMS.register("reinforced_stone_bow",
-            () -> new BowItem(new Item.Properties().durability(452)));
+            () -> new ReinforcedBowItem(new Item.Properties().durability(452), 1.5f));
 
     public static final RegistryObject<Item> REINFORCED_GOLD_BOW = ITEMS.register("reinforced_gold_bow",
-            () -> new BowItem(new Item.Properties().durability(244)));
+            () -> new ReinforcedBowItem(new Item.Properties().durability(400), 3.5f));
 
     public static final RegistryObject<Item> REINFORCED_IRON_BOW = ITEMS.register("reinforced_iron_bow",
-            () -> new BowItem(new Item.Properties().durability(506)));
+            () -> new ReinforcedBowItem(new Item.Properties().durability(506), 2.5f));
 
     /*. Armor */
     public static final RegistryObject<Item> SKIRON_HELMET = ITEMS.register("skiron_helmet",

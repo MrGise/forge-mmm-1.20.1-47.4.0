@@ -126,8 +126,6 @@
 
   "enchantment.mmm.lightning_striker": "Lightning Striker",
 
-  "enchantment.mmm.glide": "Glide",
-
 
   "sounds.mmm.ore_detector_success": "Ore detector succeeds",
 
@@ -166,6 +164,7 @@
   "tooltip.mmm.description_item.tooltip.smithing_template_4": "Ingredients:",
   "tooltip.mmm.description_item.tooltip.smithing_template_5": " Ingots & Crystals",
 
-  "tooltip.mmm.description_item.tooltip.actinolite_sword": "§7§oBasically 1.8 PVP, but with poison!"
+  "tooltip.mmm.description_item.tooltip.actinolite_sword": "§7§oBasically 1.8 PVP, but with poison!",
 
+  "reinforcedbow.power_title": "Power: "
 }
