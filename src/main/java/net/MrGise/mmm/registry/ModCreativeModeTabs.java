@@ -140,6 +140,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.REINFORCED_GOLD_BOW.get());
                         output.accept(ModItems.REINFORCED_DIAMOND_BOW.get());
                         output.accept(ModItems.REINFORCED_NETHERITE_BOW.get());
+                        output.accept(ModItems.REINFORCED_SKIRON_BOW.get());
+                        output.accept(ModItems.REINFORCED_ACTINOLITE_BOW.get());
 
                         output.accept(ModBlocks.TEST_BLOCK.get());
                         output.accept(ModBlocks.ANIMATED_TEST_BLOCK.get());

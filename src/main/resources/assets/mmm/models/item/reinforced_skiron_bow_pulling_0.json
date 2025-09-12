@@ -1,0 +1,6 @@
+{
+    "parent": "mmm:item/reinforced_skiron_bow",
+    "textures": {
+        "layer0": "mmm:item/reinforced_skiron_bow_pulling_0"
+    }
+}

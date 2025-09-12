@@ -1,0 +1,6 @@
+{
+    "parent": "mmm:item/reinforced_actinolite_bow",
+    "textures": {
+        "layer0": "mmm:item/reinforced_actinolite_bow_pulling_0"
+    }
+}
