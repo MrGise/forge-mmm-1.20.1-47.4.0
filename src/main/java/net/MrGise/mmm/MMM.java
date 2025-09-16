@@ -1,6 +1,7 @@
 package net.MrGise.mmm;
 
 import com.mojang.logging.LogUtils;
+import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.MrGise.mmm.event.ModEvents;
 import net.MrGise.mmm.registry.*;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -9,6 +10,7 @@ import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.util.NonNullSupplier;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -25,6 +27,8 @@ public class MMM
 {
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "mmm";
+
+    public static final NonNullSupplier<CreateRegistrate> REGISTRATE = () -> CreateRegistrate.create("mmm");
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
