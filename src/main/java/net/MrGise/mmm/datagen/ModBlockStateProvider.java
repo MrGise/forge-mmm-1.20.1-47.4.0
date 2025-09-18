@@ -3,6 +3,7 @@ package net.MrGise.mmm.datagen;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.*;
 import net.MrGise.mmm.registry.ModBlocks;
+import net.MrGise.mmm.registry.ModCreateBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
@@ -34,6 +35,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 
         //-- Block with item
+
+        blockWithItem(ModCreateBlocks.EXAMPLE_CONNECTION.get());
 
         blockWithItem(ModBlocks.SOUND_BLOCK);
 
@@ -371,6 +374,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+    }
+
+    private void blockWithItem(Block blockRegistryObject) {
+        simpleBlockWithItem(blockRegistryObject, cubeAll(blockRegistryObject));
     }
 
     private void stairsBlockWithItem(RegistryObject<Block> block, StairBlock stairBlock, ResourceLocation texture) {

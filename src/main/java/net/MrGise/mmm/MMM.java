@@ -28,12 +28,16 @@ public class MMM
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "mmm";
 
-    public static final NonNullSupplier<CreateRegistrate> REGISTRATE = () -> CreateRegistrate.create("mmm");
+    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID);
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
+
     public MMM(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
+
+        // Register a Create registrate
+        REGISTRATE.registerEventListeners(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -48,6 +52,7 @@ public class MMM
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModCreateBlocks.register(modEventBus);
 
         ModCreativeModeTabs.register(modEventBus);
 

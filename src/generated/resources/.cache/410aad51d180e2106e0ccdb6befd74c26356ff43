@@ -1,0 +1,7 @@
+// 1.20.1	2025-09-18T16:18:30.1757404	Registrate Provider for mmm [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+8cabd2da5870084cdaf5c7cea5153574f11ed681 assets/mmm/blockstates/example_connection.json
+cf6bb71ef6ffea51946b23bbba7ac70e36b1595b assets/mmm/lang/en_ud.json
+a83e49285f87027b0fdcfeee4d20713a7f858daa assets/mmm/lang/en_us.json
+99f78b42a0ca7e7f860c2a48ad26f6fcff387ac4 assets/mmm/models/block/example_connection.json
+8c1d2f161c23dcffe545b28d3b287434315673b1 assets/mmm/models/item/example_connection.json
+53f9292fc572e9498d0175696caa9d92ddffeeb7 data/mmm/loot_tables/blocks/example_connection.json
