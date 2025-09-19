@@ -43,7 +43,9 @@ public class PortalBlock extends Block {
                 if (!hasEye && heldItem.getItem() == Eye.get()) {
                     pLevel.setBlock(pPos, pState.setValue(EYE, true), 3);
                     pLevel.updateNeighborsAt(pPos, this);
-                    heldItem.shrink(1); // remove item from hand
+                    if (!pPlayer.isCreative() && !pPlayer.isSpectator()) {
+                        heldItem.shrink(1); // remove item from hand
+                    }
                 }
                 // Remove eye if present and player hand is empty
                 else if (hasEye && heldItem.isEmpty()) {
@@ -51,9 +53,11 @@ public class PortalBlock extends Block {
                     pLevel.updateNeighborsAt(pPos, this);
                     ItemStack stack = new ItemStack(Eye.get());
 
-                    boolean added = pPlayer.getInventory().add(stack);
-                    if (!added) {
-                        pPlayer.drop(stack, false);
+                    if (!pPlayer.isCreative() && !pPlayer.isSpectator()) {
+                        boolean added = pPlayer.getInventory().add(stack);
+                        if (!added) {
+                            pPlayer.drop(stack, false);
+                        }
                     }
                 }
             }
