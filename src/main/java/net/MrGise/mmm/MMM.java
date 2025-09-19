@@ -23,12 +23,15 @@ import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(MMM.MOD_ID)
-public class MMM
-{
+public class MMM {
     // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "mmm";
 
-    public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MOD_ID);
+    public static final NonNullSupplier<CreateRegistrate> REGISTRATE = () -> CreateRegistrate.create(MOD_ID);
+
+    public static final CreateRegistrate registrate() {
+        return REGISTRATE.get();
+    }
     // Directly reference a slf4j logger
     public static final Logger LOGGER = LogUtils.getLogger();
 
@@ -37,7 +40,7 @@ public class MMM
         IEventBus modEventBus = context.getModEventBus();
 
         // Register a Create registrate
-        REGISTRATE.registerEventListeners(modEventBus);
+        ModCreateBlocks.register(modEventBus);
 
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
@@ -52,7 +55,6 @@ public class MMM
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
-        ModCreateBlocks.register(modEventBus);
 
         ModCreativeModeTabs.register(modEventBus);
 

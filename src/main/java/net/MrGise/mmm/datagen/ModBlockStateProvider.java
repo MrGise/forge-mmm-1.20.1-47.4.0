@@ -1,5 +1,6 @@
 package net.MrGise.mmm.datagen;
 
+import com.tterrag.registrate.util.entry.BlockEntry;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.*;
 import net.MrGise.mmm.registry.ModBlocks;
@@ -19,6 +20,7 @@ import net.minecraftforge.client.model.generators.ModelBuilder.FaceRotation;
 
 import java.util.Set;
 import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class ModBlockStateProvider extends BlockStateProvider {
 
@@ -35,6 +37,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
 
         //-- Block with item
+
+        portalBlockAlt(ModCreateBlocks.CONNECTING_PORTAL_BLOCK, "connecting_portal_block");
 
         blockWithItem(ModCreateBlocks.EXAMPLE_CONNECTION.get());
 
@@ -361,6 +365,21 @@ public class ModBlockStateProvider extends BlockStateProvider {
         });
         simpleBlockItem(pBlock.get(), models().cubeAll(name + "_eye",
                 new ResourceLocation(MMM.MOD_ID, "block/" + name + "_eye")));
+    }
+
+    private void portalBlockAlt(Supplier<? extends Block> blockSupplier, String name) {
+        Block pBlock = blockSupplier.get();
+        getVariantBuilder(pBlock).forAllStates(state -> {
+            if(state.getValue(PortalBlock.EYE)) {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_on",
+                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_on")))};
+            } else {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_off",
+                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_off")))};
+            }
+        });
+        simpleBlockItem(pBlock, models().cubeAll(name + "_on",
+                new ResourceLocation(MMM.MOD_ID, "block/" + name + "_on")));
     }
 
     private void blockItem(RegistryObject<Block> blockRegistryObject, String appendix) {

@@ -11,6 +11,9 @@ public class ModSpriteShifts {
 
     public static CTSpriteShiftEntry EXAMPLE = omni("block/example_connection");
 
+    public static CTSpriteShiftEntry CONNECTING_PORTAL_OFF = omni("block/connecting_portal_block_off");
+    public static CTSpriteShiftEntry CONNECTING_PORTAL_ON = omni("block/connecting_portal_block_on");
+
     public static CTSpriteShiftEntry omni(String name) {
         return getCT(AllCTTypes.OMNIDIRECTIONAL, modLoc(name), modLoc(name + "_connected"));
     }

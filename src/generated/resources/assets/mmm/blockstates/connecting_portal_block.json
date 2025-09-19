@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "eye=false": {
+      "model": "mmm:block/connecting_portal_block_off"
+    },
+    "eye=true": {
+      "model": "mmm:block/connecting_portal_block_on"
+    }
+  }
+}
