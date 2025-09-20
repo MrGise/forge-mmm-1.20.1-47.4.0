@@ -4,6 +4,7 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.MrGise.mmm.event.ModEvents;
 import net.MrGise.mmm.registry.*;
+import net.MrGise.mmm.registry.create.ModCreateBlocks;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;

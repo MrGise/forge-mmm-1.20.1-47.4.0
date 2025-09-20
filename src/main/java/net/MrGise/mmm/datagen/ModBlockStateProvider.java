@@ -1,10 +1,9 @@
 package net.MrGise.mmm.datagen;
 
-import com.tterrag.registrate.util.entry.BlockEntry;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.*;
 import net.MrGise.mmm.registry.ModBlocks;
-import net.MrGise.mmm.registry.ModCreateBlocks;
+import net.MrGise.mmm.registry.create.ModCreateBlocks;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;

@@ -1,4 +1,4 @@
-package net.MrGise.mmm.registry;
+package net.MrGise.mmm.registry.create;
 
 import com.simibubi.create.foundation.block.connected.AllCTTypes;
 import com.simibubi.create.foundation.block.connected.CTSpriteShiftEntry;
@@ -9,10 +9,14 @@ import static com.simibubi.create.foundation.block.connected.CTSpriteShifter.get
 
 public class ModSpriteShifts {
 
-    public static CTSpriteShiftEntry EXAMPLE = omni("block/example_connection");
+    public static CTSpriteShiftEntry EXAMPLE = ulti("block/example_connection");
 
-    public static CTSpriteShiftEntry CONNECTING_PORTAL_OFF = omni("block/connecting_portal_block_off");
-    public static CTSpriteShiftEntry CONNECTING_PORTAL_ON = omni("block/connecting_portal_block_on");
+    public static CTSpriteShiftEntry CONNECTING_PORTAL_OFF = ulti("block/connecting_portal_block_off");
+    public static CTSpriteShiftEntry CONNECTING_PORTAL_ON = ulti("block/connecting_portal_block_on");
+
+    public static CTSpriteShiftEntry ulti(String name) {
+        return getCT(ModCTTypes.SUPERDIRECTIONAL, modLoc(name), modLoc(name + "_connected"));
+    }
 
     public static CTSpriteShiftEntry omni(String name) {
         return getCT(AllCTTypes.OMNIDIRECTIONAL, modLoc(name), modLoc(name + "_connected"));

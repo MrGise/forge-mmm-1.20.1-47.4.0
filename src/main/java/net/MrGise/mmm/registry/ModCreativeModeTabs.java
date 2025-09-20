@@ -1,6 +1,7 @@
 package net.MrGise.mmm.registry;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.registry.create.ModCreateBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -143,7 +144,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.REINFORCED_SKIRON_BOW.get());
                         output.accept(ModItems.REINFORCED_ACTINOLITE_BOW.get());
 
-                        //output.accept(ModCreateBlocks.EXAMPLE_CONNECTION.get());
+                        output.accept(ModCreateBlocks.EXAMPLE_CONNECTION.get());
 
                         output.accept(ModBlocks.TEST_BLOCK.get());
                         output.accept(ModBlocks.ANIMATED_TEST_BLOCK.get());
@@ -157,6 +158,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.SOUND_BLOCK.get());
 
                         output.accept(ModBlocks.PORTAL_BLOCK.get());
+                        output.accept(ModCreateBlocks.CONNECTING_PORTAL_BLOCK.get());
                     }).build());
 
 
