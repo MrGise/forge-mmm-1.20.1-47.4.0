@@ -1,10 +1,11 @@
-// 1.20.1	2025-09-19T15:23:37.9704482	Block States: mmm
+// 1.20.1	2025-09-20T19:09:17.6730177	Block States: mmm
 1fd9342f3c0d5ebccf217996515f997f48dbba36 assets/mmm/blockstates/actinolite_ore.json
 6c41a02b9f9404c701fb8b17b16e879eb0b065b1 assets/mmm/blockstates/animated_test_block.json
 2d8c926880342bd85761f05ebc2507d4f69812e8 assets/mmm/blockstates/broken_skysolid.json
 c7c0909ed0b1e8c3d8857d1d2c9bc56757a37bc1 assets/mmm/blockstates/connecting_portal_block.json
 4dcb1f31f5ef4d84cb05e871d7fa2630413bd5b5 assets/mmm/blockstates/cucumber.json
 8cabd2da5870084cdaf5c7cea5153574f11ed681 assets/mmm/blockstates/example_connection.json
+fbebb08aab1eaa3df67c685f69b20fd71335ea02 assets/mmm/blockstates/example_cornered.json
 0df06b123e94fcddfdf7790a661d17e6a5859016 assets/mmm/blockstates/heavenly_grass.json
 d0eb6c6750dd85f72dbd22a4a21dde6e9995a61e assets/mmm/blockstates/heavenly_grass_block.json
 7d6e63ba163712e7c2e374748594ba83fd208847 assets/mmm/blockstates/mana_ore.json
@@ -50,6 +51,7 @@ fa4bdb16aa9ae7e5d40bedab186b8898712aefd1 assets/mmm/models/block/cucumber_4.json
 7790e5b88d5b098c033096bfa4c57bada4428691 assets/mmm/models/block/cucumber_7.json
 9881d021bebf8508be8c96bc47f760f451b2f5e2 assets/mmm/models/block/cucumber_8.json
 99f78b42a0ca7e7f860c2a48ad26f6fcff387ac4 assets/mmm/models/block/example_connection.json
+77145384fcc18b1cc49cd982e8a50a5cd1554d7a assets/mmm/models/block/example_cornered.json
 1ead7b6b6fceb267d4c80e93a9b113fca3122429 assets/mmm/models/block/heavenly_grass.json
 d1adbe31c4ce3e0df5e3809a62b39528a31d01ef assets/mmm/models/block/heavenly_grass_block_rot0.json
 8adb49a1a62024d7b62cc93282a16bfdce0f5c41 assets/mmm/models/block/heavenly_grass_block_rot180.json
@@ -121,6 +123,7 @@ c6267aabb4e7b09a03985019d5de524af5856d49 assets/mmm/models/block/thin_pine_log_z
 41b0d40964828016863b1a4902f965f3c0ca4ae5 assets/mmm/models/item/broken_skysolid.json
 e89dcd1098cac52a74a731e7458bbc9d3304835f assets/mmm/models/item/connecting_portal_block.json
 8c1d2f161c23dcffe545b28d3b287434315673b1 assets/mmm/models/item/example_connection.json
+f69d49f006f2b2d5e8ed808ec50d07a9acb36990 assets/mmm/models/item/example_cornered.json
 1dc9f334ddd4928069ddc6f14a794467eb059f1b assets/mmm/models/item/heavenly_grass.json
 e589db46dc39d267dfef3d1cda74921d8ba9cfff assets/mmm/models/item/heavenly_grass_block.json
 5fe54f55278574e17d1aec6190a656902e81259f assets/mmm/models/item/mana_ore.json

@@ -9,12 +9,12 @@ import static com.simibubi.create.foundation.block.connected.CTSpriteShifter.get
 
 public class ModSpriteShifts {
 
-    public static CTSpriteShiftEntry EXAMPLE = ulti("block/example_connection");
+    public static CTSpriteShiftEntry EXAMPLE = superdir("block/example_connection");
 
-    public static CTSpriteShiftEntry CONNECTING_PORTAL_OFF = ulti("block/connecting_portal_block_off");
-    public static CTSpriteShiftEntry CONNECTING_PORTAL_ON = ulti("block/connecting_portal_block_on");
+    public static CTSpriteShiftEntry CONNECTING_PORTAL_OFF = superdir("block/connecting_portal_block_off");
+    public static CTSpriteShiftEntry CONNECTING_PORTAL_ON = superdir("block/connecting_portal_block_on");
 
-    public static CTSpriteShiftEntry ulti(String name) {
+    public static CTSpriteShiftEntry superdir(String name) {
         return getCT(ModCTTypes.SUPERDIRECTIONAL, modLoc(name), modLoc(name + "_connected"));
     }
 

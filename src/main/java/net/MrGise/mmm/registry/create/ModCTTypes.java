@@ -10,8 +10,7 @@ public enum ModCTTypes implements CTType {
 
     SUPERDIRECTIONAL(8, ConnectedTextureBehaviour.ContextRequirement.builder().all().build()) {
         @Override
-        public int getTextureIndex(ConnectedTextureBehaviour.CTContext context) {
-            ConnectedTextureBehaviour.CTContext c = context;
+        public int getTextureIndex(ConnectedTextureBehaviour.CTContext c) {
             int tileX = 0, tileY = 0;
             int borders = (!c.up ? 1 : 0) + (!c.down ? 1 : 0) + (!c.left ? 1 : 0) + (!c.right ? 1 : 0);
 

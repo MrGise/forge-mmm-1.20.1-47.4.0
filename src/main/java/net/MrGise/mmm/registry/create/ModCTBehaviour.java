@@ -29,6 +29,24 @@ public class ModCTBehaviour {
         }
     }
 
+    public static class OpenCTBehaviour extends SimpleCTBehaviour {
+        public OpenCTBehaviour(CTSpriteShiftEntry shift) {
+            super(shift);
+        }
+
+        public boolean testConnection(BlockAndTintGetter reader, BlockPos currentPos, BlockState connectiveCurrentState,
+                                        Direction textureSide, final Direction horizontal, final Direction vertical, int sh, int sv) {
+            BlockState trueCurrentState = reader.getBlockState(currentPos);
+            BlockPos targetPos = currentPos.relative(horizontal, sh)
+                    .relative(vertical, sv);
+            BlockState connectiveTargetState =
+                    getCTBlockState(reader, trueCurrentState, textureSide, currentPos, targetPos);
+            return connectsTo(connectiveCurrentState, connectiveTargetState, reader, currentPos, targetPos, textureSide,
+                    sh == 0 ? null : sh == -1 ? horizontal.getOpposite() : horizontal,
+                    sv == 0 ? null : sv == -1 ? vertical.getOpposite() : vertical);
+        }
+    }
+
     public static class NoodleCTBehaviour extends SimpleCTBehaviour {
         public NoodleCTBehaviour(CTSpriteShiftEntry shift) {
             super(shift);
