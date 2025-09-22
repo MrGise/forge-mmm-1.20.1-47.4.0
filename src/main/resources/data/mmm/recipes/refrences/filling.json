@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "mmm:asdf"
+    },
+    {
+      "amount": 250,
+      "fluidTag": "forge:fdsa"
+    }
+  ],
+  "results": [
+    {
+      "item": "mmm:adsf"
+    }
+  ]
+}

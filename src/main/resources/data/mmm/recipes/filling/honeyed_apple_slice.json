@@ -1,0 +1,17 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "item": "mmm:apple_slice"
+    },
+    {
+      "amount": 32,
+      "fluidTag": "forge:honey"
+    }
+  ],
+  "results": [
+    {
+      "item": "mmm:honeyed_apple_slice"
+    }
+  ]
+}

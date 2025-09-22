@@ -85,6 +85,12 @@ public class ModItems {
     public static final RegistryObject<Item> POMEGRANATE_SEEDS = ITEMS.register("pomegranate_seeds",
             () -> new Item(new Item.Properties().food(ModFoodProperties.POMEGRANATE_SEEDS)));
 
+    public static final RegistryObject<Item> APPLE_SLICE = ITEMS.register("apple_slice",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.APPLE_SLICE)));
+
+    public static final RegistryObject<Item> HONEYED_APPLE_SLICE = ITEMS.register("honeyed_apple_slice",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.HONEYED_APPLE_SLICE)));
+
     //-- Magic
     public static final RegistryObject<Item> SOLIDIFIED_MANA = ITEMS.register("solidified_mana",
             () -> new Item(new Item.Properties()));

@@ -53,6 +53,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.POMEGRANATE_EMPTY_SLICE);
         simpleItem(ModItems.POMEGRANATE_SEEDS);
 
+        simpleItem(ModItems.APPLE_SLICE);
+        simpleItem(ModItems.HONEYED_APPLE_SLICE);
+
         //- Materials
         //* Skyland
 

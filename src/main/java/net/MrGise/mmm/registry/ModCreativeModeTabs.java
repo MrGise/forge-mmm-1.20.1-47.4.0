@@ -125,6 +125,9 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.POMEGRANATE_SLICE.get());
                         output.accept(ModItems.POMEGRANATE_EMPTY_SLICE.get());
                         output.accept(ModItems.POMEGRANATE_SEEDS.get());
+
+                        output.accept(ModItems.APPLE_SLICE.get());
+                        output.accept(ModItems.HONEYED_APPLE_SLICE.get());
                     }).build());
 
     //\ Dimensions

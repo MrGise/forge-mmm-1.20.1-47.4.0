@@ -1,5 +1,9 @@
 package net.MrGise.mmm.datagen;
 
+import com.simibubi.create.AllFluids;
+import com.simibubi.create.AllItems;
+import com.simibubi.create.AllTags;
+import com.simibubi.create.api.data.recipe.FillingRecipeGen;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.ModBlocks;
 import net.MrGise.mmm.datagen.recipe.NBTShapelessRecipeBuilder;
@@ -22,9 +26,11 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
+import vectorwing.farmersdelight.data.ItemTags;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 import java.util.Iterator;
@@ -53,6 +59,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         cuttingRecipe(pWriter, Ingredient.of(ModTags.Items.POMEGRANATES), ModItems.POMEGRANATE_SLICE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
                 2, 1.0f, "pomegranate_cutting");
+
+        cuttingRecipe(pWriter, Ingredient.of(Items.APPLE), ModItems.APPLE_SLICE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
+                8, 1.0f, "apple_slicing");
+        cuttingRecipe(pWriter, Ingredient.of(AllItems.HONEYED_APPLE), ModItems.HONEYED_APPLE_SLICE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
+                8, 1.0f, "honeyed_apple_slicing");
 
         exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.POMEGRANATE_SLICES), ModItems.POMEGRANATE.get(), ModItems.POMEGRANATE_SEEDS.get(), 16);
 
