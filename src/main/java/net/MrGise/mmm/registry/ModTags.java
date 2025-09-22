@@ -6,6 +6,7 @@ import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 
 public class ModTags {
@@ -31,6 +32,10 @@ public class ModTags {
         public static final TagKey<Item> STRAWBERRIES = forgeTag("crops/strawberry");
 
         public static final TagKey<Item> STRAWBERRY_SEEDS = forgeTag("seeds/strawberry");
+
+        public static final TagKey<Item> POMEGRANATES = forgeTag("crops/pomegranate");
+        public static final TagKey<Item> POMEGRANATE_SLICES = tag("items/pomegranate_slice");
+        public static final TagKey<Item> POMEGRANATE_SEEDS = forgeTag("seeds/pomegranate");
 
 
         private static TagKey<Item> tag(String name) {

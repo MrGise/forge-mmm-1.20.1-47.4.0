@@ -120,6 +120,11 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.CUCUMBER.get());
                         output.accept(ModItems.CUT_CUCUMBER.get());
                         output.accept(ModItems.CUCUMBER_SEEDS.get());
+
+                        output.accept(ModItems.POMEGRANATE.get());
+                        output.accept(ModItems.POMEGRANATE_SLICE.get());
+                        output.accept(ModItems.POMEGRANATE_EMPTY_SLICE.get());
+                        output.accept(ModItems.POMEGRANATE_SEEDS.get());
                     }).build());
 
     //\ Dimensions

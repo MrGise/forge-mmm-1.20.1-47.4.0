@@ -73,6 +73,18 @@ public class ModItems {
     public static final RegistryObject<Item> CUT_CUCUMBER = ITEMS.register("cut_cucumber",
             () -> new Item(new Item.Properties().food(ModFoodProperties.CUCUMBER)));
 
+    public static final RegistryObject<Item> POMEGRANATE = ITEMS.register("pomegranate",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> POMEGRANATE_EMPTY_SLICE = ITEMS.register("pomegranate_empty_slice",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> POMEGRANATE_SLICE = ITEMS.register("pomegranate_slice",
+            () -> new Item(new Item.Properties().craftRemainder(ModItems.POMEGRANATE_EMPTY_SLICE.get())));
+
+    public static final RegistryObject<Item> POMEGRANATE_SEEDS = ITEMS.register("pomegranate_seeds",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.POMEGRANATE_SEEDS)));
+
     //-- Magic
     public static final RegistryObject<Item> SOLIDIFIED_MANA = ITEMS.register("solidified_mana",
             () -> new Item(new Item.Properties()));

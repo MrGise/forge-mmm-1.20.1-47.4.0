@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_pomegranate": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mmm:pomegranate"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:pomegranate_seeds_from_pomegranate"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_pomegranate",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:pomegranate_seeds_from_pomegranate"
+    ]
+  },
+  "sends_telemetry_event": false
+}

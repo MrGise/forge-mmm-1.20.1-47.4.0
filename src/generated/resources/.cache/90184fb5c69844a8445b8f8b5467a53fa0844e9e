@@ -1,4 +1,4 @@
-// 1.20.1	2025-09-07T20:35:43.1183665	Item Models: mmm
+// 1.20.1	2025-09-22T12:04:09.009886	Item Models: mmm
 cab82837fca58f2721c0a61040837f5ce1a3b78f assets/mmm/models/item/actinolite.json
 9804b6bda9456b58518303a95fc7368d7164916d assets/mmm/models/item/actinolite_pickaxe.json
 367230e390c7ede5f2c1f21626f033e2d7d163ee assets/mmm/models/item/actinolite_sword.json
@@ -14,6 +14,10 @@ b763710a972d2f7ef5d1fa3c1d1cda8bdc06f14f assets/mmm/models/item/glide_armor_trim
 3bab1279dede3eecd1ad98845fb1c2cf911a5377 assets/mmm/models/item/heavenly_grass_top.json
 3aa7745531bc59f021f6fd049478607e6f8c4163 assets/mmm/models/item/ore_detector.json
 a002a7a67e81babda70fb3362fcb2faf9f66383d assets/mmm/models/item/oxalis.json
+61b7b0fd399e2bba099c3d327f8c3c514ec3aae1 assets/mmm/models/item/pomegranate.json
+c5516432d179dddbc125b974f070c4dc37143fdb assets/mmm/models/item/pomegranate_empty_slice.json
+94eacba50c88cf7769868bf8d13202ef7ea87249 assets/mmm/models/item/pomegranate_seeds.json
+60ac2d2643ae9b1332de37bade5758ba72621714 assets/mmm/models/item/pomegranate_slice.json
 14808f6cfa9fcb3378ec94da8cc65ca9ac9e5876 assets/mmm/models/item/raw_skiron.json
 79ec4cf78de0324e7687bd13bee02e85ac70a944 assets/mmm/models/item/skiron.json
 8faf13ba3442e94535ec78de3c5a70c23521568e assets/mmm/models/item/skiron_axe.json

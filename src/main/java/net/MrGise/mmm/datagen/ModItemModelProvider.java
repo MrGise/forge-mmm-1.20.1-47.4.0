@@ -48,6 +48,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.CUCUMBER);
         simpleItem(ModItems.CUT_CUCUMBER);
 
+        simpleItem(ModItems.POMEGRANATE);
+        simpleItem(ModItems.POMEGRANATE_SLICE);
+        simpleItem(ModItems.POMEGRANATE_EMPTY_SLICE);
+        simpleItem(ModItems.POMEGRANATE_SEEDS);
+
         //- Materials
         //* Skyland
 

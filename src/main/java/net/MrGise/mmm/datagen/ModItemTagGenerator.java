@@ -33,15 +33,20 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
         this.tag(ModTags.Items.CUCUMBERS)
                 .add(ModItems.CUCUMBER.get());
-
         this.tag(ModTags.Items.CUCUMBER_SEEDS)
                 .add(ModItems.CUCUMBER_SEEDS.get());
 
         this.tag(ModTags.Items.STRAWBERRIES)
                 .add(ModItems.STRAWBERRY.get());
-
         this.tag(ModTags.Items.STRAWBERRY_SEEDS)
                 .add(ModItems.STRAWBERRY_SEEDS.get());
+
+        this.tag(ModTags.Items.POMEGRANATES)
+                .add(ModItems.POMEGRANATE.get());
+        this.tag(ModTags.Items.POMEGRANATE_SLICES)
+                .add(ModItems.POMEGRANATE_SLICE.get());
+        this.tag(ModTags.Items.POMEGRANATE_SEEDS)
+                .add(ModItems.POMEGRANATE_SEEDS.get());
 
         this.tag(ModTags.Items.SKIRON_BLOCKS)
                 .add(ModBlocks.SKIRON_BLOCK.get().asItem());

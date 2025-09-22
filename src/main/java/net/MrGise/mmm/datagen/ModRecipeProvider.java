@@ -1,6 +1,5 @@
 package net.MrGise.mmm.datagen;
 
-import com.simibubi.create.AllTags;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.ModBlocks;
 import net.MrGise.mmm.datagen.recipe.NBTShapelessRecipeBuilder;
@@ -14,7 +13,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.tags.ItemTags;
+import net.minecraft.util.Mth;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -48,10 +47,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         shapedRecipe(pWriter, RecipeCategory.MISC, ModItems.GOLD_KEY.get(), Map.of('G', Ingredient.of(Tags.Items.INGOTS_GOLD)), Items.GOLD_INGOT, "  G", "GGG", "GG ");
 
-        cuttingRecipe(pWriter, Ingredient.of(ModTags.Items.CUCUMBERS), ModItems.CUT_CUCUMBER.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES), 1, 1.0f, "a",
+        cuttingRecipe(pWriter, Ingredient.of(ModTags.Items.CUCUMBERS), ModItems.CUT_CUCUMBER.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
+                1, 1.0f, "cucumber_cutting",
                 new resultWithChance(ModItems.CUCUMBER_SEEDS.get(), 1, 0.1f));
+
+        cuttingRecipe(pWriter, Ingredient.of(ModTags.Items.POMEGRANATES), ModItems.POMEGRANATE_SLICE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
+                2, 1.0f, "pomegranate_cutting");
+
+        exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.POMEGRANATE_SLICES), ModItems.POMEGRANATE.get(), ModItems.POMEGRANATE_SEEDS.get(), 16);
+
         exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.CUCUMBERS), ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get());
-        exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.STRAWBERRIES), ModItems.CUCUMBER.get(), ModItems.STRAWBERRY_SEEDS.get());
+        exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.STRAWBERRIES), ModItems.STRAWBERRY.get(), ModItems.STRAWBERRY_SEEDS.get());
 
         swordRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTIONLITE_SWORD.get(), ModItems.ACTINOLITE.get(), "sky_ores");
         pickaxeRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTIONLITE_PICKAXE.get(), ModItems.ACTINOLITE.get(), "sky_ores");
@@ -152,13 +158,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected static void cuttingRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer,
                                         Ingredient ingredient, ItemLike result, Ingredient tool,
                                         int count, float chance, String name,
-                                        resultWithChance... additionalIngredients) {
+                                        resultWithChance... additionalResults) {
         CuttingBoardRecipeBuilder builder = CuttingBoardRecipeBuilder.cuttingRecipe(ingredient,
                 tool, result, count, (int) chance);
 
-        if (additionalIngredients.length != 0) {
-            for (int i = 0; i < additionalIngredients.length; i++) {
-                builder.addResultWithChance(additionalIngredients[i].result, additionalIngredients[i].chance, additionalIngredients[i].count);
+        if (additionalResults.length != 0) {
+            for (int i = 0; i < additionalResults.length; i++) {
+                builder.addResultWithChance(additionalResults[i].result, additionalResults[i].chance, additionalResults[i].count);
             }
         }
 

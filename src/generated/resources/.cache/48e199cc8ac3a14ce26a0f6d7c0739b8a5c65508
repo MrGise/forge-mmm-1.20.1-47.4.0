@@ -1,11 +1,13 @@
-// 1.20.1	2025-09-05T10:26:40.2308445	Item Tags
+// 1.20.1	2025-09-22T12:04:09.0134003	Item Tags
 785967d38cf4fc489b4fc33ed48714c46958937b data/farmersdelight/tags/items/tools/knives.json
 b1120cfb4e9e792ceee4881cc7c2de1ff39b6922 data/forge/tags/items/crops/cucumber.json
+89df2ca48580ea9f62df8e6bceccc68e1af6708a data/forge/tags/items/crops/pomegranate.json
 d7d9f1acaefde0acbce056e1b8cc94ed46ba20c3 data/forge/tags/items/crops/strawberry.json
 73f11d775d8b5f36992541a64b90b9f766a9dcb8 data/forge/tags/items/ingots/skiron.json
 dde6e99fc6fb1ab1e5464176f71ee1832aac3240 data/forge/tags/items/nuggets/skiron.json
 b8be32b41cf8af3bd3bd8ab51aeb635a00cdc57f data/forge/tags/items/seeds.json
 1111c7fdb77a1debd9c02c3f2738bff52b1c99b3 data/forge/tags/items/seeds/cucumber.json
+005616ed7d6061b60e66b3d549749404d3be977e data/forge/tags/items/seeds/pomegranate.json
 0b2864a5926978b84e41f90b8fac69d91120e0e4 data/forge/tags/items/seeds/strawberry.json
 3479b5b14d583e1dec6934cc2faa46b86cf815d5 data/forge/tags/items/storage_blocks/skiron.json
 23ef70fb21e9d62c97e864cdb1274a312390e0cf data/forge/tags/items/tools/axes.json
@@ -16,4 +18,5 @@ b8be32b41cf8af3bd3bd8ab51aeb635a00cdc57f data/forge/tags/items/seeds.json
 bb7b0883d157bf89445e24ff9838bd12e59560f6 data/minecraft/tags/items/trimmable_armor.json
 73f11d775d8b5f36992541a64b90b9f766a9dcb8 data/minecraft/tags/items/trim_materials.json
 f9eb36733a1755a0a875c9210b6ace9971ca0d2e data/minecraft/tags/items/trim_templates.json
+a83ac54ed6b227d862535a4f558b8ae03a91d07e data/mmm/tags/items/items/pomegranate_slice.json
 d7d34cb48673e89b2abe9905d13a9376e218c736 data/mmm/tags/items/tablets.json
