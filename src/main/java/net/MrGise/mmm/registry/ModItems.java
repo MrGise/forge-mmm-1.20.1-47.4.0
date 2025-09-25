@@ -144,6 +144,9 @@ public class ModItems {
     public static final RegistryObject<Item> SKIRON_HAMMER = ITEMS.register("skiron_hammer",
             () -> new HammerItem(ModToolTiers.SKIRON, 1, 5, -3.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() - 50)));
 
+    public static final RegistryObject<Item> SKIRON_SHIELD = ITEMS.register("skiron_shield",
+            () -> new ShieldItem(new Item.Properties().durability(ModToolTiers.SKIRON.getUses() - 50)));
+
     //- Bows
     public static final RegistryObject<Item> REINFORCED_STONE_BOW = ITEMS.register("reinforced_stone_bow",
             () -> new ReinforcedBowItem(new Item.Properties().durability(452), 1.5f));

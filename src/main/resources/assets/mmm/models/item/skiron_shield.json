@@ -1,0 +1,14 @@
+{
+  "parent": "mmm:references/shield/custom_shield_base",
+  "textures": {
+    "shield": "mmm:item/shield/skiron_shield"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "blocking": 1.0
+      },
+      "model": "mmm:item/skiron_shield_blocking"
+    }
+  ]
+}

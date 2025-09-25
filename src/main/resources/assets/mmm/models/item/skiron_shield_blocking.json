@@ -1,0 +1,6 @@
+{
+  "parent": "mmm:references/shield/custom_shield_base_blocking",
+  "textures": {
+    "shield": "mmm:item/shield/skiron_shield"
+  }
+}

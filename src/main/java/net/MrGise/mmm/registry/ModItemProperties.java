@@ -14,6 +14,8 @@ public class ModItemProperties {
         ItemProperties.register(ModItems.ORE_REDETECTOR.get(), new ResourceLocation(MMM.MOD_ID, "on"),
                 (itemStack, clientLevel, livingEntity, i) -> itemStack.hasTag() ? 1f : 0f);
 
+        makeShield(ModItems.SKIRON_SHIELD.get());
+
         makeBow(ModItems.REINFORCED_STONE_BOW.get());
         makeBow(ModItems.REINFORCED_IRON_BOW.get());
         makeBow(ModItems.REINFORCED_GOLD_BOW.get());
@@ -91,6 +93,13 @@ public class ModItemProperties {
         });
 
         ItemProperties.register(item, new ResourceLocation("pulling"), (stack, level, entity, i) -> {
+            return entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F;
+        });
+    }
+
+    public static void makeShield(Item item) {
+        ItemProperties.register(item, new ResourceLocation("blocking"),
+                (stack, level, entity, i) -> {
             return entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F;
         });
     }
