@@ -50,6 +50,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
         uniqueBottomCubeBottomTop(ModBlocks.HEAVENLY_GRASS_BLOCK.get(), "heavenly_grass_block", "skysoil", true);
         customGrass((CustomGrass) ModBlocks.HEAVENLY_GRASS.get(), "heavenly_grass");
 
+        blockWithItem(ModBlocks.SKYGROUND);
+        blockWithItem(ModBlocks.BROKEN_SKYGROUND);
+        blockWithItem(ModBlocks.SKYDIRT);
+        uniqueBottomCubeBottomTop(ModBlocks.HEAVENLY_GRASS_BLOCK_SKYDIRT.get(), "heavenly_grass_block_skydirt", "skydirt", true);
+
         blockWithItem(ModBlocks.SKYWOOD_PLANKS);
         logBlockWithItem((RotatedPillarBlock) ModBlocks.SKYWOOD_LOG.get(),
                 "skywood_log", "skywood_log_top", "skywood_log");
@@ -85,6 +90,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         fenceGateBlock((FenceGateBlock) ModBlocks.SKYWOOD_FENCE_GATE.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
 
         wallBlock((WallBlock) ModBlocks.SKYSOLID_WALL.get(), blockTexture(ModBlocks.SKYSOLID.get()));
+
+        wallBlock((WallBlock) ModBlocks.SKYGROUND_WALL.get(), blockTexture(ModBlocks.SKYGROUND.get()));
 
         doorBlockWithRenderType((DoorBlock) ModBlocks.SKYWOOD_DOOR.get(), modLoc("block/skywood_door_bottom"), modLoc("block/skywood_door_top"), "cutout");
         trapdoorBlockWithRenderType((TrapDoorBlock) ModBlocks.SKYWOOD_TRAPDOOR.get(), modLoc("block/skywood_trapdoor"), true, "cutout");

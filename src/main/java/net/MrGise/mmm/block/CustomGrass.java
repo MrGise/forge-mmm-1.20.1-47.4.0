@@ -2,6 +2,7 @@ package net.MrGise.mmm.block;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.StringRepresentable;
@@ -52,6 +53,22 @@ public class CustomGrass extends BushBlock implements BonemealableBlock {
     }
 
     /* ---------- state & placement ---------- */
+
+    @Override
+    public ItemStack getCloneItemStack(BlockGetter getter, BlockPos pos, BlockState state) {
+        if (state.getValue(LENGTH) == Length.SHORT) {
+            return super.getCloneItemStack(getter, pos, state);
+        } else {
+            ItemStack stack = new ItemStack(this);
+            CompoundTag tag = new CompoundTag();
+
+            tag.putBoolean("long", true);
+
+            stack.setTag(tag);
+
+            return stack;
+        }
+    }
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> b) {

@@ -22,12 +22,18 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.HEAVENLY_GRASS.get());
                         output.accept(ModBlocks.HEAVENLY_GRASS_BLOCK.get());
                         output.accept(ModBlocks.SKYSOIL.get());
+                        output.accept(ModBlocks.HEAVENLY_GRASS_BLOCK_SKYDIRT.get());
+                        output.accept(ModBlocks.SKYDIRT.get());
 
                         //- Skysolid
                         output.accept(ModBlocks.SKYSOLID.get());
                         output.accept(ModBlocks.SKYSOLID_WALL.get());
                         output.accept(ModBlocks.BROKEN_SKYSOLID.get());
                         output.accept(ModItems.SKYSOLID_TABLET.get());
+                        //* Skyground
+                        output.accept(ModBlocks.SKYGROUND.get());
+                        output.accept(ModBlocks.SKYGROUND_WALL.get());
+                        output.accept(ModBlocks.BROKEN_SKYGROUND.get());
 
                         //- Actinolite
                         output.accept(ModBlocks.ACTINOLITE_ORE.get());

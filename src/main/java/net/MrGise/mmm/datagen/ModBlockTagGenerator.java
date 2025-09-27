@@ -25,7 +25,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(ModTags.Blocks.HEAVENLY_GRASS_PLACEABLES)
                 .add(ModBlocks.HEAVENLY_GRASS_BLOCK.get())
-                .add(ModBlocks.SKYSOIL.get());
+                .add(ModBlocks.SKYSOIL.get())
+                .add(ModBlocks.HEAVENLY_GRASS_BLOCK_SKYDIRT.get())
+                .add(ModBlocks.SKYDIRT.get());
 
         this.tag(ModTags.Blocks.DETECTABLE_ORE)
                 .addTag(Tags.Blocks.ORES);

@@ -52,11 +52,19 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.SKYSOLID_WALL.get());
         this.dropSelf(ModBlocks.BROKEN_SKYSOLID.get());
 
+        this.add(ModBlocks.SKYGROUND.get(),
+                block -> createCustomSingularDrop(ModBlocks.SKYGROUND.get(), ModBlocks.BROKEN_SKYGROUND.get())); //, Skyground
+        this.dropSelf(ModBlocks.SKYGROUND_WALL.get());
+        this.dropSelf(ModBlocks.BROKEN_SKYGROUND.get());
+
         this.add(ModBlocks.HEAVENLY_GRASS_BLOCK.get(),
                 block -> createCustomSingularDrop(ModBlocks.HEAVENLY_GRASS_BLOCK.get(), ModBlocks.SKYSOIL.get())); //, Heavenly grass
         this.dropSelf(ModBlocks.SKYSOIL.get());
         createCustomMultiItemDropsWithChance(ModBlocks.HEAVENLY_GRASS.get(),
                         new ItemDropData(ModItems.STRAWBERRY_SEEDS.get(), 0.1f, 1, 4));
+        this.add(ModBlocks.HEAVENLY_GRASS_BLOCK_SKYDIRT.get(),
+                block -> createCustomSingularDrop(ModBlocks.HEAVENLY_GRASS_BLOCK_SKYDIRT.get(), ModBlocks.SKYDIRT.get()));
+        this.dropSelf(ModBlocks.SKYDIRT.get());
 
         this.dropSelf(ModBlocks.SKYWOOD_LOG.get()); //, Skywood
         this.dropSelf(ModBlocks.STRIPPED_SKYWOOD_LOG.get());

@@ -1,11 +1,13 @@
-// 1.20.1	2025-09-07T20:35:43.1193667	Loot Tables
+// 1.20.1	2025-09-27T11:37:16.7896159	Loot Tables
 304bc14bc9e1f04828096388b5b5c3c6b3be2931 data/mmm/loot_tables/blocks/actinolite_ore.json
 05b6ea431f70e2f445e44d02a41d4e14dbd1a880 data/mmm/loot_tables/blocks/animated_test_block.json
 4ecea7d1aaa11b4bd1d9ffd2eed07729b6c6889f data/mmm/loot_tables/blocks/birthday_cake.json
+3c236f0436a94166ee2b5db489c314285b8e2c02 data/mmm/loot_tables/blocks/broken_skyground.json
 c1fbe35af1992706dc9926314cb16b0d3e978be0 data/mmm/loot_tables/blocks/broken_skysolid.json
 9a12af1216e965d1d4d5a27edbabba8a4bc96aba data/mmm/loot_tables/blocks/cucumber.json
 df60d57e7fd9628fa35e38fb0a83956fb8e40e60 data/mmm/loot_tables/blocks/heavenly_grass.json
 62e808048e300570b74b951bbc077231174dbc94 data/mmm/loot_tables/blocks/heavenly_grass_block.json
+806538c2b99b23551ec354f199bdc54bf35cc6e6 data/mmm/loot_tables/blocks/heavenly_grass_block_skydirt.json
 39a8697dd170c63061c3c1fa2643236d34612d7b data/mmm/loot_tables/blocks/mana_ore.json
 d8a5cc943dc18da1cebe5b7c8f30a635052b9232 data/mmm/loot_tables/blocks/mimic_block.json
 c696ef42d2254e680b428fe6a5ae8472ab661d91 data/mmm/loot_tables/blocks/null_block.json
@@ -16,6 +18,9 @@ a51923536eeccd287573a0854ea8fdcddf0eada2 data/mmm/loot_tables/blocks/potted_oxal
 bc446bc765e24b2c006945ca6e8ac6d46c84b173 data/mmm/loot_tables/blocks/skiron_ore.json
 99cf8a66c3852ec269a93ed7d8018180a240478b data/mmm/loot_tables/blocks/skoal_block.json
 d17e9e06263df4e913dd69aad10cd93be2240fe3 data/mmm/loot_tables/blocks/skoal_ore.json
+e234896969e0a98f85da3871659f7de6b41091c4 data/mmm/loot_tables/blocks/skydirt.json
+7642c87f819c0c83abbac4b79cfb50dfc2404a87 data/mmm/loot_tables/blocks/skyground.json
+5134bf532a4f920dd053ce0d8f63a75a5b2983a3 data/mmm/loot_tables/blocks/skyground_wall.json
 3a18a3ca4815dc981a5041214f1ff5e30a544e32 data/mmm/loot_tables/blocks/skysoil.json
 0a0e71f74934b624b7e5b1c1fb5e5f7d6c8f4b33 data/mmm/loot_tables/blocks/skysolid.json
 e0430f7a286e45d20c45c33704f510e1227bbe79 data/mmm/loot_tables/blocks/skysolid_wall.json

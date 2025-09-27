@@ -1,6 +1,8 @@
 {
   "values": [
     "mmm:heavenly_grass_block",
-    "mmm:skysoil"
+    "mmm:skysoil",
+    "mmm:heavenly_grass_block_skydirt",
+    "mmm:skydirt"
   ]
 }

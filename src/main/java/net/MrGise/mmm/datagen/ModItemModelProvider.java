@@ -91,6 +91,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         fenceItem(ModBlocks.SKYWOOD_FENCE, ModBlocks.SKYWOOD_PLANKS);
         wallItem(ModBlocks.SKYSOLID_WALL, ModBlocks.SKYSOLID);
 
+        wallItem(ModBlocks.SKYGROUND_WALL, ModBlocks.SKYGROUND);
+
         notSoSimpleBlockItem(ModBlocks.HEAVENLY_GRASS, false, "_top");
         notSoSimpleBlockItemUnseperate(ModBlocks.HEAVENLY_GRASS, false, "_short");
         itemWithPredicate(ModBlocks.HEAVENLY_GRASS.get().asItem(), "long",

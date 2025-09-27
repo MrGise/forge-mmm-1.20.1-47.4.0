@@ -56,7 +56,25 @@ public class ModBlocks {
                     ModBlocks.SKYSOIL, ModBlocks.HEAVENLY_GRASS));
 
     public static final RegistryObject<Block> HEAVENLY_GRASS = registerCustomGrass("heavenly_grass",
-            () -> new CustomGrass(BlockBehaviour.Properties.copy(Blocks.GRASS), ModBlocks.HEAVENLY_GRASS_BLOCK, ModBlocks.SKYSOIL));
+            () -> new CustomGrass(BlockBehaviour.Properties.copy(Blocks.GRASS),
+                    ModBlocks.HEAVENLY_GRASS_BLOCK, ModBlocks.SKYSOIL,
+                    ModBlocks.HEAVENLY_GRASS_BLOCK_SKYDIRT, ModBlocks.SKYDIRT));
+
+    public static final RegistryObject<Block> SKYGROUND = registerBlock("skyground",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
+
+    public static final RegistryObject<Block> SKYGROUND_WALL = registerBlock("skyground_wall",
+            () -> new WallBlock(BlockBehaviour.Properties.copy(ModBlocks.SKYGROUND.get())));
+
+    public static final RegistryObject<Block> BROKEN_SKYGROUND = registerBlock("broken_skyground",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).instrument(NoteBlockInstrument.BASEDRUM).requiresCorrectToolForDrops().strength(1.5F, 6.0F)));
+
+    public static final RegistryObject<Block> SKYDIRT = registerBlock("skydirt",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.DIRT).mapColor(DyeColor.YELLOW).randomTicks()));
+
+    public static final RegistryObject<Block> HEAVENLY_GRASS_BLOCK_SKYDIRT = registerBlock("heavenly_grass_block_skydirt",
+            () -> new CustomGrassBlock(BlockBehaviour.Properties.copy(Blocks.GRASS_BLOCK).mapColor(DyeColor.CYAN),
+                    ModBlocks.SKYDIRT, ModBlocks.HEAVENLY_GRASS));
 
     //- Ores
     //* Skyland ores

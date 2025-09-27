@@ -99,11 +99,19 @@
   "block.mmm.heavenly_grass": "Heavenly Grass",
   "block.mmm.heavenly_grass_tall": "Tall Heavenly Grass",
   "block.mmm.heavenly_grass_block": "Heavenly Grass Block",
+  "block.mmm.heavenly_grass_block.type": "Skysoil",
   "block.mmm.skysoil": "Skysoil",
+  "block.mmm.heavenly_grass_block_skydirt": "Heavenly Grass Block",
+  "block.mmm.heavenly_grass_block_skydirt.type": "Skydirt",
+  "block.mmm.skydirt": "Skydirt",
 
   "block.mmm.skysolid": "Skysolid",
   "block.mmm.skysolid_wall": "Skysolid Wall",
   "block.mmm.broken_skysolid": "Broken Skysolid",
+
+  "block.mmm.skyground": "Skyground",
+  "block.mmm.skyground_wall": "Skyground Wall",
+  "block.mmm.broken_skyground": "Broken Skyground",
 
   "block.mmm.actinolite_ore": "Actinolite Ore",
 
