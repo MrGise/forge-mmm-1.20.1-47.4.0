@@ -75,6 +75,11 @@ public class MMM {
             ComposterBlock.COMPOSTABLES.put(ModItems.STRAWBERRY.get(), 0.2f);
             ComposterBlock.COMPOSTABLES.put(ModItems.STRAWBERRY_SEEDS.get(), 0.1f);
 
+            ComposterBlock.COMPOSTABLES.put(ModItems.APPLE_SLICE.get(), 0.08f);
+            ComposterBlock.COMPOSTABLES.put(ModItems.HONEYED_APPLE_SLICE.get(), 0.1f);
+
+            ComposterBlock.COMPOSTABLES.put(ModBlocks.HEAVENLY_GRASS.get(), 0.3f);
+
             ComposterBlock.COMPOSTABLES.put(ModBlocks.OXALIS.get(), 0.25f);
 
 
