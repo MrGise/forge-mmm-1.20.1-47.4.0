@@ -12,6 +12,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 
+    // Block registries using Create's API
 public class ModCreateBlocks {
     private static final CreateRegistrate registrate = MMM.registrate();
 

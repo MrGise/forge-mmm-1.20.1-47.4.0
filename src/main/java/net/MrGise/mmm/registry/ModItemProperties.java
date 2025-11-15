@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 
+    // Custom item properties
 public class ModItemProperties {
 
     public static void addCustomItemProperties() {

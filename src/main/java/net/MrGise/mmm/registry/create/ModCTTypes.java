@@ -6,6 +6,7 @@ import net.MrGise.mmm.MMM;
 import net.createmod.catnip.lang.Lang;
 import net.minecraft.resources.ResourceLocation;
 
+    // Enum for CTTypes
 public enum ModCTTypes implements CTType {
 
     SUPERDIRECTIONAL(8, ConnectedTextureBehaviour.ContextRequirement.builder().all().build()) {

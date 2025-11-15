@@ -2,6 +2,7 @@ package net.MrGise.mmm.registry;
 
 import net.minecraft.world.food.FoodProperties;
 
+    // Food properties
 public class ModFoodProperties {
 
     public static final FoodProperties BREADSTICK = new FoodProperties.Builder().nutrition(3).saturationMod(0.33f).fast().build();

@@ -2,7 +2,7 @@
   "droppy_likes_ricochet": {
     "sounds": [
       {
-        "name": "mmm:droppy_likes_ricochet",
+        "name": "mmm:disc/droppy_likes_ricochet",
         "stream": true
       }
     ]
@@ -10,7 +10,15 @@
   "droppy_likes_ricochet_full": {
     "sounds": [
       {
-        "name": "mmm:droppy_likes",
+        "name": "mmm:disc/droppy_likes",
+        "stream": true
+      }
+    ]
+  },
+  "tune": {
+    "sounds": [
+      {
+        "name": "mmm:disc/tune_1",
         "stream": true
       }
     ]
@@ -24,29 +32,29 @@
   "null_block_break": {
     "subtitle": "sounds.mmm.null_block_break",
     "sounds": [
-      "mmm:null_block_break"
+      "mmm:block/null_block_break"
     ]
   },
   "null_block_hit": {
     "subtitle": "sounds.mmm.null_block_hit",
     "sounds": [
-      "mmm:null_block_hit1",
-      "mmm:null_block_hit2"
+      "mmm:block/null_block_hit1",
+      "mmm:block/null_block_hit2"
     ]
   },
   "null_block_step": {
     "subtitle": "sounds.mmm.null_block_step",
     "sounds": [
-      "mmm:null_block_step1",
-      "mmm:null_block_step2",
-      "mmm:null_block_step3",
-      "mmm:null_block_step4"
+      "mmm:block/null_block_step1",
+      "mmm:block/null_block_step2",
+      "mmm:block/null_block_step3",
+      "mmm:block/null_block_step4"
     ]
   },
   "null_block_place": {
     "subtitle": "sounds.mmm.null_block_place",
     "sounds": [
-      "mmm:null_block_place"
+      "mmm:block/null_block_place"
     ]
   }
 }

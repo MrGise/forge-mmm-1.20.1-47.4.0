@@ -1,9 +1,6 @@
 package net.MrGise.mmm.datagen;
 
-import com.simibubi.create.AllFluids;
 import com.simibubi.create.AllItems;
-import com.simibubi.create.AllTags;
-import com.simibubi.create.api.data.recipe.FillingRecipeGen;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.ModBlocks;
 import net.MrGise.mmm.datagen.recipe.NBTShapelessRecipeBuilder;
@@ -17,7 +14,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.StringTag;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.Mth;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -26,11 +22,9 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
-import vectorwing.farmersdelight.data.ItemTags;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
 import java.util.Iterator;
@@ -38,6 +32,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
+// Generates recipes
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
 
     public static final List<ItemLike> SKIRON_SMELTABLES = List.of(ModBlocks.SKIRON_ORE.get(), ModItems.RAW_SKIRON.get());

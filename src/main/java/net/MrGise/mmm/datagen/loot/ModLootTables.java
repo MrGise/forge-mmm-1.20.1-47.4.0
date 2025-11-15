@@ -13,6 +13,7 @@ import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 
 import java.util.function.BiConsumer;
 
+// Miscellaneous loot tables
 public class ModLootTables implements LootTableSubProvider {
 
     @Override

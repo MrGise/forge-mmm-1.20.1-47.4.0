@@ -1,0 +1,6 @@
+// 1.20.1	2025-11-08T13:23:07.4198489	Global Loot Modifiers : mmm
+7b5cd72caf4c06dd06ee82a7349875b1d3a5a1de data/forge/loot_modifiers/global_loot_modifiers.json
+97ba3e73b006b93316b051df3c0cfcc64414451d data/mmm/loot_modifiers/cucumber_from_plains_village_chest.json
+0097bb53023efca38de8c94d6d15146f63dd036a data/mmm/loot_modifiers/cucumber_from_taiga_village_chest.json
+1179783c81951604dbc7705e549279b9bc990c83 data/mmm/loot_modifiers/cucumber_seeds_from_plains_village_chest.json
+391dda6fc813d045958bdcca670ccb297fa7f71d data/mmm/loot_modifiers/cucumber_seeds_from_taiga_village_chest.json

@@ -11,7 +11,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.item.KnifeItem;
-
+    // Items
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS =
         DeferredRegister.create(ForgeRegistries.ITEMS, MMM.MOD_ID);
@@ -43,6 +43,10 @@ public class ModItems {
     public static final RegistryObject<Item> DROPPY_LIKES_EVERYTHING_MUSIC_DISC = ITEMS.register("droppy_likes_everything_music_disc",
             () -> new RecordItem(7, ModSounds.DROPPY_LIKES_RICOCHET_FULL,
                     new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 4255));
+
+    public static final RegistryObject<Item> TUNE_MUSIC_DISC = ITEMS.register("tune_music_disc",
+            () -> new RecordItem(3, ModSounds.TUNE,
+                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 800));
 
 
     public static final RegistryObject<Item> MIMIC = ITEMS.register("mimic",

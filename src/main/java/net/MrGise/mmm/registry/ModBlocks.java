@@ -27,7 +27,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Supplier;
-
+    // Blocks
 public class ModBlocks {
 
     public static final DeferredRegister<Block> BLOCKS =
@@ -246,8 +246,8 @@ public class ModBlocks {
         return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
     }
 
-    private static <T extends Block>RegistryObject<Item> registerEdibleBlockItem(String name, RegistryObject<T> block, FoodProperties foodProperties, boolean alwasEat) {
-        return ModItems.ITEMS.register(name, () -> new EdibleBlockItem(block.get(), new Item.Properties(), ModFoodProperties.OXALIS, alwasEat));
+    private static <T extends Block>RegistryObject<Item> registerEdibleBlockItem(String name, RegistryObject<T> block, FoodProperties foodProperties, boolean alwaysEat) {
+        return ModItems.ITEMS.register(name, () -> new EdibleBlockItem(block.get(), new Item.Properties(), ModFoodProperties.OXALIS, alwaysEat));
     }
 
     private static <T extends Block>RegistryObject<Item> registerCustomGrassItem(String name, RegistryObject<T> block) {

@@ -1,0 +1,15 @@
+{
+  "type": "mmm:add_ranged_item",
+  "conditions": [
+    {
+      "condition": "forge:loot_table_id",
+      "loot_table_id": "minecraft:chests/village/village_taiga_house"
+    },
+    {
+      "chance": 0.3,
+      "condition": "minecraft:random_chance"
+    }
+  ],
+  "count": 5,
+  "item": "mmm:cucumber"
+}

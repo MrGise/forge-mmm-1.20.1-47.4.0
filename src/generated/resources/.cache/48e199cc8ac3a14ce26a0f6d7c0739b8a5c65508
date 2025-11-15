@@ -1,4 +1,4 @@
-// 1.20.1	2025-09-22T12:04:09.0134003	Item Tags
+// 1.20.1	2025-11-15T10:32:49.8069335	Item Tags
 785967d38cf4fc489b4fc33ed48714c46958937b data/farmersdelight/tags/items/tools/knives.json
 b1120cfb4e9e792ceee4881cc7c2de1ff39b6922 data/forge/tags/items/crops/cucumber.json
 89df2ca48580ea9f62df8e6bceccc68e1af6708a data/forge/tags/items/crops/pomegranate.json
@@ -14,7 +14,7 @@ b8be32b41cf8af3bd3bd8ab51aeb635a00cdc57f data/forge/tags/items/seeds.json
 785967d38cf4fc489b4fc33ed48714c46958937b data/forge/tags/items/tools/knives.json
 64626268b76d95ced4e47046ed7fa6b1271872ee data/forge/tags/items/tools/pickaxes.json
 8a824654c9092e4c1adbad84deafa31bde4ffd51 data/forge/tags/items/tools/shovels.json
-0144b23f78098c733d6a109a37855614975f2f81 data/minecraft/tags/items/music_discs.json
+f50bdef151366e447fa695e8ab113d83e5f5774b data/minecraft/tags/items/music_discs.json
 bb7b0883d157bf89445e24ff9838bd12e59560f6 data/minecraft/tags/items/trimmable_armor.json
 73f11d775d8b5f36992541a64b90b9f766a9dcb8 data/minecraft/tags/items/trim_materials.json
 f9eb36733a1755a0a875c9210b6ace9971ca0d2e data/minecraft/tags/items/trim_templates.json

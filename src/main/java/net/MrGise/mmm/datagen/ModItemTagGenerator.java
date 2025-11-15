@@ -1,6 +1,5 @@
 package net.MrGise.mmm.datagen;
 
-import com.simibubi.create.AllTags;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.ModBlocks;
 import net.MrGise.mmm.registry.ModItems;
@@ -17,6 +16,7 @@ import vectorwing.farmersdelight.common.tag.ForgeTags;
 
 import java.util.concurrent.CompletableFuture;
 
+// Generates item tags
 public class ModItemTagGenerator extends ItemTagsProvider {
 
     public ModItemTagGenerator(PackOutput packOutput, CompletableFuture<HolderLookup.Provider> future, CompletableFuture<TagLookup<Block>> completableFuture, @Nullable ExistingFileHelper existingFileHelper) {
@@ -29,7 +29,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
         this.tag(ItemTags.MUSIC_DISCS)
                 .add(ModItems.DROPPY_LIKES_RICOCHET_MUSIC_DISC.get())
-                .add(ModItems.DROPPY_LIKES_EVERYTHING_MUSIC_DISC.get());
+                .add(ModItems.DROPPY_LIKES_EVERYTHING_MUSIC_DISC.get())
+                .add(ModItems.TUNE_MUSIC_DISC.get());
 
         this.tag(ModTags.Items.CUCUMBERS)
                 .add(ModItems.CUCUMBER.get());

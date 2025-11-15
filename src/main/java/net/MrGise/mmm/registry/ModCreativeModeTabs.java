@@ -10,6 +10,7 @@ import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
 
+    // Creative mode tabs
 public class ModCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> CREATIVE_MODE_TABS =
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, MMM.MOD_ID);
@@ -110,6 +111,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.MOSSY_GOLD_KEY.get());
                         output.accept(ModItems.DROPPY_LIKES_RICOCHET_MUSIC_DISC.get());
                         output.accept(ModItems.DROPPY_LIKES_EVERYTHING_MUSIC_DISC.get());
+                        output.accept(ModItems.TUNE_MUSIC_DISC.get());
                         output.accept(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
                         output.accept(ModItems.SKYSOLID_TABLET.get());
                         output.accept(ModItems.MIMIC.get());

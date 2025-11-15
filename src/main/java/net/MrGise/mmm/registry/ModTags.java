@@ -9,28 +9,25 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.block.Block;
 
+// Creating custom tags
 public class ModTags {
 
     public static class Items {
 
         public static final TagKey<Item> SKIRON_BLOCKS = forgeTag("storage_blocks/skiron");
-
         public static final TagKey<Item> SKIRON_INGOTS = forgeTag("ingots/skiron");
+        public static final TagKey<Item> SKIRON_NUGGETS = forgeTag("nuggets/skiron");
 
         public static final TagKey<Item> ACTINOLITE = forgeTag("gems/actinolite");
-
-        public static final TagKey<Item> SKIRON_NUGGETS = forgeTag("nuggets/skiron");
 
         public static final TagKey<Item> TABLETS = tag("tablets");
 
         public static final TagKey<Item> SUGGESTED = tag("suggested");
 
         public static final TagKey<Item> CUCUMBERS = forgeTag("crops/cucumber");
-
         public static final TagKey<Item> CUCUMBER_SEEDS = forgeTag("seeds/cucumber");
 
         public static final TagKey<Item> STRAWBERRIES = forgeTag("crops/strawberry");
-
         public static final TagKey<Item> STRAWBERRY_SEEDS = forgeTag("seeds/strawberry");
 
         public static final TagKey<Item> POMEGRANATES = forgeTag("crops/pomegranate");

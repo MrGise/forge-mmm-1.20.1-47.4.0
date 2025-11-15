@@ -21,7 +21,7 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-
+    // The main mod class
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(MMM.MOD_ID)
 public class MMM {
@@ -40,19 +40,9 @@ public class MMM {
     public MMM(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
-        // Register a Create registrate
+        //\ Custom
+
         ModCreateBlocks.register(modEventBus);
-
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
-
-        // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
-
-        // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
-
-        //\ Everything else
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
@@ -63,7 +53,20 @@ public class MMM {
 
         //, Resources
 
+        ModLootModifiers.register(modEventBus);
+
         ModSounds.register(modEventBus);
+
+        //. Normal
+
+        // Register the commonSetup method for modloading
+        modEventBus.addListener(this::commonSetup);
+
+        // Register ourselves for server and other game events we are interested in
+        MinecraftForge.EVENT_BUS.register(this);
+
+        // Register the item to a creative tab
+        modEventBus.addListener(this::addCreative);
 
     }
 

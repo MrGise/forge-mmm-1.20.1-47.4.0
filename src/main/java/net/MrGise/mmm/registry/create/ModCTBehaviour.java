@@ -10,6 +10,7 @@ import net.minecraft.world.level.BlockAndTintGetter;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
 
+    // Custom CTBehaviour for the mod
 public class ModCTBehaviour {
     public static class PortalCTBehaviour extends SimpleCTBehaviour {
         private CTSpriteShiftEntry shiftOff;

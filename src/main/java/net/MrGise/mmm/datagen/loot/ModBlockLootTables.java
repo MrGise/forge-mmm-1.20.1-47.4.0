@@ -23,13 +23,12 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.Set;
 
+// Block loot tables
 public class ModBlockLootTables extends BlockLootSubProvider {
 
     public ModBlockLootTables() {
         super(Set.of(), FeatureFlags.REGISTRY.allFlags());
     }
-
-
 
     @Override
     protected void generate() {

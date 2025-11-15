@@ -10,6 +10,7 @@ import net.minecraftforge.common.TierSortingRegistry;
 
 import java.util.List;
 
+// Tool tiers
 public class ModToolTiers {
 
     public static final Tier SKIRON = TierSortingRegistry.registerTier(

@@ -10,6 +10,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+    // Defines sounds to be used in code
 public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MMM.MOD_ID);
@@ -23,6 +24,7 @@ public class ModSounds {
 
     public static final RegistryObject<SoundEvent> DROPPY_LIKES_RICOCHET = registerSoundEvent("droppy_likes_ricochet");
     public static final RegistryObject<SoundEvent> DROPPY_LIKES_RICOCHET_FULL = registerSoundEvent("droppy_likes_ricochet_full");
+    public static final RegistryObject<SoundEvent> TUNE = registerSoundEvent("tune");
 
 
     public static final ForgeSoundType NULL_BLOCK_SOUNDS = new ForgeSoundType(1.0f, 1.0f,

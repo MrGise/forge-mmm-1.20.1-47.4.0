@@ -13,6 +13,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import java.util.EnumMap;
 import java.util.function.Supplier;
 
+    // All of the armor tiers
 public enum ModArmorMaterials implements ArmorMaterial {
 
     SKIRON("skiron", 18, Util.make(new EnumMap(ArmorItem.Type.class), (map) -> {

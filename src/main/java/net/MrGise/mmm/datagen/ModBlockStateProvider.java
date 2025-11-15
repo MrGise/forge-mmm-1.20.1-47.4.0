@@ -21,6 +21,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
+// Generates blockstates
 public class ModBlockStateProvider extends BlockStateProvider {
 
     public ModBlockStateProvider(PackOutput output, ExistingFileHelper exFileHelper) {

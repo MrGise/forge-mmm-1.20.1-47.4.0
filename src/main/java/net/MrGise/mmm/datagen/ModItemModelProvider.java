@@ -13,6 +13,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+// Generates item models
 public class ModItemModelProvider extends ItemModelProvider {
 
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
@@ -32,6 +33,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.DROPPY_LIKES_RICOCHET_MUSIC_DISC);
         simpleItem(ModItems.DROPPY_LIKES_EVERYTHING_MUSIC_DISC);
+        simpleItem(ModItems.TUNE_MUSIC_DISC);
 
         simpleItem(ModItems.SKYSOLID_TABLET);
 

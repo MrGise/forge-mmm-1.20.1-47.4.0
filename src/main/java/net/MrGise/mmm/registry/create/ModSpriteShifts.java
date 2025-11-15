@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 
 import static com.simibubi.create.foundation.block.connected.CTSpriteShifter.getCT;
 
+    // CTSpriteShifts for the mod
 public class ModSpriteShifts {
 
     public static CTSpriteShiftEntry EXAMPLE = superdir("block/example_connection");

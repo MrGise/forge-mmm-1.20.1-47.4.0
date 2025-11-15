@@ -9,6 +9,7 @@ import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;
 import java.util.List;
 import java.util.Set;
 
+// Generates loot tables from classes in /loot
 public class ModLootTableProvider {
 
     public static LootTableProvider create(PackOutput packOutput) {
