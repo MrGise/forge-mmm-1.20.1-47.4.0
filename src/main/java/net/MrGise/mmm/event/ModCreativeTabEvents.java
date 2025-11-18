@@ -4,10 +4,10 @@ import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.ModBlocks;
 import net.MrGise.mmm.registry.ModEnchantments;
 import net.MrGise.mmm.registry.ModCreativeModeTabs;
+import net.MrGise.mmm.registry.ModPaintings;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.EnchantedBookItem;
-import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.entity.decoration.Painting;
+import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -42,7 +42,16 @@ public class ModCreativeTabEvents {
             long_grass.getOrCreateTag().putBoolean("long", true);
 
             event.getEntries().putAfter(short_grass, long_grass, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
+        }
 
+        if (event.getTab() == ModCreativeModeTabs.TOOLS_AND_MISC.get()) {
+            CompoundTag tag = new CompoundTag();
+
+            ItemStack magery_painting = Items.PAINTING.getDefaultInstance();
+
+            Painting.storeVariant(magery_painting.getOrCreateTagElement("EntityTag"), ModPaintings.MAGERY.getHolder().get());
+
+            event.getEntries().put(magery_painting, CreativeModeTab.TabVisibility.PARENT_AND_SEARCH_TABS);
         }
 
     }

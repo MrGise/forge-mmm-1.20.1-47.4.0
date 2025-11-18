@@ -47,6 +47,8 @@ public class MMM {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        ModPaintings.register(modEventBus);
+
         ModCreativeModeTabs.register(modEventBus);
 
         ModEnchantments.register(modEventBus);
@@ -97,7 +99,7 @@ public class MMM {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.FOOD_AND_DRINKS) {
-            event.accept(ModBlocks.BIRTHDAY_CAKE);
+
         }
     }
 
