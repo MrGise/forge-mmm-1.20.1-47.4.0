@@ -1,6 +1,6 @@
 package net.MrGise.mmm.item;
 
-import net.MrGise.mmm.registry.ModTags;
+import net.MrGise.mmm.registry.back.ModTags;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

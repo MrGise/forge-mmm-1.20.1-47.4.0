@@ -1,9 +1,9 @@
 package net.MrGise.mmm.datagen;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.registry.ModBlocks;
-import net.MrGise.mmm.registry.ModItems;
-import net.MrGise.mmm.registry.ModTags;
+import net.MrGise.mmm.registry.front.ModBlocks;
+import net.MrGise.mmm.registry.front.item.ModItems;
+import net.MrGise.mmm.registry.back.ModTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.ItemTagsProvider;

@@ -1,7 +1,7 @@
 package net.MrGise.mmm.datagen.loot;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.registry.ModItems;
+import net.MrGise.mmm.registry.front.item.ModItems;
 import net.minecraft.data.loot.LootTableSubProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;

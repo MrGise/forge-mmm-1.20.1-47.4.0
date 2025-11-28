@@ -1,7 +1,7 @@
 package net.MrGise.mmm.block;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.registry.ModItems;
+import net.MrGise.mmm.registry.front.item.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;

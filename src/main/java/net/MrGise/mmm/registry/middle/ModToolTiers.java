@@ -1,6 +1,8 @@
-package net.MrGise.mmm.registry;
+package net.MrGise.mmm.registry.middle;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.registry.back.ModTags;
+import net.MrGise.mmm.registry.front.item.ModItems;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Tiers;

@@ -2,15 +2,25 @@ package net.MrGise.mmm;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import net.MrGise.mmm.effect.potion.BetterBrewingRecipe;
 import net.MrGise.mmm.event.ModEvents;
-import net.MrGise.mmm.registry.*;
+import net.MrGise.mmm.registry.back.ModItemProperties;
+import net.MrGise.mmm.registry.back.ModLootModifiers;
 import net.MrGise.mmm.registry.create.ModCreateBlocks;
+import net.MrGise.mmm.registry.front.*;
+import net.MrGise.mmm.registry.front.item.ModItems;
+import net.MrGise.mmm.registry.front.item.ModPotions;
+import net.MrGise.mmm.registry.middle.ModEnchantments;
+import net.MrGise.mmm.registry.middle.ModSounds;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.common.util.NonNullSupplier;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
@@ -25,7 +35,6 @@ import org.slf4j.Logger;
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(MMM.MOD_ID)
 public class MMM {
-    // Define mod id in a common place for everything to reference
     public static final String MOD_ID = "mmm";
 
     public static final NonNullSupplier<CreateRegistrate> REGISTRATE = () -> CreateRegistrate.create(MOD_ID);
@@ -46,6 +55,9 @@ public class MMM {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModEffects.register(modEventBus);
+        ModPotions.register(modEventBus);
 
         ModPaintings.register(modEventBus);
 
@@ -92,6 +104,9 @@ public class MMM {
 
 
             ModEvents.LogMap.put(ModBlocks.SKYWOOD_LOG.get(), ModBlocks.STRIPPED_SKYWOOD_LOG.get());
+
+
+            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.SLOWNESS, Items.SLIME_BALL, ModPotions.LIQUID_SLIME.get()));
         });
 
     }

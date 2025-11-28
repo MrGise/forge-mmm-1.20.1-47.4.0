@@ -2,12 +2,12 @@ package net.MrGise.mmm.datagen;
 
 import com.simibubi.create.AllItems;
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.registry.ModBlocks;
+import net.MrGise.mmm.registry.front.ModBlocks;
 import net.MrGise.mmm.datagen.recipe.NBTShapelessRecipeBuilder;
 import net.MrGise.mmm.datagen.recipe.NBTSingularShapelessRecipeBuilder;
-import net.MrGise.mmm.registry.ModItems;
+import net.MrGise.mmm.registry.front.item.ModItems;
 import net.MrGise.mmm.item.TabletItem;
-import net.MrGise.mmm.registry.ModTags;
+import net.MrGise.mmm.registry.back.ModTags;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.nbt.CompoundTag;

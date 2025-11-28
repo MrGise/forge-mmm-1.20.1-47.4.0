@@ -1,4 +1,4 @@
-package net.MrGise.mmm.registry;
+package net.MrGise.mmm.registry.back;
 
 import net.minecraft.world.food.FoodProperties;
 

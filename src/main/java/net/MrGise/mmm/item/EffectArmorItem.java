@@ -1,7 +1,7 @@
 package net.MrGise.mmm.item;
 
 import com.google.common.collect.ImmutableMap;
-import net.MrGise.mmm.registry.ModArmorMaterials;
+import net.MrGise.mmm.registry.middle.ModArmorMaterials;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.player.Player;

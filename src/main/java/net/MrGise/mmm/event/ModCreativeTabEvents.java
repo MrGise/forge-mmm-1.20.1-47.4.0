@@ -1,10 +1,10 @@
 package net.MrGise.mmm.event;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.registry.ModBlocks;
-import net.MrGise.mmm.registry.ModEnchantments;
-import net.MrGise.mmm.registry.ModCreativeModeTabs;
-import net.MrGise.mmm.registry.ModPaintings;
+import net.MrGise.mmm.registry.front.ModBlocks;
+import net.MrGise.mmm.registry.middle.ModEnchantments;
+import net.MrGise.mmm.registry.front.ModCreativeModeTabs;
+import net.MrGise.mmm.registry.front.ModPaintings;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.decoration.Painting;
 import net.minecraft.world.item.*;

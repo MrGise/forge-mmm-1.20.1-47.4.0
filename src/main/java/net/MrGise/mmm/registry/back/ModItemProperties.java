@@ -1,13 +1,14 @@
-package net.MrGise.mmm.registry;
+package net.MrGise.mmm.registry.back;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.registry.front.item.ModItems;
+import net.MrGise.mmm.registry.front.ModBlocks;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Items;
 
-    // Custom item properties
+// Custom item properties
 public class ModItemProperties {
 
     public static void addCustomItemProperties() {

@@ -1,7 +1,8 @@
-package net.MrGise.mmm.registry;
+package net.MrGise.mmm.registry.front;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.create.ModCreateBlocks;
+import net.MrGise.mmm.registry.front.item.ModItems;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

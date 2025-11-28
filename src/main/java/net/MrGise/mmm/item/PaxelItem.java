@@ -1,6 +1,6 @@
 package net.MrGise.mmm.item;
 
-import net.MrGise.mmm.registry.ModTags;
+import net.MrGise.mmm.registry.back.ModTags;
 import net.minecraft.world.item.DiggerItem;
 import net.minecraft.world.item.Tier;
 import net.minecraft.world.item.Vanishable;

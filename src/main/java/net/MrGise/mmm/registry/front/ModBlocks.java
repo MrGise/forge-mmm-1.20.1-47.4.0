@@ -1,4 +1,4 @@
-package net.MrGise.mmm.registry;
+package net.MrGise.mmm.registry.front;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.*;
@@ -9,6 +9,9 @@ import net.MrGise.mmm.item.description.DescriptionBlockItem;
 import net.MrGise.mmm.item.description.DescriptionFuelBlockItem;
 import net.MrGise.mmm.item.FuelBlockItem;
 import net.MrGise.mmm.item.description.DescriptionPortalBlockItem;
+import net.MrGise.mmm.registry.back.ModFoodProperties;
+import net.MrGise.mmm.registry.front.item.ModItems;
+import net.MrGise.mmm.registry.middle.ModSounds;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
@@ -26,6 +29,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.util.function.Function;
 import java.util.function.Supplier;
     // Blocks
 public class ModBlocks {
@@ -35,8 +39,9 @@ public class ModBlocks {
 
     //. Blocks
 
-    public static final RegistryObject<Block> MIMIC_BLOCK = registerMimicBlock("mimic_block",
-            () -> new MimicBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(2.5F)));
+    public static final RegistryObject<Block> MIMIC_BLOCK = registerBlock("mimic_block",
+            () -> new MimicBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(2.5F)),
+            b -> () -> new MimicBlockItem(b.get(), new Item.Properties()));
 
     //- Skyland
     public static final RegistryObject<Block> SKYSOLID = registerBlock("skysolid",
@@ -188,98 +193,46 @@ public class ModBlocks {
 
     //. Block registration methods
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerBlockItem(name, toReturn);
-        return toReturn;
+        return registerBlock(name, block,
+                b -> () -> new BlockItem(b.get(), new Item.Properties()));
     }
 
     private static <T extends Block> RegistryObject<T> registerEdibleBlock(String name, Supplier<T> block, FoodProperties foodProperties, boolean alwaysEat) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerEdibleBlockItem(name, toReturn, foodProperties, alwaysEat);
-        return toReturn;
+        return registerBlock(name, block,
+                b -> () -> new EdibleBlockItem(b.get(), new Item.Properties(), foodProperties, alwaysEat));
     }
 
     private static <T extends Block> RegistryObject<T> registerCustomGrass(String name, Supplier<T> block) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerCustomGrassItem(name, toReturn);
-        return toReturn;
-    }
-
-    private static <T extends Block> RegistryObject<T> registerMimicBlock(String name, Supplier<T> block) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerMimicBlockItem(name, toReturn);
-        return toReturn;
+        return registerBlock(name, block,
+                b -> () -> new CustomGrassItem(b.get(), new Item.Properties()));
     }
 
     private static <T extends Block> RegistryObject<T> registerBlockWithDescription(String name, Supplier<T> block, String DescriptionTranslatable, boolean ShiftToView) {
+        return registerBlock(name, block,
+                b -> () -> new DescriptionBlockItem(new Item.Properties(), b.get(), DescriptionTranslatable, ShiftToView));
+    }
+
+    private static <T extends Block> RegistryObject<T> registerPortalBlockWithDescription(String name, Supplier<T> block, String eyeName) {
+        return registerBlock(name, block,
+                b -> () -> new DescriptionPortalBlockItem(b.get(), new Item.Properties(), eyeName));
+    }
+
+    private static <T extends Block> RegistryObject<T> registerBurnableBlock(String name, Supplier<T> block, int burnTime) {
+        return registerBlock(name, block,
+                b -> () -> new FuelBlockItem(b.get(), new Item.Properties(), burnTime));
+    }
+
+    private static <T extends Block> RegistryObject<T> registerBurnableBlockWithDescription(String name, Supplier<T> block, int burnTime, String DescriptionTranslatable, boolean ShiftToView) {
+        return registerBlock(name, block,
+                b -> () -> new DescriptionFuelBlockItem(new Item.Properties(), b.get(), burnTime, DescriptionTranslatable, ShiftToView));
+    }
+
+    //\ The ultimate registration method
+    private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block,
+                                                                     Function<RegistryObject<T>, Supplier<? extends Item>> itemFactory) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerDescriptionBlockItem(name, toReturn, DescriptionTranslatable, ShiftToView);
+        ModItems.ITEMS.register(name, itemFactory.apply(toReturn));
         return toReturn;
-    }
-
-    private static <T extends Block> RegistryObject<T> registerPortalBlockWithDescription(String name, Supplier<T> block, String DescriptionTranslatable, boolean ShiftToView) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerDescriptionPortalBlockItem(name, toReturn, DescriptionTranslatable, ShiftToView);
-        return toReturn;
-    }
-
-    private static <T extends Block> RegistryObject<T> registerPortalBlockWithDescription(String name, Supplier<T> block, String EyeName) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerDescriptionPortalBlockItem(name, toReturn, EyeName);
-        return toReturn;
-    }
-
-    private static <T extends Block> RegistryObject<T> registerBurnableBlock(String name, Supplier<T> block, int BurnTime) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerFuelBlockItem(name, toReturn, BurnTime);
-        return toReturn;
-    }
-
-    private static <T extends Block> RegistryObject<T> registerBurnableBlockWithDescription(String name, Supplier<T> block, int BurnTime, String DescriptionTranslatable, boolean ShiftToView) {
-        RegistryObject<T> toReturn = BLOCKS.register(name, block);
-        registerDescriptionFuelBlockItem(name, toReturn, BurnTime, DescriptionTranslatable, ShiftToView);
-        return toReturn;
-    }
-
-    //. Block item registration methods
-    private static <T extends Block>RegistryObject<Item> registerBlockItem(String name, RegistryObject<T> block) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties()));
-    }
-
-    private static <T extends Block>RegistryObject<Item> registerEdibleBlockItem(String name, RegistryObject<T> block, FoodProperties foodProperties, boolean alwaysEat) {
-        return ModItems.ITEMS.register(name, () -> new EdibleBlockItem(block.get(), new Item.Properties(), ModFoodProperties.OXALIS, alwaysEat));
-    }
-
-    private static <T extends Block>RegistryObject<Item> registerCustomGrassItem(String name, RegistryObject<T> block) {
-        return ModItems.ITEMS.register(name, () -> new CustomGrassItem(block.get(), new Item.Properties()));
-    }
-
-    private static <T extends Block>RegistryObject<Item> registerMimicBlockItem(String name, RegistryObject<T> block) {
-        return ModItems.ITEMS.register(name, () -> new MimicBlockItem(block.get(), new Item.Properties().stacksTo(1)));
-    }
-
-    private static <T extends Block>RegistryObject<Item> registerDescriptionBlockItem(String name, RegistryObject<T> block, String DescriptionTranslatable, boolean ShiftToView) {
-        return ModItems.ITEMS.register(name, () -> new DescriptionBlockItem(new Item.Properties(), block.get(), DescriptionTranslatable, ShiftToView));
-    }
-
-    private static <T extends Block>RegistryObject<Item> registerDescriptionPortalBlockItem(String name, RegistryObject<T> block, String DescriptionTranslatable, boolean ShiftToView) {
-        return ModItems.ITEMS.register(name, () -> new DescriptionPortalBlockItem(block.get(), new Item.Properties(), DescriptionTranslatable, ShiftToView));
-    }
-
-    private static <T extends Block>RegistryObject<Item> registerDescriptionPortalBlockItem(String name, RegistryObject<T> block, String EyeName) {
-        return ModItems.ITEMS.register(name, () -> new DescriptionPortalBlockItem(block.get(), new Item.Properties(), EyeName));
-    }
-
-    private static <T extends Block> RegistryObject<Item> registerFireResistantBlockItem(String name, RegistryObject<T> block) {
-        return ModItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().fireResistant()));
-    }
-
-    private static <T extends Block> RegistryObject<Item> registerFuelBlockItem(String name, RegistryObject<T> block, int BurnTime) {
-        return ModItems.ITEMS.register(name, () -> new FuelBlockItem(block.get(), new Item.Properties(), BurnTime));
-    }
-
-    private static <T extends Block> RegistryObject<Item> registerDescriptionFuelBlockItem(String name, RegistryObject<T> block, int BurnTime, String DescriptionTranslatable, boolean ShiftToView) {
-        return ModItems.ITEMS.register(name, () -> new DescriptionFuelBlockItem(new Item.Properties(), block.get(), BurnTime, DescriptionTranslatable, ShiftToView));
     }
 
 

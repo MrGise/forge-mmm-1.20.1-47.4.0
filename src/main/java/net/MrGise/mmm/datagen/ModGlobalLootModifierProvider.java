@@ -2,7 +2,7 @@ package net.MrGise.mmm.datagen;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.loot.AddItemModifierC;
-import net.MrGise.mmm.registry.ModItems;
+import net.MrGise.mmm.registry.front.item.ModItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;

@@ -1,4 +1,4 @@
-package net.MrGise.mmm.registry;
+package net.MrGise.mmm.registry.back;
 
 import com.mojang.serialization.Codec;
 import net.MrGise.mmm.MMM;
