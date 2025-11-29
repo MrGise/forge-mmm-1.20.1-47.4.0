@@ -24,18 +24,17 @@ public class ModItemModelProvider extends ItemModelProvider {
     protected void registerModels() {
         // Item models
 
-        simpleItem(ModItems.TEST_ITEM);
+        simpleItemDirFix(ModItems.TEST_ITEM);
+        simpleItemDirFix(ModItems.DIRECTORY_TEST);
 
 
         //- Treasures
 
-        simpleItem(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE);
+        simpleItemDirFix(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE);
 
         simpleItem(ModItems.DROPPY_LIKES_RICOCHET_MUSIC_DISC);
         simpleItem(ModItems.DROPPY_LIKES_EVERYTHING_MUSIC_DISC);
         simpleItem(ModItems.TUNE_MUSIC_DISC);
-
-        simpleItem(ModItems.SKYSOLID_TABLET);
 
         simpleItem(ModItems.ORE_DETECTOR);
 
@@ -162,6 +161,12 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder simpleItemDirFix(RegistryObject<Item> item) {
+        return withExistingParent("item/" + item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
     }

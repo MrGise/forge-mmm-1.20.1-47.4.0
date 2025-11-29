@@ -32,7 +32,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         //. Test blocks
 
-        blockWithItem(ModBlocks.TEST_BLOCK);
+        blockWithItemDirFix(ModBlocks.TEST_BLOCK);
         blockWithItem(ModBlocks.ANIMATED_TEST_BLOCK);
 
 
@@ -400,6 +400,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+    }
+
+    private void blockWithItemDirFix(RegistryObject<Block> blockRO) {
+        Block block = blockRO.get();
+        String path = blockRO.getId().getPath();
+
+        // blockstate
+        simpleBlock(block, models().cubeAll("block/" + path, modLoc("block/" + path)));
+
+        // item model
+        itemModels().withExistingParent("item/" + path, modLoc("block/" + path));
     }
 
     private void blockWithItem(Block blockRegistryObject) {

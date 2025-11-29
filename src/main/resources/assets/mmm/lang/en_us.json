@@ -44,7 +44,7 @@
 
   "item.mmm.skoal": "Sky Coal",
 
-  "item.mmm.glide_armor_trim_smithing_template": "Smithing Template",
+  "item.mmm.smithing_template.glide": "Smithing Template",
 
   "item.mmm.skiron": "Skiron Ingot",
   "item.mmm.skiron_nugget": "Skiron Nugget",
@@ -75,7 +75,6 @@
   "item.mmm.actinolite_sword": "Actinolite Sword",
   "item.mmm.actinolite_pickaxe": "Actinolite Pickaxe",
 
-  "item.mmm.skysolid_tablet": "Skysolid Tablet",
 
   "block.mmm.mimic_block": "Mimic (Block)",
   "block.mmm.mimic_block.chest": "Chest",
@@ -89,8 +88,9 @@
   "trim_pattern.mmm.glide": "Glide Armor Trim",
 
 
-  "item.mmm.test_item": "Test Item",
-  "block.mmm.test_block": "Test Block",
+  "item.mmm.test.basic": "Test Item",
+  "item.mmm.test.directory": "Directory Test Item",
+  "block.mmm.test.block": "Test Block",
   "block.mmm.animated_test_block": "Animated Test Block",
 
 
@@ -148,6 +148,8 @@
 
 
   "item.minecraft.potion.effect.liquid_slime": "Liquid Slime",
+  "item.minecraft.splash_potion.effect.liquid_slime": "Splash Liquid Slime",
+  "item.minecraft.lingering_potion.effect.liquid_slime": "Lingering Liquid Slime",
   "effect.mmm.slimy": "Slimy",
 
   "effect.mmm.crumbs": "Crumbs",
@@ -197,7 +199,7 @@
   "tooltip.mmm.description_item.tooltip.skoal": "The magical coal of the skies... Burns more time than normal coal.",
 
   "tooltip.mmm.description_item.tooltip.actinolite": "An overexaggerated representation of the real thing, but who cares!",
-  "tooltip.mmm.description_item.tooltip.smithing_template_0": "Glide Armor Trim",
+  "tooltip.mmm.description_item.tooltip.smithing_template_glide_0": "Glide Armor Trim",
   "tooltip.mmm.description_item.tooltip.smithing_template_1": " ",
   "tooltip.mmm.description_item.tooltip.smithing_template_2": "Applies to:",
   "tooltip.mmm.description_item.tooltip.smithing_template_3": " Armor",

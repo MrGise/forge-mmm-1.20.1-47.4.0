@@ -31,7 +31,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.SKYSOLID.get());
                         output.accept(ModBlocks.SKYSOLID_WALL.get());
                         output.accept(ModBlocks.BROKEN_SKYSOLID.get());
-                        output.accept(ModItems.SKYSOLID_TABLET.get());
                         //* Skyground
                         output.accept(ModBlocks.SKYGROUND.get());
                         output.accept(ModBlocks.SKYGROUND_WALL.get());
@@ -114,7 +113,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DROPPY_LIKES_EVERYTHING_MUSIC_DISC.get());
                         output.accept(ModItems.TUNE_MUSIC_DISC.get());
                         output.accept(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
-                        output.accept(ModItems.SKYSOLID_TABLET.get());
                         output.accept(ModItems.MIMIC.get());
                         output.accept(ModBlocks.MIMIC_BLOCK.get());
                     }).build());

@@ -10,6 +10,7 @@ import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Map;
 
 public class MultiLineDescriptionItem extends Item {
 
@@ -18,12 +19,21 @@ public class MultiLineDescriptionItem extends Item {
     private String DescriptionTranslatable;
     private boolean ShiftToView = true;
     ChatFormatting[] Colors;
+    private Map<Integer, String> CustomAppend;
 
     public MultiLineDescriptionItem(Properties pProperties, String DescriptionTranslatable, boolean ShiftToView, ChatFormatting... Colors) {
         super(pProperties);
         this.DescriptionTranslatable = DescriptionTranslatable;
         this.ShiftToView = ShiftToView;
         this.Colors = Colors;
+    }
+
+    public MultiLineDescriptionItem(Properties pProperties, String DescriptionTranslatable, boolean ShiftToView, Map<Integer, String> customAppend, ChatFormatting... Colors) {
+        super(pProperties);
+        this.DescriptionTranslatable = DescriptionTranslatable;
+        this.ShiftToView = ShiftToView;
+        this.Colors = Colors;
+        this.CustomAppend = customAppend;
     }
 
     @Override
@@ -33,10 +43,17 @@ public class MultiLineDescriptionItem extends Item {
         } else {
             if (Colors != null) {
                 for (int i = 0; i < Colors.length; i++) {
-                    pTooltipComponents.add(
-                            Component.translatable("tooltip.mmm.description_item.tooltip." + DescriptionTranslatable + "_" + i)
-                                    .withStyle(Colors[i])
-                    );
+                    if (CustomAppend.containsKey(i)) {
+                        pTooltipComponents.add(
+                                Component.translatable("tooltip.mmm.description_item.tooltip." + DescriptionTranslatable + "_" + CustomAppend.get(i) + "_" + i)
+                                        .withStyle(Colors[i])
+                        );
+                    } else {
+                        pTooltipComponents.add(
+                                Component.translatable("tooltip.mmm.description_item.tooltip." + DescriptionTranslatable + "_" + i)
+                                        .withStyle(Colors[i])
+                        );
+                    }
                 }
             }
         }

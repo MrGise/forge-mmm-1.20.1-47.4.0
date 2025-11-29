@@ -3,16 +3,12 @@ package net.MrGise.mmm.datagen;
 import com.simibubi.create.AllItems;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.front.ModBlocks;
-import net.MrGise.mmm.datagen.recipe.NBTShapelessRecipeBuilder;
 import net.MrGise.mmm.datagen.recipe.NBTSingularShapelessRecipeBuilder;
 import net.MrGise.mmm.registry.front.item.ModItems;
-import net.MrGise.mmm.item.TabletItem;
 import net.MrGise.mmm.registry.back.ModTags;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.StringTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -83,8 +79,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.SKIRON_HELMET.get(), ModItems.SKIRON_CHESTPLATE.get(), ModItems.SKIRON_LEGGINGS.get(), ModItems.SKIRON_BOOTS.get(),
                 ModItems.SKIRON_ACTINOLITE_HELMET.get(), ModItems.SKIRON_ACTINOLITE_CHESTPLATE.get(), ModItems.SKIRON_ACTINOLITE_LEGGINGS.get(), ModItems.SKIRON_ACTINOLITE_BOOTS.get(), "sky_ores");
 
-        glyphRecipe("fire", pWriter, RecipeCategory.MISC, ModItems.SKYSOLID_TABLET.get(), (TabletItem) ModItems.SKYSOLID_TABLET.get(), Items.BLAZE_POWDER, "fire_glyph_recipe");
-
         //Region Mimics
         mimicDisguise("carrot", pWriter, RecipeCategory.MISC, ModItems.MIMIC.get(), Items.CARROT, ModItems.MIMIC.get(), "mimic_carrot");
 
@@ -129,21 +123,6 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         slab(pWriter, RecipeCategory.MISC, ModBlocks.SKYWOOD_SLAB.get(), ModBlocks.SKYWOOD_PLANKS.get());
         stairs(pWriter, RecipeCategory.MISC, ModBlocks.SKYWOOD_STAIRS.get(), Ingredient.of(ModBlocks.SKYWOOD_PLANKS.get()), ModBlocks.SKYWOOD_PLANKS.get());
 
-    }
-
-    protected static void glyphRecipe(String pGlyph, Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pResult, TabletItem tabletItem, ItemLike ingredient, String pName) {
-        ItemStack output = new ItemStack(pResult);
-
-        CompoundTag nbt = new CompoundTag();
-        ListTag glyphs = new ListTag();
-        glyphs.add(StringTag.valueOf(pGlyph));
-        nbt.put("glyphs", glyphs);
-        output.setTag(nbt);
-
-        NBTShapelessRecipeBuilder.shapeless(pCategory, output)
-                .requires(Ingredient.of(tabletItem))
-                .requires(Ingredient.of(ingredient))
-                .save(pFinishedRecipeConsumer, new ResourceLocation(MMM.MOD_ID, pName));
     }
 
     protected static void mimicDisguise(String pForm, Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pMimic, ItemLike pToForm, ItemLike pResultMimic, String pName) {

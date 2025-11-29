@@ -10,6 +10,7 @@ import net.MrGise.mmm.registry.middle.ModToolTiers;
 import net.MrGise.mmm.registry.middle.ModArmorMaterials;
 import net.minecraft.ChatFormatting;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.item.*;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -17,6 +18,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import vectorwing.farmersdelight.common.item.KnifeItem;
 
+import java.util.Map;
 import java.util.function.Supplier;
 
 // Items
@@ -26,8 +28,10 @@ public class ModItems {
 
     //. Items
 
+    public static final RegistryObject<Item> TEST_ITEM = registerItem("test/basic",
+            () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> TEST_ITEM = registerItem("test_item",
+    public static final RegistryObject<Item> DIRECTORY_TEST = registerItem("test/directory",
             () -> new Item(new Item.Properties()));
 
     //-- Ruins
@@ -37,24 +41,18 @@ public class ModItems {
     public static final RegistryObject<Item> MOSSY_GOLD_KEY = registerItem("mossy_gold_key",
             () -> new DescriptionItem(new Item.Properties().stacksTo(1), "mossy_gold_key", false));
 
-    public static final RegistryObject<Item> GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE = registerItem("glide_armor_trim_smithing_template",
-            () -> new MultiLineDescriptionItem(new Item.Properties(), "smithing_template", false,
-                    ChatFormatting.GRAY, ChatFormatting.GRAY, ChatFormatting.GRAY, ChatFormatting.BLUE, ChatFormatting.GRAY, ChatFormatting.BLUE));
-
-    public static final RegistryObject<Item> SKYSOLID_TABLET = registerItem("skysolid_tablet",
-            () -> new TabletItem(new Item.Properties(), 4));
+    public static final RegistryObject<Item> GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE =
+            armorTrimSmithingTemplate("smithing_template/glide", "glide");
 
     public static final RegistryObject<Item> DROPPY_LIKES_RICOCHET_MUSIC_DISC = registerItem("droppy_likes_ricochet_music_disc",
             () -> new RecordItem(7, ModSounds.DROPPY_LIKES_RICOCHET,
                     new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 1920));
 
-    public static final RegistryObject<Item> DROPPY_LIKES_EVERYTHING_MUSIC_DISC = registerItem("droppy_likes_everything_music_disc",
-            () -> new RecordItem(7, ModSounds.DROPPY_LIKES_RICOCHET_FULL,
-                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 4255));
+    public static final RegistryObject<Item> DROPPY_LIKES_EVERYTHING_MUSIC_DISC = registerDisc("droppy_likes_everything_music_disc",
+            7, ModSounds.DROPPY_LIKES_RICOCHET_FULL, 4255);
 
-    public static final RegistryObject<Item> TUNE_MUSIC_DISC = registerItem("tune_music_disc",
-            () -> new RecordItem(3, ModSounds.TUNE,
-                    new Item.Properties().stacksTo(1).rarity(Rarity.RARE), 800));
+    public static final RegistryObject<Item> TUNE_MUSIC_DISC = registerDisc("tune_music_disc",
+            3, ModSounds.TUNE, 800);
 
 
     public static final RegistryObject<Item> MIMIC = registerItem("mimic",
@@ -217,9 +215,22 @@ public class ModItems {
             () -> new HorseArmorItem(6, new ResourceLocation(MMM.MOD_ID, "textures/entity/horse/armor/horse_armor_skiron.png"), new Item.Properties()));
 
 
+    //. Helper Methods
     private static RegistryObject<Item> registerItem(String name, Supplier<? extends Item> item) {
         return ITEMS.register(name, item);
-    } // I'm not sure why I did this
+    }
+
+    private static RegistryObject<Item> registerDisc(String name, int comparatorValue, RegistryObject<SoundEvent> sound, int lengthInTicks) {
+        return registerItem(name, () -> new RecordItem(comparatorValue, sound, new Item.Properties().stacksTo(1).rarity(Rarity.RARE), lengthInTicks));
+    }
+
+    private static RegistryObject<Item> armorTrimSmithingTemplate(String name, String trimName) {
+        return registerItem(name,
+                () -> new MultiLineDescriptionItem(new Item.Properties(), "smithing_template", false,
+                        Map.of(0, trimName),
+                        ChatFormatting.GRAY, ChatFormatting.GRAY, ChatFormatting.GRAY, ChatFormatting.BLUE, ChatFormatting.GRAY, ChatFormatting.BLUE));
+    }
+
     
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

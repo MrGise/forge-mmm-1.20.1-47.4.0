@@ -84,9 +84,6 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                         ModItems.SKIRON_ACTINOLITE_LEGGINGS.get(),
                         ModItems.SKIRON_ACTINOLITE_BOOTS.get());
 
-        this.tag(ModTags.Items.TABLETS)
-                .add(ModItems.SKYSOLID_TABLET.get());
-
         this.tag(ItemTags.TRIM_MATERIALS)
                 .add(ModItems.SKIRON.get());
 

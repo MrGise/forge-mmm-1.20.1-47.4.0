@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "mmm:test_block"
+          "name": "mmm:test/block"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "mmm:blocks/test_block"
+  "random_sequence": "mmm:blocks/test/block"
 }

@@ -9,7 +9,7 @@
       "item": "mmm:broken_skysolid"
     },
     "S": {
-      "item": "mmm:glide_armor_trim_smithing_template"
+      "item": "mmm:smithing_template/glide"
     }
   },
   "pattern": [
@@ -19,7 +19,7 @@
   ],
   "result": {
     "count": 2,
-    "item": "mmm:glide_armor_trim_smithing_template"
+    "item": "mmm:smithing_template/glide"
   },
   "show_notification": true
 }

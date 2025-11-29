@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_glide_armor_trim_smithing_template": {
+    "has_smithing_template/glide": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mmm:glide_armor_trim_smithing_template"
+              "mmm:smithing_template/glide"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mmm:glide_armor_trim_smithing_template"
+        "recipe": "mmm:smithing_template/glide"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_glide_armor_trim_smithing_template",
+      "has_smithing_template/glide",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mmm:glide_armor_trim_smithing_template"
+      "mmm:smithing_template/glide"
     ]
   },
   "sends_telemetry_event": false

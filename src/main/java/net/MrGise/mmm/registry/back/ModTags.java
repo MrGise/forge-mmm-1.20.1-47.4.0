@@ -19,8 +19,6 @@ public class ModTags {
 
         public static final TagKey<Item> ACTINOLITE = forgeTag("gems/actinolite");
 
-        public static final TagKey<Item> TABLETS = tag("tablets");
-
         public static final TagKey<Item> SUGGESTED = tag("suggested");
 
         public static final TagKey<Item> CUCUMBERS = forgeTag("crops/cucumber");

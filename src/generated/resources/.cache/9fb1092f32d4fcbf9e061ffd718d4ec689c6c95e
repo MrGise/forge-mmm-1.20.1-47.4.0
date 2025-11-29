@@ -1,4 +1,4 @@
-// 1.20.1	2025-09-22T14:36:53.0604078	Recipes
+// 1.20.1	2025-11-29T13:09:08.6732791	Recipes
 978998d651b00da0fa273e341cd10a7c27af8621 data/minecraft/advancements/recipes/food/cucumber_seeds_from_cucumber.json
 3812a89f00280aaffdd8a803b0dee647453e6b21 data/minecraft/advancements/recipes/food/pomegranate_seeds_from_pomegranate.json
 c681f2178d0c35e218ce2895cae54d62d810f9cb data/minecraft/advancements/recipes/food/strawberry_seeds_from_strawberry.json
@@ -22,8 +22,7 @@ f066eb2f4da00fc6ac1ebe064204257dcbaf64e6 data/mmm/advancements/recipes/combat/sk
 e82960041f42934367bbd9c61f3dafdcd563dc00 data/mmm/advancements/recipes/combat/skiron_helmet.json
 11b1c7d22df7b6dc7fec3a5ddfa13ff6999a5a50 data/mmm/advancements/recipes/combat/skiron_leggings.json
 fad59674e32b6ec8fbf6de85b9fce1d2d7e798c3 data/mmm/advancements/recipes/combat/skiron_sword.json
-96be080c43e987120ba572e344642ac87b826518 data/mmm/advancements/recipes/misc/glide_armor_trim.json
-e76703c6a481e624a22fc69f05e849a00f1404a5 data/mmm/advancements/recipes/misc/glide_armor_trim_smithing_template.json
+9b56995808ce5891c0429240d231efb33b7cf63c data/mmm/advancements/recipes/misc/glide_armor_trim.json
 768c6b16686b061678fd206b5e674b1e70c13226 data/mmm/advancements/recipes/misc/gold_key.json
 60c26344217b69fbab4c0fbc8976fc910072c1db data/mmm/advancements/recipes/misc/raw_skiron.json
 4fac90653f81c92e0357d3650c47a2ce24a44ece data/mmm/advancements/recipes/misc/raw_skiron_block.json
@@ -42,6 +41,7 @@ b6ced146af756cbe8e7aa14ff072ebc761d20581 data/mmm/advancements/recipes/misc/skir
 d250013a82f29b601b48801a55e5c1834b333791 data/mmm/advancements/recipes/misc/skysolid_from_smelting_broken_skysolid.json
 1a3616c85b4fc682798c239d67fe0f0629ec634d data/mmm/advancements/recipes/misc/skywood_slab.json
 4335345e5dfe949114cf0d44e7b7cd2d72ff0857 data/mmm/advancements/recipes/misc/skywood_stairs.json
+88de009f93997975ec91618394d641eee0bbbb65 data/mmm/advancements/recipes/misc/smithing_template/glide.json
 2530d38312fc45dd7fd924512fd42d6671dbfb65 data/mmm/advancements/recipes/tools/skiron_hammer.json
 875be462be55fc7594b29d370359de7fe7c2c226 data/mmm/advancements/recipes/tools/skiron_hoe_left.json
 4bf97254a54710dae01f42b2b77865a31452dd4b data/mmm/advancements/recipes/tools/skiron_hoe_right.json
@@ -53,9 +53,7 @@ baf39deb9ee9a90fedf1aa5f3f85c3702a92e93b data/mmm/advancements/recipes/tools/ski
 2ab8e0f45faa3044adc5e51598690d35dc1343ff data/mmm/recipes/actinolite_sword.json
 79ac88526fba2dbfc37c57051c81743f88c70a72 data/mmm/recipes/apple_slicing.json
 2c0de1ea2fede7b706407a4848d5a2e95d8e5068 data/mmm/recipes/cucumber_cutting.json
-70f8a716b0b42b9fdaf7e70a511bfa12d74cef57 data/mmm/recipes/fire_glyph_recipe.json
-d4e2b706accce69ce192461a63b5f38096049f0f data/mmm/recipes/glide_armor_trim.json
-70c2d1add873e734c1cdfe40c70e57eea01c40d1 data/mmm/recipes/glide_armor_trim_smithing_template.json
+4eee6a76e2b0c3ce563cbe3b17994245c751d3e2 data/mmm/recipes/glide_armor_trim.json
 8d81750cf3976d0f65257b082e6c989bd23ce216 data/mmm/recipes/gold_key.json
 adec21708ed24d0655ecac282df074db30df694b data/mmm/recipes/honeyed_apple_slicing.json
 b38f34d694d8383bc4e331556be266a482d484b5 data/mmm/recipes/mimic_carrot.json
@@ -97,3 +95,4 @@ c0d8293bb67536ca70c895ed300d85fdec7d4772 data/mmm/recipes/skoal_from_smelting_sk
 7809df6ebbb58fa53d9623ef1794e2c1ff811295 data/mmm/recipes/skysolid_from_smelting_broken_skysolid.json
 cb04047d753fdf90c675d02d3f19c7b34150bd5e data/mmm/recipes/skywood_slab.json
 9c5dd4ad3f4d99c7c51cc683eee1f17db3fc4e94 data/mmm/recipes/skywood_stairs.json
+556b18e340a099c9ca0f938b97f0665532625eac data/mmm/recipes/smithing_template/glide.json

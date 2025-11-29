@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mmm:item/skysolid_tablet"
+    "layer0": "mmm:item/smithing_template/glide"
   }
 }
