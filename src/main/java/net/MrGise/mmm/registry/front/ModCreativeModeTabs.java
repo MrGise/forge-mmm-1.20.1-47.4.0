@@ -166,6 +166,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.TEST_BLOCK.get());
                         output.accept(ModBlocks.ANIMATED_TEST_BLOCK.get());
                         output.accept(ModItems.TEST_ITEM.get());
+                        output.accept(ModItems.DIRECTORY_TEST.get());
 
                         output.accept(ModBlocks.BIRTHDAY_CAKE.get());
 

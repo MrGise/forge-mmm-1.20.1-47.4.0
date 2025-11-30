@@ -187,7 +187,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> TEST_BLOCK = registerBlock("test/block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.METAL).strength(3.5f).sound(SoundType.METAL)));
 
-    public static final RegistryObject<Block> ANIMATED_TEST_BLOCK = registerBlock("animated_test_block",
+    public static final RegistryObject<Block> ANIMATED_TEST_BLOCK = registerBlock("test/animated_block",
             () -> new Block(BlockBehaviour.Properties.copy(ModBlocks.TEST_BLOCK.get())));
 
 

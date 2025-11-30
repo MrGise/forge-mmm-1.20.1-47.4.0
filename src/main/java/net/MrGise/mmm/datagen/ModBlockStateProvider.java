@@ -33,7 +33,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         //. Test blocks
 
         blockWithItemDirFix(ModBlocks.TEST_BLOCK);
-        blockWithItem(ModBlocks.ANIMATED_TEST_BLOCK);
+        blockWithItemDirFix(ModBlocks.ANIMATED_TEST_BLOCK);
 
 
         //-- Block with item

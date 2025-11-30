@@ -91,7 +91,7 @@
   "item.mmm.test.basic": "Test Item",
   "item.mmm.test.directory": "Directory Test Item",
   "block.mmm.test.block": "Test Block",
-  "block.mmm.animated_test_block": "Animated Test Block",
+  "block.mmm.test.animated_block": "Animated Test Block",
 
 
   "block.mmm.example_connection": "Example Connection",
