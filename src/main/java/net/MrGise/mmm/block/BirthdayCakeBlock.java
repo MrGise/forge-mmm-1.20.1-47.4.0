@@ -41,17 +41,17 @@ public class BirthdayCakeBlock extends Block {
 
     public BirthdayCakeBlock(BlockBehaviour.Properties pProperties) {
         super(pProperties);
-        this.registerDefaultState((BlockState) ((BlockState) this.stateDefinition.any()).setValue(BITES, 0));
+        this.registerDefaultState(this.stateDefinition.any().setValue(BITES, 0));
     }
 
     public VoxelShape getShape(BlockState pState, BlockGetter pLevel, BlockPos pPos, CollisionContext pContext) {
-        return SHAPE_BY_BITE[(Integer) pState.getValue(BITES)];
+        return SHAPE_BY_BITE[pState.getValue(BITES)];
     }
 
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         ItemStack $$6 = pPlayer.getItemInHand(pHand);
         Item $$7 = $$6.getItem();
-        if ($$6.is(ItemTags.CANDLES) && (Integer) pState.getValue(BITES) == 0) {
+        if ($$6.is(ItemTags.CANDLES) && pState.getValue(BITES) == 0) {
             Block $$8 = Block.byItem($$7);
             if ($$8 instanceof CandleBlock) {
                 if (!pPlayer.isCreative()) {
