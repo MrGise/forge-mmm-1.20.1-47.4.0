@@ -1,0 +1,7 @@
+{
+  "parent": "mmm:block/hanukiyah/candle_5/candle_5_none",
+  "textures": {
+    "particle": "mmm:item/models/candle/pink_candle",
+    "candle": "mmm:item/models/candle/pink_candle"
+  }
+}

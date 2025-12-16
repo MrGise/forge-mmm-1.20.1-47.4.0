@@ -1,0 +1,31 @@
+{
+	"loader": "forge:separate_transforms",
+	"gui_light": "front",
+	"base": {
+		"parent": "mmm:custom/lime_candle_lit",
+		"textures": {
+			"0": "mmm:item/models/lime_candle_lit"
+		}
+	},
+	"perspectives": {
+		"gui": {
+			"parent": "item/generated",
+			"textures": {
+				"layer0": "mmm:item/lime_candle_lit"
+			},
+			"gui_light": "front"
+		},
+		"ground": {
+			"parent": "item/generated",
+			"textures": {
+				"layer0": "mmm:item/lime_candle_lit"
+			}
+		},
+		"fixed": {
+			"parent": "item/generated",
+			"textures": {
+				"layer0": "mmm:item/lime_candle_lit"
+			}
+		}
+	}
+}

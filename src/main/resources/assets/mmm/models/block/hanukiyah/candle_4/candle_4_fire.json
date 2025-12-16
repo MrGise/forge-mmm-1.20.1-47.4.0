@@ -1,0 +1,28 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "mmm:item/models/flame",
+		"flame": "mmm:item/models/flame"
+	},
+	"elements": [
+		{
+			"from": [14, 26, 8],
+			"to": [18, 30, 8],
+			"rotation": {"angle": -45, "axis": "y", "origin": [16, 26, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#flame"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#flame"}
+			}
+		},
+		{
+			"from": [16, 26, 6],
+			"to": [16, 30, 10],
+			"rotation": {"angle": -45, "axis": "y", "origin": [16, 26, 8]},
+			"faces": {
+				"east": {"uv": [0, 0, 16, 16], "texture": "#flame"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#flame"}
+			}
+		}
+	]
+}

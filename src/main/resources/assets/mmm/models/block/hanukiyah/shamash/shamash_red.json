@@ -1,0 +1,7 @@
+{
+  "parent": "mmm:block/hanukiyah/shamash/shamash_none",
+  "textures": {
+    "particle": "mmm:item/models/candle/red_candle",
+    "candle": "mmm:item/models/candle/red_candle"
+  }
+}

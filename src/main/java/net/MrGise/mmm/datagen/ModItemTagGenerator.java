@@ -32,6 +32,25 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.DROPPY_LIKES_EVERYTHING_MUSIC_DISC.get())
                 .add(ModItems.TUNE_MUSIC_DISC.get());
 
+        this.tag(ModTags.Items.LIT_CANDLES)
+                .add(ModItems.LIT_CANDLE.get())
+                .add(ModItems.LIT_CANDLE_BLACK.get())
+                .add(ModItems.LIT_CANDLE_BLUE.get())
+                .add(ModItems.LIT_CANDLE_BROWN.get())
+                .add(ModItems.LIT_CANDLE_CYAN.get())
+                .add(ModItems.LIT_CANDLE_GRAY.get())
+                .add(ModItems.LIT_CANDLE_GREEN.get())
+                .add(ModItems.LIT_CANDLE_LIGHT_BLUE.get())
+                .add(ModItems.LIT_CANDLE_LIGHT_GRAY.get())
+                .add(ModItems.LIT_CANDLE_LIME.get())
+                .add(ModItems.LIT_CANDLE_MAGENTA.get())
+                .add(ModItems.LIT_CANDLE_ORANGE.get())
+                .add(ModItems.LIT_CANDLE_PINK.get())
+                .add(ModItems.LIT_CANDLE_PURPLE.get())
+                .add(ModItems.LIT_CANDLE_RED.get())
+                .add(ModItems.LIT_CANDLE_WHITE.get())
+                .add(ModItems.LIT_CANDLE_YELLOW.get());
+
         this.tag(ModTags.Items.CUCUMBERS)
                 .add(ModItems.CUCUMBER.get());
         this.tag(ModTags.Items.CUCUMBER_SEEDS)

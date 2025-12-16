@@ -66,6 +66,42 @@ public class ModItems {
             () -> new OreRedetectorItem(new Item.Properties().stacksTo(1)));
 
 
+    //-- Candles
+    public static final RegistryObject<Item> LIT_CANDLE = registerBasicItem("candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_BLACK = registerBasicItem("black_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_BLUE = registerBasicItem("blue_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_BROWN = registerBasicItem("brown_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_CYAN = registerBasicItem("cyan_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_GRAY = registerBasicItem("gray_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_GREEN = registerBasicItem("green_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_LIGHT_BLUE = registerBasicItem("light_blue_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_LIGHT_GRAY = registerBasicItem("light_gray_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_LIME = registerBasicItem("lime_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_MAGENTA = registerBasicItem("magenta_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_ORANGE = registerBasicItem("orange_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_PINK = registerBasicItem("pink_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_PURPLE = registerBasicItem("purple_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_RED = registerBasicItem("red_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_WHITE = registerBasicItem("white_candle_lit");
+
+    public static final RegistryObject<Item> LIT_CANDLE_YELLOW = registerBasicItem("yellow_candle_lit");
+
+
     //-- Food
 
     public static final RegistryObject<Item> BREADSTICK = registerItem("breadstick",
@@ -218,6 +254,10 @@ public class ModItems {
     //. Helper Methods
     private static RegistryObject<Item> registerItem(String name, Supplier<? extends Item> item) {
         return ITEMS.register(name, item);
+    }
+
+    private static RegistryObject<Item> registerBasicItem(String name) {
+        return ITEMS.register(name, () -> new Item(new Item.Properties()));
     }
 
     private static RegistryObject<Item> registerDisc(String name, int comparatorValue, RegistryObject<SoundEvent> sound, int lengthInTicks) {

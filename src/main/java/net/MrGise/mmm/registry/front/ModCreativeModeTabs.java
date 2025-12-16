@@ -161,6 +161,24 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.REINFORCED_SKIRON_BOW.get());
                         output.accept(ModItems.REINFORCED_ACTINOLITE_BOW.get());
 
+                        output.accept(ModItems.LIT_CANDLE.get());
+                        output.accept(ModItems.LIT_CANDLE_BLACK.get());
+                        output.accept(ModItems.LIT_CANDLE_BLUE.get());
+                        output.accept(ModItems.LIT_CANDLE_BROWN.get());
+                        output.accept(ModItems.LIT_CANDLE_CYAN.get());
+                        output.accept(ModItems.LIT_CANDLE_GRAY.get());
+                        output.accept(ModItems.LIT_CANDLE_GREEN.get());
+                        output.accept(ModItems.LIT_CANDLE_LIGHT_BLUE.get());
+                        output.accept(ModItems.LIT_CANDLE_LIGHT_GRAY.get());
+                        output.accept(ModItems.LIT_CANDLE_LIME.get());
+                        output.accept(ModItems.LIT_CANDLE_MAGENTA.get());
+                        output.accept(ModItems.LIT_CANDLE_ORANGE.get());
+                        output.accept(ModItems.LIT_CANDLE_PINK.get());
+                        output.accept(ModItems.LIT_CANDLE_PURPLE.get());
+                        output.accept(ModItems.LIT_CANDLE_RED.get());
+                        output.accept(ModItems.LIT_CANDLE_WHITE.get());
+                        output.accept(ModItems.LIT_CANDLE_YELLOW.get());
+
                         output.accept(ModCreateBlocks.EXAMPLE_CONNECTION.get());
 
                         output.accept(ModBlocks.TEST_BLOCK.get());

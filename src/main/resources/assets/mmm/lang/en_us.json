@@ -35,6 +35,24 @@
   "item.mmm.pomegranate_empty_slice": "Empty Pomegranate Slice",
   "item.mmm.pomegranate_seeds": "Pomegranate Seeds",
 
+  "item.mmm.candle_lit": "Lit Candle",
+  "item.mmm.black_candle_lit": "Black Lit Candle",
+  "item.mmm.blue_candle_lit": "Blue Lit Candle",
+  "item.mmm.brown_candle_lit": "Brown Lit Candle",
+  "item.mmm.cyan_candle_lit": "Cyan Lit Candle",
+  "item.mmm.gray_candle_lit": "Gray Lit Candle",
+  "item.mmm.green_candle_lit": "Green Lit Candle",
+  "item.mmm.light_blue_candle_lit": "Light Blue Lit Candle",
+  "item.mmm.light_gray_candle_lit": "Light Gray Lit Candle",
+  "item.mmm.lime_candle_lit": "Lime Lit Candle",
+  "item.mmm.magenta_candle_lit": "Magenta Lit Candle",
+  "item.mmm.orange_candle_lit": "Orange Lit Candle",
+  "item.mmm.pink_candle_lit": "Pink Lit Candle",
+  "item.mmm.purple_candle_lit": "Purple Lit Candle",
+  "item.mmm.red_candle_lit": "Red Lit Candle",
+  "item.mmm.white_candle_lit": "White Lit Candle",
+  "item.mmm.yellow_candle_lit": "Yellow Lit Candle",
+
   "item.mmm.apple_slice": "Apple slice",
   "item.mmm.honeyed_apple_slice": "Honeyed Apple slice",
 
@@ -93,6 +111,8 @@
   "block.mmm.test.block": "Test Block",
   "block.mmm.test.animated_block": "Animated Test Block",
 
+
+  "block.mmm.hanukiya": "Hanukiya",
 
   "block.mmm.example_connection": "Example Connection",
 

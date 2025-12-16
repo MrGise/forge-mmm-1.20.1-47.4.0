@@ -18,6 +18,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -112,6 +113,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         //\ Dimensions' blocks loot tables
         this.dropSelf(ModBlocks.NULL_BLOCK.get());
 
+
+        //. Miscellaneous
+
+        this.dropSelf(ModBlocks.HANUKIYA.get());
+
     }
 
     //- Reference:
@@ -122,6 +128,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     //- minSeedDrop = 0
     //- maxSeedDrop = 3
     //-
+
     private void createCustomMultiItemDropsWithChance(Block block, ItemDropData... drops) {
         LootTable.Builder tableBuilder = LootTable.lootTable();
 

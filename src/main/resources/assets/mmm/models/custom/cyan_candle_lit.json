@@ -1,0 +1,9 @@
+{
+  "format_version": "1.21.6",
+  "parent": "mmm:custom/candle_lit",
+  "textures": {
+      "all": "mmm:item/models/candle/cyan_candle_lit",
+      "particle": "mmm:item/models/flame",
+      "flame": "mmm:item/models/flame"
+  }
+}
