@@ -121,22 +121,6 @@ public class ModBlocks {
             () -> new PortalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).strength(8, 10).sound(SoundType.GLASS)
                     .lightLevel(state -> state.getValue(PortalBlock.EYE) ? 6 : 0).isRedstoneConductor(((blockState, blockGetter, blockPos) -> false)).noLootTable(), ModItems.ACTINOLITE), "actinolite");
 
-    public static final RegistryObject<Block> HANUKIYA = registerBlock("hanukiya",
-            () -> new HanukiyaBlock(BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).strength(6).sound(SoundType.METAL)
-                    .lightLevel(state -> {
-                        int level = 0;
-                        if (state.getValue(HanukiyaBlock.SHAMASH_LIT)) level ++;
-                        if (state.getValue(HanukiyaBlock.CANDLE_2_LIT)) level ++;
-                        if (state.getValue(HanukiyaBlock.CANDLE_3_LIT)) level ++;
-                        if (state.getValue(HanukiyaBlock.CANDLE_4_LIT)) level ++;
-                        if (state.getValue(HanukiyaBlock.CANDLE_5_LIT)) level ++;
-                        if (state.getValue(HanukiyaBlock.CANDLE_6_LIT)) level ++;
-                        if (state.getValue(HanukiyaBlock.CANDLE_7_LIT)) level ++;
-                        if (state.getValue(HanukiyaBlock.CANDLE_8_LIT)) level ++;
-                        if (state.getValue(HanukiyaBlock.CANDLE_9_LIT)) level ++;
-                        return level;
-                    })));
-
 
     //- Skyland pt. 2
     public static final RegistryObject<Block> SKYWOOD_LOG = registerBlock("skywood_log",
