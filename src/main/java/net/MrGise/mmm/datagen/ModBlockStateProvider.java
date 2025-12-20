@@ -36,13 +36,26 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItemDirFix(ModBlocks.ANIMATED_TEST_BLOCK);
 
 
-        //-- Block with item
+        //. Misc
 
         portalBlockAlt(ModCreateBlocks.CONNECTING_PORTAL_BLOCK, "connecting_portal_block");
+
+        portalBlock(ModBlocks.PORTAL_BLOCK, "portal_block");
 
         blockWithItem(ModCreateBlocks.EXAMPLE_CONNECTION.get());
 
         blockWithItem(ModBlocks.SOUND_BLOCK);
+
+        //-- Normal blocks
+
+        uniqueCubeRotate(ModBlocks.BOWYERY_TABLE.get(), "bowyery_table",
+                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table_bottom"),
+                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table_top"),
+                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table_side"),
+                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table_side"),
+                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table_bow"),
+                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table_string"));
+
 
         //| Skyland
         blockWithItem(ModBlocks.BROKEN_SKYSOLID);
@@ -111,8 +124,43 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockItem(ModBlocks.SKYWOOD_FENCE_GATE);
         blockItem(ModBlocks.SKYWOOD_TRAPDOOR, "_bottom");
 
-        portalBlock(ModBlocks.PORTAL_BLOCK, "portal_block");
+    }
 
+    private void uniqueCubeRotate(Block block, String name, ResourceLocation bottom, ResourceLocation top,
+                                  ResourceLocation north, ResourceLocation south, ResourceLocation east, ResourceLocation west) {
+        ModelFile model = models().cube(
+                name,
+                bottom, top,
+                north, south, east, west
+        ).texture("particle", bottom);
+
+        getVariantBuilder(block)
+                .forAllStates(state -> {
+                    int yRot = switch (state.getValue(HorizontalDirectionalBlock.FACING)) {
+                        case EAST  -> 90;
+                        case SOUTH -> 180;
+                        case WEST  -> 270;
+                        default -> 0;
+                    };
+
+                    return ConfiguredModel.builder()
+                            .modelFile(model)
+                            .rotationY(yRot)
+                            .build();
+                });
+
+        simpleBlockItem(block, model);
+    }
+
+    private void uniqueCube(Block block, String name, ResourceLocation bottom, ResourceLocation top,
+                            ResourceLocation north, ResourceLocation south, ResourceLocation east, ResourceLocation west) {
+        ModelFile model = models().cube(
+                name,
+                bottom, top,
+                north, south, east, west
+        );
+
+        simpleBlockWithItem(block, model);
     }
 
     private void pottedFlower(Block block, String name, String plantName) {
@@ -125,41 +173,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 models().cross(blockTexture(block).getPath(), blockTexture(block)).renderType("cutout"));
 
         //- Has no item model
-    }
-
-    private void customGrass(CustomGrass block, String textureName) {
-        // Short variant (cross model)
-        ModelFile shortModel = models()
-                .withExistingParent("block/" + textureName, "block/cross")
-                .texture("cross", "block/" + textureName).renderType("cutout");
-
-        // Tall grass bottom
-        ModelFile bottomModel = models()
-                .withExistingParent("block/" + textureName + "_bottom", "block/cross")
-                .texture("cross", "block/" + textureName + "_bottom").renderType("cutout");
-
-        // Tall grass top
-        ModelFile topModel = models()
-                .withExistingParent("block/" + textureName + "_top", "block/cross")
-                .texture("cross", "block/" + textureName + "_top").renderType("cutout");
-
-        // Blockstates
-        getVariantBuilder(block).forAllStates(state -> {
-            return switch (state.getValue(CustomGrass.LENGTH)) {
-                case SHORT -> ConfiguredModel.allYRotations(shortModel, 0, false);
-                case BOTTOM -> new ConfiguredModel[] {
-                        new ConfiguredModel(bottomModel)
-                };
-                case TOP -> new ConfiguredModel[] {
-                        new ConfiguredModel(topModel)
-                };
-            };
-        });
-
-        // Item model (always the short variant)
-        itemModels().withExistingParent(
-                ForgeRegistries.BLOCKS.getKey(block).getPath(), "item/generated"
-        ).texture("layer0", "block/" + textureName);
     }
 
     private void simpleCubeBottomTop(Block block, String textureName, boolean rotateTop) {
@@ -283,12 +296,77 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlockItem(block, vertical);
     }
 
-    //Region Crops
-
     public void makeSimpleCrop(CropBlock block, String modelName, String textureName) {
         Function<BlockState, ConfiguredModel[]> function = state -> states(state, block, modelName, textureName);
 
         getVariantBuilder(block).forAllStates(function);
+    }
+
+    private void blockItem(RegistryObject<Block> blockRegistryObject, String appendix) {
+        simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile("mmm:block/" + ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath() + appendix));
+    }
+
+    private void blockItem(RegistryObject<Block> blockRegistryObject) {
+        simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile("mmm:block/" + ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath()));
+    }
+
+
+    private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
+        simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+    }
+
+    private void blockWithItemDirFix(RegistryObject<Block> blockRO) {
+        Block block = blockRO.get();
+        String path = blockRO.getId().getPath();
+
+        // blockstate
+        simpleBlock(block, models().cubeAll("block/" + path, modLoc("block/" + path)));
+
+        // item model
+        itemModels().withExistingParent("item/" + path, modLoc("block/" + path));
+    }
+
+    private void blockWithItem(Block block) {
+        simpleBlockWithItem(block, cubeAll(block));
+    }
+
+    private void stairsBlockWithItem(RegistryObject<Block> block, StairBlock stairBlock, ResourceLocation texture) {
+        stairsBlock(stairBlock, texture);
+        blockItem(block);
+    }
+
+    public void slabBlockWithItem(RegistryObject<Block> pBlock, SlabBlock block, ResourceLocation doubleslab, ResourceLocation texture) {
+        this.slabBlock(block, doubleslab, texture, texture, texture);
+        blockItem(pBlock);
+    }
+
+    private void portalBlock(RegistryObject<Block> pBlock, String name) {
+        getVariantBuilder(pBlock.get()).forAllStates(state -> {
+            if(state.getValue(PortalBlock.EYE)) {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_eye",
+                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_eye")))};
+            } else {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_noeye",
+                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_noeye")))};
+            }
+        });
+        simpleBlockItem(pBlock.get(), models().cubeAll(name + "_eye",
+                new ResourceLocation(MMM.MOD_ID, "block/" + name + "_eye")));
+    }
+
+    private void portalBlockAlt(Supplier<? extends Block> blockSupplier, String name) {
+        Block pBlock = blockSupplier.get();
+        getVariantBuilder(pBlock).forAllStates(state -> {
+            if(state.getValue(PortalBlock.EYE)) {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_on",
+                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_on")))};
+            } else {
+                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_off",
+                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_off")))};
+            }
+        });
+        simpleBlockItem(pBlock, models().cubeAll(name + "_on",
+                new ResourceLocation(MMM.MOD_ID, "block/" + name + "_on")));
     }
 
     private ConfiguredModel[] states(BlockState state, CropBlock block, String modelName, String textureName) {
@@ -300,9 +378,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     public void makeCustomCrop(AccessibleCropBlock block,
-                                String modelName, String textureName,
-                                ResourceLocation defaultParent, ResourceLocation customParent,
-                                String textureLayer, Integer... specialStages) {
+                               String modelName, String textureName,
+                               ResourceLocation defaultParent, ResourceLocation customParent,
+                               String textureLayer, Integer... specialStages) {
 
         Set<Integer> stageSet = Set.of(specialStages);
 
@@ -322,10 +400,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     public void makeCustomCrop(AccessibleCropBlock block,
-                                String modelName, String textureName,
-                                ResourceLocation defaultParent, ResourceLocation customParent,
-                                String textureLayer, boolean hasCustomParticleName,
-                                String customParticleName, Integer... specialStages) {
+                               String modelName, String textureName,
+                               ResourceLocation defaultParent, ResourceLocation customParent,
+                               String textureLayer, boolean hasCustomParticleName,
+                               String customParticleName, Integer... specialStages) {
 
         Set<Integer> stageSet = Set.of(specialStages);
 
@@ -357,74 +435,39 @@ public class ModBlockStateProvider extends BlockStateProvider {
         });
     }
 
+    private void customGrass(CustomGrass block, String textureName) {
+        // Short variant (cross model)
+        ModelFile shortModel = models()
+                .withExistingParent("block/" + textureName, "block/cross")
+                .texture("cross", "block/" + textureName).renderType("cutout");
 
-    //End
+        // Tall grass bottom
+        ModelFile bottomModel = models()
+                .withExistingParent("block/" + textureName + "_bottom", "block/cross")
+                .texture("cross", "block/" + textureName + "_bottom").renderType("cutout");
 
-    private void portalBlock(RegistryObject<Block> pBlock, String name) {
-        getVariantBuilder(pBlock.get()).forAllStates(state -> {
-            if(state.getValue(PortalBlock.EYE)) {
-                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_eye",
-                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_eye")))};
-            } else {
-                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_noeye",
-                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_noeye")))};
-            }
+        // Tall grass top
+        ModelFile topModel = models()
+                .withExistingParent("block/" + textureName + "_top", "block/cross")
+                .texture("cross", "block/" + textureName + "_top").renderType("cutout");
+
+        // Blockstates
+        getVariantBuilder(block).forAllStates(state -> {
+            return switch (state.getValue(CustomGrass.LENGTH)) {
+                case SHORT -> ConfiguredModel.allYRotations(shortModel, 0, false);
+                case BOTTOM -> new ConfiguredModel[] {
+                        new ConfiguredModel(bottomModel)
+                };
+                case TOP -> new ConfiguredModel[] {
+                        new ConfiguredModel(topModel)
+                };
+            };
         });
-        simpleBlockItem(pBlock.get(), models().cubeAll(name + "_eye",
-                new ResourceLocation(MMM.MOD_ID, "block/" + name + "_eye")));
-    }
 
-    private void portalBlockAlt(Supplier<? extends Block> blockSupplier, String name) {
-        Block pBlock = blockSupplier.get();
-        getVariantBuilder(pBlock).forAllStates(state -> {
-            if(state.getValue(PortalBlock.EYE)) {
-                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_on",
-                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_on")))};
-            } else {
-                return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_off",
-                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_off")))};
-            }
-        });
-        simpleBlockItem(pBlock, models().cubeAll(name + "_on",
-                new ResourceLocation(MMM.MOD_ID, "block/" + name + "_on")));
-    }
-
-    private void blockItem(RegistryObject<Block> blockRegistryObject, String appendix) {
-        simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile("mmm:block/" + ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath() + appendix));
-    }
-
-    private void blockItem(RegistryObject<Block> blockRegistryObject) {
-        simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile("mmm:block/" + ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath()));
-    }
-
-
-    private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
-        simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
-    }
-
-    private void blockWithItemDirFix(RegistryObject<Block> blockRO) {
-        Block block = blockRO.get();
-        String path = blockRO.getId().getPath();
-
-        // blockstate
-        simpleBlock(block, models().cubeAll("block/" + path, modLoc("block/" + path)));
-
-        // item model
-        itemModels().withExistingParent("item/" + path, modLoc("block/" + path));
-    }
-
-    private void blockWithItem(Block blockRegistryObject) {
-        simpleBlockWithItem(blockRegistryObject, cubeAll(blockRegistryObject));
-    }
-
-    private void stairsBlockWithItem(RegistryObject<Block> block, StairBlock stairBlock, ResourceLocation texture) {
-        stairsBlock(stairBlock, texture);
-        blockItem(block);
-    }
-
-    public void slabBlockWithItem(RegistryObject<Block> pBlock, SlabBlock block, ResourceLocation doubleslab, ResourceLocation texture) {
-        this.slabBlock(block, doubleslab, texture, texture, texture);
-        blockItem(pBlock);
+        // Item model (always the short variant)
+        itemModels().withExistingParent(
+                ForgeRegistries.BLOCKS.getKey(block).getPath(), "item/generated"
+        ).texture("layer0", "block/" + textureName);
     }
 
 }

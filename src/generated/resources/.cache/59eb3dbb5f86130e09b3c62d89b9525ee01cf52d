@@ -1,6 +1,7 @@
-// 1.20.1	2025-11-30T19:56:38.6944136	Loot Tables
+// 1.20.1	2025-12-18T18:00:28.3778557	Loot Tables
 304bc14bc9e1f04828096388b5b5c3c6b3be2931 data/mmm/loot_tables/blocks/actinolite_ore.json
 4ecea7d1aaa11b4bd1d9ffd2eed07729b6c6889f data/mmm/loot_tables/blocks/birthday_cake.json
+99f776c1845a9efa22a0136ceae1992f6a94d69c data/mmm/loot_tables/blocks/bowyery_table.json
 3c236f0436a94166ee2b5db489c314285b8e2c02 data/mmm/loot_tables/blocks/broken_skyground.json
 c1fbe35af1992706dc9926314cb16b0d3e978be0 data/mmm/loot_tables/blocks/broken_skysolid.json
 9a12af1216e965d1d4d5a27edbabba8a4bc96aba data/mmm/loot_tables/blocks/cucumber.json

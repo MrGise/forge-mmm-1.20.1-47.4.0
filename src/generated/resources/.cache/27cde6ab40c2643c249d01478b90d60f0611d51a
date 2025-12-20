@@ -1,5 +1,6 @@
-// 1.20.1	2025-11-30T19:56:38.7000341	Block States: mmm
+// 1.20.1	2025-12-18T18:18:19.2812234	Block States: mmm
 1fd9342f3c0d5ebccf217996515f997f48dbba36 assets/mmm/blockstates/actinolite_ore.json
+8aee53958b031df55775e3721356f1d350761818 assets/mmm/blockstates/bowyery_table.json
 4ec67ddca560555ccc00cfb893ae5f0d1fa3373e assets/mmm/blockstates/broken_skyground.json
 2d8c926880342bd85761f05ebc2507d4f69812e8 assets/mmm/blockstates/broken_skysolid.json
 c7c0909ed0b1e8c3d8857d1d2c9bc56757a37bc1 assets/mmm/blockstates/connecting_portal_block.json
@@ -41,6 +42,7 @@ ec207c3aab3df2efa801ba2c771cd7a46b2e6f67 assets/mmm/blockstates/strawberry.json
 b8310302a3c46e8882420771f146745f91ccc013 assets/mmm/blockstates/test/block.json
 a423caaf7e550e66f53d83640fd72f84a8538fdb assets/mmm/blockstates/thin_pine_log.json
 33c12059088bd46893d53d62fde613f490c7f97d assets/mmm/models/block/actinolite_ore.json
+c82b03dab578bf4a9f5ae1fe179b582bb278e601 assets/mmm/models/block/bowyery_table.json
 eedd039cf62cc495df972d3f39729f7952c32c5d assets/mmm/models/block/broken_skyground.json
 95cbb8d9d72fe1ccbc1387605425fe3b2ac6bd7b assets/mmm/models/block/broken_skysolid.json
 d89dcaec9797ba640409e986a01c85c81c32ac6e assets/mmm/models/block/connecting_portal_block_off.json
@@ -132,6 +134,7 @@ fa94e91b3b36a8ea3d2f2742a95ac3d82dc86d48 assets/mmm/models/block/test/block.json
 37f26a2fc95185e14e41d6ba3b6458ad6b0cd751 assets/mmm/models/block/thin_pine_log_x.json
 c6267aabb4e7b09a03985019d5de524af5856d49 assets/mmm/models/block/thin_pine_log_z.json
 58bf63219892d6927fde5051821f8022834152fc assets/mmm/models/item/actinolite_ore.json
+2649c4e508a74d192a176d87429a2ae779136e76 assets/mmm/models/item/bowyery_table.json
 2fa67a43fef4013fceb0dac7d296d80894c58539 assets/mmm/models/item/broken_skyground.json
 41b0d40964828016863b1a4902f965f3c0ca4ae5 assets/mmm/models/item/broken_skysolid.json
 e89dcd1098cac52a74a731e7458bbc9d3304835f assets/mmm/models/item/connecting_portal_block.json

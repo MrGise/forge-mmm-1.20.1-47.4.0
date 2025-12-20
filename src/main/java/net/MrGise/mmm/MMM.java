@@ -12,6 +12,7 @@ import net.MrGise.mmm.registry.front.item.ModItems;
 import net.MrGise.mmm.registry.front.item.ModPotions;
 import net.MrGise.mmm.registry.middle.ModEnchantments;
 import net.MrGise.mmm.registry.middle.ModSounds;
+import net.MrGise.mmm.registry.middle.ModVillagers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
@@ -53,17 +54,21 @@ public class MMM {
 
         ModCreateBlocks.register(modEventBus);
 
+        //- Basic
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        ModCreativeModeTabs.register(modEventBus);
+
+        ModEnchantments.register(modEventBus);
+
+        //- Minor
         ModEffects.register(modEventBus);
         ModPotions.register(modEventBus);
 
         ModPaintings.register(modEventBus);
 
-        ModCreativeModeTabs.register(modEventBus);
-
-        ModEnchantments.register(modEventBus);
+        ModVillagers.register(modEventBus);
 
         //, Resources
 

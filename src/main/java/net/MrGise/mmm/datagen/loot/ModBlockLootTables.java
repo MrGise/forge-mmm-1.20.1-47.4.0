@@ -115,9 +115,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
 
         //. Miscellaneous
-
-        this.dropSelf(ModBlocks.HANUKIYA.get());
-
+        this.dropSelf(ModBlocks.BOWYERY_TABLE.get());
     }
 
     //- Reference:

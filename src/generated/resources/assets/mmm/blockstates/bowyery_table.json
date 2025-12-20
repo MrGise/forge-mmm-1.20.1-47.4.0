@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "mmm:block/bowyery_table",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "mmm:block/bowyery_table"
+    },
+    "facing=south": {
+      "model": "mmm:block/bowyery_table",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "mmm:block/bowyery_table",
+      "y": 270
+    }
+  }
+}

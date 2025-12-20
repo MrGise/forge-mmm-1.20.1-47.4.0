@@ -3,10 +3,13 @@ package net.MrGise.mmm.registry.front;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.create.ModCreateBlocks;
 import net.MrGise.mmm.registry.front.item.ModItems;
+import net.MrGise.mmm.util.ItemUtils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.enchantment.EnchantmentInstance;
+import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.RegistryObject;
@@ -103,18 +106,22 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SOLIDIFIED_MANA.get());
                     }).build());
 
-    //. Ruin Items
-    public static final RegistryObject<CreativeModeTab> RUIN_ITEMS = CREATIVE_MODE_TABS.register("ruin_items",
+    //. Structures
+    public static final RegistryObject<CreativeModeTab> STRUCTURES = CREATIVE_MODE_TABS.register("structures",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.MOSSY_GOLD_KEY.get()))
-                    .title(Component.translatable("creativetab.ruin_items")).displayItems((displayParameters, output) -> {
+                    .title(Component.translatable("creativetab.structures")).displayItems((displayParameters, output) -> {
                         output.accept(ModItems.GOLD_KEY.get());
                         output.accept(ModItems.MOSSY_GOLD_KEY.get());
                         output.accept(ModItems.DROPPY_LIKES_RICOCHET_MUSIC_DISC.get());
                         output.accept(ModItems.DROPPY_LIKES_EVERYTHING_MUSIC_DISC.get());
                         output.accept(ModItems.TUNE_MUSIC_DISC.get());
+                        output.accept(ModBlocks.BOWYERY_TABLE.get());
                         output.accept(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
                         output.accept(ModItems.MIMIC.get());
                         output.accept(ModBlocks.MIMIC_BLOCK.get());
+                        output.accept(ItemUtils.enchantedBook(
+                                new EnchantmentInstance(Enchantments.INFINITY_ARROWS, 1),
+                                new EnchantmentInstance(Enchantments.MENDING, 1)));
                     }).build());
 
     //. Food
@@ -150,7 +157,7 @@ public class ModCreativeModeTabs {
     public static final RegistryObject<CreativeModeTab> TOOLS_AND_MISC = CREATIVE_MODE_TABS.register("tools_and_misc",
             () -> CreativeModeTab.builder()
                     .withTabsBefore(DIMENSIONS.getId(), MMM_CUISINE.getId(),
-                            OVERWORLD.getId(), RUIN_ITEMS.getId())
+                            OVERWORLD.getId(), STRUCTURES.getId())
                     .icon(() -> new ItemStack(ModItems.ORE_DETECTOR.get()))
                     .title(Component.translatable("creativetab.tools_and_misc")).displayItems((displayParameters, output) -> {
                         output.accept(ModItems.REINFORCED_STONE_BOW.get());

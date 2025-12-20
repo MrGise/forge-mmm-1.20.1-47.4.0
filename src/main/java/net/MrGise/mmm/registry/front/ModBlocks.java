@@ -177,6 +177,14 @@ public class ModBlocks {
     public static final RegistryObject<Block> POTTED_OXALIS = BLOCKS.register("potted_oxalis",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), OXALIS, BlockBehaviour.Properties.copy(Blocks.POTTED_OXEYE_DAISY).noOcclusion()));
 
+
+    //. Structures
+
+    public static final RegistryObject<Block> BOWYERY_TABLE = registerBlockWithDescription("bowyery_table",
+            () -> new BowyeryTableBlock(BlockBehaviour.Properties.copy(Blocks.CRAFTING_TABLE)),
+            "bowyery_table_disclaimer", false);
+
+
     //\ Dimensions
     public static final RegistryObject<Block> NULL_BLOCK = registerBlock("null_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(DyeColor.WHITE).noOcclusion().lightLevel(state -> 15)

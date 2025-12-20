@@ -5,7 +5,7 @@ import net.MrGise.mmm.registry.front.ModBlocks;
 import net.MrGise.mmm.registry.middle.ModEnchantments;
 import net.MrGise.mmm.registry.front.ModCreativeModeTabs;
 import net.MrGise.mmm.registry.front.ModPaintings;
-import net.minecraft.nbt.CompoundTag;
+import net.MrGise.mmm.util.ItemUtils;
 import net.minecraft.world.entity.decoration.Painting;
 import net.minecraft.world.item.*;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -20,22 +20,17 @@ public class ModCreativeTabEvents {
     @SubscribeEvent
     public static void buildContents(BuildCreativeModeTabContentsEvent event) {
 
-        if (event.getTab() == ModCreativeModeTabs.RUIN_ITEMS.get()) {
+        if (event.getTab() == ModCreativeModeTabs.STRUCTURES.get()) {
             Enchantment enchantment1 = ModEnchantments.LIGHTENING_STRIKER.get();
 
             for (int level = enchantment1.getMinLevel(); level <= enchantment1.getMaxLevel(); level++) {
-                // Create an enchanted book with the given enchantment and level
-                ItemStack enchantedBook = EnchantedBookItem.createForEnchantment(
-                        new EnchantmentInstance(enchantment1, level));
+                ItemStack enchantedBook = ItemUtils.enchantedBook(new EnchantmentInstance(enchantment1, level));
 
-                // Add it to the creative tab
                 event.accept(enchantedBook);
             }
         }
 
         if (event.getTab() == ModCreativeModeTabs.OVERWORLD.get()) {
-            CompoundTag tag = new CompoundTag();
-
             ItemStack short_grass = ModBlocks.HEAVENLY_GRASS.get().asItem().getDefaultInstance();
             ItemStack long_grass = ModBlocks.HEAVENLY_GRASS.get().asItem().getDefaultInstance();
 
@@ -45,8 +40,6 @@ public class ModCreativeTabEvents {
         }
 
         if (event.getTab() == ModCreativeModeTabs.TOOLS_AND_MISC.get()) {
-            CompoundTag tag = new CompoundTag();
-
             ItemStack magery_painting = Items.PAINTING.getDefaultInstance();
 
             Painting.storeVariant(magery_painting.getOrCreateTagElement("EntityTag"), ModPaintings.MAGERY.getHolder().get());

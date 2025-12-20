@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "mmm:block/bowyery_table_bottom",
+    "east": "mmm:block/bowyery_table_bow",
+    "north": "mmm:block/bowyery_table_side",
+    "particle": "mmm:block/bowyery_table_bottom",
+    "south": "mmm:block/bowyery_table_side",
+    "up": "mmm:block/bowyery_table_top",
+    "west": "mmm:block/bowyery_table_string"
+  }
+}

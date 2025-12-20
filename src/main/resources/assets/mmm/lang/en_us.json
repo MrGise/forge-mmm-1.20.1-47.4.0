@@ -112,11 +112,10 @@
   "block.mmm.test.animated_block": "Animated Test Block",
 
 
-  "block.mmm.hanukiya": "Hanukiya",
-
   "block.mmm.example_connection": "Example Connection",
 
   "block.mmm.connecting_portal_block": "Connecting Portal Block",
+
 
   "block.mmm.heavenly_grass": "Heavenly Grass",
   "block.mmm.heavenly_grass_tall": "Tall Heavenly Grass",
@@ -144,10 +143,6 @@
   "block.mmm.skoal_ore": "Sky Coal Ore",
   "block.mmm.skoal_block": "Block of Sky Coal",
 
-  "block.mmm.birthday_cake": "Birthday cake",
-  "block.mmm.sound_block": "Sound Block",
-  "block.mmm.portal_block": "Portal Block",
-
   "block.mmm.skywood_log": "Skywood Log",
   "block.mmm.stripped_skywood_log": "Stripped Skywood Log",
   "block.mmm.skywood_planks": "Skywood Planks",
@@ -160,11 +155,20 @@
   "block.mmm.skywood_door": "Skywood Door",
   "block.mmm.skywood_trapdoor": "Skywood Trapdoor",
 
+
+  "block.mmm.birthday_cake": "Birthday cake",
+  "block.mmm.sound_block": "Sound Block",
+  "block.mmm.portal_block": "Portal Block",
+
+
   "block.mmm.null_block": "Null",
+
 
   "block.mmm.oxalis": "Oxalis",
   "block.mmm.thin_pine_log": "Pine Log",
   "block.mmm.mana_ore": "Mana Ore",
+
+  "block.mmm.bowyery_table": "Bowyery Table",
 
 
   "item.minecraft.potion.effect.liquid_slime": "Liquid Slime",
@@ -180,7 +184,7 @@
 
 
   "creativetab.overworld": "Overworld & Co.",
-  "creativetab.ruin_items": "Treasures of Ruins",
+  "creativetab.structures": "Structures",
   "creativetab.dimensions": "Dimensions",
   "creativetab.tools_and_misc": "Tools & Misc",
   "creativetab.mmm_cuisine": "Kitchen & Farm's Products",
@@ -205,6 +209,8 @@
 
   "tooltip.mmm.description_block.tooltip.skoal_block": "A block of Sky Coal. burns for 10x the time of Sky Coal.",
 
+  "tooltip.mmm.description_block.tooltip.bowyery_table_disclaimer": "This is not at all similar to real life. Sorry, nerds!",
+
   "tooltip.mmm.portal_block.tooltip.common_line_1": "Click this block with the correct item to activate it.",
   "tooltip.mmm.portal_block.tooltip.common_line_2": "Click again with an empty hand to take the item back.",
 
@@ -228,5 +234,7 @@
 
   "tooltip.mmm.description_item.tooltip.actinolite_sword": "§7§oBasically 1.8 PVP, but with poison!",
 
-  "reinforcedbow.power_title": "Power: "
+  "reinforcedbow.power_title": "Power: ",
+
+  "entity.minecraft.villager.mmm.bowyer": "Bowyer"
 }
