@@ -1,8 +1,6 @@
 {
   "item.mmm.gold_key": "מפתח זהב",
   "item.mmm.mossy_gold_key": "מפתח זהב מכוסה טחב",
-  "item.mmm.glide_armor_trim_smithing_template": "תבנית להכנת קישוט שריון דאייה",
-
   "item.mmm.ore_detector": "גלאי עפרות",
   "item.mmm.ore_redetector": "גלאי עפרות עבר",
   "item.mmm.breadstick": "גריסיני",
@@ -59,10 +57,6 @@
   "block.mmm.portal_block": "בלוק פורטל",
 
   "block.mmm.oxalis": "חמציץ",
-
-  "creativetab.the_skyland": "ארץ השמיים",
-  "creativetab.ruin_items": "חפצי הריסות",
-  "creativetab.miscellaneous_mmm": "חפצי השונות של MMM",
   "creativetab.mmm_cuisine": "האוכל של MMM",
 
   "tooltip.mmm.description_block.tooltip.skoal_block": "§7§oבלוק של פחם שמיימי. נשרף ל-פי 10 יותר זמן מפחם שמיימי.",
@@ -73,12 +67,9 @@
   "tooltip.mmm.description_item.tooltip.skoal": "§7§oהפחם הקסום של השמים... נשרף ליותר זמן מפחם רגיל.",
   "tooltip.mmm.description_item.tooltip.actinolite_sword": "§7§oבייסיקלי פי וי פי של 1.8, רק עם רעל!.",
 
-  "tooltip.mmm.portal_block.tooltip.common_line_1": "§7לחץ על הבלוק הזה עם החפץ הנכון כדי להכניס אותוץ",
+  "tooltip.mmm.portal_block.tooltip.common_line_1": "§7לחץ על הבלוק הזה עם החפץ הנכון כדי להכניס אותו.",
   "tooltip.mmm.portal_block.tooltip.common_line_2": "§7לחץ שוב על הבלוק עם יד ריקה כדי לקחת אותו בחזרה.",
 
   "tooltip.mmm.portal_block.tooltip.eye": "§7העין של הבלוק הזה:",
-
-  "tooltip.mmm.portal_block.tooltip.actinolite": "§2 אקטינוליט (mmm:actinolite)",
-
   "enchantment.mmm.lightning_striker": "מכה ברקים"
 }
