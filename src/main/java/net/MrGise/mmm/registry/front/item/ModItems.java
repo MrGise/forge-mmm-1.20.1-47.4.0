@@ -146,11 +146,26 @@ public class ModItems {
     public static final RegistryObject<Item> ACTINOLITE = registerItem("actinolite",
             () -> new HiddenShiftDescriptionItem(new Item.Properties(), "actinolite"));
 
-    public static final RegistryObject<Item> ACTIONLITE_SWORD = registerItem("actinolite_sword",
+    public static final RegistryObject<Item> ACTINOLITE_SWORD = registerItem("actinolite_sword",
             () -> new DescriptionPoisonSwordItem(ModToolTiers.ACTINOLITE, 3, 3, new Item.Properties().durability(ModToolTiers.ACTINOLITE.getUses()), "actinolite_sword", false));
 
-    public static final RegistryObject<Item> ACTIONLITE_PICKAXE = registerItem("actinolite_pickaxe",
-            () -> new PickaxeItem(ModToolTiers.ACTINOLITE, 2, -1, new Item.Properties().durability(ModToolTiers.ACTINOLITE.getUses() + 100)));
+    public static final RegistryObject<Item> ACTINOLITE_PICKAXE = registerPickaxeItem("actinolite_pickaxe",
+            ModToolTiers.ACTINOLITE, 0, -2.8f, 100);
+
+    public static final RegistryObject<Item> ACTINOLITE_AXE = registerAxeItem("actinolite_axe",
+            ModToolTiers.ACTINOLITE, 5, -3, 50);
+
+    public static final RegistryObject<Item> ACTINOLITE_SHOVEL = registerShovelItem("actinolite_shovel",
+            ModToolTiers.ACTINOLITE, 0.5f, -2.75F, 0);
+
+    public static final RegistryObject<Item> ACTINOLITE_HOE = registerHoeItem("actinolite_hoe",
+            ModToolTiers.ACTINOLITE, (int) -3.5f, 0, 150);
+
+    public static final RegistryObject<Item> ACTINOLITE_KNIFE = registerKnifeItem("actinolite_knife",
+            ModToolTiers.ACTINOLITE, 0, 0, 50);
+
+    public static final RegistryObject<Item> ACTINOLITE_PAXEL = registerPaxelItem("actinolite_paxel",
+            ModToolTiers.ACTINOLITE, 5.5f, -1f, 150);
 
 
 
@@ -166,26 +181,26 @@ public class ModItems {
 
     /*. Tools */
     //- Skiron
-    public static final RegistryObject<Item> SKIRON_SWORD = registerItem("skiron_sword",
-            () -> new SwordItem(ModToolTiers.SKIRON, 2, -3, new Item.Properties().durability(ModToolTiers.SKIRON.getUses())));
+    public static final RegistryObject<Item> SKIRON_SWORD = registerSwordItem("skiron_sword",
+            ModToolTiers.SKIRON, 2, -3, 0);
 
-    public static final RegistryObject<Item> SKIRON_PICKAXE = registerItem("skiron_pickaxe",
-            () -> new PickaxeItem(ModToolTiers.SKIRON, 1, -2, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 100)));
+    public static final RegistryObject<Item> SKIRON_PICKAXE = registerPickaxeItem("skiron_pickaxe",
+            ModToolTiers.SKIRON, 0.5f, -2.8f, 100);
 
-    public static final RegistryObject<Item> SKIRON_AXE = registerItem("skiron_axe",
-            () -> new AxeItem(ModToolTiers.SKIRON, 2, -1.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 50)));
+    public static final RegistryObject<Item> SKIRON_AXE = registerAxeItem("skiron_axe",
+            ModToolTiers.SKIRON, 5, -3, 50);
 
-    public static final RegistryObject<Item> SKIRON_SHOVEL = registerItem("skiron_shovel",
-            () -> new ShovelItem(ModToolTiers.SKIRON, 1.75F, -2.75F, new Item.Properties().durability(ModToolTiers.SKIRON.getUses())));
+    public static final RegistryObject<Item> SKIRON_SHOVEL = registerShovelItem("skiron_shovel",
+            ModToolTiers.SKIRON, 0.5F, -2.75F, 0);
 
-    public static final RegistryObject<Item> SKIRON_HOE = registerItem("skiron_hoe",
-            () -> new HoeItem(ModToolTiers.SKIRON, -1, -0.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 150)));
+    public static final RegistryObject<Item> SKIRON_HOE = registerHoeItem("skiron_hoe", 
+            ModToolTiers.SKIRON, -3, -0.5f, 150);
 
-    public static final RegistryObject<Item> SKIRON_KNIFE = registerItem("skiron_knife",
-            () -> new KnifeItem(ModToolTiers.SKIRON, 0.5F, -1.0F, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 50)));
+    public static final RegistryObject<Item> SKIRON_KNIFE = registerKnifeItem("skiron_knife", 
+            ModToolTiers.SKIRON, 0, -1.0F, 50);
 
-    public static final RegistryObject<Item> SKIRON_PAXEL = registerItem("skiron_paxel",
-            () -> new PaxelItem(ModToolTiers.SKIRON, 5.5f, -1f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() + 150)));
+    public static final RegistryObject<Item> SKIRON_PAXEL = registerPaxelItem("skiron_paxel",
+            ModToolTiers.SKIRON, 5.5f, -1f, 150);
 
     public static final RegistryObject<Item> SKIRON_HAMMER = registerItem("skiron_hammer",
             () -> new HammerItem(ModToolTiers.SKIRON, 1, 5, -3.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() - 50)));
@@ -269,6 +284,28 @@ public class ModItems {
                 () -> new MultiLineDescriptionItem(new Item.Properties(), "smithing_template", false,
                         Map.of(0, trimName),
                         ChatFormatting.GRAY, ChatFormatting.GRAY, ChatFormatting.GRAY, ChatFormatting.BLUE, ChatFormatting.GRAY, ChatFormatting.BLUE));
+    }
+
+    private static RegistryObject<Item> registerSwordItem(String name, Tier tier, int attackDamage, int attackSpeed, int durabilityTierMod) {
+        return registerItem(name, () -> new SwordItem(tier, attackDamage, attackSpeed, new Item.Properties().durability(tier.getUses() + durabilityTierMod)));
+    }
+    private static RegistryObject<Item> registerPickaxeItem(String name, Tier tier, float attackDamageMod, float attackSpeedMod, int durabilityTierMod) {
+        return registerItem(name, () -> new PickaxeItem(tier, (int) attackDamageMod, attackSpeedMod, new Item.Properties().durability(tier.getUses() + durabilityTierMod)));
+    }
+    private static RegistryObject<Item> registerAxeItem(String name, Tier tier, float attackDamageMod, float attackSpeedMod, int durabilityTierMod) {
+        return registerItem(name, () -> new AxeItem(tier, attackDamageMod, attackSpeedMod, new Item.Properties().durability(tier.getUses() + durabilityTierMod)));
+    }
+    private static RegistryObject<Item> registerShovelItem(String name, Tier tier, float attackDamageMod, float attackSpeedMod, int durabilityTierMod) {
+        return registerItem(name, () -> new ShovelItem(tier, attackDamageMod, attackSpeedMod, new Item.Properties().durability(tier.getUses() + durabilityTierMod)));
+    }
+    private static RegistryObject<Item> registerHoeItem(String name, Tier tier, int attackDamageMod, float attackSpeedMod, int durabilityTierMod) {
+        return registerItem(name, () -> new HoeItem(tier, attackDamageMod, attackSpeedMod, new Item.Properties().durability(tier.getUses() + durabilityTierMod)));
+    }
+    private static RegistryObject<Item> registerKnifeItem(String name, Tier tier, float attackDamageMod, float attackSpeedMod, int durabilityTierMod) {
+        return registerItem(name, () -> new KnifeItem(tier, attackDamageMod, attackSpeedMod, new Item.Properties().durability(tier.getUses() + durabilityTierMod)));
+    }
+    private static RegistryObject<Item> registerPaxelItem(String name, Tier tier, float attackDamageMod, float attackSpeedMod, int durabilityTierMod) {
+        return registerItem(name, () -> new PaxelItem(tier, attackDamageMod, attackSpeedMod, new Item.Properties().durability(tier.getUses() + durabilityTierMod)));
     }
 
     

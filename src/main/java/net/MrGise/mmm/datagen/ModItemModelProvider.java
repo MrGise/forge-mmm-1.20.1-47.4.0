@@ -75,8 +75,13 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.SOLIDIFIED_MANA);
 
         /*- Tools -*/
-        handheldItem(ModItems.ACTIONLITE_SWORD);
-        handheldItem(ModItems.ACTIONLITE_PICKAXE);
+        handheldItem(ModItems.ACTINOLITE_SWORD);
+        handheldItem(ModItems.ACTINOLITE_PICKAXE);
+        handheldItem(ModItems.ACTINOLITE_AXE);
+        handheldItem(ModItems.ACTINOLITE_SHOVEL);
+        handheldItem(ModItems.ACTINOLITE_HOE);
+        handheldItem(ModItems.ACTINOLITE_KNIFE);
+        handheldItem(ModItems.ACTINOLITE_PAXEL);
 
         handheldItem(ModItems.SKIRON_SWORD);
         handheldItem(ModItems.SKIRON_PICKAXE);

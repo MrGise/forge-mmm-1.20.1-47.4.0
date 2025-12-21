@@ -222,7 +222,7 @@ public class ModBlocks {
 
     private static <T extends Block> RegistryObject<T> registerPortalBlockWithDescription(String name, Supplier<T> block, String eyeName) {
         return registerBlock(name, block,
-                b -> () -> new DescriptionPortalBlockItem(b.get(), new Item.Properties(), eyeName));
+                b -> () -> new DescriptionPortalBlockItem(b.get(), new Item.Properties(), eyeName, MMM.MOD_ID));
     }
 
     private static <T extends Block> RegistryObject<T> registerBurnableBlock(String name, Supplier<T> block, int burnTime) {

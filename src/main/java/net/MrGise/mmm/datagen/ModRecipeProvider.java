@@ -61,8 +61,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.CUCUMBERS), ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get());
         exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.STRAWBERRIES), ModItems.STRAWBERRY.get(), ModItems.STRAWBERRY_SEEDS.get());
 
-        swordRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTIONLITE_SWORD.get(), ModItems.ACTINOLITE.get(), "sky_ores");
-        pickaxeRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTIONLITE_PICKAXE.get(), ModItems.ACTINOLITE.get(), "sky_ores");
+        swordRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_SWORD.get(), ModItems.ACTINOLITE.get(), "sky_ores");
+        pickaxeRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_PICKAXE.get(), ModItems.ACTINOLITE.get(), "sky_ores");
 
 
         swordRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.SKIRON_INGOTS), null, ModItems.SKIRON_SWORD.get(), ModItems.SKIRON.get(), "sky_ores");

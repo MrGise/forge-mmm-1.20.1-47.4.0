@@ -3,11 +3,15 @@ package net.MrGise.mmm.registry.front;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.create.ModCreateBlocks;
 import net.MrGise.mmm.registry.front.item.ModItems;
+import net.MrGise.mmm.registry.middle.ModEnchantments;
 import net.MrGise.mmm.util.ItemUtils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.decoration.Painting;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentInstance;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -25,6 +29,9 @@ public class ModCreativeModeTabs {
                         //,- The Skyland
                         //- Heavenly grass
                         output.accept(ModBlocks.HEAVENLY_GRASS.get());
+                        ItemStack stack1 = ModBlocks.HEAVENLY_GRASS.get().asItem().getDefaultInstance();
+                        stack1.getOrCreateTag().putBoolean("long", true);
+                        output.accept(stack1);
                         output.accept(ModBlocks.HEAVENLY_GRASS_BLOCK.get());
                         output.accept(ModBlocks.SKYSOIL.get());
                         output.accept(ModBlocks.HEAVENLY_GRASS_BLOCK_SKYDIRT.get());
@@ -42,8 +49,14 @@ public class ModCreativeModeTabs {
                         //- Actinolite
                         output.accept(ModBlocks.ACTINOLITE_ORE.get());
                         output.accept(ModItems.ACTINOLITE.get());
-                        output.accept(ModItems.ACTIONLITE_SWORD.get());
-                        output.accept(ModItems.ACTIONLITE_PICKAXE.get());
+
+                        output.accept(ModItems.ACTINOLITE_SWORD.get());
+                        output.accept(ModItems.ACTINOLITE_PICKAXE.get());
+                        output.accept(ModItems.ACTINOLITE_AXE.get());
+                        output.accept(ModItems.ACTINOLITE_SHOVEL.get());
+                        output.accept(ModItems.ACTINOLITE_HOE.get());
+                        output.accept(ModItems.ACTINOLITE_KNIFE.get());
+                        output.accept(ModItems.ACTINOLITE_PAXEL.get());
 
                         //- Skiron
                         output.accept(ModBlocks.SKIRON_ORE.get());
@@ -122,6 +135,11 @@ public class ModCreativeModeTabs {
                         output.accept(ItemUtils.enchantedBook(
                                 new EnchantmentInstance(Enchantments.INFINITY_ARROWS, 1),
                                 new EnchantmentInstance(Enchantments.MENDING, 1)));
+                        Enchantment enchantment1 = ModEnchantments.LIGHTENING_STRIKER.get();
+                        for (int level = enchantment1.getMinLevel(); level <= enchantment1.getMaxLevel(); level++) {
+                            ItemStack enchantedBook = ItemUtils.enchantedBook(new EnchantmentInstance(enchantment1, level));
+                            output.accept(enchantedBook);
+                        }
                     }).build());
 
     //. Food
@@ -185,6 +203,10 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.LIT_CANDLE_RED.get());
                         output.accept(ModItems.LIT_CANDLE_WHITE.get());
                         output.accept(ModItems.LIT_CANDLE_YELLOW.get());
+
+                        ItemStack painting1 = Items.PAINTING.getDefaultInstance();
+                        Painting.storeVariant(painting1.getOrCreateTagElement("EntityTag"), ModPaintings.MAGERY.getHolder().get());
+                        output.accept(painting1);
 
                         output.accept(ModCreateBlocks.EXAMPLE_CONNECTION.get());
 

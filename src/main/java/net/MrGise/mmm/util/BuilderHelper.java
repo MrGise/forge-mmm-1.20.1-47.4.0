@@ -60,7 +60,7 @@ public class BuilderHelper {
                     }
                 }))
                 .onRegister(connectedTextures(() -> new ModCTBehaviour.PortalCTBehaviour(ctOff.get(), ctOn.get())))
-                .item((b1, properties1) -> new DescriptionPortalBlockItem(b1, properties1, eyeName))
+                .item((b1, properties1) -> new DescriptionPortalBlockItem(b1, properties1, eyeName, MMM.MOD_ID))
                 .model((context, provider) ->
                         provider.withExistingParent("connecting_portal_block", new ResourceLocation(MMM.MOD_ID, "block/connecting_portal_block_on")))
                 .build();
@@ -84,7 +84,7 @@ public class BuilderHelper {
                     }
                 }))
                 .onRegister(connectedTextures(() -> new ModCTBehaviour.NoodlePortalCTBehaviour(ctOff.get(), ctOn.get())))
-                .item((b1, properties1) -> new DescriptionPortalBlockItem(b1, properties1, eyeName))
+                .item((b1, properties1) -> new DescriptionPortalBlockItem(b1, properties1, eyeName, MMM.MOD_ID))
                 .model((context, provider) ->
                         provider.withExistingParent("connecting_portal_block", new ResourceLocation(MMM.MOD_ID, "block/connecting_portal_block_on")))
                 .build();

@@ -90,8 +90,13 @@
   "item.mmm.skiron_actinolite_boots": "Actinolite Imbued Skiron Boots",
 
   "item.mmm.actinolite": "Actinolite",
+
   "item.mmm.actinolite_sword": "Actinolite Sword",
   "item.mmm.actinolite_pickaxe": "Actinolite Pickaxe",
+  "item.mmm.actinolite_axe": "Actinolite Axe",
+  "item.mmm.actinolite_shovel": "Actinolite Shovel",
+  "item.mmm.actinolite_hoe": "Actinolite Hoe",
+  "item.mmm.actinolite_knife": "Actinolite Knife",
 
 
   "block.mmm.mimic_block": "Mimic (Block)",
@@ -215,8 +220,6 @@
   "tooltip.mmm.portal_block.tooltip.common_line_2": "Click again with an empty hand to take the item back.",
 
   "tooltip.mmm.portal_block.tooltip.eye": "This block's eye:",
-
-  "tooltip.mmm.portal_block.tooltip.actinolite": " Actinolite (mmm:actinolite)",
 
   "tooltip.mmm.description_item.tooltip.noshift": "§7Press §eShift§r§7 key to view description",
 

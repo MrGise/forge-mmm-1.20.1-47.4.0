@@ -79,7 +79,7 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
         this.tag(ForgeTags.TOOLS_PICKAXES)
                 .add(ModItems.SKIRON_PICKAXE.get())
-                .add(ModItems.ACTIONLITE_PICKAXE.get());
+                .add(ModItems.ACTINOLITE_PICKAXE.get());
 
         this.tag(ForgeTags.TOOLS_SHOVELS)
                 .add(ModItems.SKIRON_SHOVEL.get());
