@@ -1,9 +1,8 @@
-package net.MrGise.mmm.datagen;
+package net.MrGise.mmm.datagen.recipe;
 
 import com.simibubi.create.AllItems;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.front.ModBlocks;
-import net.MrGise.mmm.datagen.recipe.NBTSingularShapelessRecipeBuilder;
 import net.MrGise.mmm.registry.front.item.ModItems;
 import net.MrGise.mmm.registry.back.ModTags;
 import net.minecraft.data.PackOutput;

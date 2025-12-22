@@ -1,0 +1,32 @@
+{
+  "criteria": {
+    "exit_overworld": {
+      "conditions": {
+        "to": "minecraft:the_end"
+      },
+      "trigger": "minecraft:changed_dimension"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "background": "mmm:textures/block/skysolid.png",
+    "description": {
+      "translate": "advancement.mmm.dimensions.desc"
+    },
+    "frame": "goal",
+    "hidden": false,
+    "icon": {
+      "item": "mmm:null_block"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.mmm.dimensions"
+    }
+  },
+  "requirements": [
+    [
+      "exit_overworld"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

@@ -1,4 +1,4 @@
-package net.MrGise.mmm.datagen;
+package net.MrGise.mmm.datagen.model;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.front.ModBlocks;

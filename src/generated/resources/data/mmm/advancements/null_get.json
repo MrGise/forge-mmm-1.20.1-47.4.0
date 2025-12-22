@@ -1,0 +1,38 @@
+{
+  "parent": "mmm:null",
+  "criteria": {
+    "has_null": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mmm:null_block"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.mmm.null_get.desc"
+    },
+    "frame": "task",
+    "hidden": true,
+    "icon": {
+      "item": "mmm:null_block"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.mmm.null_get"
+    }
+  },
+  "requirements": [
+    [
+      "has_null"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

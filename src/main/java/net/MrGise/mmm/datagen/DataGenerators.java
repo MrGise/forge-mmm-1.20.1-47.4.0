@@ -2,16 +2,27 @@ package net.MrGise.mmm.datagen;
 // The main datagen class
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.datagen.loot.ModGlobalLootModifierProvider;
+import net.MrGise.mmm.datagen.loot.ModLootTableProvider;
+import net.MrGise.mmm.datagen.model.ModBlockStateProvider;
+import net.MrGise.mmm.datagen.model.ModItemModelProvider;
+import net.MrGise.mmm.datagen.advancement.ModAdvancementProvider;
+import net.MrGise.mmm.datagen.recipe.ModRecipeProvider;
+import net.MrGise.mmm.datagen.tag.ModBlockTagGenerator;
+import net.MrGise.mmm.datagen.tag.ModItemTagGenerator;
+import net.MrGise.mmm.datagen.tag.ModPaintingVariantTagProvider;
+import net.MrGise.mmm.datagen.tag.ModPoiTypeTagsProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraftforge.common.data.BlockTagsProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.ForgeAdvancementProvider;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
+import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 @Mod.EventBusSubscriber(modid = MMM.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -24,8 +35,9 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        //-- Recipes
+        //-- Result
         generator.addProvider(event.includeServer(), new ModRecipeProvider(packOutput));
+        generator.addProvider(event.includeClient(), new ForgeAdvancementProvider(packOutput, lookupProvider, existingFileHelper, List.of(new ModAdvancementProvider())));
 
         //-- Loot
         generator.addProvider(event.includeServer(), ModLootTableProvider.create(packOutput));

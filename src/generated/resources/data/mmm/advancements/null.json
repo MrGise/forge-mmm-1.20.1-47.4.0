@@ -1,0 +1,33 @@
+{
+  "parent": "mmm:dimensions",
+  "criteria": {
+    "on_null": {
+      "conditions": {
+        "block": "mmm:null_block",
+        "on_block": true
+      },
+      "trigger": "mmm:block_touch"
+    }
+  },
+  "display": {
+    "announce_to_chat": true,
+    "description": {
+      "translate": "advancement.mmm.null.desc"
+    },
+    "frame": "task",
+    "hidden": false,
+    "icon": {
+      "item": "mmm:null_block"
+    },
+    "show_toast": true,
+    "title": {
+      "translate": "advancement.mmm.null"
+    }
+  },
+  "requirements": [
+    [
+      "on_null"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

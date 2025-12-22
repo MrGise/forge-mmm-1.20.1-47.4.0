@@ -6,6 +6,7 @@ import net.MrGise.mmm.command.FindHomeCommand;
 import net.MrGise.mmm.command.ReJoinCommand;
 import net.MrGise.mmm.command.ReturnHomeCommand;
 import net.MrGise.mmm.command.SetHomeCommand;
+import net.MrGise.mmm.datagen.advancement.ModTriggers;
 import net.MrGise.mmm.item.HammerItem;
 import net.MrGise.mmm.registry.front.ModBlocks;
 import net.MrGise.mmm.registry.front.item.ModItems;
@@ -34,6 +35,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
@@ -168,6 +170,15 @@ public class ModEvents {
             // Cancel normal interaction to prevent placing the log instead
             event.setCanceled(true);
         }
+    }
+
+    @SubscribeEvent
+    public static void checkAdvancements(TickEvent.PlayerTickEvent event) {
+        if (event.phase != TickEvent.Phase.END) return;
+        if (!(event.player instanceof ServerPlayer player)) return;
+
+        BlockPos pos = player.blockPosition();
+        ModTriggers.BLOCK_TOUCH.trigger(player, pos);
     }
 
     @SubscribeEvent

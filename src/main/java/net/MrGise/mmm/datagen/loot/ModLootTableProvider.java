@@ -1,7 +1,5 @@
-package net.MrGise.mmm.datagen;
+package net.MrGise.mmm.datagen.loot;
 
-import net.MrGise.mmm.datagen.loot.ModBlockLootTables;
-import net.MrGise.mmm.datagen.loot.ModLootTables;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.loot.LootTableProvider;
 import net.minecraft.world.level.storage.loot.parameters.LootContextParamSets;

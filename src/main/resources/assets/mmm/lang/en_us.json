@@ -195,6 +195,15 @@
   "creativetab.mmm_cuisine": "Kitchen & Farm's Products",
 
 
+  "advancement.mmm.dimensions": "MMM: Dimensions",
+  "advancement.mmm.dimensions.desc": "§mA§r World§ls§r of Wonder!",
+
+  "advancement.mmm.null": "Where am I?",
+  "advancement.mmm.null.desc": "Discover §kNull",
+  "advancement.mmm.null_get": "Might be a bad idea",
+  "advancement.mmm.null_get.desc": "Get §kNull",
+
+
   "enchantment.mmm.lightning_striker": "Lightning Striker",
 
 

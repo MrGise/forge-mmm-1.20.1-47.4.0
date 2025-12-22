@@ -1,4 +1,4 @@
-package net.MrGise.mmm.datagen;
+package net.MrGise.mmm.datagen.tag;
 
 import net.MrGise.mmm.MMM;
 import net.minecraft.core.HolderLookup;

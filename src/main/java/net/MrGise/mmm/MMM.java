@@ -2,6 +2,7 @@ package net.MrGise.mmm;
 
 import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
+import net.MrGise.mmm.datagen.advancement.ModTriggers;
 import net.MrGise.mmm.effect.potion.BetterBrewingRecipe;
 import net.MrGise.mmm.event.ModEvents;
 import net.MrGise.mmm.registry.back.ModItemProperties;
@@ -112,6 +113,9 @@ public class MMM {
 
 
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.SLOWNESS, Items.SLIME_BALL, ModPotions.LIQUID_SLIME.get()));
+
+
+            ModTriggers.register();
         });
 
     }
