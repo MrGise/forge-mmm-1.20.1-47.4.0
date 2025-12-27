@@ -105,6 +105,7 @@ public class ModItemModelProvider extends ItemModelProvider {
                 modLoc("item/heavenly_grass_short"), modLoc("item/heavenly_grass_top"));
 
         simpleBlockItem(ModBlocks.SKYWOOD_DOOR);
+        tallBlockItem(ModBlocks.SKYWOOD_TRIPLE_DOOR);
         simpleBlockItem(ModBlocks.OXALIS, "block/oxalis");
 
     }
@@ -181,6 +182,12 @@ public class ModItemModelProvider extends ItemModelProvider {
     private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item) {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder tallBlockItem(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "item/tall_generated")).texture("layer0",
                 new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
     }
 

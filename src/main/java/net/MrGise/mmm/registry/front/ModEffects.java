@@ -17,7 +17,7 @@ public class ModEffects {
             DeferredRegister.create(ForgeRegistries.MOB_EFFECTS, MMM.MOD_ID);
 
     public static final RegistryObject<MobEffect> SLIMY_EFFECT = MOB_EFFECTS.register("slimy",
-    () -> new SlimyEffect(MobEffectCategory.NEUTRAL, 0x36ebab).addAttributeModifier(Attributes.MOVEMENT_SPEED,
+            () -> new SlimyEffect(MobEffectCategory.NEUTRAL, 0x36ebab).addAttributeModifier(Attributes.MOVEMENT_SPEED,
             "7107DE5E-7CE8-4030-940E-514C1F160890", -0.25f, AttributeModifier.Operation.MULTIPLY_TOTAL));
 
 

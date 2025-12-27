@@ -2,13 +2,12 @@ package net.MrGise.mmm.registry.front;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.*;
-import net.MrGise.mmm.item.CustomGrassItem;
-import net.MrGise.mmm.item.EdibleBlockItem;
-import net.MrGise.mmm.item.MimicBlockItem;
-import net.MrGise.mmm.item.description.DescriptionBlockItem;
-import net.MrGise.mmm.item.description.DescriptionFuelBlockItem;
-import net.MrGise.mmm.item.FuelBlockItem;
-import net.MrGise.mmm.item.description.DescriptionPortalBlockItem;
+import net.MrGise.mmm.block.crop.CucumberCropBlock;
+import net.MrGise.mmm.block.crop.StrawberryCropBlock;
+import net.MrGise.mmm.item.block_item.*;
+import net.MrGise.mmm.item.block_item.description.DescriptionBlockItem;
+import net.MrGise.mmm.item.block_item.description.DescriptionFuelBlockItem;
+import net.MrGise.mmm.item.block_item.description.DescriptionPortalBlockItem;
 import net.MrGise.mmm.registry.back.ModFoodProperties;
 import net.MrGise.mmm.registry.front.item.ModItems;
 import net.MrGise.mmm.registry.middle.ModSounds;
@@ -156,6 +155,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> SKYWOOD_TRAPDOOR = registerBlock("skywood_trapdoor",
             () -> new TrapDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR).mapColor(MapColor.GLOW_LICHEN), BlockSetType.OAK));
 
+    public static final RegistryObject<Block> SKYWOOD_TRIPLE_DOOR = registerBlock("skywood_triple_door",
+            () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_TRAPDOOR).mapColor(MapColor.GLOW_LICHEN), BlockSetType.OAK));
+
 
     //- Crops
     public static final RegistryObject<Block> STRAWBERRY = BLOCKS.register("strawberry",
@@ -186,7 +188,7 @@ public class ModBlocks {
 
 
     //\ Dimensions
-    public static final RegistryObject<Block> NULL_BLOCK = registerBlock("null_block",
+    public static final RegistryObject<Block> NULL_BLOCK = registerSecretBlock("null_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(DyeColor.WHITE).noOcclusion().lightLevel(state -> 15)
                     .strength(3.0f, 10.0f).requiresCorrectToolForDrops().sound(ModSounds.NULL_BLOCK_SOUNDS)));
 
@@ -203,6 +205,11 @@ public class ModBlocks {
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         return registerBlock(name, block,
                 b -> () -> new BlockItem(b.get(), new Item.Properties()));
+    }
+
+    private static <T extends Block> RegistryObject<T> registerSecretBlock(String name, Supplier<T> block) {
+        return registerBlock(name, block,
+                b -> () -> new SecretBlockItem(b.get(), new Item.Properties()));
     }
 
     private static <T extends Block> RegistryObject<T> registerEdibleBlock(String name, Supplier<T> block, FoodProperties foodProperties, boolean alwaysEat) {

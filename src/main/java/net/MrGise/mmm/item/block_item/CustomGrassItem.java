@@ -1,4 +1,4 @@
-package net.MrGise.mmm.item;
+package net.MrGise.mmm.item.block_item;
 
 import net.MrGise.mmm.block.CustomGrass;
 import net.MrGise.mmm.registry.back.ModTags;

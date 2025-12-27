@@ -1,4 +1,4 @@
-// 1.20.1	2025-12-21T11:29:32.1094359	Item Models: mmm
+// 1.20.1	2025-12-27T11:37:46.9168488	Item Models: mmm
 cab82837fca58f2721c0a61040837f5ce1a3b78f assets/mmm/models/item/actinolite.json
 22c4a40423e2f812fb3fcaacc80c0e9da5536ff6 assets/mmm/models/item/actinolite_axe.json
 5063c3aca9442c362cd08a209a0d02bb98a9acf0 assets/mmm/models/item/actinolite_hoe.json
@@ -41,6 +41,7 @@ e714c18b702e93b7ca2ce369900b61e20b3f1fae assets/mmm/models/item/skiron_sword.jso
 8f63ccff0921507770df346c3912cbe2a2df2835 assets/mmm/models/item/skywood_button.json
 5c405df6f6f5c3d378ad66b7d7be79f38971a1f7 assets/mmm/models/item/skywood_door.json
 5316650363da8b6b13a57e6deab00613dab1989e assets/mmm/models/item/skywood_fence.json
+4a50e2384b51bf62770de4aacd99c9eaf0931483 assets/mmm/models/item/skywood_triple_door.json
 b95945a572db8fdfc9fbdc7556eff12262d95640 assets/mmm/models/item/smithing_template/glide.json
 676212b7f927b9361d09977491ed6a6cf5eb4eb8 assets/mmm/models/item/solidified_mana.json
 4918cb6ba5b0c4caac3bd16ffafffba95bb89a12 assets/mmm/models/item/strawberry.json

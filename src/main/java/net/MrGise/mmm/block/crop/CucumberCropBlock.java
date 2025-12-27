@@ -1,4 +1,4 @@
-package net.MrGise.mmm.block;
+package net.MrGise.mmm.block.crop;
 
 import net.MrGise.mmm.registry.front.item.ModItems;
 import net.minecraft.core.BlockPos;

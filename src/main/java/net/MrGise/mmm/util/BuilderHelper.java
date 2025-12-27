@@ -8,7 +8,7 @@ import com.tterrag.registrate.builders.BlockBuilder;
 import com.tterrag.registrate.util.nullness.NonNullUnaryOperator;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.PortalBlock;
-import net.MrGise.mmm.item.description.DescriptionPortalBlockItem;
+import net.MrGise.mmm.item.block_item.description.DescriptionPortalBlockItem;
 import net.MrGise.mmm.registry.create.ModCTBehaviour;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;

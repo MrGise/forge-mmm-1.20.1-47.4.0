@@ -1,8 +1,10 @@
 package net.MrGise.mmm.datagen.loot;
 
+import net.MrGise.mmm.block.TripleDoorBlock;
 import net.MrGise.mmm.registry.front.ModBlocks;
-import net.MrGise.mmm.block.AccessibleCropBlock;
+import net.MrGise.mmm.block.crop.AccessibleCropBlock;
 import net.MrGise.mmm.registry.front.item.ModItems;
+import net.MrGise.mmm.resource.TripleBlockPart;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
@@ -10,6 +12,8 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DoorBlock;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -18,7 +22,6 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
-import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -79,6 +82,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.SKYWOOD_TRAPDOOR.get());
         this.add(ModBlocks.SKYWOOD_DOOR.get(),
                 Block -> createDoorTable(ModBlocks.SKYWOOD_DOOR.get()));
+        this.add(ModBlocks.SKYWOOD_TRIPLE_DOOR.get(),
+                Block -> createTripleDoorTable(ModBlocks.SKYWOOD_TRIPLE_DOOR.get()));
 
         //, Nature
 
@@ -145,6 +150,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     }
 
     public record ItemDropData(ItemLike item, float dropChance, float minDrop, float maxDrop) {}
+
+    protected LootTable.Builder createTripleDoorTable(Block builder) {
+        return this.createSinglePropConditionTable(builder, TripleDoorBlock.PART, TripleBlockPart.LOWER);
+    }
 
     private void createCustomCropDrops(AccessibleCropBlock cropBlock, ItemLike dropItem, ItemLike seedItem,
             boolean vanillaBehavior, // Toggle between vanilla-like and custom

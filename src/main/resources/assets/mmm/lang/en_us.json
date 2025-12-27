@@ -158,6 +158,7 @@
   "block.mmm.skywood_fence": "Skywood Fence",
   "block.mmm.skywood_fence_gate": "Skywood Fence Gate",
   "block.mmm.skywood_door": "Skywood Door",
+  "block.mmm.skywood_triple_door": "Skywood Triple Door",
   "block.mmm.skywood_trapdoor": "Skywood Trapdoor",
 
 
@@ -199,9 +200,9 @@
   "advancement.mmm.dimensions.desc": "§mA§r World§ls§r of Wonder!",
 
   "advancement.mmm.null": "Where am I?",
-  "advancement.mmm.null.desc": "Discover §kNull",
+  "advancement.mmm.null.desc": "Discover... Something",
   "advancement.mmm.null_get": "Might be a bad idea",
-  "advancement.mmm.null_get.desc": "Get §kNull",
+  "advancement.mmm.null_get.desc": "Get... Something",
 
 
   "enchantment.mmm.lightning_striker": "Lightning Striker",
@@ -248,5 +249,12 @@
 
   "reinforcedbow.power_title": "Power: ",
 
-  "entity.minecraft.villager.mmm.bowyer": "Bowyer"
+  "entity.minecraft.villager.mmm.bowyer": "Bowyer",
+
+
+  "command.mmm.know.get": " knows it all",
+  "command.mmm.know.lose": " became oblivious",
+  "command.mmm.know.get_first": " achieved enlightenment",
+  "command.mmm.know.has": "You know.",
+  "command.mmm.know.hasnt": "You don't know."
 }

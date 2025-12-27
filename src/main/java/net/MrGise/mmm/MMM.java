@@ -14,6 +14,7 @@ import net.MrGise.mmm.registry.front.item.ModPotions;
 import net.MrGise.mmm.registry.middle.ModEnchantments;
 import net.MrGise.mmm.registry.middle.ModSounds;
 import net.MrGise.mmm.registry.middle.ModVillagers;
+import net.MrGise.mmm.resource.ModNetwork;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
@@ -72,6 +73,8 @@ public class MMM {
         ModVillagers.register(modEventBus);
 
         //, Resources
+
+        ModNetwork.register();
 
         ModLootModifiers.register(modEventBus);
 

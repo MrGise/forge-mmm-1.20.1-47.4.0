@@ -1,4 +1,4 @@
-package net.MrGise.mmm.item.description;
+package net.MrGise.mmm.item.block_item.description;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.screens.Screen;
@@ -26,7 +26,7 @@ public class DescriptionBlockItem extends BlockItem {
     @Override
     public void appendHoverText(ItemStack pStack, @Nullable Level pLevel, List<Component> pTooltipComponents, TooltipFlag pIsAdvanced) {
 
-        if((!Screen.hasShiftDown() && ShiftToView) == true) {
+        if(!Screen.hasShiftDown() && ShiftToView) {
             pTooltipComponents.add(Component.translatable("tooltip.mmm.description_item.tooltip.noshift"));
         } else {
             pTooltipComponents.add(Component.translatable("tooltip.mmm.description_block.tooltip." + DescriptionTranslatable).withStyle(ChatFormatting.GRAY).withStyle(ChatFormatting.ITALIC));

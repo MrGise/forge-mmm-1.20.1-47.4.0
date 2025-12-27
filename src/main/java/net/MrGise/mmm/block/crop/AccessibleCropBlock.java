@@ -1,4 +1,4 @@
-package net.MrGise.mmm.block;
+package net.MrGise.mmm.block.crop;
 
 import net.minecraft.world.level.block.CropBlock;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;

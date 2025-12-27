@@ -2,10 +2,7 @@ package net.MrGise.mmm.event;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.command.FindHomeCommand;
-import net.MrGise.mmm.command.ReJoinCommand;
-import net.MrGise.mmm.command.ReturnHomeCommand;
-import net.MrGise.mmm.command.SetHomeCommand;
+import net.MrGise.mmm.command.*;
 import net.MrGise.mmm.datagen.advancement.ModTriggers;
 import net.MrGise.mmm.item.HammerItem;
 import net.MrGise.mmm.registry.front.ModBlocks;
@@ -113,6 +110,8 @@ public class ModEvents {
         new FindHomeCommand(event.getDispatcher());
 
         new ReJoinCommand(event.getDispatcher());
+
+        new ToggleKnowCommand(event.getDispatcher());
 
         ConfigCommand.register(event.getDispatcher());
     }

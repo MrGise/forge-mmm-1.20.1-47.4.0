@@ -1,4 +1,4 @@
-package net.MrGise.mmm.item;
+package net.MrGise.mmm.item.block_item;
 
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.nbt.CompoundTag;

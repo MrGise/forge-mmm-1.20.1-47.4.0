@@ -1,0 +1,6 @@
+{
+  "parent": "mmm:item/tall_generated",
+  "textures": {
+    "layer0": "mmm:item/skywood_triple_door"
+  }
+}

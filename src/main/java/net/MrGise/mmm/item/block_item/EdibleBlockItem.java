@@ -1,4 +1,4 @@
-package net.MrGise.mmm.item;
+package net.MrGise.mmm.item.block_item;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

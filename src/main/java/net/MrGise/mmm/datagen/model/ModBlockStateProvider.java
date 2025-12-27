@@ -2,16 +2,20 @@ package net.MrGise.mmm.datagen.model;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.*;
+import net.MrGise.mmm.block.crop.AccessibleCropBlock;
+import net.MrGise.mmm.block.crop.CucumberCropBlock;
+import net.MrGise.mmm.block.crop.StrawberryCropBlock;
 import net.MrGise.mmm.registry.front.ModBlocks;
 import net.MrGise.mmm.registry.create.ModCreateBlocks;
+import net.MrGise.mmm.resource.TripleBlockPart;
 import net.minecraft.core.Direction;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraftforge.client.model.generators.BlockStateProvider;
-import net.minecraftforge.client.model.generators.ConfiguredModel;
-import net.minecraftforge.client.model.generators.ModelFile;
+import net.minecraft.world.level.block.state.properties.DoorHingeSide;
+import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
+import net.minecraftforge.client.model.generators.*;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
@@ -98,17 +102,18 @@ public class ModBlockStateProvider extends BlockStateProvider {
         stairsBlockWithItem(ModBlocks.SKYWOOD_STAIRS, (StairBlock) ModBlocks.SKYWOOD_STAIRS.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
         slabBlockWithItem(ModBlocks.SKYWOOD_SLAB, ((SlabBlock) ModBlocks.SKYWOOD_SLAB.get()), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
 
-        pressurePlateBlock((PressurePlateBlock) ModBlocks.SKYWOOD_PRESSURE_PLATE.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
+        pressurePlateWithItem(ModBlocks.SKYWOOD_PRESSURE_PLATE, blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
         buttonBlock((ButtonBlock) ModBlocks.SKYWOOD_BUTTON.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
         fenceBlock((FenceBlock) ModBlocks.SKYWOOD_FENCE.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
-        fenceGateBlock((FenceGateBlock) ModBlocks.SKYWOOD_FENCE_GATE.get(), blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
+        fenceGateBlockWithItem(ModBlocks.SKYWOOD_FENCE_GATE, blockTexture(ModBlocks.SKYWOOD_PLANKS.get()));
 
         wallBlock((WallBlock) ModBlocks.SKYSOLID_WALL.get(), blockTexture(ModBlocks.SKYSOLID.get()));
 
         wallBlock((WallBlock) ModBlocks.SKYGROUND_WALL.get(), blockTexture(ModBlocks.SKYGROUND.get()));
 
         doorBlockWithRenderType((DoorBlock) ModBlocks.SKYWOOD_DOOR.get(), modLoc("block/skywood_door_bottom"), modLoc("block/skywood_door_top"), "cutout");
-        trapdoorBlockWithRenderType((TrapDoorBlock) ModBlocks.SKYWOOD_TRAPDOOR.get(), modLoc("block/skywood_trapdoor"), true, "cutout");
+        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.SKYWOOD_TRIPLE_DOOR.get(), modLoc("block/skywood_triple_door_bottom"), modLoc("block/skywood_triple_door_middle"), modLoc("block/skywood_triple_door_top"), "cutout");
+        trapdoorBlockWithRenderTypeAndItem(ModBlocks.SKYWOOD_TRAPDOOR, modLoc("block/skywood_trapdoor"), true, "cutout");
 
         //. World
 
@@ -117,12 +122,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         flower(ModBlocks.OXALIS.get());
         pottedFlower(ModBlocks.POTTED_OXALIS.get(), "potted_oxalis", "oxalis");
-
-        //-- Block Items
-
-        blockItem(ModBlocks.SKYWOOD_PRESSURE_PLATE);
-        blockItem(ModBlocks.SKYWOOD_FENCE_GATE);
-        blockItem(ModBlocks.SKYWOOD_TRAPDOOR, "_bottom");
 
     }
 
@@ -469,5 +468,162 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 ForgeRegistries.BLOCKS.getKey(block).getPath(), "item/generated"
         ).texture("layer0", "block/" + textureName);
     }
+    
+    public void pressurePlateWithItem(RegistryObject<Block> block, ResourceLocation texture) {
+        pressurePlateBlock((PressurePlateBlock) block.get(), texture);
+        blockItem(block);
+    }
+    
+    public void trapdoorBlockWithRenderTypeAndItem(RegistryObject<Block> block, ResourceLocation location, boolean orientable, String renderType) {
+        trapdoorBlockWithRenderType((TrapDoorBlock) block.get(), location, orientable, renderType);
+        blockItem(block, "_bottom");
+    }
+    
+    public void fenceGateBlockWithItem(RegistryObject<Block> block, ResourceLocation location) {
+        fenceGateBlock((FenceGateBlock) block.get(), location);
+        blockItem(block);
+    }
 
+    public void tripleDoorBlockWithRenderType(TripleDoorBlock block, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top, String renderType) {
+        tripleDoorBlockInternalWithRenderType(block, key(block).toString(), bottom, middle, top, ResourceLocation.tryParse(renderType));
+    }
+
+    private void tripleDoorBlockInternalWithRenderType(TripleDoorBlock block, String baseName, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top, ResourceLocation renderType) {
+        ModelFile bottomLeft = tripleDoorBottomLeft(baseName + "_bottom_left", bottom, middle, top).renderType(renderType);
+        ModelFile bottomLeftOpen = tripleDoorBottomLeftOpen(baseName + "_bottom_left_open", bottom, middle, top).renderType(renderType);
+        ModelFile bottomRight = tripleDoorBottomRight(baseName + "_bottom_right", bottom, middle, top).renderType(renderType);
+        ModelFile bottomRightOpen = tripleDoorBottomRightOpen(baseName + "_bottom_right_open", bottom, middle, top).renderType(renderType);
+        ModelFile middleLeft = tripleDoorMiddleLeft(baseName + "_middle_left", bottom, middle, top).renderType(renderType);
+        ModelFile middleLeftOpen = tripleDoorMiddleLeftOpen(baseName + "_middle_left_open", bottom, middle, top).renderType(renderType);
+        ModelFile middleRight = tripleDoorMiddleRight(baseName + "_middle_right", bottom, middle, top).renderType(renderType);
+        ModelFile middleRightOpen = tripleDoorMiddleRightOpen(baseName + "_middle_right_open", bottom, middle, top).renderType(renderType);
+        ModelFile topLeft = tripleDoorTopLeft(baseName + "_top_left", bottom, middle, top).renderType(renderType);
+        ModelFile topLeftOpen = tripleDoorTopLeftOpen(baseName + "_top_left_open", bottom, middle, top).renderType(renderType);
+        ModelFile topRight = tripleDoorTopRight(baseName + "_top_right", bottom, middle, top).renderType(renderType);
+        ModelFile topRightOpen = tripleDoorTopRightOpen(baseName + "_top_right_open", bottom, middle, top).renderType(renderType);
+        tripleDoorBlock(block,
+                bottomLeft, bottomLeftOpen, bottomRight, bottomRightOpen,
+                middleLeft, middleLeftOpen, middleRight, middleRightOpen,
+                topLeft, topLeftOpen, topRight, topRightOpen);
+    }
+
+    private void tripleDoorBlock(TripleDoorBlock block,
+                                 ModelFile bottomLeft, ModelFile bottomLeftOpen,
+                                 ModelFile bottomRight, ModelFile bottomRightOpen,
+                                 ModelFile middleLeft, ModelFile middleLeftOpen,
+                                 ModelFile middleRight, ModelFile middleRightOpen,
+                                 ModelFile topLeft, ModelFile topLeftOpen,
+                                 ModelFile topRight, ModelFile topRightOpen) {
+        getVariantBuilder(block).forAllStatesExcept(state -> {
+            int yRot = ((int) state.getValue(DoorBlock.FACING).toYRot()) + 90;
+            boolean right = state.getValue(TripleDoorBlock.HINGE) == DoorHingeSide.RIGHT;
+            boolean open = state.getValue(DoorBlock.OPEN);
+            TripleBlockPart part = state.getValue(TripleDoorBlock.PART);
+            boolean bottom = part == TripleBlockPart.LOWER;
+            boolean middle = part == TripleBlockPart.MIDDLE;
+            boolean top = part == TripleBlockPart.UPPER;
+            if (open) {
+                yRot += 90;
+            }
+            if (right && open) {
+                yRot += 180;
+            }
+            yRot %= 360;
+
+            ModelFile model = null;
+            if (bottom && right && open) {
+                model = bottomRightOpen;
+            } else if (bottom && !right && open) {
+                model = bottomLeftOpen;
+            }
+            if (bottom && right && !open) {
+                model = bottomRight;
+            } else if (bottom && !right && !open) {
+                model = bottomLeft;
+            }
+            if (middle && right && open) {
+                model = middleRightOpen;
+            } else if (middle && !right && open) {
+                model = middleLeftOpen;
+            }
+            if (middle && right && !open) {
+                model = middleRight;
+            } else if (middle && !right && !open) {
+                model = middleLeft;
+            }
+            if (top && right && open) {
+                model = topRightOpen;
+            } else if (top && !right && open) {
+                model = topLeftOpen;
+            }
+            if (top && right && !open) {
+                model = topRight;
+            } else if (top && !right && !open) {
+                model = topLeft;
+            }
+
+            return ConfiguredModel.builder().modelFile(model)
+                    .rotationY(yRot)
+                    .build();
+        }, DoorBlock.POWERED);
+    }
+
+    public BlockModelBuilder tripleDoorBottomLeft(String name, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        return tripleDoor(name, "triple_door_bottom_left", bottom, middle, top);
+    }
+
+    public BlockModelBuilder tripleDoorBottomLeftOpen(String name, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        return tripleDoor(name, "triple_door_bottom_left_open", bottom, middle, top);
+    }
+
+    public BlockModelBuilder tripleDoorBottomRight(String name, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        return tripleDoor(name, "triple_door_bottom_right", bottom, middle, top);
+    }
+
+    public BlockModelBuilder tripleDoorBottomRightOpen(String name, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        return tripleDoor(name, "triple_door_bottom_right_open", bottom, middle, top);
+    }
+
+    public BlockModelBuilder tripleDoorMiddleLeft(String name, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        return tripleDoor(name, "triple_door_middle_left", bottom, middle, top);
+    }
+
+    public BlockModelBuilder tripleDoorMiddleLeftOpen(String name, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        return tripleDoor(name, "triple_door_middle_left_open", bottom, middle, top);
+    }
+
+    public BlockModelBuilder tripleDoorMiddleRight(String name, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        return tripleDoor(name, "triple_door_middle_right", bottom, middle, top);
+    }
+
+    public BlockModelBuilder tripleDoorMiddleRightOpen(String name, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        return tripleDoor(name, "triple_door_middle_right_open", bottom, middle, top);
+    }
+
+    public BlockModelBuilder tripleDoorTopLeft(String name, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        return tripleDoor(name, "triple_door_top_left", bottom, middle, top);
+    }
+
+    public BlockModelBuilder tripleDoorTopLeftOpen(String name, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        return tripleDoor(name, "triple_door_top_left_open", bottom, middle, top);
+    }
+
+    public BlockModelBuilder tripleDoorTopRight(String name, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        return tripleDoor(name, "triple_door_top_right", bottom, middle, top);
+    }
+
+    public BlockModelBuilder tripleDoorTopRightOpen(String name, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        return tripleDoor(name, "triple_door_top_right_open", bottom, middle, top);
+    }
+
+    private BlockModelBuilder tripleDoor(String name, String model, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        return models().withExistingParent(name, modLoc("block/" + model))
+                .texture("bottom", bottom)
+                .texture("middle", middle)
+                .texture("top", top);
+    }
+
+    private ResourceLocation key(Block block) {
+        return ForgeRegistries.BLOCKS.getKey(block);
+    }
 }
