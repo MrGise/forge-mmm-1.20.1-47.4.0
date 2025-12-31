@@ -16,7 +16,7 @@
               "block": "mmm:skywood_triple_door",
               "condition": "minecraft:block_state_property",
               "properties": {
-                "part": "lower"
+                "part": "middle"
               }
             }
           ],

@@ -118,7 +118,10 @@ public class ModEvents {
 
     @SubscribeEvent
     public static void onPlayerCloned(PlayerEvent.Clone event) {
-        event.getEntity().getPersistentData().putIntArray("mmm.homepos", event.getOriginal().getPersistentData().getIntArray("mmm.homepos"));
+        CompoundTag newData = event.getEntity().getPersistentData();
+        CompoundTag originalData = event.getOriginal().getPersistentData();
+        newData.putIntArray("mmm.homepos", originalData.getIntArray("mmm.homepos"));
+        newData.putBoolean("all_knowing", originalData.getBoolean("all_knowing"));
     }
 
     public static final Map<Block, Block> LogMap = new HashMap<>();

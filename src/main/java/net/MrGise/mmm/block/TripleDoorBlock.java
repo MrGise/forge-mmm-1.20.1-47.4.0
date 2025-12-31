@@ -310,15 +310,23 @@ public class TripleDoorBlock extends Block {
 
     protected static void dropOnlyFromTopCreative(Level level, BlockPos pos, BlockState state, Player player) {
         TripleBlockPart part = state.getValue(PART);
-        if (part != TripleBlockPart.LOWER) {
+        if (part == TripleBlockPart.LOWER) {
+            BlockPos above = pos.above();
+            BlockState aboveState = level.getBlockState(above);
+            if (aboveState.is(state.getBlock()) && aboveState.getValue(PART) == TripleBlockPart.MIDDLE) {
+                BlockState blockstate1 = aboveState.getFluidState().is(Fluids.WATER) ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState();
+                level.setBlock(above, blockstate1, 35);
+                level.levelEvent(player, 2001, above, Block.getId(aboveState));
+            }
+        }
+        if (part == TripleBlockPart.UPPER) {
             BlockPos below = pos.below();
             BlockState belowState = level.getBlockState(below);
-            if (belowState.is(state.getBlock()) && belowState.getValue(PART) == TripleBlockPart.LOWER) {
+            if (belowState.is(state.getBlock()) && belowState.getValue(PART) == TripleBlockPart.MIDDLE) {
                 BlockState blockstate1 = belowState.getFluidState().is(Fluids.WATER) ? Blocks.WATER.defaultBlockState() : Blocks.AIR.defaultBlockState();
                 level.setBlock(below, blockstate1, 35);
                 level.levelEvent(player, 2001, below, Block.getId(belowState));
             }
         }
-
     }
 }

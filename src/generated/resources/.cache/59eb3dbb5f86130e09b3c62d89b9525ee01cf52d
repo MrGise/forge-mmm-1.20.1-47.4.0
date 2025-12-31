@@ -1,5 +1,7 @@
-// 1.20.1	2025-12-27T11:37:46.9190648	Loot Tables
+// 1.20.1	2025-12-30T21:59:08.7067696	Loot Tables
+6fdd3e19d045d0890f366a414d6cc70e7ecc6dc4 data/mmm/loot_tables/blocks/acacia_triple_door.json
 304bc14bc9e1f04828096388b5b5c3c6b3be2931 data/mmm/loot_tables/blocks/actinolite_ore.json
+2fa709f634f1235105409d7900f062348504f579 data/mmm/loot_tables/blocks/birch_triple_door.json
 4ecea7d1aaa11b4bd1d9ffd2eed07729b6c6889f data/mmm/loot_tables/blocks/birthday_cake.json
 99f776c1845a9efa22a0136ceae1992f6a94d69c data/mmm/loot_tables/blocks/bowyery_table.json
 3c236f0436a94166ee2b5db489c314285b8e2c02 data/mmm/loot_tables/blocks/broken_skyground.json
@@ -34,7 +36,7 @@ ac819848a93e17b3aff0da6e8f41aec5549f93ff data/mmm/loot_tables/blocks/skywood_pre
 1be2e7861becce003dc369e4fc1e57f3100f0fea data/mmm/loot_tables/blocks/skywood_slab.json
 cebdbc055598ff90c150e8e8a9d3b8face7129a9 data/mmm/loot_tables/blocks/skywood_stairs.json
 257c08e8131f97c6ed8e14e2b880403f5f40c7e3 data/mmm/loot_tables/blocks/skywood_trapdoor.json
-47ceea5e34ec2b46f89cf1f421d8b5e79b87d716 data/mmm/loot_tables/blocks/skywood_triple_door.json
+6cccf17968306df72fdb85142c640c005f591760 data/mmm/loot_tables/blocks/skywood_triple_door.json
 48f3798feaed066f95a733d4dc85940cddcd63f8 data/mmm/loot_tables/blocks/strawberry.json
 fa13b7d728a42b487a5d01d8370007932b25852b data/mmm/loot_tables/blocks/strawberry_rclick.json
 43f1004c95c2822116eb86c3d6070a602af248d2 data/mmm/loot_tables/blocks/stripped_skywood_log.json

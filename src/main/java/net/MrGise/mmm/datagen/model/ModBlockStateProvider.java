@@ -123,6 +123,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         flower(ModBlocks.OXALIS.get());
         pottedFlower(ModBlocks.POTTED_OXALIS.get(), "potted_oxalis", "oxalis");
 
+        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.ACACIA_TRIPLE_DOOR.get(), modLoc("block/acacia_triple_door_bottom"), modLoc("block/acacia_triple_door_middle"), modLoc("block/acacia_triple_door_top"), "cutout");
+        tripleDoorBlock((TripleDoorBlock) ModBlocks.BIRCH_TRIPLE_DOOR.get(), modLoc("block/birch_triple_door_bottom"), modLoc("block/birch_triple_door_middle"), modLoc("block/birch_triple_door_top"));
+
     }
 
     private void uniqueCubeRotate(Block block, String name, ResourceLocation bottom, ResourceLocation top,
@@ -488,6 +491,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
         tripleDoorBlockInternalWithRenderType(block, key(block).toString(), bottom, middle, top, ResourceLocation.tryParse(renderType));
     }
 
+    public void tripleDoorBlock(TripleDoorBlock block, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        tripleDoorBlockInternal(block, key(block).toString(), bottom, middle, top);
+    }
+
     private void tripleDoorBlockInternalWithRenderType(TripleDoorBlock block, String baseName, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top, ResourceLocation renderType) {
         ModelFile bottomLeft = tripleDoorBottomLeft(baseName + "_bottom_left", bottom, middle, top).renderType(renderType);
         ModelFile bottomLeftOpen = tripleDoorBottomLeftOpen(baseName + "_bottom_left_open", bottom, middle, top).renderType(renderType);
@@ -501,6 +508,25 @@ public class ModBlockStateProvider extends BlockStateProvider {
         ModelFile topLeftOpen = tripleDoorTopLeftOpen(baseName + "_top_left_open", bottom, middle, top).renderType(renderType);
         ModelFile topRight = tripleDoorTopRight(baseName + "_top_right", bottom, middle, top).renderType(renderType);
         ModelFile topRightOpen = tripleDoorTopRightOpen(baseName + "_top_right_open", bottom, middle, top).renderType(renderType);
+        tripleDoorBlock(block,
+                bottomLeft, bottomLeftOpen, bottomRight, bottomRightOpen,
+                middleLeft, middleLeftOpen, middleRight, middleRightOpen,
+                topLeft, topLeftOpen, topRight, topRightOpen);
+    }
+
+    private void tripleDoorBlockInternal(TripleDoorBlock block, String baseName, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
+        ModelFile bottomLeft = tripleDoorBottomLeft(baseName + "_bottom_left", bottom, middle, top);
+        ModelFile bottomLeftOpen = tripleDoorBottomLeftOpen(baseName + "_bottom_left_open", bottom, middle, top);
+        ModelFile bottomRight = tripleDoorBottomRight(baseName + "_bottom_right", bottom, middle, top);
+        ModelFile bottomRightOpen = tripleDoorBottomRightOpen(baseName + "_bottom_right_open", bottom, middle, top);
+        ModelFile middleLeft = tripleDoorMiddleLeft(baseName + "_middle_left", bottom, middle, top);
+        ModelFile middleLeftOpen = tripleDoorMiddleLeftOpen(baseName + "_middle_left_open", bottom, middle, top);
+        ModelFile middleRight = tripleDoorMiddleRight(baseName + "_middle_right", bottom, middle, top);
+        ModelFile middleRightOpen = tripleDoorMiddleRightOpen(baseName + "_middle_right_open", bottom, middle, top);
+        ModelFile topLeft = tripleDoorTopLeft(baseName + "_top_left", bottom, middle, top);
+        ModelFile topLeftOpen = tripleDoorTopLeftOpen(baseName + "_top_left_open", bottom, middle, top);
+        ModelFile topRight = tripleDoorTopRight(baseName + "_top_right", bottom, middle, top);
+        ModelFile topRightOpen = tripleDoorTopRightOpen(baseName + "_top_right_open", bottom, middle, top);
         tripleDoorBlock(block,
                 bottomLeft, bottomLeftOpen, bottomRight, bottomRightOpen,
                 middleLeft, middleLeftOpen, middleRight, middleRightOpen,

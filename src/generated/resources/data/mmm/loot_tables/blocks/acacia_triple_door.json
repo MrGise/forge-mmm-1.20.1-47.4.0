@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "conditions": [
+            {
+              "block": "mmm:acacia_triple_door",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "part": "middle"
+              }
+            }
+          ],
+          "name": "mmm:acacia_triple_door"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "mmm:blocks/acacia_triple_door"
+}

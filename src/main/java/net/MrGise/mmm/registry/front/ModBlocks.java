@@ -192,6 +192,15 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().mapColor(DyeColor.WHITE).noOcclusion().lightLevel(state -> 15)
                     .strength(3.0f, 10.0f).requiresCorrectToolForDrops().sound(ModSounds.NULL_BLOCK_SOUNDS)));
 
+
+    //| Expansion
+    public static final RegistryObject<Block> ACACIA_TRIPLE_DOOR = registerBlock("acacia_triple_door",
+            () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_DOOR), BlockSetType.ACACIA));
+
+    public static final RegistryObject<Block> BIRCH_TRIPLE_DOOR = registerBlock("birch_triple_door",
+            () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_DOOR), BlockSetType.BIRCH));
+
+
     //-- Test blocks
 
     public static final RegistryObject<Block> TEST_BLOCK = registerBlock("test/block",

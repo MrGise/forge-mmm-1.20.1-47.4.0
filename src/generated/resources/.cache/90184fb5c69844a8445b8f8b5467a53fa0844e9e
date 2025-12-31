@@ -1,4 +1,5 @@
-// 1.20.1	2025-12-27T11:37:46.9168488	Item Models: mmm
+// 1.20.1	2025-12-30T21:59:08.7026807	Item Models: mmm
+2816e9f45f41e180aefc062f348bd2d6b378c870 assets/mmm/models/item/acacia_triple_door.json
 cab82837fca58f2721c0a61040837f5ce1a3b78f assets/mmm/models/item/actinolite.json
 22c4a40423e2f812fb3fcaacc80c0e9da5536ff6 assets/mmm/models/item/actinolite_axe.json
 5063c3aca9442c362cd08a209a0d02bb98a9acf0 assets/mmm/models/item/actinolite_hoe.json
@@ -8,6 +9,7 @@ d0ae67ac3675abf8617cbe02b650dc3bc951a6bb assets/mmm/models/item/actinolite_knife
 69339e29edecbfdf1aab287b464d65faeab2b5a2 assets/mmm/models/item/actinolite_shovel.json
 367230e390c7ede5f2c1f21626f033e2d7d163ee assets/mmm/models/item/actinolite_sword.json
 9a17c5c1a608ca0b39d9413348645f33dcc33af4 assets/mmm/models/item/apple_slice.json
+4d82304082d5ce0490a923e011b333b080440a34 assets/mmm/models/item/birch_triple_door.json
 bce57dc093ad4c5a0156d302341d538c8a52d6f8 assets/mmm/models/item/breadstick.json
 65fd1ffa71118026d840cf9e54c0d0cf664c91ff assets/mmm/models/item/cucumber.json
 969ccd7199e3f98ffb5650bc6ea96e65fcb7e2a5 assets/mmm/models/item/cucumber_seeds.json

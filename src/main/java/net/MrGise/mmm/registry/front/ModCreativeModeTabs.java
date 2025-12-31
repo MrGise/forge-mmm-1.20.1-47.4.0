@@ -170,6 +170,8 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.NULL_BLOCK.get()))
                     .title(Component.translatable("creativetab.dimensions")).displayItems((displayParameters, output) -> {
                         output.accept(ModBlocks.NULL_BLOCK.get());
+                        output.accept(ModBlocks.ACACIA_TRIPLE_DOOR.get());
+                        output.accept(ModBlocks.BIRCH_TRIPLE_DOOR.get());
                     }).build());
 
     //. Tools and Misc

@@ -119,6 +119,13 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.NULL_BLOCK.get());
 
 
+        //| Expansions
+        this.add(ModBlocks.ACACIA_TRIPLE_DOOR.get(),
+                block -> createTripleDoorTable(ModBlocks.ACACIA_TRIPLE_DOOR.get()));
+        this.add(ModBlocks.BIRCH_TRIPLE_DOOR.get(),
+                block -> createTripleDoorTable(ModBlocks.BIRCH_TRIPLE_DOOR.get()));
+
+
         //. Miscellaneous
         this.dropSelf(ModBlocks.BOWYERY_TABLE.get());
     }
@@ -152,7 +159,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     public record ItemDropData(ItemLike item, float dropChance, float minDrop, float maxDrop) {}
 
     protected LootTable.Builder createTripleDoorTable(Block builder) {
-        return this.createSinglePropConditionTable(builder, TripleDoorBlock.PART, TripleBlockPart.LOWER);
+        return this.createSinglePropConditionTable(builder, TripleDoorBlock.PART, TripleBlockPart.MIDDLE);
     }
 
     private void createCustomCropDrops(AccessibleCropBlock cropBlock, ItemLike dropItem, ItemLike seedItem,
