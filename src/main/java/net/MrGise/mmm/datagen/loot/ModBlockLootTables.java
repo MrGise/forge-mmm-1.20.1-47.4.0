@@ -124,6 +124,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
                 block -> createTripleDoorTable(ModBlocks.ACACIA_TRIPLE_DOOR.get()));
         this.add(ModBlocks.BIRCH_TRIPLE_DOOR.get(),
                 block -> createTripleDoorTable(ModBlocks.BIRCH_TRIPLE_DOOR.get()));
+        this.add(ModBlocks.CRIMSON_TRIPLE_DOOR.get(),
+                block -> createTripleDoorTable(ModBlocks.CRIMSON_TRIPLE_DOOR.get()));
 
 
         //. Miscellaneous

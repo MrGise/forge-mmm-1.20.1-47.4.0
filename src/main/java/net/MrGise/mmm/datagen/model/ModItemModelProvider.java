@@ -110,6 +110,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         tallBlockItem(ModBlocks.ACACIA_TRIPLE_DOOR);
         tallBlockItem(ModBlocks.BIRCH_TRIPLE_DOOR);
+        tallBlockItem(ModBlocks.CRIMSON_TRIPLE_DOOR);
 
     }
 

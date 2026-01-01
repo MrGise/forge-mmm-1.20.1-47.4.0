@@ -112,7 +112,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         wallBlock((WallBlock) ModBlocks.SKYGROUND_WALL.get(), blockTexture(ModBlocks.SKYGROUND.get()));
 
         doorBlockWithRenderType((DoorBlock) ModBlocks.SKYWOOD_DOOR.get(), modLoc("block/skywood_door_bottom"), modLoc("block/skywood_door_top"), "cutout");
-        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.SKYWOOD_TRIPLE_DOOR.get(), modLoc("block/skywood_triple_door_bottom"), modLoc("block/skywood_triple_door_middle"), modLoc("block/skywood_triple_door_top"), "cutout");
+        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.SKYWOOD_TRIPLE_DOOR.get(), "skywood_triple_door", "cutout");
         trapdoorBlockWithRenderTypeAndItem(ModBlocks.SKYWOOD_TRAPDOOR, modLoc("block/skywood_trapdoor"), true, "cutout");
 
         //. World
@@ -123,8 +123,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         flower(ModBlocks.OXALIS.get());
         pottedFlower(ModBlocks.POTTED_OXALIS.get(), "potted_oxalis", "oxalis");
 
-        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.ACACIA_TRIPLE_DOOR.get(), modLoc("block/acacia_triple_door_bottom"), modLoc("block/acacia_triple_door_middle"), modLoc("block/acacia_triple_door_top"), "cutout");
-        tripleDoorBlock((TripleDoorBlock) ModBlocks.BIRCH_TRIPLE_DOOR.get(), modLoc("block/birch_triple_door_bottom"), modLoc("block/birch_triple_door_middle"), modLoc("block/birch_triple_door_top"));
+        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.ACACIA_TRIPLE_DOOR.get(), "acacia_triple_door", "cutout");
+        tripleDoorBlock((TripleDoorBlock) ModBlocks.BIRCH_TRIPLE_DOOR.get(), "birch_triple_door");
+        tripleDoorBlock((TripleDoorBlock) ModBlocks.CRIMSON_TRIPLE_DOOR.get(), "crimson_triple_door");
 
     }
 
@@ -491,8 +492,16 @@ public class ModBlockStateProvider extends BlockStateProvider {
         tripleDoorBlockInternalWithRenderType(block, key(block).toString(), bottom, middle, top, ResourceLocation.tryParse(renderType));
     }
 
+    public void tripleDoorBlockWithRenderType(TripleDoorBlock block, String name, String renderType) {
+        tripleDoorBlockInternalWithRenderType(block, key(block).toString(), modLoc("block/" + name + "_bottom"), modLoc("block/" + name + "_middle"), modLoc("block/" + name + "_top"), ResourceLocation.tryParse(renderType));
+    }
+
     public void tripleDoorBlock(TripleDoorBlock block, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top) {
         tripleDoorBlockInternal(block, key(block).toString(), bottom, middle, top);
+    }
+
+    public void tripleDoorBlock(TripleDoorBlock block, String name) {
+        tripleDoorBlockInternal(block, key(block).toString(), modLoc("block/" + name + "_bottom"), modLoc("block/" + name + "_middle"), modLoc("block/" + name + "_top"));
     }
 
     private void tripleDoorBlockInternalWithRenderType(TripleDoorBlock block, String baseName, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top, ResourceLocation renderType) {

@@ -200,6 +200,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> BIRCH_TRIPLE_DOOR = registerBlock("birch_triple_door",
             () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.BIRCH_DOOR), BlockSetType.BIRCH));
 
+    public static final RegistryObject<Block> CRIMSON_TRIPLE_DOOR = registerBlock("crimson_triple_door",
+            () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_DOOR), BlockSetType.CRIMSON));
+
 
     //-- Test blocks
 

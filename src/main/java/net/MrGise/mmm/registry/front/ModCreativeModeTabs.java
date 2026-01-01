@@ -172,6 +172,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.NULL_BLOCK.get());
                         output.accept(ModBlocks.ACACIA_TRIPLE_DOOR.get());
                         output.accept(ModBlocks.BIRCH_TRIPLE_DOOR.get());
+                        output.accept(ModBlocks.CRIMSON_TRIPLE_DOOR.get());
                     }).build());
 
     //. Tools and Misc
