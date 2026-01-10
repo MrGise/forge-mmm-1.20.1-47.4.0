@@ -1,0 +1,6 @@
+{
+  "parent": "mmm:item/tall_generated",
+  "textures": {
+    "layer0": "mmm:item/door/dark_oak_triple_door"
+  }
+}

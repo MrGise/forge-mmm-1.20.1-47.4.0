@@ -1,0 +1,8 @@
+{
+  "parent": "mmm:block/triple_door_bottom_right",
+  "textures": {
+    "bottom": "mmm:block/door/dark_oak_triple_door_bottom",
+    "middle": "mmm:block/door/dark_oak_triple_door_middle",
+    "top": "mmm:block/door/dark_oak_triple_door_top"
+  }
+}

@@ -112,7 +112,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         wallBlock((WallBlock) ModBlocks.SKYGROUND_WALL.get(), blockTexture(ModBlocks.SKYGROUND.get()));
 
         doorBlockWithRenderType((DoorBlock) ModBlocks.SKYWOOD_DOOR.get(), modLoc("block/skywood_door_bottom"), modLoc("block/skywood_door_top"), "cutout");
-        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.SKYWOOD_TRIPLE_DOOR.get(), "skywood_triple_door", "cutout");
+        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.SKYWOOD_TRIPLE_DOOR.get(), "door/skywood_triple_door", "cutout");
         trapdoorBlockWithRenderTypeAndItem(ModBlocks.SKYWOOD_TRAPDOOR, modLoc("block/skywood_trapdoor"), true, "cutout");
 
         //. World
@@ -123,9 +123,15 @@ public class ModBlockStateProvider extends BlockStateProvider {
         flower(ModBlocks.OXALIS.get());
         pottedFlower(ModBlocks.POTTED_OXALIS.get(), "potted_oxalis", "oxalis");
 
-        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.ACACIA_TRIPLE_DOOR.get(), "acacia_triple_door", "cutout");
-        tripleDoorBlock((TripleDoorBlock) ModBlocks.BIRCH_TRIPLE_DOOR.get(), "birch_triple_door");
-        tripleDoorBlock((TripleDoorBlock) ModBlocks.CRIMSON_TRIPLE_DOOR.get(), "crimson_triple_door");
+        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.ACACIA_TRIPLE_DOOR.get(), "door/acacia_triple_door", "cutout");
+        tripleDoorBlock((TripleDoorBlock) ModBlocks.BIRCH_TRIPLE_DOOR.get(), "door/birch_triple_door");
+        tripleDoorBlock((TripleDoorBlock) ModBlocks.CRIMSON_TRIPLE_DOOR.get(), "door/crimson_triple_door");
+        tripleDoorBlock((TripleDoorBlock) ModBlocks.DARK_OAK_TRIPLE_DOOR.get(), "door/dark_oak_triple_door");
+        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.IRON_TRIPLE_DOOR.get(), "door/iron_triple_door", "cutout");
+        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.JUNGLE_TRIPLE_DOOR.get(), "door/jungle_triple_door", "cutout");
+        tripleDoorBlock((TripleDoorBlock) ModBlocks.MANGROVE_TRIPLE_DOOR.get(), "door/mangrove_triple_door");
+        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.OAK_TRIPLE_DOOR.get(), "door/oak_triple_door", "cutout");
+        tripleDoorBlock((TripleDoorBlock) ModBlocks.SPRUCE_TRIPLE_DOOR.get(), "door/spruce_triple_door");
 
     }
 

@@ -2,8 +2,8 @@
   "parent": "mmm:block/triple_door_top_right_open",
   "render_type": "minecraft:cutout",
   "textures": {
-    "bottom": "mmm:block/skywood_triple_door_bottom",
-    "middle": "mmm:block/skywood_triple_door_middle",
-    "top": "mmm:block/skywood_triple_door_top"
+    "bottom": "mmm:block/door/skywood_triple_door_bottom",
+    "middle": "mmm:block/door/skywood_triple_door_middle",
+    "top": "mmm:block/door/skywood_triple_door_top"
   }
 }

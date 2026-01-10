@@ -2,8 +2,8 @@
   "parent": "mmm:block/triple_door_top_left",
   "render_type": "minecraft:cutout",
   "textures": {
-    "bottom": "mmm:block/acacia_triple_door_bottom",
-    "middle": "mmm:block/acacia_triple_door_middle",
-    "top": "mmm:block/acacia_triple_door_top"
+    "bottom": "mmm:block/door/acacia_triple_door_bottom",
+    "middle": "mmm:block/door/acacia_triple_door_middle",
+    "top": "mmm:block/door/acacia_triple_door_top"
   }
 }

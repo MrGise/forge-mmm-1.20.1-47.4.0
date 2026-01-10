@@ -67,7 +67,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
                 .add(ModBlocks.MANA_ORE.get())
 
-                .add(ModBlocks.NULL_BLOCK.get());
+                .add(ModBlocks.NULL_BLOCK.get())
+
+                .add(ModBlocks.IRON_TRIPLE_DOOR.get());
 
         this.tag(ModTags.Blocks.MINEABLE_WITH_HAMMER)
                 .addTag(BlockTags.MINEABLE_WITH_PICKAXE);

@@ -179,6 +179,12 @@
   "block.mmm.acacia_triple_door": "Acacia Triple Door",
   "block.mmm.birch_triple_door": "Birch Triple Door",
   "block.mmm.crimson_triple_door": "Crimson Triple Door",
+  "block.mmm.dark_oak_triple_door": "Dark Oak Triple Door",
+  "block.mmm.iron_triple_door": "Iron Triple Door",
+  "block.mmm.jungle_triple_door": "Jungle Triple Door",
+  "block.mmm.mangrove_triple_door": "Mangrove Triple Door",
+  "block.mmm.oak_triple_door": "Oak Triple Door",
+  "block.mmm.spruce_triple_door": "Spruce Triple Door",
 
 
   "item.minecraft.potion.effect.liquid_slime": "Liquid Slime",

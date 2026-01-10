@@ -203,6 +203,24 @@ public class ModBlocks {
     public static final RegistryObject<Block> CRIMSON_TRIPLE_DOOR = registerBlock("crimson_triple_door",
             () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.CRIMSON_DOOR), BlockSetType.CRIMSON));
 
+    public static final RegistryObject<Block> DARK_OAK_TRIPLE_DOOR = registerBlock("dark_oak_triple_door",
+            () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.DARK_OAK_DOOR), BlockSetType.DARK_OAK));
+
+    public static final RegistryObject<Block> IRON_TRIPLE_DOOR = registerBlock("iron_triple_door",
+            () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.IRON_DOOR).requiresCorrectToolForDrops(), BlockSetType.IRON));
+
+    public static final RegistryObject<Block> JUNGLE_TRIPLE_DOOR = registerBlock("jungle_triple_door",
+            () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.JUNGLE_DOOR), BlockSetType.JUNGLE));
+
+    public static final RegistryObject<Block> MANGROVE_TRIPLE_DOOR = registerBlock("mangrove_triple_door",
+            () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.MANGROVE_DOOR), BlockSetType.MANGROVE));
+
+    public static final RegistryObject<Block> OAK_TRIPLE_DOOR = registerBlock("oak_triple_door",
+            () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.OAK_DOOR), BlockSetType.OAK));
+
+    public static final RegistryObject<Block> SPRUCE_TRIPLE_DOOR = registerBlock("spruce_triple_door",
+            () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_DOOR), BlockSetType.SPRUCE));
+
 
     //-- Test blocks
 

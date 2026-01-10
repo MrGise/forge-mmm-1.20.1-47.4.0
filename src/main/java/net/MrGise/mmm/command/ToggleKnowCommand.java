@@ -6,9 +6,9 @@ import net.MrGise.mmm.resource.ModNetwork;
 import net.MrGise.mmm.resource.SyncAllKnowingPacket;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
-import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.network.PacketDistributor;
 
 public class ToggleKnowCommand {
@@ -27,20 +27,14 @@ public class ToggleKnowCommand {
             boolean current = player.getPersistentData().getBoolean("all_knowing");
             player.getPersistentData().putBoolean("all_knowing", !current);
 
-            ModNetwork.CHANNEL.send(
-                    PacketDistributor.PLAYER.with(() -> player),
-                    new SyncAllKnowingPacket(true)
-            );
+            syncAllKnowingValues(player);
 
             context.getSource().sendSuccess(() -> Component.literal(player.getName().getString()).append(Component.translatable("command.mmm.know." + (!current ? "get" : "lose"))), false);
             return 1;
         } else {
             player.getPersistentData().putBoolean("all_knowing", true);
 
-            ModNetwork.CHANNEL.send(
-                    PacketDistributor.PLAYER.with(() -> player),
-                    new SyncAllKnowingPacket(true)
-            );
+            syncAllKnowingValues(player);
 
             context.getSource().sendSuccess(() -> Component.literal(player.getName().getString()).append(Component.translatable("command.mmm.know.get_first")), false);
             return 1;
@@ -51,10 +45,7 @@ public class ToggleKnowCommand {
         ServerPlayer player = context.getSource().getPlayer();
         player.getPersistentData().putBoolean("all_knowing", true);
 
-        ModNetwork.CHANNEL.send(
-                PacketDistributor.PLAYER.with(() -> player),
-                new SyncAllKnowingPacket(true)
-        );
+        syncAllKnowingValues(player);
 
         context.getSource().sendSuccess(() -> Component.literal(player.getName().getString()).append(Component.translatable("command.mmm.know.get")), false);
         return 1;
@@ -64,10 +55,7 @@ public class ToggleKnowCommand {
         ServerPlayer player = context.getSource().getPlayer();
         player.getPersistentData().putBoolean("all_knowing", false);
 
-        ModNetwork.CHANNEL.send(
-                PacketDistributor.PLAYER.with(() -> player),
-                new SyncAllKnowingPacket(true)
-        );
+        syncAllKnowingValues(player);
 
         context.getSource().sendSuccess(() -> Component.literal(player.getName().getString()).append(Component.translatable("command.mmm.know.lose")), false);
         return 1;
@@ -78,5 +66,12 @@ public class ToggleKnowCommand {
         player.sendSystemMessage(player.getPersistentData().getBoolean("all_knowing") ? Component.translatable("command.mmm.know.has") : Component.translatable("command.mmm.know.hasnt"));
 
         return 1;
+    }
+
+    private void syncAllKnowingValues(ServerPlayer player) {
+        ModNetwork.CHANNEL.send(
+                PacketDistributor.PLAYER.with(() -> player),
+                new SyncAllKnowingPacket(player.getPersistentData().getBoolean("all_knowing"))
+        );
     }
 }

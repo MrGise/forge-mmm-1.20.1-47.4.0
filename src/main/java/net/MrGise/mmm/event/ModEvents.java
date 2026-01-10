@@ -8,6 +8,8 @@ import net.MrGise.mmm.item.HammerItem;
 import net.MrGise.mmm.registry.front.ModBlocks;
 import net.MrGise.mmm.registry.front.item.ModItems;
 import net.MrGise.mmm.registry.middle.ModVillagers;
+import net.MrGise.mmm.resource.ModNetwork;
+import net.MrGise.mmm.resource.SyncAllKnowingPacket;
 import net.MrGise.mmm.util.ItemUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -40,6 +42,7 @@ import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.server.command.ConfigCommand;
 import org.jetbrains.annotations.Nullable;
 
@@ -75,6 +78,17 @@ public class ModEvents {
 
         // Write back the persistent tag (important!)
         data.put(Player.PERSISTED_NBT_TAG, persistent);
+    }
+
+    @SubscribeEvent
+    public static void onPlayerJoin(PlayerEvent.PlayerLoggedInEvent event) {
+        ServerPlayer player = (ServerPlayer) event.getEntity();
+        boolean knows = player.getPersistentData().getBoolean("all_knowing");
+
+        ModNetwork.CHANNEL.send(
+                PacketDistributor.PLAYER.with(() -> player),
+                new SyncAllKnowingPacket(knows)
+        );
     }
 
     // Done with the help of https://github.com/CoFH/CoFHCore/blob/1.19.x/src/main/java/cofh/core/event/AreaEffectEvents.java

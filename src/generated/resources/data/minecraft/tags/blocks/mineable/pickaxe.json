@@ -9,6 +9,7 @@
     "mmm:skiron_block",
     "mmm:raw_skiron_block",
     "mmm:mana_ore",
-    "mmm:null_block"
+    "mmm:null_block",
+    "mmm:iron_triple_door"
   ]
 }

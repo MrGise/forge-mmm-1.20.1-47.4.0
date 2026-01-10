@@ -105,12 +105,18 @@ public class ModItemModelProvider extends ItemModelProvider {
                 modLoc("item/heavenly_grass_short"), modLoc("item/heavenly_grass_top"));
 
         simpleBlockItem(ModBlocks.SKYWOOD_DOOR);
-        tallBlockItem(ModBlocks.SKYWOOD_TRIPLE_DOOR);
+        tallBlockItemWithDirPF(ModBlocks.SKYWOOD_TRIPLE_DOOR, "door");
         simpleBlockItem(ModBlocks.OXALIS, "block/oxalis");
 
-        tallBlockItem(ModBlocks.ACACIA_TRIPLE_DOOR);
-        tallBlockItem(ModBlocks.BIRCH_TRIPLE_DOOR);
-        tallBlockItem(ModBlocks.CRIMSON_TRIPLE_DOOR);
+        tallBlockItemWithDirPF(ModBlocks.ACACIA_TRIPLE_DOOR, "door");
+        tallBlockItemWithDirPF(ModBlocks.BIRCH_TRIPLE_DOOR, "door");
+        tallBlockItemWithDirPF(ModBlocks.CRIMSON_TRIPLE_DOOR, "door");
+        tallBlockItemWithDirPF(ModBlocks.DARK_OAK_TRIPLE_DOOR, "door");
+        tallBlockItemWithDirPF(ModBlocks.IRON_TRIPLE_DOOR, "door");
+        tallBlockItemWithDirPF(ModBlocks.JUNGLE_TRIPLE_DOOR, "door");
+        tallBlockItemWithDirPF(ModBlocks.MANGROVE_TRIPLE_DOOR, "door");
+        tallBlockItemWithDirPF(ModBlocks.OAK_TRIPLE_DOOR , "door");
+        tallBlockItemWithDirPF(ModBlocks.SPRUCE_TRIPLE_DOOR , "door");
 
     }
 
@@ -189,10 +195,20 @@ public class ModItemModelProvider extends ItemModelProvider {
                 new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
     }
 
+    private ItemModelBuilder tallBlockItemWithDirPF(RegistryObject<Block> item, String dirPF) {
+        return tallBlockItem(item, dirPF + "/", "");
+    }
+
     private ItemModelBuilder tallBlockItem(RegistryObject<Block> item) {
         return withExistingParent(item.getId().getPath(),
                 ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "item/tall_generated")).texture("layer0",
                 new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder tallBlockItem(RegistryObject<Block> item, String prefix, String suffix) {
+        return withExistingParent(item.getId().getPath(),
+                ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "item/tall_generated")).texture("layer0",
+                new ResourceLocation(MMM.MOD_ID, "item/" + prefix + item.getId().getPath() + suffix));
     }
 
     private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item, String textureName) {

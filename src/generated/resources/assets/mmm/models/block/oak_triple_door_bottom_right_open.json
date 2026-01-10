@@ -1,0 +1,9 @@
+{
+  "parent": "mmm:block/triple_door_bottom_right_open",
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "bottom": "mmm:block/door/oak_triple_door_bottom",
+    "middle": "mmm:block/door/oak_triple_door_middle",
+    "top": "mmm:block/door/oak_triple_door_top"
+  }
+}
