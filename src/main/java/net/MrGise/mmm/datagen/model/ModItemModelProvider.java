@@ -117,6 +117,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         tallBlockItemWithDirPF(ModBlocks.MANGROVE_TRIPLE_DOOR, "door");
         tallBlockItemWithDirPF(ModBlocks.OAK_TRIPLE_DOOR , "door");
         tallBlockItemWithDirPF(ModBlocks.SPRUCE_TRIPLE_DOOR , "door");
+        tallBlockItemWithDirPF(ModBlocks.WARPED_TRIPLE_DOOR , "door");
+        tallBlockItemWithDirPF(ModBlocks.BAMBOO_TRIPLE_DOOR , "door");
+        tallBlockItemWithDirPF(ModBlocks.CHERRY_TRIPLE_DOOR , "door");
 
     }
 

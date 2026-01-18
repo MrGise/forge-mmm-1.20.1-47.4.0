@@ -132,6 +132,9 @@ public class ModBlockStateProvider extends BlockStateProvider {
         tripleDoorBlock((TripleDoorBlock) ModBlocks.MANGROVE_TRIPLE_DOOR.get(), "door/mangrove_triple_door");
         tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.OAK_TRIPLE_DOOR.get(), "door/oak_triple_door", "cutout");
         tripleDoorBlock((TripleDoorBlock) ModBlocks.SPRUCE_TRIPLE_DOOR.get(), "door/spruce_triple_door");
+        tripleDoorBlock((TripleDoorBlock) ModBlocks.WARPED_TRIPLE_DOOR.get(), "door/warped_triple_door");
+        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.BAMBOO_TRIPLE_DOOR.get(), "door/bamboo_triple_door", "cutout");
+        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.CHERRY_TRIPLE_DOOR.get(), "door/cherry_triple_door", "cutout");
 
     }
 

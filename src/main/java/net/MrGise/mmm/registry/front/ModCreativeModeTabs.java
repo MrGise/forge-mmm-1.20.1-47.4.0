@@ -118,6 +118,20 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.THIN_PINE_LOG.get());
                         output.accept(ModBlocks.MANA_ORE.get());
                         output.accept(ModItems.SOLIDIFIED_MANA.get());
+
+
+                        output.accept(ModBlocks.ACACIA_TRIPLE_DOOR.get());
+                        output.accept(ModBlocks.BIRCH_TRIPLE_DOOR.get());
+                        output.accept(ModBlocks.CRIMSON_TRIPLE_DOOR.get());
+                        output.accept(ModBlocks.DARK_OAK_TRIPLE_DOOR.get());
+                        output.accept(ModBlocks.IRON_TRIPLE_DOOR.get());
+                        output.accept(ModBlocks.JUNGLE_TRIPLE_DOOR.get());
+                        output.accept(ModBlocks.MANGROVE_TRIPLE_DOOR.get());
+                        output.accept(ModBlocks.OAK_TRIPLE_DOOR.get());
+                        output.accept(ModBlocks.SPRUCE_TRIPLE_DOOR.get());
+                        output.accept(ModBlocks.WARPED_TRIPLE_DOOR.get());
+                        output.accept(ModBlocks.BAMBOO_TRIPLE_DOOR.get());
+                        output.accept(ModBlocks.CHERRY_TRIPLE_DOOR.get());
                     }).build());
 
     //. Structures
@@ -170,15 +184,6 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.NULL_BLOCK.get()))
                     .title(Component.translatable("creativetab.dimensions")).displayItems((displayParameters, output) -> {
                         output.accept(ModBlocks.NULL_BLOCK.get());
-                        output.accept(ModBlocks.ACACIA_TRIPLE_DOOR.get());
-                        output.accept(ModBlocks.BIRCH_TRIPLE_DOOR.get());
-                        output.accept(ModBlocks.CRIMSON_TRIPLE_DOOR.get());
-                        output.accept(ModBlocks.DARK_OAK_TRIPLE_DOOR.get());
-                        output.accept(ModBlocks.IRON_TRIPLE_DOOR.get());
-                        output.accept(ModBlocks.JUNGLE_TRIPLE_DOOR.get());
-                        output.accept(ModBlocks.MANGROVE_TRIPLE_DOOR.get());
-                        output.accept(ModBlocks.OAK_TRIPLE_DOOR.get());
-                        output.accept(ModBlocks.SPRUCE_TRIPLE_DOOR.get());
                     }).build());
 
     //. Tools and Misc

@@ -221,6 +221,15 @@ public class ModBlocks {
     public static final RegistryObject<Block> SPRUCE_TRIPLE_DOOR = registerBlock("spruce_triple_door",
             () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.SPRUCE_DOOR), BlockSetType.SPRUCE));
 
+    public static final RegistryObject<Block> WARPED_TRIPLE_DOOR = registerBlock("warped_triple_door",
+            () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.WARPED_DOOR), BlockSetType.WARPED));
+
+    public static final RegistryObject<Block> BAMBOO_TRIPLE_DOOR = registerBlock("bamboo_triple_door",
+            () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.BAMBOO_DOOR), BlockSetType.BAMBOO));
+
+    public static final RegistryObject<Block> CHERRY_TRIPLE_DOOR = registerBlock("cherry_triple_door",
+            () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.CHERRY_DOOR), BlockSetType.CHERRY));
+
 
     //-- Test blocks
 

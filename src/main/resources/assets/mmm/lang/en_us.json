@@ -185,6 +185,9 @@
   "block.mmm.mangrove_triple_door": "Mangrove Triple Door",
   "block.mmm.oak_triple_door": "Oak Triple Door",
   "block.mmm.spruce_triple_door": "Spruce Triple Door",
+  "block.mmm.warped_triple_door": "Warped Triple Door",
+  "block.mmm.bamboo_triple_door": "Bamboo Triple Door",
+  "block.mmm.cherry_triple_door": "Cherry Triple Door",
 
 
   "item.minecraft.potion.effect.liquid_slime": "Liquid Slime",
