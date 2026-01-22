@@ -2,7 +2,7 @@ package net.MrGise.mmm.block;
 
 import com.google.common.collect.BiMap;
 import com.google.common.collect.HashBiMap;
-import net.MrGise.mmm.registry.back.ModTags;
+import net.MrGise.mmm.registry.variables.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.resources.ResourceLocation;

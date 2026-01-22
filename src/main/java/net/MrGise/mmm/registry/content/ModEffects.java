@@ -1,4 +1,4 @@
-package net.MrGise.mmm.registry.front;
+package net.MrGise.mmm.registry.content;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.effect.SlimyEffect;

@@ -1,4 +1,4 @@
-package net.MrGise.mmm.registry.back;
+package net.MrGise.mmm.registry.variables;
 
 import net.MrGise.mmm.MMM;
 import net.minecraft.resources.ResourceLocation;

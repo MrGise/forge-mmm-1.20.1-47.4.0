@@ -1,13 +1,11 @@
-package net.MrGise.mmm.registry.front.item;
+package net.MrGise.mmm.registry.content;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.item.*;
 import net.MrGise.mmm.item.description.*;
-import net.MrGise.mmm.registry.back.ModFoodProperties;
-import net.MrGise.mmm.registry.front.ModBlocks;
-import net.MrGise.mmm.registry.middle.ModSounds;
-import net.MrGise.mmm.registry.middle.ModToolTiers;
-import net.MrGise.mmm.registry.middle.ModArmorMaterials;
+import net.MrGise.mmm.registry.variables.ModFoodProperties;
+import net.MrGise.mmm.registry.variables.ModToolTiers;
+import net.MrGise.mmm.registry.variables.ModArmorMaterials;
 import net.minecraft.ChatFormatting;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;

@@ -1,7 +1,7 @@
-package net.MrGise.mmm.registry.middle;
+package net.MrGise.mmm.registry.variables;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.registry.front.item.ModItems;
+import net.MrGise.mmm.registry.content.ModItems;
 import net.minecraft.Util;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;

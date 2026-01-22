@@ -1,9 +1,9 @@
 package net.MrGise.mmm.item;
 
-import net.MrGise.mmm.registry.front.item.ModItems;
-import net.MrGise.mmm.registry.middle.ModSounds;
+import net.MrGise.mmm.registry.content.ModItems;
+import net.MrGise.mmm.registry.content.ModSounds;
 import net.MrGise.mmm.util.InventoryUtil;
-import net.MrGise.mmm.registry.back.ModTags;
+import net.MrGise.mmm.registry.variables.ModTags;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;

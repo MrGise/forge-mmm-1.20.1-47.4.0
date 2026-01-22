@@ -1,8 +1,8 @@
-package net.MrGise.mmm.registry.back;
+package net.MrGise.mmm.registry.variables;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.registry.front.item.ModItems;
-import net.MrGise.mmm.registry.front.ModBlocks;
+import net.MrGise.mmm.registry.content.ModItems;
+import net.MrGise.mmm.registry.content.ModBlocks;
 import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;

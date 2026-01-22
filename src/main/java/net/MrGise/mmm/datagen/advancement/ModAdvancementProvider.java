@@ -2,7 +2,7 @@ package net.MrGise.mmm.datagen.advancement;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.event.BlockTouchTrigger;
-import net.MrGise.mmm.registry.front.ModBlocks;
+import net.MrGise.mmm.registry.content.ModBlocks;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.FrameType;
 import net.minecraft.advancements.critereon.ChangeDimensionTrigger;

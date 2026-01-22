@@ -1,4 +1,4 @@
-package net.MrGise.mmm.registry.front;
+package net.MrGise.mmm.registry.variants;
 
 import net.MrGise.mmm.MMM;
 import net.minecraft.world.entity.decoration.PaintingVariant;

@@ -1,4 +1,4 @@
-package net.MrGise.mmm.registry.middle;
+package net.MrGise.mmm.registry.variants;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.enchantment.LightningStrikerEnchantment;

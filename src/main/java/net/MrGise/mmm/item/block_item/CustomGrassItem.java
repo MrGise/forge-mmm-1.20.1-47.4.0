@@ -1,7 +1,7 @@
 package net.MrGise.mmm.item.block_item;
 
 import net.MrGise.mmm.block.CustomGrass;
-import net.MrGise.mmm.registry.back.ModTags;
+import net.MrGise.mmm.registry.variables.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundSource;
@@ -13,7 +13,7 @@ import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.InteractionResult;
-import net.MrGise.mmm.registry.front.ModBlocks;
+import net.MrGise.mmm.registry.content.ModBlocks;
 
 public class CustomGrassItem extends BlockItem {
 

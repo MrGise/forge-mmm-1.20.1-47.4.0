@@ -1,8 +1,8 @@
-package net.MrGise.mmm.registry.middle;
+package net.MrGise.mmm.registry.variants;
 
 import com.google.common.collect.ImmutableSet;
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.registry.front.ModBlocks;
+import net.MrGise.mmm.registry.content.ModBlocks;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.ai.village.poi.PoiType;
 import net.minecraft.world.entity.npc.VillagerProfession;

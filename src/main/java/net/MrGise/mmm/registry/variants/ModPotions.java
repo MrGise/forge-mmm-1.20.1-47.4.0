@@ -1,7 +1,7 @@
-package net.MrGise.mmm.registry.front.item;
+package net.MrGise.mmm.registry.variants;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.registry.front.ModEffects;
+import net.MrGise.mmm.registry.content.ModEffects;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.alchemy.Potion;

@@ -1,9 +1,9 @@
 package net.MrGise.mmm.datagen.loot;
 
 import net.MrGise.mmm.block.TripleDoorBlock;
-import net.MrGise.mmm.registry.front.ModBlocks;
+import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.block.crop.AccessibleCropBlock;
-import net.MrGise.mmm.registry.front.item.ModItems;
+import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.resource.TripleBlockPart;
 import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
@@ -12,8 +12,6 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.DoorBlock;
-import net.minecraft.world.level.block.state.properties.DoubleBlockHalf;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
