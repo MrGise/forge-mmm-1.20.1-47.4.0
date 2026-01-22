@@ -57,6 +57,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.APPLE_SLICE);
         simpleItem(ModItems.HONEYED_APPLE_SLICE);
 
+        simpleItem(ModItems.MATZA);
+
         //- Materials
         //* Skyland
 

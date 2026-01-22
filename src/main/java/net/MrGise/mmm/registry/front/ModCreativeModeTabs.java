@@ -177,6 +177,8 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.APPLE_SLICE.get());
                         output.accept(ModItems.HONEYED_APPLE_SLICE.get());
+
+                        output.accept(ModItems.MATZA.get());
                     }).build());
 
     //\ Dimensions

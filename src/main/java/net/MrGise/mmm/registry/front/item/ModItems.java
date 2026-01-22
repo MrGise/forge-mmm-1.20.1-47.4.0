@@ -137,6 +137,10 @@ public class ModItems {
     public static final RegistryObject<Item> HONEYED_APPLE_SLICE = registerItem("honeyed_apple_slice",
             () -> new Item(new Item.Properties().food(ModFoodProperties.HONEYED_APPLE_SLICE)));
 
+    public static final RegistryObject<Item> MATZA = registerItem("matza",
+            () -> new Item(new Item.Properties().food(ModFoodProperties.MATZA)));
+
+
     //-- Magic
     public static final RegistryObject<Item> SOLIDIFIED_MANA = registerItem("solidified_mana",
             () -> new Item(new Item.Properties()));
@@ -168,7 +172,6 @@ public class ModItems {
             ModToolTiers.ACTINOLITE, 5.5f, -1f, 150);
 
 
-
     //-- Skiron
     public static final RegistryObject<Item> SKIRON = registerItem("skiron",
             () -> new Item(new Item.Properties()));
@@ -178,6 +181,7 @@ public class ModItems {
 
     public static final RegistryObject<Item> SKIRON_NUGGET = registerItem("skiron_nugget",
             () -> new Item(new Item.Properties()));
+
 
     /*. Tools */
     //- Skiron

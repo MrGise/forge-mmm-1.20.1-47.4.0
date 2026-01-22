@@ -1,4 +1,4 @@
-// 1.20.1	2026-01-18T16:01:37.8872882	Item Models: mmm
+// 1.20.1	2026-01-20T17:48:03.6179883	Item Models: mmm
 4b12200ca3fac2057d27e77507d76d35940039e3 assets/mmm/models/item/acacia_triple_door.json
 cab82837fca58f2721c0a61040837f5ce1a3b78f assets/mmm/models/item/actinolite.json
 22c4a40423e2f812fb3fcaacc80c0e9da5536ff6 assets/mmm/models/item/actinolite_axe.json
@@ -27,6 +27,7 @@ ac0cbf86250964032b645f39b91d616436c5f651 assets/mmm/models/item/droppy_likes_ric
 2c782b96306bbaf3dd2a4d88e048cbd06792b0f2 assets/mmm/models/item/iron_triple_door.json
 12d6a8e175ef24089b809c4537d26a5d9f41daee assets/mmm/models/item/jungle_triple_door.json
 64f25ce7df635c897d472fd141870dca0c9ccad8 assets/mmm/models/item/mangrove_triple_door.json
+8a462ea279761157e51999912e52175fec25d192 assets/mmm/models/item/matza.json
 10d6607cf44fad92a260b8dbe68feb177b939382 assets/mmm/models/item/oak_triple_door.json
 3aa7745531bc59f021f6fd049478607e6f8c4163 assets/mmm/models/item/ore_detector.json
 a002a7a67e81babda70fb3362fcb2faf9f66383d assets/mmm/models/item/oxalis.json
