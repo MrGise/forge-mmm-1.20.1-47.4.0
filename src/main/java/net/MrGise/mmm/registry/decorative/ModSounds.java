@@ -1,4 +1,4 @@
-package net.MrGise.mmm.registry.content;
+package net.MrGise.mmm.registry.decorative;
 
 import net.MrGise.mmm.MMM;
 import net.minecraft.resources.ResourceLocation;

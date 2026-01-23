@@ -8,6 +8,7 @@ import net.MrGise.mmm.item.block_item.*;
 import net.MrGise.mmm.item.block_item.description.DescriptionBlockItem;
 import net.MrGise.mmm.item.block_item.description.DescriptionFuelBlockItem;
 import net.MrGise.mmm.item.block_item.description.DescriptionPortalBlockItem;
+import net.MrGise.mmm.registry.decorative.ModSounds;
 import net.MrGise.mmm.registry.variables.ModFoodProperties;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;

@@ -3,6 +3,7 @@ package net.MrGise.mmm.registry.content;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.item.*;
 import net.MrGise.mmm.item.description.*;
+import net.MrGise.mmm.registry.decorative.ModSounds;
 import net.MrGise.mmm.registry.variables.ModFoodProperties;
 import net.MrGise.mmm.registry.variables.ModToolTiers;
 import net.MrGise.mmm.registry.variables.ModArmorMaterials;

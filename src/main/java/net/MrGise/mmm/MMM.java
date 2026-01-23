@@ -4,7 +4,8 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.MrGise.mmm.datagen.advancement.ModTriggers;
 import net.MrGise.mmm.effect.potion.BetterBrewingRecipe;
-import net.MrGise.mmm.event.ModEvents;
+import net.MrGise.mmm.event.ModGeneralEvents;
+import net.MrGise.mmm.registry.decorative.ModParticles;
 import net.MrGise.mmm.registry.variables.ModItemProperties;
 import net.MrGise.mmm.registry.variables.ModLootModifiers;
 import net.MrGise.mmm.registry.create.ModCreateBlocks;
@@ -13,7 +14,7 @@ import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.registry.variants.ModPaintings;
 import net.MrGise.mmm.registry.variants.ModPotions;
 import net.MrGise.mmm.registry.variants.ModEnchantments;
-import net.MrGise.mmm.registry.content.ModSounds;
+import net.MrGise.mmm.registry.decorative.ModSounds;
 import net.MrGise.mmm.registry.variants.ModVillagers;
 import net.MrGise.mmm.resource.ModNetwork;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -75,6 +76,8 @@ public class MMM {
 
         //, Resources
 
+        ModParticles.register(modEventBus);
+
         ModNetwork.register();
 
         ModLootModifiers.register(modEventBus);
@@ -113,7 +116,7 @@ public class MMM {
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.OXALIS.getId(), ModBlocks.POTTED_OXALIS);
 
 
-            ModEvents.LogMap.put(ModBlocks.SKYWOOD_LOG.get(), ModBlocks.STRIPPED_SKYWOOD_LOG.get());
+            ModGeneralEvents.LogMap.put(ModBlocks.SKYWOOD_LOG.get(), ModBlocks.STRIPPED_SKYWOOD_LOG.get());
 
 
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.SLOWNESS, Items.SLIME_BALL, ModPotions.LIQUID_SLIME.get()));

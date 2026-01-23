@@ -49,7 +49,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.*;
 
 @Mod.EventBusSubscriber(modid = MMM.MOD_ID)
-public class ModEvents {
+public class ModGeneralEvents {
 
     @SubscribeEvent
     public static void onPlayerFirstJoin(PlayerEvent.PlayerLoggedInEvent event) {

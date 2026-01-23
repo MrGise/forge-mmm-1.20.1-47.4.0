@@ -686,10 +686,10 @@ java.lang.IllegalAccessException: class io.netty.util.internal.PlatformDependent
 [20Jan2026 17:48:00.190] [modloading-worker-0/DEBUG] [com.tterrag.registrate.AbstractRegistrate/REGISTRATE.REGISTER]: Captured registration for entry large_cogwheel of type minecraft:block
 [20Jan2026 17:48:00.193] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.MrGise.mmm.datagen.DataGenerators to MOD
 [20Jan2026 17:48:00.195] [modloading-worker-0/DEBUG] [mezz.jei.common.config.file.ConfigSerializer/]: Loading config file: C:\Users\1\MCMods\mmm-forge-1.20.1-47.4.0\run-data\config\jei\jei-colors.ini
-[20Jan2026 17:48:00.195] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.MrGise.mmm.event.ModEvents to FORGE
+[20Jan2026 17:48:00.195] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.MrGise.mmm.event.ModGeneralEvents to FORGE
 [20Jan2026 17:48:00.195] [modloading-worker-0/DEBUG] [mezz.jei.common.config.file.ConfigSerializer/]: Saving config file: C:\Users\1\MCMods\mmm-forge-1.20.1-47.4.0\run-data\config\jei\jei-colors.ini
-[20Jan2026 17:48:00.206] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.MrGise.mmm.event.ModForgeEvents to FORGE
-[20Jan2026 17:48:00.208] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.MrGise.mmm.event.ModOtherEvents to MOD
+[20Jan2026 17:48:00.206] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.MrGise.mmm.event.ModForgeClientEvents to FORGE
+[20Jan2026 17:48:00.208] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.MrGise.mmm.event.ModBusEvents to MOD
 [20Jan2026 17:48:00.208] [modloading-worker-0/DEBUG] [net.minecraftforge.fml.javafmlmod.AutomaticEventSubscriber/LOADING]: Auto-subscribing net.MrGise.mmm.MMM$ClientModEvents to MOD
 [20Jan2026 17:48:00.208] [modloading-worker-0/DEBUG] [mezz.jei.common.config.file.ConfigSerializer/]: Loading config file: C:\Users\1\MCMods\mmm-forge-1.20.1-47.4.0\run-data\config\jei\jei-client.ini
 [20Jan2026 17:48:00.212] [modloading-worker-0/DEBUG] [com.tterrag.registrate.AbstractRegistrate/REGISTRATE.REGISTER]: Captured registration for entry andesite_encased_shaft of type minecraft:item

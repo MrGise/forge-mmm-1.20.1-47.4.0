@@ -5,7 +5,7 @@ import com.tterrag.registrate.util.entry.BlockEntry;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.PortalBlock;
 import net.MrGise.mmm.registry.content.ModItems;
-import net.MrGise.mmm.registry.content.ModSounds;
+import net.MrGise.mmm.registry.decorative.ModSounds;
 import net.MrGise.mmm.util.BuilderHelper;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.SoundType;
