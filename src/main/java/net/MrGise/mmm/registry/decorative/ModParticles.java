@@ -13,7 +13,9 @@ public class ModParticles {
             DeferredRegister.create(ForgeRegistries.PARTICLE_TYPES, MMM.MOD_ID);
 
 
-    public static final RegistryObject<SimpleParticleType> BASIC_MANA = createParticle("mana_basic");
+    public static final RegistryObject<SimpleParticleType> PURPLE_MANA = createParticle("mana_purple");
+    public static final RegistryObject<SimpleParticleType> RED_MANA = createParticle("mana_red");
+    public static final RegistryObject<SimpleParticleType> SMALL_PURPLE_MANA = createParticle("mana_purple_small");
 
 
     private static RegistryObject<SimpleParticleType> createParticle(String name) {

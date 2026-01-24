@@ -13,7 +13,9 @@ public class ModBusClientEvents {
 
     @SubscribeEvent
     public static void registerParticleFactories(RegisterParticleProvidersEvent event) {
-        event.registerSpriteSet(ModParticles.BASIC_MANA.get(), ManaParticle.Provider::new);
+        event.registerSpriteSet(ModParticles.PURPLE_MANA.get(), ManaParticle.BasicProvider::new);
+        event.registerSpriteSet(ModParticles.RED_MANA.get(), ManaParticle.BasicProvider::new);
+        event.registerSpriteSet(ModParticles.SMALL_PURPLE_MANA.get(), ManaParticle.GravProvider::new);
     }
 
 }

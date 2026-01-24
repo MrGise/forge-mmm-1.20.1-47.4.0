@@ -1,6 +1,5 @@
 package net.MrGise.mmm.item;
 
-import net.MrGise.mmm.particle.ManaParticle;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.registry.decorative.ModParticles;
 import net.MrGise.mmm.registry.decorative.ModSounds;
@@ -8,8 +7,6 @@ import net.MrGise.mmm.util.InventoryUtil;
 import net.MrGise.mmm.registry.variables.ModTags;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.BlockParticleOption;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -75,10 +72,13 @@ public class OreDetectorItem extends Item {
     }
 
     private void spawnFoundParticles(UseOnContext pContext, BlockPos positionClicked, BlockState blockState) {
-        for(int i = 0; i < 20; i++) {
+        for(int i = 0; i < 10; i++) {
             ServerLevel level = (ServerLevel) pContext.getLevel();
 
-            level.sendParticles(ModParticles.BASIC_MANA.get(),
+            level.sendParticles(ModParticles.PURPLE_MANA.get(),
+                    positionClicked.getX() + 0.5d, positionClicked.getY() + 1, positionClicked.getZ() + 0.5d, 1,
+                    Math.cos(i * 18) * 0.15d, 0.15d, Math.sin(i * 18) * 0.15d, 0.1);
+            level.sendParticles(ModParticles.SMALL_PURPLE_MANA.get(),
                     positionClicked.getX() + 0.5d, positionClicked.getY() + 1, positionClicked.getZ() + 0.5d, 1,
                     Math.cos(i * 18) * 0.15d, 0.15d, Math.sin(i * 18) * 0.15d, 0.1);
         }

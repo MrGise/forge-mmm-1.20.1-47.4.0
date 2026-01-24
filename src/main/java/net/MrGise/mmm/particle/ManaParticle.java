@@ -15,13 +15,13 @@ public class ManaParticle extends TextureSheetParticle {
         this.zd = zSpeed;
 
         this.quadSize += 0.75f;
-        this.lifetime = 20;
+        this.lifetime = (int) (this.random.nextFloat() * 5 + 15);
 
         this.setSpriteFromAge(spriteSet);
     }
 
     protected ManaParticle(ClientLevel level, double x, double y, double z,
-                           SpriteSet spriteSet, double xSpeed, double ySpeed, double zSpeed, float r, float g, float b) {
+                           SpriteSet spriteSet, double xSpeed, double ySpeed, double zSpeed, float grav) {
         super(level, x, y, z, xSpeed, ySpeed, zSpeed);
 
         this.friction = 0.8f;
@@ -30,13 +30,11 @@ public class ManaParticle extends TextureSheetParticle {
         this.zd = zSpeed;
 
         this.quadSize += 0.75f;
-        this.lifetime = 20;
+        this.lifetime = (int) (3.0f / (this.random.nextFloat() * 1.1f + 0.1f));
 
         this.setSpriteFromAge(spriteSet);
 
-        this.rCol = r;
-        this.gCol = g;
-        this.bCol = b;
+        this.gravity = grav;
     }
 
     @Override
@@ -44,15 +42,26 @@ public class ManaParticle extends TextureSheetParticle {
         return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
     }
 
-    public static class Provider implements ParticleProvider<SimpleParticleType> {
+    public static class BasicProvider implements ParticleProvider<SimpleParticleType> {
         private final SpriteSet spriteSet;
 
-        public Provider(SpriteSet spriteSet) {
+        public BasicProvider(SpriteSet spriteSet) {
             this.spriteSet = spriteSet;
         }
 
         public Particle createParticle(SimpleParticleType particleType, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
             return new ManaParticle(level, x, y, z, this.spriteSet, xSpeed, ySpeed, zSpeed);
+        }
+    }
+    public static class GravProvider implements ParticleProvider<SimpleParticleType> {
+        private final SpriteSet spriteSet;
+
+        public GravProvider(SpriteSet spriteSet) {
+            this.spriteSet = spriteSet;
+        }
+
+        public Particle createParticle(SimpleParticleType particleType, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
+            return new ManaParticle(level, x, y, z, this.spriteSet, xSpeed, ySpeed, zSpeed, 1);
         }
     }
 }
