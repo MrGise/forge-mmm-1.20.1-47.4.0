@@ -9,7 +9,7 @@ public class ManaParticle extends TextureSheetParticle {
                            SpriteSet spriteSet, double xSpeed, double ySpeed, double zSpeed) {
         super(level, x, y, z, xSpeed, ySpeed, zSpeed);
 
-        this.friction = 0.8f;
+        this.friction = 0.7f;
         this.xd = xSpeed;
         this.yd = ySpeed;
         this.zd = zSpeed;
@@ -24,7 +24,7 @@ public class ManaParticle extends TextureSheetParticle {
                            SpriteSet spriteSet, double xSpeed, double ySpeed, double zSpeed, float grav) {
         super(level, x, y, z, xSpeed, ySpeed, zSpeed);
 
-        this.friction = 0.8f;
+        this.friction = 0.98f;
         this.xd = xSpeed;
         this.yd = ySpeed;
         this.zd = zSpeed;
