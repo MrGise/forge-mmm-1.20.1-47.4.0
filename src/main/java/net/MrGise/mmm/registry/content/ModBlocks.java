@@ -159,10 +159,10 @@ public class ModBlocks {
 
 
     //- Crops
-    public static final RegistryObject<Block> STRAWBERRY = BLOCKS.register("strawberry",
+    public static final RegistryObject<Block> STRAWBERRY = registerBlock_("strawberry",
             () -> new StrawberryCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noCollission().noOcclusion()));
 
-    public static final RegistryObject<Block> CUCUMBER = BLOCKS.register("cucumber",
+    public static final RegistryObject<Block> CUCUMBER = registerBlock_("cucumber",
             () -> new CucumberCropBlock(BlockBehaviour.Properties.copy(Blocks.WHEAT).noCollission().noOcclusion()));
 
 
@@ -175,8 +175,14 @@ public class ModBlocks {
             () -> new FlowerBlock(() -> MobEffects.LUCK, 4, BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).noCollission().noOcclusion()),
             ModFoodProperties.OXALIS, false);
 
-    public static final RegistryObject<Block> POTTED_OXALIS = BLOCKS.register("potted_oxalis",
+    public static final RegistryObject<Block> POTTED_OXALIS = registerBlock_("potted_oxalis",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), OXALIS, BlockBehaviour.Properties.copy(Blocks.POTTED_OXEYE_DAISY).noOcclusion()));
+
+
+    //- Production
+
+    public static final RegistryObject<Block> CHEESE_BLOCK = registerBlock("cheese_block",
+            () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).strength(1.0f, 2.0f).sound(ModSounds.CHEESE_SOUNDS)));
 
 
     //. Structures
@@ -280,12 +286,16 @@ public class ModBlocks {
                 b -> () -> new DescriptionFuelBlockItem(new Item.Properties(), b.get(), burnTime, DescriptionTranslatable, ShiftToView));
     }
 
-    //\ The ultimate registration method
+    //\ The ultimate registration method(s)
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block,
                                                                      Function<RegistryObject<T>, Supplier<? extends Item>> itemFactory) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         ModItems.ITEMS.register(name, itemFactory.apply(toReturn));
         return toReturn;
+    }
+
+    private static <T extends Block> RegistryObject<T> registerBlock_(String name, Supplier<T> block) {
+        return BLOCKS.register(name, block);
     }
 
 

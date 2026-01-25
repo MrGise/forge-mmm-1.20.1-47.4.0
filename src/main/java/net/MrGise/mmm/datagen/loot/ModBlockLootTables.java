@@ -113,6 +113,12 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.MANA_ORE.get(),
                 block -> createMultipleOreDrop(ModBlocks.MANA_ORE.get(), ModItems.SOLIDIFIED_MANA.get(), 3, 8));
 
+
+        //- Production
+
+        this.dropSelf(ModBlocks.CHEESE_BLOCK.get());
+
+
         //\ Dimensions' blocks loot tables
         this.dropSelf(ModBlocks.NULL_BLOCK.get());
 

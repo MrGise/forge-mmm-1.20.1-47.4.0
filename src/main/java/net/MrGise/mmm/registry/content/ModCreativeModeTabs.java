@@ -179,6 +179,8 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.HONEYED_APPLE_SLICE.get());
 
                         output.accept(ModItems.MATZA.get());
+
+                        output.accept(ModBlocks.CHEESE_BLOCK.get());
                     }).build());
 
     //\ Dimensions

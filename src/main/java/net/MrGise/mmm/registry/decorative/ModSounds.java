@@ -10,7 +10,9 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-    // Defines sounds to be used in code
+import static net.MrGise.mmm.util.Methods.*;
+
+// Defines sounds to be used in code
 public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MMM.MOD_ID);
@@ -29,16 +31,19 @@ public class ModSounds {
 
     public static final ForgeSoundType NULL_BLOCK_SOUNDS = new ForgeSoundType(1.0f, 1.0f,
             ModSounds.NULL_BLOCK_BREAK, ModSounds.NULL_BLOCK_STEP, ModSounds.NULL_BLOCK_PLACE,
-            ModSounds.NULL_BLOCK_HIT, () -> SoundEvents.STONE_FALL);
+            ModSounds.NULL_BLOCK_HIT, s(SoundEvents.STONE_FALL));
+
+    public static final ForgeSoundType CHEESE_SOUNDS = new ForgeSoundType(1.0f, 1.0f,
+            s(SoundEvents.CAVE_VINES_BREAK), s(SoundEvents.SCULK_BLOCK_STEP), s(SoundEvents.STONE_PLACE),
+            s(SoundEvents.HANGING_ROOTS_HIT), s(SoundEvents.STONE_FALL));
 
 
     //| Registration methods
 
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
         ResourceLocation id = new ResourceLocation(MMM.MOD_ID, name);
-        return SOUND_EVENTS.register(name, () -> SoundEvent.createVariableRangeEvent(id));
+        return SOUND_EVENTS.register(name, s(SoundEvent.createVariableRangeEvent(id)));
     }
-
 
     public static void register(IEventBus eventBus) {
         SOUND_EVENTS.register(eventBus);

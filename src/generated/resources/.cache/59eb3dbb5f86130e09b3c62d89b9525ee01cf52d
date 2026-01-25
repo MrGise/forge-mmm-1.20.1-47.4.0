@@ -1,4 +1,4 @@
-// 1.20.1	2026-01-18T16:01:37.8882881	Loot Tables
+// 1.20.1	2026-01-25T19:27:18.7044724	Loot Tables
 6fdd3e19d045d0890f366a414d6cc70e7ecc6dc4 data/mmm/loot_tables/blocks/acacia_triple_door.json
 304bc14bc9e1f04828096388b5b5c3c6b3be2931 data/mmm/loot_tables/blocks/actinolite_ore.json
 edfc01428b5a8342c066b7e02f5d2d643d992e7c data/mmm/loot_tables/blocks/bamboo_triple_door.json
@@ -7,6 +7,7 @@ edfc01428b5a8342c066b7e02f5d2d643d992e7c data/mmm/loot_tables/blocks/bamboo_trip
 99f776c1845a9efa22a0136ceae1992f6a94d69c data/mmm/loot_tables/blocks/bowyery_table.json
 3c236f0436a94166ee2b5db489c314285b8e2c02 data/mmm/loot_tables/blocks/broken_skyground.json
 c1fbe35af1992706dc9926314cb16b0d3e978be0 data/mmm/loot_tables/blocks/broken_skysolid.json
+22426d852549be57632c132185d6244674fc01e2 data/mmm/loot_tables/blocks/cheese_block.json
 c55eae2111ab84ade30f8763d2accf0c4f8e7e90 data/mmm/loot_tables/blocks/cherry_triple_door.json
 114b3c63af13092cd3231a30ac6d9578c003964f data/mmm/loot_tables/blocks/crimson_triple_door.json
 9a12af1216e965d1d4d5a27edbabba8a4bc96aba data/mmm/loot_tables/blocks/cucumber.json

@@ -52,12 +52,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
         //-- Normal blocks
 
         uniqueCubeRotate(ModBlocks.BOWYERY_TABLE.get(), "bowyery_table",
-                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table_bottom"),
-                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table_top"),
-                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table_side"),
-                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table_side"),
-                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table_bow"),
-                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table_string"));
+                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table/bowyery_table_bottom"),
+                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table/bowyery_table_top"),
+                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table/bowyery_table_side"),
+                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table/bowyery_table_side"),
+                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table/bowyery_table_bow"),
+                ResourceLocation.fromNamespaceAndPath("mmm", "block/bowyery_table/bowyery_table_string"));
+
+
+        //-- Production
+
+        blockWithItem(ModBlocks.CHEESE_BLOCK);
 
 
         //| Skyland
