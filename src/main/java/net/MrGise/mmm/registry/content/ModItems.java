@@ -65,6 +65,11 @@ public class ModItems {
             () -> new OreRedetectorItem(new Item.Properties().stacksTo(1)));
 
 
+    //-- Buckets
+    public static final RegistryObject<Item> GOAT_MILK_BUCKET = registerItem("goat_milk_bucket",
+            () -> new BucketItem(ModFluids.SOURCE_GOAT_MILK, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+
+
     //-- Candles
     public static final RegistryObject<Item> LIT_CANDLE = registerBasicItem("candle_lit");
 

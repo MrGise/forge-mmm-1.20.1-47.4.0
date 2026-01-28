@@ -8,10 +8,7 @@ import net.MrGise.mmm.datagen.model.ModBlockStateProvider;
 import net.MrGise.mmm.datagen.model.ModItemModelProvider;
 import net.MrGise.mmm.datagen.advancement.ModAdvancementProvider;
 import net.MrGise.mmm.datagen.recipe.ModRecipeProvider;
-import net.MrGise.mmm.datagen.tag.ModBlockTagGenerator;
-import net.MrGise.mmm.datagen.tag.ModItemTagGenerator;
-import net.MrGise.mmm.datagen.tag.ModPaintingVariantTagProvider;
-import net.MrGise.mmm.datagen.tag.ModPoiTypeTagsProvider;
+import net.MrGise.mmm.datagen.tag.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -48,6 +45,7 @@ public class DataGenerators {
         generator.addProvider(event.includeServer(), blockTagsProvider);
         generator.addProvider(event.includeServer(), new ModItemTagGenerator(packOutput, lookupProvider, blockTagsProvider.contentsGetter(), existingFileHelper));
         generator.addProvider(event.includeClient(), new ModPoiTypeTagsProvider(packOutput, lookupProvider, existingFileHelper));
+        generator.addProvider(event.includeClient(), new ModFluidTagsProvider(packOutput, lookupProvider, existingFileHelper));
 
         //-- Models
         generator.addProvider(event.includeClient(), new ModItemModelProvider(packOutput, existingFileHelper));

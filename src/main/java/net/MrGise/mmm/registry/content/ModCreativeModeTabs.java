@@ -180,6 +180,8 @@ public class ModCreativeModeTabs {
 
                         output.accept(ModItems.MATZA.get());
 
+                        output.accept(Items.MILK_BUCKET);
+                        output.accept(ModItems.GOAT_MILK_BUCKET.get());
                         output.accept(ModBlocks.CHEESE_BLOCK.get());
                     }).build());
 

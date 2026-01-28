@@ -199,6 +199,13 @@ public class ModBlocks {
 
 
     //| Expansion
+    public static final RegistryObject<LiquidBlock> COW_MILK_BLOCK = registerBlock_("cow_milk_block",
+            () -> new LiquidBlock(ModFluids.SOURCE_COW_MILK, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
+
+    public static final RegistryObject<LiquidBlock> GOAT_MILK_BLOCK = registerBlock_("goat_milk_block",
+            () -> new LiquidBlock(ModFluids.SOURCE_GOAT_MILK, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
+
+
     public static final RegistryObject<Block> ACACIA_TRIPLE_DOOR = registerBlock("acacia_triple_door",
             () -> new TripleDoorBlock(BlockBehaviour.Properties.copy(Blocks.ACACIA_DOOR), BlockSetType.ACACIA));
 

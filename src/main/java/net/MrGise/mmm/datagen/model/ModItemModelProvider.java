@@ -59,6 +59,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.MATZA);
 
+        simpleItem(ModItems.GOAT_MILK_BUCKET);
+
         //- Materials
         //* Skyland
 

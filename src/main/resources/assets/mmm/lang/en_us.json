@@ -112,18 +112,6 @@
   "trim_material.mmm.skiron": "Skiron Material",
   "trim_pattern.mmm.glide": "Glide Armor Trim",
 
-
-  "item.mmm.test.basic": "Test Item",
-  "item.mmm.test.directory": "Directory Test Item",
-  "block.mmm.test.block": "Test Block",
-  "block.mmm.test.animated_block": "Animated Test Block",
-
-
-  "block.mmm.example_connection": "Example Connection",
-
-  "block.mmm.connecting_portal_block": "Connecting Portal Block",
-
-
   "block.mmm.heavenly_grass": "Heavenly Grass",
   "block.mmm.heavenly_grass_tall": "Tall Heavenly Grass",
   "block.mmm.heavenly_grass_block": "Heavenly Grass Block",
@@ -163,6 +151,16 @@
   "block.mmm.skywood_triple_door": "Skywood Triple Door",
   "block.mmm.skywood_trapdoor": "Skywood Trapdoor",
 
+  "item.mmm.test.basic": "Test Item",
+  "item.mmm.test.directory": "Directory Test Item",
+  "block.mmm.test.block": "Test Block",
+  "block.mmm.test.animated_block": "Animated Test Block",
+
+
+  "block.mmm.example_connection": "Example Connection",
+
+  "block.mmm.connecting_portal_block": "Connecting Portal Block",
+
 
   "block.mmm.birthday_cake": "Birthday cake",
   "block.mmm.sound_block": "Sound Block",
@@ -170,6 +168,7 @@
 
 
   "block.mmm.cheese_block": "Cheese Block",
+  "item.mmm.goat_milk_bucket": "Bucket of Goat's Milk",
 
 
   "block.mmm.null_block": "Null",

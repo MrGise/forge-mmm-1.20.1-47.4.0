@@ -6,6 +6,7 @@ import net.MrGise.mmm.datagen.advancement.ModTriggers;
 import net.MrGise.mmm.effect.potion.BetterBrewingRecipe;
 import net.MrGise.mmm.event.ModGeneralEvents;
 import net.MrGise.mmm.registry.decorative.ModParticles;
+import net.MrGise.mmm.registry.variables.ModFluidTypes;
 import net.MrGise.mmm.registry.variables.ModItemProperties;
 import net.MrGise.mmm.registry.variables.ModLootModifiers;
 import net.MrGise.mmm.registry.create.ModCreateBlocks;
@@ -17,6 +18,8 @@ import net.MrGise.mmm.registry.variants.ModEnchantments;
 import net.MrGise.mmm.registry.decorative.ModSounds;
 import net.MrGise.mmm.registry.variants.ModVillagers;
 import net.MrGise.mmm.resource.ModNetwork;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
@@ -58,9 +61,11 @@ public class MMM {
 
         ModCreateBlocks.register(modEventBus);
 
-        //- Basic
+        //: Content
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+        ModFluidTypes.register(modEventBus);
+        ModFluids.register(modEventBus);
 
         ModCreativeModeTabs.register(modEventBus);
 
@@ -148,6 +153,11 @@ public class MMM {
         public static void onClientSetup(FMLClientSetupEvent event) {
             event.enqueueWork(() -> {
                 ModItemProperties.addCustomItemProperties();
+
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_COW_MILK.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_COW_MILK.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_GOAT_MILK.get(), RenderType.translucent());
+                ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_GOAT_MILK.get(), RenderType.translucent());
             });
         }
     }

@@ -1,4 +1,4 @@
-// 1.20.1	2026-01-20T17:48:03.6179883	Item Models: mmm
+// 1.20.1	2026-01-27T20:04:24.0115014	Item Models: mmm
 4b12200ca3fac2057d27e77507d76d35940039e3 assets/mmm/models/item/acacia_triple_door.json
 cab82837fca58f2721c0a61040837f5ce1a3b78f assets/mmm/models/item/actinolite.json
 22c4a40423e2f812fb3fcaacc80c0e9da5536ff6 assets/mmm/models/item/actinolite_axe.json
@@ -20,6 +20,7 @@ bce57dc093ad4c5a0156d302341d538c8a52d6f8 assets/mmm/models/item/breadstick.json
 e74ade30e30e7b070280860cbff05e88eae4a3b2 assets/mmm/models/item/dark_oak_triple_door.json
 9ddc8b75c5727f34de20aafca8bea823988570ca assets/mmm/models/item/droppy_likes_everything_music_disc.json
 ac0cbf86250964032b645f39b91d616436c5f651 assets/mmm/models/item/droppy_likes_ricochet_music_disc.json
+5a412e13686fb9965571bd5847d547dbbc727937 assets/mmm/models/item/goat_milk_bucket.json
 199b10389a0f5707f1a0db138ad919e7eb242f57 assets/mmm/models/item/heavenly_grass.json
 1dc9f334ddd4928069ddc6f14a794467eb059f1b assets/mmm/models/item/heavenly_grass_short.json
 3bab1279dede3eecd1ad98845fb1c2cf911a5377 assets/mmm/models/item/heavenly_grass_top.json
