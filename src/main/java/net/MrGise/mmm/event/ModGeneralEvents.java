@@ -6,6 +6,7 @@ import net.MrGise.mmm.command.*;
 import net.MrGise.mmm.datagen.advancement.ModTriggers;
 import net.MrGise.mmm.item.HammerItem;
 import net.MrGise.mmm.registry.content.ModBlocks;
+import net.MrGise.mmm.registry.content.ModFluids;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.registry.variants.ModVillagers;
 import net.MrGise.mmm.resource.ModNetwork;
@@ -18,6 +19,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -31,7 +33,9 @@ import net.minecraft.world.item.trading.MerchantOffer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
@@ -113,6 +117,59 @@ public class ModGeneralEvents {
                 HARVESTED_BLOCKS.add(pos);
                 serverPlayer.gameMode.destroyBlock(pos);
                 HARVESTED_BLOCKS.remove(pos);
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void onItemClickOnBlock(PlayerInteractEvent.RightClickBlock event) {
+        Player player = event.getEntity();
+        Level level = event.getLevel();
+        ItemStack item = event.getItemStack();
+        boolean succeeded = false;
+
+        if (item.is(Items.MILK_BUCKET)) {
+            if (player.isShiftKeyDown()) return;
+
+            event.setCanceled(true);
+            event.setCancellationResult(InteractionResult.SUCCESS);
+
+            if (!level.isClientSide()) {
+                BlockPos pos = event.getHitVec().getBlockPos().relative(event.getHitVec().getDirection());
+
+                if (level.isEmptyBlock(pos)) {
+                    level.setBlock(pos, ModBlocks.COW_MILK_BLOCK.get().defaultBlockState(), 3);
+                    succeeded = true;
+                }
+            }
+            if (succeeded) {
+                level.playSound(null, player.blockPosition(), SoundEvents.BUCKET_EMPTY, SoundSource.PLAYERS);
+                if (!player.getAbilities().instabuild) {
+                    item.shrink(1);
+                    player.setItemInHand(event.getHand(), new ItemStack(Items.BUCKET));
+                }
+            }
+        } else if (item.is(Items.BUCKET)) {
+            BlockPos pos = event.getHitVec().getBlockPos().relative(event.getHitVec().getDirection());
+
+            if (!(level.getBlockState(pos) == ModBlocks.COW_MILK_BLOCK.get().defaultBlockState())) return;
+
+            event.setCanceled(true);
+            event.setCancellationResult(InteractionResult.SUCCESS);
+
+            if (!level.isClientSide()) {
+
+                if (level.getBlockState(pos) == ModBlocks.COW_MILK_BLOCK.get().defaultBlockState()) {
+                    level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+                    succeeded = true;
+                }
+            }
+            if (succeeded) {
+                level.playSound(null, player.blockPosition(), SoundEvents.BUCKET_FILL, SoundSource.PLAYERS);
+                if (!player.getAbilities().instabuild) {
+                    item.shrink(1);
+                    player.setItemInHand(event.getHand(), new ItemStack(Items.MILK_BUCKET));
+                }
             }
         }
     }

@@ -13,11 +13,7 @@ public class Methods {
     }
 
     public static ResourceLocation mmm(String path) {
-        return ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, path);
-    }
-
-    public static ResourceLocation crt(String path) {
-        return new ResourceLocation(Create.ID, path);
+        return new ResourceLocation(MMM.MOD_ID, path);
     }
 
     public static ResourceLocation mcr(String path) {

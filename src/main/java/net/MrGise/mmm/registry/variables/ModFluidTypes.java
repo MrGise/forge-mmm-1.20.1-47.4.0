@@ -2,6 +2,7 @@ package net.MrGise.mmm.registry.variables;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.fluid.BaseFluidType;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fluids.FluidType;
 import net.minecraftforge.registries.DeferredRegister;
@@ -17,16 +18,16 @@ public class ModFluidTypes {
 
 
     public static final RegistryObject<FluidType> COW_MILK = registerFluidType("cow_milk",
-            new BaseFluidType(crt("fluid/milk_still"),
-                    crt("fluid/milk_flow"), mcr("block/water_overlay"), 0xA1FFFFFF,
+            new BaseFluidType(new ResourceLocation(MMM.MOD_ID, "fluid/milk_still"),
+                    new ResourceLocation(MMM.MOD_ID, "fluid/milk_flow"), mcr("block/water_overlay"), 0xA1FFFFFF,
                     new Vector3f(1f, 1f, 1f),
-                    FluidType.Properties.create().viscosity(5).density(15).supportsBoating(true)));
+                    FluidType.Properties.create().viscosity(8).density(15).supportsBoating(true)));
 
     public static final RegistryObject<FluidType> GOAT_MILK = registerFluidType("goat_milk",
-            new BaseFluidType(crt("fluid/milk_still"),
-                    crt("fluid/milk_flow"), mcr("block/water_overlay"), 0xA1FFFFFF,
+            new BaseFluidType(new ResourceLocation(MMM.MOD_ID, "fluid/milk_still"),
+                    new ResourceLocation(MMM.MOD_ID, "fluid/milk_flow"), mcr("block/water_overlay"), 0xA1FFFFFF,
                     new Vector3f(1f, 1f, 1f),
-                    FluidType.Properties.create().viscosity(5).density(15).supportsBoating(true)));
+                    FluidType.Properties.create().viscosity(8).density(15).supportsBoating(true)));
 
 
     public static RegistryObject<FluidType> registerFluidType(String name, FluidType type) {
