@@ -90,7 +90,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.RAW_SKIRON_BLOCK);
         blockWithItem(ModBlocks.SKOAL_BLOCK);
 
-        //. World
+        //. Overworld & Co.
         blockWithItem(ModBlocks.MANA_ORE);
 
         thinLogBlockWithItem(((ThinLogBlock) ModBlocks.THIN_PINE_LOG.get()),
@@ -98,6 +98,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         //\ Dimensions
         blockWithItem(ModBlocks.NULL_BLOCK);
+
+        blockWithItem(ModBlocks.CANPHOR);
 
 
         //-- Other blocks

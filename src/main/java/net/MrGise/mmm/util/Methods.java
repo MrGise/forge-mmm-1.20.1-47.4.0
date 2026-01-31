@@ -13,7 +13,7 @@ public class Methods {
     }
 
     public static ResourceLocation mmm(String path) {
-        return new ResourceLocation(MMM.MOD_ID, path);
+        return nAp(MMM.MOD_ID, path);
     }
 
     public static ResourceLocation mcr(String path) {

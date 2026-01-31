@@ -1,5 +1,6 @@
 package net.MrGise.mmm.event;
 
+import com.mojang.datafixers.kinds.IdF;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.command.*;
@@ -36,14 +37,18 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.HitResult;
 import net.minecraftforge.event.AnvilUpdateEvent;
 import net.minecraftforge.event.RegisterCommandsEvent;
 import net.minecraftforge.event.TickEvent;
+import net.minecraftforge.event.entity.player.FillBucketEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
 import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.event.village.WandererTradesEvent;
+import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
@@ -122,7 +127,7 @@ public class ModGeneralEvents {
     }
 
     @SubscribeEvent
-    public static void onItemClickOnBlock(PlayerInteractEvent.RightClickBlock event) {
+    public static void onPlayerRClickOnBlock(PlayerInteractEvent.RightClickBlock event) {
         Player player = event.getEntity();
         Level level = event.getLevel();
         ItemStack item = event.getItemStack();
@@ -149,29 +154,44 @@ public class ModGeneralEvents {
                     player.setItemInHand(event.getHand(), new ItemStack(Items.BUCKET));
                 }
             }
-        } else if (item.is(Items.BUCKET)) {
-            BlockPos pos = event.getHitVec().getBlockPos().relative(event.getHitVec().getDirection());
-
-            if (!(level.getBlockState(pos) == ModBlocks.COW_MILK_BLOCK.get().defaultBlockState())) return;
-
-            event.setCanceled(true);
-            event.setCancellationResult(InteractionResult.SUCCESS);
-
-            if (!level.isClientSide()) {
-
-                if (level.getBlockState(pos) == ModBlocks.COW_MILK_BLOCK.get().defaultBlockState()) {
-                    level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
-                    succeeded = true;
-                }
-            }
-            if (succeeded) {
-                level.playSound(null, player.blockPosition(), SoundEvents.BUCKET_FILL, SoundSource.PLAYERS);
-                if (!player.getAbilities().instabuild) {
-                    item.shrink(1);
-                    player.setItemInHand(event.getHand(), new ItemStack(Items.MILK_BUCKET));
-                }
-            }
         }
+    }
+
+    @SubscribeEvent
+    public static void onBucketFill(FillBucketEvent event) {
+        Player player = event.getEntity();
+        Level level = event.getLevel();
+
+        if (player == null || level.isClientSide) return;
+        if (!event.getEmptyBucket().is(Items.BUCKET)) return;
+
+        HitResult result = event.getTarget();
+        if (!(result instanceof BlockHitResult)) return;
+
+        BlockPos pos = ((BlockHitResult) result).getBlockPos();
+
+        if (level.getBlockState(pos).is(ModBlocks.GOAT_MILK_BLOCK.get())) {
+            level.playSound(
+                    null,
+                    pos,
+                    SoundEvents.BUCKET_FILL,
+                    SoundSource.PLAYERS
+            );
+        }
+
+        if (!level.getBlockState(pos).is(ModBlocks.COW_MILK_BLOCK.get())) return;
+
+        level.setBlock(pos, Blocks.AIR.defaultBlockState(), 3);
+
+        event.setFilledBucket(new ItemStack(Items.MILK_BUCKET));
+        event.setResult(Event.Result.ALLOW);
+
+        level.playSound(
+                null,
+                pos,
+                SoundEvents.BUCKET_FILL,
+                SoundSource.PLAYERS
+        );
     }
 
     @SubscribeEvent

@@ -24,6 +24,12 @@ public class ModSounds {
     public static final RegistryObject<SoundEvent> NULL_BLOCK_STEP = registerSoundEvent("null_block_step");
     public static final RegistryObject<SoundEvent> NULL_BLOCK_PLACE = registerSoundEvent("null_block_place");
 
+    public static final RegistryObject<SoundEvent> CANPHOR_BREAK = registerSoundEvent("canphor_break");
+    public static final RegistryObject<SoundEvent> CANPHOR_HIT = registerSoundEvent("canphor_hit");
+    public static final RegistryObject<SoundEvent> CANPHOR_STEP = registerSoundEvent("canphor_step");
+    public static final RegistryObject<SoundEvent> CANPHOR_PLACE = registerSoundEvent("canphor_place");
+    public static final RegistryObject<SoundEvent> CANPHOR_FALL = registerSoundEvent("canphor_fall");
+
     public static final RegistryObject<SoundEvent> DROPPY_LIKES_RICOCHET = registerSoundEvent("droppy_likes_ricochet");
     public static final RegistryObject<SoundEvent> DROPPY_LIKES_RICOCHET_FULL = registerSoundEvent("droppy_likes_ricochet_full");
     public static final RegistryObject<SoundEvent> TUNE = registerSoundEvent("tune");
@@ -32,6 +38,10 @@ public class ModSounds {
     public static final ForgeSoundType NULL_BLOCK_SOUNDS = new ForgeSoundType(1.0f, 1.0f,
             ModSounds.NULL_BLOCK_BREAK, ModSounds.NULL_BLOCK_STEP, ModSounds.NULL_BLOCK_PLACE,
             ModSounds.NULL_BLOCK_HIT, s(SoundEvents.STONE_FALL));
+
+    public static final ForgeSoundType CANPHOR_SOUNDS = new ForgeSoundType(1.0f, 1.0f,
+            ModSounds.CANPHOR_BREAK, ModSounds.CANPHOR_STEP, ModSounds.CANPHOR_PLACE,
+            ModSounds.CANPHOR_HIT, ModSounds.CANPHOR_FALL);
 
     public static final ForgeSoundType CHEESE_SOUNDS = new ForgeSoundType(1.0f, 1.0f,
             s(SoundEvents.CAVE_VINES_BREAK), s(SoundEvents.SCULK_BLOCK_STEP), s(SoundEvents.STONE_PLACE),

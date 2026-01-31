@@ -23,38 +23,92 @@
       }
     ]
   },
+
   "ore_detector_success": {
     "subtitle": "sounds.mmm.ore_detector_success",
     "sounds": [
       "mmm:ore_detector_success"
     ]
   },
+
   "null_block_break": {
-    "subtitle": "sounds.mmm.null_block_break",
+    "subtitle": "subtitles.block.generic.break",
     "sounds": [
-      "mmm:block/null_block_break"
+      "mmm:block/null/null_block_break"
     ]
   },
   "null_block_hit": {
-    "subtitle": "sounds.mmm.null_block_hit",
+    "subtitle": "subtitles.block.generic.hit",
     "sounds": [
-      "mmm:block/null_block_hit1",
-      "mmm:block/null_block_hit2"
+      "mmm:block/null/null_block_hit1",
+      "mmm:block/null/null_block_hit2"
     ]
   },
   "null_block_step": {
-    "subtitle": "sounds.mmm.null_block_step",
+    "subtitle": "subtitles.block.generic.footsteps",
     "sounds": [
-      "mmm:block/null_block_step1",
-      "mmm:block/null_block_step2",
-      "mmm:block/null_block_step3",
-      "mmm:block/null_block_step4"
+      "mmm:block/null/null_block_step1",
+      "mmm:block/null/null_block_step2",
+      "mmm:block/null/null_block_step3",
+      "mmm:block/null/null_block_step4"
     ]
   },
   "null_block_place": {
-    "subtitle": "sounds.mmm.null_block_place",
+    "subtitle": "subtitles.block.generic.place",
     "sounds": [
-      "mmm:block/null_block_place"
+      "mmm:block/null/null_block_place"
+    ]
+  },
+
+  "canphor_break": {
+    "subtitle": "subtitles.block.generic.break",
+    "sounds": [
+      "mmm:block/canphor/canphor_break1",
+      "mmm:block/canphor/canphor_break2",
+      "mmm:block/canphor/canphor_break3",
+      "mmm:block/canphor/canphor_break4"
+    ]
+  },
+  "canphor_hit": {
+    "subtitle": "subtitles.block.generic.hit",
+    "sounds": [
+      "mmm:block/canphor/canphor_step1",
+      "mmm:block/canphor/canphor_step2",
+      "mmm:block/canphor/canphor_step3",
+      "mmm:block/canphor/canphor_step4",
+      "mmm:block/canphor/canphor_step5",
+      "mmm:block/canphor/canphor_step6"
+    ]
+  },
+  "canphor_step": {
+    "subtitle": "subtitles.block.generic.footsteps",
+    "sounds": [
+      "mmm:block/canphor/canphor_step1",
+      "mmm:block/canphor/canphor_step2",
+      "mmm:block/canphor/canphor_step3",
+      "mmm:block/canphor/canphor_step4",
+      "mmm:block/canphor/canphor_step5",
+      "mmm:block/canphor/canphor_step6"
+    ]
+  },
+  "canphor_place": {
+    "subtitle": "subtitles.block.generic.place",
+    "sounds": [
+      "mmm:block/canphor/canphor_place1",
+      "mmm:block/canphor/canphor_place2",
+      "mmm:block/canphor/canphor_place3",
+      "mmm:block/canphor/canphor_place4"
+    ]
+  },
+  "canphor_fall": {
+    "subtitle": "subtitles.block.generic.fall",
+    "sounds": [
+      "mmm:block/canphor/canphor_step1",
+      "mmm:block/canphor/canphor_step2",
+      "mmm:block/canphor/canphor_step3",
+      "mmm:block/canphor/canphor_step4",
+      "mmm:block/canphor/canphor_step5",
+      "mmm:block/canphor/canphor_step6"
     ]
   }
 }

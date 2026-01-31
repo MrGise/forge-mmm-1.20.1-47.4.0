@@ -65,6 +65,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.SKIRON_BLOCK.get())
                 .add(ModBlocks.RAW_SKIRON_BLOCK.get())
 
+                .add(ModBlocks.CANPHOR.get())
+
                 .add(ModBlocks.MANA_ORE.get())
 
                 .add(ModBlocks.NULL_BLOCK.get())

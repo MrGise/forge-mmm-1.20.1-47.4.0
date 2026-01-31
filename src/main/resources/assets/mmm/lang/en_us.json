@@ -167,8 +167,8 @@
   "block.mmm.portal_block": "Portal Block",
 
 
-  "block.mmm.cheese_block": "Cheese Block",
-  "item.mmm.goat_milk_bucket": "Bucket of Goat's Milk",
+  "block.mmm.cheese_block": "Block of Cheese",
+  "item.mmm.goat_milk_bucket": "Goat's Milk Bucket",
 
 
   "block.mmm.null_block": "Null",
@@ -225,12 +225,7 @@
   "enchantment.mmm.lightning_striker": "Lightning Striker",
 
 
-  "sounds.mmm.ore_detector_success": "Ore detector succeeds",
-
-  "sounds.mmm.null_block_break": "Null broken",
-  "sounds.mmm.null_block_place": "Null placed",
-  "sounds.mmm.null_block_hit": "Null hit",
-  "sounds.mmm.null_block_step": "Walking on Null",
+  "sounds.mmm.ore_detector_success": "Ore Detector found an ore",
 
 
   "tooltip.mmm.glyphs.title": "When used as a spell:",

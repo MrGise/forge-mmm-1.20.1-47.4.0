@@ -13,25 +13,28 @@ import org.joml.Vector3f;
 import static net.MrGise.mmm.util.Methods.*;
 
 public class ModFluidTypes {
+    static ResourceLocation WATER_OVERLAY = mcr("block/water_overlay");
+    static ResourceLocation MILK_STILL = mmm("fluid/milk_still");
+    static ResourceLocation MILK_FLOWING = mmm("fluid/milk_flow");
+
+
     public static final DeferredRegister<FluidType> FLUID_TYPES =
             DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, MMM.MOD_ID);
 
 
     public static final RegistryObject<FluidType> COW_MILK = registerFluidType("cow_milk",
-            new BaseFluidType(new ResourceLocation(MMM.MOD_ID, "fluid/milk_still"),
-                    new ResourceLocation(MMM.MOD_ID, "fluid/milk_flow"), mcr("block/water_overlay"), 0xA1FFFFFF,
-                    new Vector3f(1f, 1f, 1f),
+            new BaseFluidType(MILK_STILL, MILK_FLOWING, WATER_OVERLAY,
+                    0xA1FFFFFF, new Vector3f(1f, 1f, 1f),
                     FluidType.Properties.create().viscosity(8).density(15).supportsBoating(true)));
 
     public static final RegistryObject<FluidType> GOAT_MILK = registerFluidType("goat_milk",
-            new BaseFluidType(new ResourceLocation(MMM.MOD_ID, "fluid/milk_still"),
-                    new ResourceLocation(MMM.MOD_ID, "fluid/milk_flow"), mcr("block/water_overlay"), 0xA1FFFFFF,
-                    new Vector3f(1f, 1f, 1f),
+            new BaseFluidType(MILK_STILL, MILK_FLOWING, WATER_OVERLAY,
+                    0xA1FFFFFF, new Vector3f(1f, 1f, 1f),
                     FluidType.Properties.create().viscosity(8).density(15).supportsBoating(true)));
 
 
     public static RegistryObject<FluidType> registerFluidType(String name, FluidType type) {
-        return FLUID_TYPES.register(name, () -> type);
+        return FLUID_TYPES.register(name, s(type));
     }
 
     public static void register(IEventBus eventBus) {

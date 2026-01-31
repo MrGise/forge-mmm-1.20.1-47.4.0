@@ -1,5 +1,7 @@
 {
   "values": [
+    "mmm:cow_milk",
+    "mmm:flowing_cow_milk",
     "mmm:goat_milk",
     "mmm:flowing_goat_milk"
   ]

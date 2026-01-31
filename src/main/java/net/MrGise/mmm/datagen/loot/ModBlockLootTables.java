@@ -122,6 +122,8 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         //\ Dimensions' blocks loot tables
         this.dropSelf(ModBlocks.NULL_BLOCK.get());
 
+        this.dropSelf(ModBlocks.CANPHOR.get());
+
 
         //| Expansions
         this.add(ModBlocks.ACACIA_TRIPLE_DOOR.get(),

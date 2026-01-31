@@ -197,6 +197,9 @@ public class ModBlocks {
             () -> new Block(BlockBehaviour.Properties.of().mapColor(DyeColor.WHITE).noOcclusion().lightLevel(state -> 15)
                     .strength(3.0f, 10.0f).requiresCorrectToolForDrops().sound(ModSounds.NULL_BLOCK_SOUNDS)));
 
+    public static final RegistryObject<Block> CANPHOR = registerBlock("canphor",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(ModSounds.CANPHOR_SOUNDS).requiresCorrectToolForDrops()));
+
 
     //| Expansion
     public static final RegistryObject<LiquidBlock> COW_MILK_BLOCK = registerBlock_("cow_milk_block",
