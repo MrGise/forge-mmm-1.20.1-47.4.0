@@ -14,8 +14,8 @@ import static net.MrGise.mmm.util.Methods.*;
 
 public class ModFluidTypes {
     static ResourceLocation WATER_OVERLAY = mcr("block/water_overlay");
-    static ResourceLocation MILK_STILL = mmm("fluid/milk_still");
-    static ResourceLocation MILK_FLOWING = mmm("fluid/milk_flow");
+    static ResourceLocation MILK_STILL = crt("fluid/milk_still");
+    static ResourceLocation MILK_FLOWING = crt("fluid/milk_flow");
 
 
     public static final DeferredRegister<FluidType> FLUID_TYPES =

@@ -2,7 +2,6 @@ package net.MrGise.mmm.registry.content;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.variables.ModFluidTypes;
-import net.minecraft.world.item.Items;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
 import net.minecraftforge.eventbus.api.IEventBus;

@@ -16,6 +16,10 @@ public class Methods {
         return nAp(MMM.MOD_ID, path);
     }
 
+    public static ResourceLocation crt(String path) {
+        return nAp(Create.ID, path);
+    }
+
     public static ResourceLocation mcr(String path) {
         return new ResourceLocation(path);
     }

@@ -57,6 +57,17 @@ public class MMM {
     public MMM(FMLJavaModLoadingContext context) {
         IEventBus modEventBus = context.getModEventBus();
 
+        //. Normal
+
+        // Register the commonSetup method for modloading
+        modEventBus.addListener(this::commonSetup);
+
+        // Register ourselves for server and other game events we are interested in
+        MinecraftForge.EVENT_BUS.register(this);
+
+        // Register the item to a creative tab
+        modEventBus.addListener(this::addCreative);
+
         //\ Custom
 
         ModCreateBlocks.register(modEventBus);
@@ -89,16 +100,6 @@ public class MMM {
 
         ModSounds.register(modEventBus);
 
-        //. Normal
-
-        // Register the commonSetup method for modloading
-        modEventBus.addListener(this::commonSetup);
-
-        // Register ourselves for server and other game events we are interested in
-        MinecraftForge.EVENT_BUS.register(this);
-
-        // Register the item to a creative tab
-        modEventBus.addListener(this::addCreative);
 
     }
 
@@ -153,11 +154,6 @@ public class MMM {
         public static void onClientSetup(FMLClientSetupEvent event) {
             event.enqueueWork(() -> {
                 ModItemProperties.addCustomItemProperties();
-
-                ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_COW_MILK.get(), RenderType.translucent());
-                ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_COW_MILK.get(), RenderType.translucent());
-                ItemBlockRenderTypes.setRenderLayer(ModFluids.SOURCE_GOAT_MILK.get(), RenderType.translucent());
-                ItemBlockRenderTypes.setRenderLayer(ModFluids.FLOWING_GOAT_MILK.get(), RenderType.translucent());
             });
         }
     }

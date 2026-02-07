@@ -12,6 +12,14 @@
       "permutations": {
         "skiron": "mmm:trims/color_palettes/skiron"
       }
+    },
+    {
+      "type": "single",
+      "resource": "create:fluid/milk_still"
+    },
+    {
+      "type": "single",
+      "resource": "create:fluid/milk_flow"
     }
   ]
 }
