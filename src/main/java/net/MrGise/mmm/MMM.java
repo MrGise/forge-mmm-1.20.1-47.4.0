@@ -12,12 +12,16 @@ import net.MrGise.mmm.registry.variables.ModLootModifiers;
 import net.MrGise.mmm.registry.create.ModCreateBlocks;
 import net.MrGise.mmm.registry.content.*;
 import net.MrGise.mmm.registry.content.ModItems;
+import net.MrGise.mmm.registry.variables.ModMenuTypes;
 import net.MrGise.mmm.registry.variants.ModPaintings;
 import net.MrGise.mmm.registry.variants.ModPotions;
 import net.MrGise.mmm.registry.variants.ModEnchantments;
 import net.MrGise.mmm.registry.decorative.ModSounds;
 import net.MrGise.mmm.registry.variants.ModVillagers;
 import net.MrGise.mmm.resource.ModNetwork;
+import net.MrGise.mmm.screen.bowyery_table.BowyeryTableScreen;
+import net.MrGise.mmm.screen.thingamajig.ThingamajigScreen;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -100,6 +104,10 @@ public class MMM {
 
         ModSounds.register(modEventBus);
 
+        //~ Block entities & Menus
+
+        ModBlockEntities.register(modEventBus);
+        ModMenuTypes.register(modEventBus);
 
     }
 
@@ -135,8 +143,8 @@ public class MMM {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.BUILDING_BLOCKS) {
-
+        if(event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
+            event.accept(ModBlocks.THINGAMAJIG);
         }
     }
 
@@ -154,6 +162,9 @@ public class MMM {
         public static void onClientSetup(FMLClientSetupEvent event) {
             event.enqueueWork(() -> {
                 ModItemProperties.addCustomItemProperties();
+
+                MenuScreens.register(ModMenuTypes.THINGAMAJIG_MENU.get(), ThingamajigScreen::new);
+                MenuScreens.register(ModMenuTypes.BOWYERY_TABLE_MENU.get(), BowyeryTableScreen::new);
             });
         }
     }

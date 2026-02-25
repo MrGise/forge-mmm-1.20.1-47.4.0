@@ -119,6 +119,9 @@ public class ModBlocks {
             () -> new PortalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).strength(8, 10).sound(SoundType.GLASS)
                     .lightLevel(state -> state.getValue(PortalBlock.EYE) ? 6 : 0).isRedstoneConductor(((blockState, blockGetter, blockPos) -> false)).noLootTable(), ModItems.ACTINOLITE), "actinolite");
 
+    public static final RegistryObject<Block> THINGAMAJIG = registerBlock("thingamajig",
+            () -> new ThingamajigBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).emissiveRendering((blockState, blockGetter, blockPos) -> true)));
+
 
     //- Skyland pt. 2
     public static final RegistryObject<Block> SKYWOOD_LOG = registerBlock("skywood_log",

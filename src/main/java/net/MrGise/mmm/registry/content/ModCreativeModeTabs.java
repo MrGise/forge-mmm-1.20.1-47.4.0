@@ -26,7 +26,7 @@ public class ModCreativeModeTabs {
     public static final RegistryObject<CreativeModeTab> OVERWORLD = CREATIVE_MODE_TABS.register("the_skyland",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModBlocks.SKIRON_ORE.get()))
                     .title(Component.translatable("creativetab.overworld")).displayItems((displayParameters, output) -> {
-                        //,- The Skyland
+                        //| The Skyland
                         //- Heavenly grass
                         output.accept(ModBlocks.HEAVENLY_GRASS.get());
                         ItemStack stack1 = ModBlocks.HEAVENLY_GRASS.get().asItem().getDefaultInstance();

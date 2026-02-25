@@ -37,6 +37,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         //--Loot Tables here
         this.dropSelf(ModBlocks.TEST_BLOCK.get());
         this.dropSelf(ModBlocks.ANIMATED_TEST_BLOCK.get());
+        this.dropSelf(ModBlocks.THINGAMAJIG.get());
 
 
         this.dropSelf(ModBlocks.SKOAL_BLOCK.get()); //, Skyland bit

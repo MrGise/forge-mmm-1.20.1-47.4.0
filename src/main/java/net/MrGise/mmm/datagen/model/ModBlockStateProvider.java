@@ -49,6 +49,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.SOUND_BLOCK);
 
+        blockWithItem(ModBlocks.THINGAMAJIG, new ResourceLocation(MMM.MOD_ID, "block/thingamajig"));
+
         //-- Normal blocks
 
         uniqueCubeRotate(ModBlocks.BOWYERY_TABLE.get(), "bowyery_table",
@@ -331,6 +333,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+    }
+
+    private void blockWithItem(RegistryObject<Block> blockRegistryObject, ResourceLocation customModel) {
+        simpleBlockWithItem(blockRegistryObject.get(), models().getExistingFile(customModel));
     }
 
     private void blockWithItemDirFix(RegistryObject<Block> blockRO) {

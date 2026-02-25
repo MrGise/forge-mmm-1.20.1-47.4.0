@@ -3,7 +3,7 @@
 	"credit": "Made with Blockbench",
 	"parent": "block/block",
 	"textures": {
-		"all": "mmm:item/models/candle/candle_lit",
+		"all": "mmm:item/candle/models/candle_lit",
 		"particle": "mmm:item/models/flame",
 		"flame": "mmm:item/models/flame"
 	},
