@@ -1,13 +1,11 @@
 package net.MrGise.mmm.block;
 
 import net.MrGise.mmm.block.entity.BowyeryTableBlockEntity;
-import net.MrGise.mmm.block.entity.ThingamajigBlockEntity;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
@@ -65,7 +63,7 @@ public class BowyeryTableBlock extends BaseEntityBlock {
             }
         }
 
-        return super.use(state, level, pos, player, hand, result);
+        return InteractionResult.SUCCESS;
     }
 
     @Nullable

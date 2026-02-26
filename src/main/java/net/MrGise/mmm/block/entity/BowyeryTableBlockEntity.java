@@ -10,8 +10,8 @@ import net.minecraft.world.MenuProvider;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
-import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.Tags;
@@ -35,6 +35,7 @@ public class BowyeryTableBlockEntity extends BlockEntity implements MenuProvider
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
             return switch (slot) {
                 case 0 -> stack.is(Tags.Items.TOOLS_BOWS) || stack.is(Tags.Items.TOOLS_CROSSBOWS);
+                case 1, 2 -> true;
                 case 3 -> false;
                 default -> super.isItemValid(slot, stack);
             };
@@ -48,27 +49,9 @@ public class BowyeryTableBlockEntity extends BlockEntity implements MenuProvider
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
-    protected final ContainerData data;
 
     public BowyeryTableBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.BOWYERY_TABLE_BE.get(), pos, state);
-        this.data = new ContainerData() {
-            @Override
-            public int get(int index) {
-                return 0;
-            }
-
-            @Override
-            public void set(int p_39285_, int p_39286_) {
-
-            }
-
-            @Override
-            public int getCount() {
-                return 0;
-            }
-        };
-
     }
 
     @Override
@@ -78,7 +61,7 @@ public class BowyeryTableBlockEntity extends BlockEntity implements MenuProvider
 
     @Override
     public @Nullable AbstractContainerMenu createMenu(int containerId, Inventory playerInventory, Player player) {
-        return new BowyeryTableMenu(containerId, playerInventory, this, this.data);
+        return new BowyeryTableMenu(containerId, playerInventory, this);
     }
 
     @Override

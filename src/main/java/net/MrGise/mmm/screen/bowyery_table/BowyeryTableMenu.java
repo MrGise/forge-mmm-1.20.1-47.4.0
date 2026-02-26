@@ -16,30 +16,26 @@ import net.minecraftforge.items.SlotItemHandler;
 public class BowyeryTableMenu extends AbstractContainerMenu {
     public final BowyeryTableBlockEntity blockEntity;
     private final Level level;
-    private final ContainerData data;
 
     public BowyeryTableMenu(int containerId, Inventory inv, FriendlyByteBuf extraData) {
-        this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
+        this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()));
     }
 
-    public BowyeryTableMenu(int containerId, Inventory inv, BlockEntity entity, ContainerData data) {
+    public BowyeryTableMenu(int containerId, Inventory inv, BlockEntity entity) {
         super(ModMenuTypes.BOWYERY_TABLE_MENU.get(), containerId);
         checkContainerSize(inv, 4);
         blockEntity = ((BowyeryTableBlockEntity) entity);
         this.level = inv.player.level();
-        this.data = data;
 
         addPlayerInventory(inv);
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 25, 25));
-            this.addSlot(new SlotItemHandler(handler, 1, 38, 54));
-            this.addSlot(new SlotItemHandler(handler, 2, 56, 29));
-            this.addSlot(new SlotItemHandler(handler, 3, 115, 25));
+            this.addSlot(new SlotItemHandler(handler, 0, 26, 26));
+            this.addSlot(new SlotItemHandler(handler, 1, 39, 55));
+            this.addSlot(new SlotItemHandler(handler, 2, 57, 30));
+            this.addSlot(new SlotItemHandler(handler, 3, 116, 26));
         });
-
-        addDataSlots(data);
     }
 
 
@@ -96,7 +92,7 @@ public class BowyeryTableMenu extends AbstractContainerMenu {
     @Override
     public boolean stillValid(Player player) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                player, ModBlocks.THINGAMAJIG.get());
+                player, ModBlocks.BOWYERY_TABLE.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {
