@@ -41,7 +41,7 @@ public class ThingamajigScreen extends AbstractContainerScreen<ThingamajigMenu> 
 
     private void renderProgressArrow(GuiGraphics gui, int x, int y) {
         if (menu.isCrafting()) {
-            gui.blit(TEXTURE, x + 86, y + 31, 176, 0, 8, menu.getScaledProgress());
+            gui.blit(TEXTURE, x + 85, y + 36, 176, 0, 8, menu.getScaledProgress());
         }
     }
 

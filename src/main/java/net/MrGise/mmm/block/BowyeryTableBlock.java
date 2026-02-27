@@ -1,6 +1,7 @@
 package net.MrGise.mmm.block;
 
 import net.MrGise.mmm.block.entity.BowyeryTableBlockEntity;
+import net.MrGise.mmm.registry.content.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.server.level.ServerPlayer;
@@ -11,6 +12,8 @@ import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
@@ -70,5 +73,14 @@ public class BowyeryTableBlock extends BaseEntityBlock {
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new BowyeryTableBlockEntity(pos, state);
+    }
+
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        if (level.isClientSide) return null;
+
+
+        return createTickerHelper(type, ModBlockEntities.BOWYERY_TABLE_BE.get(),
+                (level1, pos, state1, be) -> be.tick(level1, pos, state1));
     }
 }

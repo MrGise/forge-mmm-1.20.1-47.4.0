@@ -1,6 +1,7 @@
 package net.MrGise.mmm.block.entity;
 
 import net.MrGise.mmm.registry.content.ModBlockEntities;
+import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.screen.thingamajig.ThingamajigMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -13,6 +14,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -36,7 +38,7 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
             return switch (slot) {
-                case 0 -> stack.is(Tags.Items.GEMS);
+                case 0 -> stack.is(ModItems.TEST_ITEM.get());
                 case 1 -> true;
                 case 2 -> false;
                 case 3 -> stack.getItem().isEdible();
@@ -46,7 +48,7 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
     };
 
     private static final int INPUT_SLOT = 0;
-    private static final int FLUID_INPUT_SLOT_1 = 1;
+    private static final int FLUID_INPUT_SLOT = 1;
     private static final int OUTPUT_SLOT = 2;
     private static final int ENERGY_ITEM_SLOT = 3;
 
@@ -139,5 +141,69 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
 
     public void tick(Level level, BlockPos pos, BlockState state) {
 
+        if (canOutputFill(ModItems.DIRECTORY_TEST.get()) && hasRecipe()) {
+            progressCrafting();
+            setChanged(level, pos, state);
+
+            if (finishedCrafting()) {
+                craftItem();
+                resetProgress();
+            }
+        } else {
+            removeProgressGradually(2);
+        }
+
+    }
+
+    private void craftItem() {
+        this.itemHandler.extractItem(INPUT_SLOT, 1, false);
+
+        this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(ModItems.DIRECTORY_TEST.get(),
+                this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + 1));
+    }
+
+    private void removeProgressGradually(int rate) {
+        if (this.progress > 1) {
+            progress -= rate;
+        } else if (this.progress < 0) {
+            resetProgress();
+        } else {
+            resetProgress();
+        }
+    }
+
+    private void resetProgress() {
+        this.progress = 0;
+    }
+
+    private boolean finishedCrafting() {
+        return this.progress >= this.maxProgress;
+    }
+
+    private void progressCrafting() {
+        this.progress ++;
+    }
+
+    private boolean hasRecipe() {
+        return isOutputFillable(1) && canFillOutput(ModItems.DIRECTORY_TEST.get())
+                && hasSufficientInput();
+    }
+
+    private boolean hasSufficientInput() {
+        return this.itemHandler.getStackInSlot(INPUT_SLOT).is(ModItems.TEST_ITEM.get());
+    }
+
+    private boolean canFillOutput(Item item) {
+        return this.itemHandler.getStackInSlot(OUTPUT_SLOT).is(item) || this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty();
+    }
+
+    private boolean isOutputFillable(int count) {
+        return this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + count <= this.itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
+    }
+
+    private boolean canOutputFill(Item item) {
+        return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() ||
+                (isOutputFillable(1) &&
+                        this.itemHandler.getStackInSlot(OUTPUT_SLOT).is(item));
     }
 }

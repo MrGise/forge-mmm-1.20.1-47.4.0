@@ -98,4 +98,8 @@ public class BowyeryTableBlockEntity extends BlockEntity implements MenuProvider
 
         itemHandler.deserializeNBT(tag.getCompound("inventory"));
     }
+
+    public void tick(Level level, BlockPos pos, BlockState state) {
+
+    }
 }
