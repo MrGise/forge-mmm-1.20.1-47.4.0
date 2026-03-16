@@ -1,0 +1,11 @@
+{
+  "type": "mmm:thingamajig",
+  "ingredients": [
+    {
+      "item": "mmm:test/directory"
+    }
+  ],
+  "result": {
+    "item": "mmm:test/block"
+  }
+}

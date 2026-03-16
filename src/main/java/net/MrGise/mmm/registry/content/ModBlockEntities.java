@@ -1,7 +1,6 @@
 package net.MrGise.mmm.registry.content;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.block.entity.BowyeryTableBlockEntity;
 import net.MrGise.mmm.block.entity.ThingamajigBlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -17,11 +16,6 @@ public class ModBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES =
             DeferredRegister.create(ForgeRegistries.BLOCK_ENTITY_TYPES, MMM.MOD_ID);
 
-
-    public static final RegistryObject<BlockEntityType<BowyeryTableBlockEntity>> BOWYERY_TABLE_BE =
-            registerBlockEntity("bowyery_table_block_entity",
-                    () -> BlockEntityType.Builder.of(BowyeryTableBlockEntity::new,
-                            ModBlocks.BOWYERY_TABLE.get()).build(null));
 
     public static final RegistryObject<BlockEntityType<ThingamajigBlockEntity>> THINGAMAJIG_BE =
             registerBlockEntity("thingamajig_block_entity",

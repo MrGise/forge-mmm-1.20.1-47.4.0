@@ -1,0 +1,17 @@
+{
+  "type": "mmm:bowyery_shaped",
+  "ingredients": {
+    "bow": {
+      "item": "minecraft:bow"
+    },
+    "first": {
+      "tag": "forge:nuggets/iron"
+    },
+    "second": {
+      "tag": "forge:nuggets/iron"
+    }
+  },
+  "result": {
+    "item": "mmm:reinforced_iron_bow"
+  }
+}

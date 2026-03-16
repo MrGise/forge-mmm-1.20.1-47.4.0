@@ -1,0 +1,17 @@
+{
+  "type": "mmm:bowyery_shaped",
+  "ingredients": {
+    "bow": {
+      "item": "minecraft:bow"
+    },
+    "first": {
+      "tag": "forge:ingots/netherite"
+    },
+    "second": {
+      "item": "minecraft:netherite_upgrade_smithing_template"
+    }
+  },
+  "result": {
+    "item": "mmm:reinforced_netherite_bow"
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "type": "mmm:bowyery_shaped",
+  "ingredients": {
+    "bow": {
+      "item": "minecraft:bow"
+    },
+    "first": {
+      "tag": "forge:nuggets/gold"
+    },
+    "second": {
+      "tag": "forge:nuggets/gold"
+    }
+  },
+  "result": {
+    "item": "mmm:reinforced_gold_bow"
+  }
+}

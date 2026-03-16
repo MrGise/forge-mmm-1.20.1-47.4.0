@@ -1,0 +1,17 @@
+{
+  "type": "mmm:bowyery_shaped",
+  "ingredients": {
+    "bow": {
+      "item": "minecraft:bow"
+    },
+    "first": {
+      "tag": "forge:stone"
+    },
+    "second": {
+      "tag": "forge:stone"
+    }
+  },
+  "result": {
+    "item": "mmm:reinforced_stone_bow"
+  }
+}

@@ -2,6 +2,8 @@ package net.MrGise.mmm.datagen.recipe;
 
 import com.simibubi.create.AllItems;
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.datagen.recipe.custom.BowyeryRecipeBuilder;
+import net.MrGise.mmm.datagen.recipe.custom.ThingamajigRecipeBuilder;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.registry.variables.ModTags;
@@ -78,7 +80,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 ModItems.SKIRON_HELMET.get(), ModItems.SKIRON_CHESTPLATE.get(), ModItems.SKIRON_LEGGINGS.get(), ModItems.SKIRON_BOOTS.get(),
                 ModItems.SKIRON_ACTINOLITE_HELMET.get(), ModItems.SKIRON_ACTINOLITE_CHESTPLATE.get(), ModItems.SKIRON_ACTINOLITE_LEGGINGS.get(), ModItems.SKIRON_ACTINOLITE_BOOTS.get(), "sky_ores");
 
-        //Region Mimics
+        //region Mimics
         mimicDisguise("carrot", pWriter, RecipeCategory.MISC, ModItems.MIMIC.get(), Items.CARROT, ModItems.MIMIC.get(), "mimic_carrot");
 
         mimicDisguise("chest", pWriter, RecipeCategory.MISC, ModItems.MIMIC.get(), Blocks.CHEST.asItem(), ModBlocks.MIMIC_BLOCK.get(), "mimic_chest");
@@ -105,6 +107,30 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 "mmm:skiron_nugget_from_skiron", "sky_ores",
                 "mmm:skiron_from_nuggets", "sky_ores");
 
+        //| Bowyery
+        bowyery(Ingredient.of(Items.STICK), Ingredient.of(Tags.Items.STRING), Ingredient.of(Tags.Items.STRING),
+                Items.BOW, 1, pWriter);
+
+        bowyery(Ingredient.of(Items.BOW), Ingredient.of(Tags.Items.STONE), Ingredient.of(Tags.Items.STONE),
+                ModItems.REINFORCED_STONE_BOW.get(), 1, pWriter);
+
+        bowyery(Ingredient.of(Items.BOW), Ingredient.of(Tags.Items.NUGGETS_IRON), Ingredient.of(Tags.Items.NUGGETS_IRON),
+                ModItems.REINFORCED_IRON_BOW.get(), 1, pWriter);
+
+        bowyery(Ingredient.of(Items.BOW), Ingredient.of(Tags.Items.NUGGETS_GOLD), Ingredient.of(Tags.Items.NUGGETS_GOLD),
+                ModItems.REINFORCED_GOLD_BOW.get(), 1, pWriter);
+
+        bowyery(Ingredient.of(Items.BOW), Ingredient.of(Tags.Items.GEMS_DIAMOND), Ingredient.of(Tags.Items.GEMS_DIAMOND),
+                ModItems.REINFORCED_DIAMOND_BOW.get(), 1, pWriter);
+
+        bowyery(Ingredient.of(Items.BOW), Ingredient.of(Tags.Items.INGOTS_NETHERITE), Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+                ModItems.REINFORCED_NETHERITE_BOW.get(), 1, pWriter);
+
+        bowyery(Ingredient.of(Items.BOW), Ingredient.of(ModTags.Items.SKIRON_NUGGETS), Ingredient.of(ModTags.Items.SKIRON_NUGGETS),
+                ModItems.REINFORCED_SKIRON_BOW.get(), 1, pWriter);
+
+        bowyery(Ingredient.of(Items.BOW), Ingredient.of(ModTags.Items.ACTINOLITE), Ingredient.of(ModTags.Items.ACTINOLITE),
+                ModItems.REINFORCED_ACTINOLITE_BOW.get(), 1, pWriter);
 
         //-- Smelting and stuff
         oreSmeltingAndBlasting(pWriter, SKIRON_SMELTABLES, RecipeCategory.MISC, ModItems.SKIRON.get(), 0.15f, 0.25f,
@@ -122,6 +148,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         slab(pWriter, RecipeCategory.MISC, ModBlocks.SKYWOOD_SLAB.get(), ModBlocks.SKYWOOD_PLANKS.get());
         stairs(pWriter, RecipeCategory.MISC, ModBlocks.SKYWOOD_STAIRS.get(), Ingredient.of(ModBlocks.SKYWOOD_PLANKS.get()), ModBlocks.SKYWOOD_PLANKS.get());
 
+
+        // Thingamajig
+        thingamajig(ModItems.TEST_ITEM.get(), ModItems.DIRECTORY_TEST.get(), 2, pWriter);
+        thingamajig(ModItems.DIRECTORY_TEST.get(), ModBlocks.TEST_BLOCK.get(), 1, pWriter);
     }
 
     protected static void mimicDisguise(String pForm, Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pMimic, ItemLike pToForm, ItemLike pResultMimic, String pName) {
@@ -153,6 +183,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         }
 
         builder.build(finishedRecipeConsumer, new ResourceLocation(MMM.MOD_ID, name));
+    }
+
+    protected static void bowyery(ItemLike bow, ItemLike slot1, ItemLike slot2, ItemLike output, int count, Consumer<FinishedRecipe> writer) {
+        new BowyeryRecipeBuilder(bow, slot1, slot2, output, count)
+                .unlockedBy(getHasName(output), has(output)).save(writer);
+    }
+
+    protected static void bowyery(Ingredient bow, Ingredient slot1, Ingredient slot2, ItemLike output, int count, Consumer<FinishedRecipe> writer) {
+        new BowyeryRecipeBuilder(bow, slot1, slot2, output, count)
+                .unlockedBy(getHasName(output), has(output)).save(writer);
     }
 
     protected static void shapedRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer,
@@ -390,6 +430,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("#  ")
                 .pattern("## ")
                 .pattern("###");
+    }
+
+    protected static void thingamajig(ItemLike input, ItemLike output, int count, Consumer<FinishedRecipe> writer) {
+        new ThingamajigRecipeBuilder(input, output, count)
+                .unlockedBy(getHasName(output), has(output)).save(writer);
     }
 
     protected static void smelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, Ingredient pIngredient, RecipeCategory pCategory, ItemLike pResult, ItemLike unlockedBy,

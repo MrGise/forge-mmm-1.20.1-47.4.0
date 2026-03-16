@@ -1,0 +1,35 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_reinforced_netherite_bow": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "mmm:reinforced_netherite_bow"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "mmm:reinforced_netherite_bow"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_reinforced_netherite_bow",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "mmm:reinforced_netherite_bow"
+    ]
+  },
+  "sends_telemetry_event": true
+}

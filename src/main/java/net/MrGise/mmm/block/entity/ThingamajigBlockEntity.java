@@ -1,5 +1,6 @@
 package net.MrGise.mmm.block.entity;
 
+import net.MrGise.mmm.recipe.ThingamajigRecipe;
 import net.MrGise.mmm.registry.content.ModBlockEntities;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.screen.thingamajig.ThingamajigMenu;
@@ -28,6 +29,8 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Optional;
+
 public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
         @Override
@@ -38,8 +41,7 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
             return switch (slot) {
-                case 0 -> stack.is(ModItems.TEST_ITEM.get());
-                case 1 -> true;
+                case 0, 1 -> true;
                 case 2 -> false;
                 case 3 -> stack.getItem().isEdible();
                 default -> super.isItemValid(slot, stack);
@@ -141,7 +143,7 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
 
     public void tick(Level level, BlockPos pos, BlockState state) {
 
-        if (canOutputFill(ModItems.DIRECTORY_TEST.get()) && hasRecipe()) {
+        if (hasRecipe()) {
             progressCrafting();
             setChanged(level, pos, state);
 
@@ -156,10 +158,14 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     private void craftItem() {
+        Optional<ThingamajigRecipe> recipe = getCurrentRecipe();
+        if (recipe.isEmpty()) return;
+        ItemStack result = recipe.get().getResultItem(getLevel().registryAccess());
+
         this.itemHandler.extractItem(INPUT_SLOT, 1, false);
 
-        this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(ModItems.DIRECTORY_TEST.get(),
-                this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + 1));
+        this.itemHandler.setStackInSlot(OUTPUT_SLOT, new ItemStack(result.getItem(),
+                this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + result.getCount()));
     }
 
     private void removeProgressGradually(int rate) {
@@ -185,12 +191,22 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
     }
 
     private boolean hasRecipe() {
-        return isOutputFillable(1) && canFillOutput(ModItems.DIRECTORY_TEST.get())
-                && hasSufficientInput();
+        Optional<ThingamajigRecipe> recipe = getCurrentRecipe();
+
+        if (recipe.isEmpty()) return false;
+
+        ItemStack result = recipe.get().getResultItem(getLevel().registryAccess());
+
+        return isOutputFillable(result.getCount()) && canFillOutput(result.getItem());
     }
 
-    private boolean hasSufficientInput() {
-        return this.itemHandler.getStackInSlot(INPUT_SLOT).is(ModItems.TEST_ITEM.get());
+    private Optional<ThingamajigRecipe> getCurrentRecipe() {
+        SimpleContainer inventory = new SimpleContainer(this.itemHandler.getSlots());
+        for (int i = 0; i < this.itemHandler.getSlots(); i++) {
+            inventory.setItem(i, itemHandler.getStackInSlot(i));
+        }
+
+        return this.level.getRecipeManager().getRecipeFor(ThingamajigRecipe.Type.INSTANCE, inventory, level);
     }
 
     private boolean canFillOutput(Item item) {
@@ -199,11 +215,5 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
 
     private boolean isOutputFillable(int count) {
         return this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + count <= this.itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
-    }
-
-    private boolean canOutputFill(Item item) {
-        return this.itemHandler.getStackInSlot(OUTPUT_SLOT).isEmpty() ||
-                (isOutputFillable(1) &&
-                        this.itemHandler.getStackInSlot(OUTPUT_SLOT).is(item));
     }
 }

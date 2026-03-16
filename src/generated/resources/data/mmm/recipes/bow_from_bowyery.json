@@ -1,0 +1,17 @@
+{
+  "type": "mmm:bowyery_shaped",
+  "ingredients": {
+    "bow": {
+      "item": "minecraft:stick"
+    },
+    "first": {
+      "tag": "forge:string"
+    },
+    "second": {
+      "tag": "forge:string"
+    }
+  },
+  "result": {
+    "item": "minecraft:bow"
+  }
+}

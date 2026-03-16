@@ -1,0 +1,17 @@
+{
+  "type": "mmm:bowyery_shaped",
+  "ingredients": {
+    "bow": {
+      "item": "minecraft:bow"
+    },
+    "first": {
+      "tag": "forge:gems/actinolite"
+    },
+    "second": {
+      "tag": "forge:gems/actinolite"
+    }
+  },
+  "result": {
+    "item": "mmm:reinforced_actinolite_bow"
+  }
+}

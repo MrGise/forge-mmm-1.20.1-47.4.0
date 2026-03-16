@@ -5,6 +5,7 @@ import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.MrGise.mmm.datagen.advancement.ModTriggers;
 import net.MrGise.mmm.effect.potion.BetterBrewingRecipe;
 import net.MrGise.mmm.event.ModGeneralEvents;
+import net.MrGise.mmm.registry.variables.ModRecipes;
 import net.MrGise.mmm.registry.decorative.ModParticles;
 import net.MrGise.mmm.registry.variables.ModFluidTypes;
 import net.MrGise.mmm.registry.variables.ModItemProperties;
@@ -22,8 +23,6 @@ import net.MrGise.mmm.resource.ModNetwork;
 import net.MrGise.mmm.screen.bowyery_table.BowyeryTableScreen;
 import net.MrGise.mmm.screen.thingamajig.ThingamajigScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.client.renderer.ItemBlockRenderTypes;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
@@ -95,6 +94,8 @@ public class MMM {
         ModVillagers.register(modEventBus);
 
         //, Resources
+
+        ModRecipes.register(modEventBus);
 
         ModParticles.register(modEventBus);
 

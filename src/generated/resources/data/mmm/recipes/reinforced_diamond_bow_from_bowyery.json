@@ -1,0 +1,17 @@
+{
+  "type": "mmm:bowyery_shaped",
+  "ingredients": {
+    "bow": {
+      "item": "minecraft:bow"
+    },
+    "first": {
+      "tag": "forge:gems/diamond"
+    },
+    "second": {
+      "tag": "forge:gems/diamond"
+    }
+  },
+  "result": {
+    "item": "mmm:reinforced_diamond_bow"
+  }
+}

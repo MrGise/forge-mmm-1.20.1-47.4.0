@@ -1,0 +1,17 @@
+{
+  "type": "mmm:bowyery_shaped",
+  "ingredients": {
+    "bow": {
+      "item": "minecraft:bow"
+    },
+    "first": {
+      "tag": "forge:nuggets/skiron"
+    },
+    "second": {
+      "tag": "forge:nuggets/skiron"
+    }
+  },
+  "result": {
+    "item": "mmm:reinforced_skiron_bow"
+  }
+}

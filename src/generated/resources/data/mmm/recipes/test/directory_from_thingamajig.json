@@ -1,0 +1,12 @@
+{
+  "type": "mmm:thingamajig",
+  "ingredients": [
+    {
+      "item": "mmm:test/basic"
+    }
+  ],
+  "result": {
+    "count": 2,
+    "item": "mmm:test/directory"
+  }
+}
