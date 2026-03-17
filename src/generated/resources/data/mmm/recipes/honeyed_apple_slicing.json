@@ -8,7 +8,7 @@
   "result": [
     {
       "count": 8,
-      "item": "mmm:honeyed_apple_slice"
+      "item": "mmm:food/honeyed_apple_slice"
     }
   ],
   "tool": {

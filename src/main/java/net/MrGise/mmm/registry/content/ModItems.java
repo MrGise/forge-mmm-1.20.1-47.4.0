@@ -66,7 +66,7 @@ public class ModItems {
 
 
     //-- Buckets
-    public static final RegistryObject<Item> GOAT_MILK_BUCKET = registerItem("goat_milk_bucket",
+    public static final RegistryObject<Item> GOAT_MILK_BUCKET = registerItem("food/goat_milk_bucket",
             () -> new BucketItem(ModFluids.SOURCE_GOAT_MILK, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
 
@@ -108,40 +108,40 @@ public class ModItems {
 
     //-- Food
 
-    public static final RegistryObject<Item> BREADSTICK = registerItem("breadstick",
+    public static final RegistryObject<Item> BREADSTICK = registerItem("food/breadstick",
             () -> new Item(new Item.Properties().food(ModFoodProperties.BREADSTICK)));
 
-    public static final RegistryObject<Item> STRAWBERRY = registerItem("strawberry",
+    public static final RegistryObject<Item> STRAWBERRY = registerItem("food/strawberry",
             () -> new Item(new Item.Properties().food(ModFoodProperties.STRAWBERRY)));
-    public static final RegistryObject<Item> STRAWBERRY_SEEDS = registerItem("strawberry_seeds",
+    public static final RegistryObject<Item> STRAWBERRY_SEEDS = registerItem("food/strawberry_seeds",
             () -> new ItemNameBlockItem(ModBlocks.STRAWBERRY.get(), new Item.Properties()));
 
-    public static final RegistryObject<Item> CUCUMBER_SEEDS = registerItem("cucumber_seeds",
+    public static final RegistryObject<Item> CUCUMBER_SEEDS = registerItem("food/cucumber_seeds",
             () -> new ItemNameBlockItem(ModBlocks.CUCUMBER.get(), new Item.Properties()));
-    public static final RegistryObject<Item> CUCUMBER = registerItem("cucumber",
+    public static final RegistryObject<Item> CUCUMBER = registerItem("food/cucumber",
             () -> new Item(new Item.Properties().food(ModFoodProperties.CUCUMBER)));
-    public static final RegistryObject<Item> CUT_CUCUMBER = registerItem("cut_cucumber",
+    public static final RegistryObject<Item> CUT_CUCUMBER = registerItem("food/cut_cucumber",
             () -> new Item(new Item.Properties().food(ModFoodProperties.CUCUMBER)));
 
-    public static final RegistryObject<Item> POMEGRANATE = registerItem("pomegranate",
+    public static final RegistryObject<Item> POMEGRANATE = registerItem("food/pomegranate",
             () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> POMEGRANATE_EMPTY_SLICE = registerItem("pomegranate_empty_slice",
+    public static final RegistryObject<Item> POMEGRANATE_EMPTY_SLICE = registerItem("food/pomegranate_empty_slice",
             () -> new Item(new Item.Properties()));
 
-    public static final RegistryObject<Item> POMEGRANATE_SLICE = registerItem("pomegranate_slice",
+    public static final RegistryObject<Item> POMEGRANATE_SLICE = registerItem("food/pomegranate_slice",
             () -> new Item(new Item.Properties().craftRemainder(ModItems.POMEGRANATE_EMPTY_SLICE.get())));
 
-    public static final RegistryObject<Item> POMEGRANATE_SEEDS = registerItem("pomegranate_seeds",
+    public static final RegistryObject<Item> POMEGRANATE_SEEDS = registerItem("food/pomegranate_seeds",
             () -> new Item(new Item.Properties().food(ModFoodProperties.POMEGRANATE_SEEDS)));
 
-    public static final RegistryObject<Item> APPLE_SLICE = registerItem("apple_slice",
+    public static final RegistryObject<Item> APPLE_SLICE = registerItem("food/apple_slice",
             () -> new Item(new Item.Properties().food(ModFoodProperties.APPLE_SLICE)));
 
-    public static final RegistryObject<Item> HONEYED_APPLE_SLICE = registerItem("honeyed_apple_slice",
+    public static final RegistryObject<Item> HONEYED_APPLE_SLICE = registerItem("food/honeyed_apple_slice",
             () -> new Item(new Item.Properties().food(ModFoodProperties.HONEYED_APPLE_SLICE)));
 
-    public static final RegistryObject<Item> MATZA = registerItem("matza",
+    public static final RegistryObject<Item> MATZA = registerItem("food/matza",
             () -> new Item(new Item.Properties().food(ModFoodProperties.MATZA)));
 
 

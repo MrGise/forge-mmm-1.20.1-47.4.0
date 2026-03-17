@@ -23,7 +23,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "mmm:strawberry_seeds"
+          "name": "mmm:food/strawberry_seeds"
         }
       ],
       "rolls": 1.0

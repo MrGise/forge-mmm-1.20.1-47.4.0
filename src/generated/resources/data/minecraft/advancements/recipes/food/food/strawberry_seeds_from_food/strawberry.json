@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cucumber": {
+    "has_food/strawberry": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mmm:cucumber"
+              "mmm:food/strawberry"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cucumber_seeds_from_cucumber"
+        "recipe": "minecraft:food/strawberry_seeds_from_food/strawberry"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_cucumber",
+      "has_food/strawberry",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cucumber_seeds_from_cucumber"
+      "minecraft:food/strawberry_seeds_from_food/strawberry"
     ]
   },
   "sends_telemetry_event": false

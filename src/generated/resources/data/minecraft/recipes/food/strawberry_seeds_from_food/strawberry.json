@@ -3,10 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:crops/cucumber"
+      "tag": "forge:crops/strawberry"
     }
   ],
   "result": {
-    "item": "mmm:cucumber_seeds"
+    "item": "mmm:food/strawberry_seeds"
   }
 }

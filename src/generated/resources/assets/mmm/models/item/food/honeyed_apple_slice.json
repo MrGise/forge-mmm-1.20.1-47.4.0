@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mmm:item/pomegranate"
+    "layer0": "mmm:item/food/honeyed_apple_slice"
   }
 }

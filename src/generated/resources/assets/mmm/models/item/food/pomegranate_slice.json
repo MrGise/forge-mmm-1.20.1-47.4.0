@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mmm:item/pomegranate_seeds"
+    "layer0": "mmm:item/food/pomegranate_slice"
   }
 }

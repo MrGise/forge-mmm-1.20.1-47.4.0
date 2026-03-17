@@ -8,7 +8,7 @@
   "result": [
     {
       "count": 2,
-      "item": "mmm:pomegranate_slice"
+      "item": "mmm:food/pomegranate_slice"
     }
   ],
   "tool": {

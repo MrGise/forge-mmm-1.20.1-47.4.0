@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "mmm:item/breadstick"
+    "layer0": "mmm:item/food/cucumber_seeds"
   }
 }

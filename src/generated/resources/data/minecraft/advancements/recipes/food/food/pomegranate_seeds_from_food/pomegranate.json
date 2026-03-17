@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_strawberry": {
+    "has_food/pomegranate": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mmm:strawberry"
+              "mmm:food/pomegranate"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:strawberry_seeds_from_strawberry"
+        "recipe": "minecraft:food/pomegranate_seeds_from_food/pomegranate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_strawberry",
+      "has_food/pomegranate",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:strawberry_seeds_from_strawberry"
+      "minecraft:food/pomegranate_seeds_from_food/pomegranate"
     ]
   },
   "sends_telemetry_event": false

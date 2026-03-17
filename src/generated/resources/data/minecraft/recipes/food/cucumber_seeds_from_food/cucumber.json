@@ -3,11 +3,10 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "mmm:items/pomegranate_slice"
+      "tag": "forge:crops/cucumber"
     }
   ],
   "result": {
-    "count": 16,
-    "item": "mmm:pomegranate_seeds"
+    "item": "mmm:food/cucumber_seeds"
   }
 }

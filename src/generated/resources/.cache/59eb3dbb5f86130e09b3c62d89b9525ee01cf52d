@@ -1,4 +1,4 @@
-// 1.20.1	2026-02-25T17:35:06.7070472	Loot Tables
+// 1.20.1	2026-03-17T11:38:17.0195948	Loot Tables
 6fdd3e19d045d0890f366a414d6cc70e7ecc6dc4 data/mmm/loot_tables/blocks/acacia_triple_door.json
 304bc14bc9e1f04828096388b5b5c3c6b3be2931 data/mmm/loot_tables/blocks/actinolite_ore.json
 edfc01428b5a8342c066b7e02f5d2d643d992e7c data/mmm/loot_tables/blocks/bamboo_triple_door.json
@@ -11,9 +11,9 @@ a6d05d5b129f8d9393bf526e1034f4a81f0dbe3d data/mmm/loot_tables/blocks/canphor.jso
 22426d852549be57632c132185d6244674fc01e2 data/mmm/loot_tables/blocks/cheese_block.json
 c55eae2111ab84ade30f8763d2accf0c4f8e7e90 data/mmm/loot_tables/blocks/cherry_triple_door.json
 114b3c63af13092cd3231a30ac6d9578c003964f data/mmm/loot_tables/blocks/crimson_triple_door.json
-9a12af1216e965d1d4d5a27edbabba8a4bc96aba data/mmm/loot_tables/blocks/cucumber.json
+426031429c2b1c93b65b061a856d973f3e018308 data/mmm/loot_tables/blocks/cucumber.json
 3a35411df57f409be97a1b3d6589a812f251d4c3 data/mmm/loot_tables/blocks/dark_oak_triple_door.json
-df60d57e7fd9628fa35e38fb0a83956fb8e40e60 data/mmm/loot_tables/blocks/heavenly_grass.json
+9a69bbb5864cb643483f4831a4afc51c6ad86011 data/mmm/loot_tables/blocks/heavenly_grass.json
 62e808048e300570b74b951bbc077231174dbc94 data/mmm/loot_tables/blocks/heavenly_grass_block.json
 806538c2b99b23551ec354f199bdc54bf35cc6e6 data/mmm/loot_tables/blocks/heavenly_grass_block_skydirt.json
 454b077a3943f16430d12c4be254a5edc5fb5114 data/mmm/loot_tables/blocks/iron_triple_door.json
@@ -48,8 +48,8 @@ cebdbc055598ff90c150e8e8a9d3b8face7129a9 data/mmm/loot_tables/blocks/skywood_sta
 257c08e8131f97c6ed8e14e2b880403f5f40c7e3 data/mmm/loot_tables/blocks/skywood_trapdoor.json
 6cccf17968306df72fdb85142c640c005f591760 data/mmm/loot_tables/blocks/skywood_triple_door.json
 005b9f99e831ecd7a53cf3061dd16f138996de01 data/mmm/loot_tables/blocks/spruce_triple_door.json
-48f3798feaed066f95a733d4dc85940cddcd63f8 data/mmm/loot_tables/blocks/strawberry.json
-fa13b7d728a42b487a5d01d8370007932b25852b data/mmm/loot_tables/blocks/strawberry_rclick.json
+3f5157a1a2baeb84f2c069efb362ed82f7c9a819 data/mmm/loot_tables/blocks/strawberry.json
+91a2b62c20d0b5f33898b96f38cd823cb31837ad data/mmm/loot_tables/blocks/strawberry_rclick.json
 43f1004c95c2822116eb86c3d6070a602af248d2 data/mmm/loot_tables/blocks/stripped_skywood_log.json
 2f9dd891041d880de03ba0149e656e934ec09c3d data/mmm/loot_tables/blocks/test/animated_block.json
 06f20fc4d7af71de5085c8f3b1fc2aca672bd452 data/mmm/loot_tables/blocks/test/block.json

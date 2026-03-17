@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_pomegranate": {
+    "has_food/cucumber": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mmm:pomegranate"
+              "mmm:food/cucumber"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:pomegranate_seeds_from_pomegranate"
+        "recipe": "minecraft:food/cucumber_seeds_from_food/cucumber"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_pomegranate",
+      "has_food/cucumber",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:pomegranate_seeds_from_pomegranate"
+      "minecraft:food/cucumber_seeds_from_food/cucumber"
     ]
   },
   "sends_telemetry_event": false

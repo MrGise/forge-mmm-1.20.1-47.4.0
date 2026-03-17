@@ -1,14 +1,14 @@
-// 1.20.1	2025-12-12T16:46:27.8640911	Item Tags
+// 1.20.1	2026-03-17T11:38:17.0239174	Item Tags
 785967d38cf4fc489b4fc33ed48714c46958937b data/farmersdelight/tags/items/tools/knives.json
-b1120cfb4e9e792ceee4881cc7c2de1ff39b6922 data/forge/tags/items/crops/cucumber.json
-89df2ca48580ea9f62df8e6bceccc68e1af6708a data/forge/tags/items/crops/pomegranate.json
-d7d9f1acaefde0acbce056e1b8cc94ed46ba20c3 data/forge/tags/items/crops/strawberry.json
+c4b12e896a35c024c56979813cd3cbb34b49e73b data/forge/tags/items/crops/cucumber.json
+553f48e7754bf2273524fdf7f550a8fb24cbbc9b data/forge/tags/items/crops/pomegranate.json
+723799c95fc8c60626a83ea3f19c1cd732b5a495 data/forge/tags/items/crops/strawberry.json
 73f11d775d8b5f36992541a64b90b9f766a9dcb8 data/forge/tags/items/ingots/skiron.json
 dde6e99fc6fb1ab1e5464176f71ee1832aac3240 data/forge/tags/items/nuggets/skiron.json
-b8be32b41cf8af3bd3bd8ab51aeb635a00cdc57f data/forge/tags/items/seeds.json
-1111c7fdb77a1debd9c02c3f2738bff52b1c99b3 data/forge/tags/items/seeds/cucumber.json
-005616ed7d6061b60e66b3d549749404d3be977e data/forge/tags/items/seeds/pomegranate.json
-0b2864a5926978b84e41f90b8fac69d91120e0e4 data/forge/tags/items/seeds/strawberry.json
+d7fcc291389125697f0177f83e21662d8dd89089 data/forge/tags/items/seeds.json
+70d6d60e23b1263d470b70907c294ecdf4697bed data/forge/tags/items/seeds/cucumber.json
+83e647d8c573ded88cba42a8ee7cc922ad490ee0 data/forge/tags/items/seeds/pomegranate.json
+ef6a290658d2e6a83eacbc205875cd1e11ae4330 data/forge/tags/items/seeds/strawberry.json
 3479b5b14d583e1dec6934cc2faa46b86cf815d5 data/forge/tags/items/storage_blocks/skiron.json
 23ef70fb21e9d62c97e864cdb1274a312390e0cf data/forge/tags/items/tools/axes.json
 785967d38cf4fc489b4fc33ed48714c46958937b data/forge/tags/items/tools/knives.json
@@ -19,4 +19,4 @@ bb7b0883d157bf89445e24ff9838bd12e59560f6 data/minecraft/tags/items/trimmable_arm
 73f11d775d8b5f36992541a64b90b9f766a9dcb8 data/minecraft/tags/items/trim_materials.json
 05c19870eb55c041f5dd82c96ce3466f0c2f9e18 data/minecraft/tags/items/trim_templates.json
 2c74e760253c89577f904272ed2739e3ea6e3533 data/mmm/tags/items/items/lit_candles.json
-a83ac54ed6b227d862535a4f558b8ae03a91d07e data/mmm/tags/items/items/pomegranate_slice.json
+424f0352fb2e0a054ad6bceac1f93f375821448f data/mmm/tags/items/items/pomegranate_slice.json

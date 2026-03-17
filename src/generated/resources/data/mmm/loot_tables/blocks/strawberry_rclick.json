@@ -17,7 +17,7 @@
               "function": "minecraft:set_count"
             }
           ],
-          "name": "mmm:strawberry"
+          "name": "mmm:food/strawberry"
         }
       ],
       "rolls": {

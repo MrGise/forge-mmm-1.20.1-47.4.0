@@ -3,10 +3,11 @@
   "category": "misc",
   "ingredients": [
     {
-      "tag": "forge:crops/strawberry"
+      "tag": "mmm:items/pomegranate_slice"
     }
   ],
   "result": {
-    "item": "mmm:strawberry_seeds"
+    "count": 16,
+    "item": "mmm:food/pomegranate_seeds"
   }
 }

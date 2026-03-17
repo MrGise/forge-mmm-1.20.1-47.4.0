@@ -7,11 +7,11 @@
   ],
   "result": [
     {
-      "item": "mmm:cut_cucumber"
+      "item": "mmm:food/cut_cucumber"
     },
     {
       "chance": 0.1,
-      "item": "mmm:cucumber_seeds"
+      "item": "mmm:food/cucumber_seeds"
     }
   ],
   "tool": {

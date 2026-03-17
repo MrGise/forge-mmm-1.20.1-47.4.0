@@ -40,26 +40,26 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         //- Food
 
-        simpleItem(ModItems.BREADSTICK);
+        simpleItemDirFix(ModItems.BREADSTICK);
 
-        simpleItem(ModItems.STRAWBERRY);
-        simpleItem(ModItems.STRAWBERRY_SEEDS);
+        simpleItemDirFix(ModItems.STRAWBERRY);
+        simpleItemDirFix(ModItems.STRAWBERRY_SEEDS);
 
-        simpleItem(ModItems.CUCUMBER_SEEDS);
-        simpleItem(ModItems.CUCUMBER);
-        simpleItem(ModItems.CUT_CUCUMBER);
+        simpleItemDirFix(ModItems.CUCUMBER_SEEDS);
+        simpleItemDirFix(ModItems.CUCUMBER);
+        simpleItemDirFix(ModItems.CUT_CUCUMBER);
 
-        simpleItem(ModItems.POMEGRANATE);
-        simpleItem(ModItems.POMEGRANATE_SLICE);
-        simpleItem(ModItems.POMEGRANATE_EMPTY_SLICE);
-        simpleItem(ModItems.POMEGRANATE_SEEDS);
+        simpleItemDirFix(ModItems.POMEGRANATE);
+        simpleItemDirFix(ModItems.POMEGRANATE_SLICE);
+        simpleItemDirFix(ModItems.POMEGRANATE_EMPTY_SLICE);
+        simpleItemDirFix(ModItems.POMEGRANATE_SEEDS);
 
-        simpleItem(ModItems.APPLE_SLICE);
-        simpleItem(ModItems.HONEYED_APPLE_SLICE);
+        simpleItemDirFix(ModItems.APPLE_SLICE);
+        simpleItemDirFix(ModItems.HONEYED_APPLE_SLICE);
 
-        simpleItem(ModItems.MATZA);
+        simpleItemDirFix(ModItems.MATZA);
 
-        simpleItem(ModItems.GOAT_MILK_BUCKET);
+        simpleItemDirFix(ModItems.GOAT_MILK_BUCKET);
 
         //- Materials
         //* Skyland

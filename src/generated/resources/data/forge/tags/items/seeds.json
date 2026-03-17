@@ -1,6 +1,6 @@
 {
   "values": [
-    "mmm:cucumber_seeds",
-    "mmm:strawberry_seeds"
+    "mmm:food/cucumber_seeds",
+    "mmm:food/strawberry_seeds"
   ]
 }
