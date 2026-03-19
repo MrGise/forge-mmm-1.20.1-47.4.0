@@ -1,5 +1,6 @@
 package net.MrGise.mmm.datagen.loot;
 
+import com.simibubi.create.AllItems;
 import net.MrGise.mmm.block.TripleDoorBlock;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.block.crop.AccessibleCropBlock;
@@ -118,6 +119,11 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         //- Production
 
         this.dropSelf(ModBlocks.CHEESE_BLOCK.get());
+
+        this.dropSelf(ModBlocks.OAK_COUNTER.get());
+
+        this.add(ModBlocks.PLACED_DOUGH.get(),
+                (block -> createCustomSingularDrop(ModBlocks.PLACED_DOUGH.get(), AllItems.DOUGH.get())));
 
 
         //\ Dimensions' blocks loot tables

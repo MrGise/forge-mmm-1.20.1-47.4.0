@@ -144,6 +144,9 @@ public class ModItems {
     public static final RegistryObject<Item> MATZA = registerItem("food/matza",
             () -> new Item(new Item.Properties().food(ModFoodProperties.MATZA)));
 
+    public static final RegistryObject<Item> UNCOOKED_MATZA = registerItem("food/uncooked_matza",
+            () -> new Item(new Item.Properties()));
+
 
     //-- Magic
     public static final RegistryObject<Item> SOLIDIFIED_MANA = registerItem("solidified_mana",

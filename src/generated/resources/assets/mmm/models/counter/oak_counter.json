@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "mmm:block/counter/oak_counter_bottom",
+    "side": "mmm:block/counter/oak_counter_side",
+    "top": "minecraft:block/smooth_stone"
+  }
+}

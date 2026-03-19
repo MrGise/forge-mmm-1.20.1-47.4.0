@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "mmm:counter/oak_counter"
+    }
+  }
+}

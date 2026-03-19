@@ -1,6 +1,6 @@
 package net.MrGise.mmm.event;
 
-import com.mojang.datafixers.kinds.IdF;
+import com.simibubi.create.AllItems;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.command.*;
@@ -9,6 +9,7 @@ import net.MrGise.mmm.item.HammerItem;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.content.ModFluids;
 import net.MrGise.mmm.registry.content.ModItems;
+import net.MrGise.mmm.registry.variables.ModTags;
 import net.MrGise.mmm.registry.variants.ModVillagers;
 import net.MrGise.mmm.resource.ModNetwork;
 import net.MrGise.mmm.resource.SyncAllKnowingPacket;
@@ -131,19 +132,20 @@ public class ModGeneralEvents {
         Player player = event.getEntity();
         Level level = event.getLevel();
         ItemStack item = event.getItemStack();
+        BlockState clickedOn = level.getBlockState(event.getPos());
+        BlockPos targetedPos = event.getHitVec().getBlockPos();
+        BlockPos directionalPos = event.getHitVec().getBlockPos().relative(event.getHitVec().getDirection());
         boolean succeeded = false;
 
-        if (item.is(Items.MILK_BUCKET)) {
+        if (item.is(Items.MILK_BUCKET)) { // Milk bucket placement
             if (player.isShiftKeyDown()) return;
 
             event.setCanceled(true);
             event.setCancellationResult(InteractionResult.SUCCESS);
 
             if (!level.isClientSide()) {
-                BlockPos pos = event.getHitVec().getBlockPos().relative(event.getHitVec().getDirection());
-
-                if (level.isEmptyBlock(pos)) {
-                    level.setBlock(pos, ModBlocks.COW_MILK_BLOCK.get().defaultBlockState(), 3);
+                if (level.isEmptyBlock(directionalPos) || level.getBlockState(directionalPos).canBeReplaced(ModFluids.SOURCE_COW_MILK.get())) {
+                    level.setBlock(directionalPos, ModBlocks.COW_MILK_BLOCK.get().defaultBlockState(), 3);
                     succeeded = true;
                 }
             }
@@ -153,6 +155,20 @@ public class ModGeneralEvents {
                     item.shrink(1);
                     player.setItemInHand(event.getHand(), new ItemStack(Items.BUCKET));
                 }
+            }
+        } else if (item.is(AllItems.DOUGH.get()) && clickedOn.is(ModTags.Blocks.COUNTERS)
+                && event.getHitVec().getDirection() == Direction.UP
+                && level.getBlockState(directionalPos).canBeReplaced()) {
+            event.setCanceled(true);
+            event.setCancellationResult(InteractionResult.SUCCESS);
+
+            if (!level.isClientSide()) {
+                level.setBlock(directionalPos, ModBlocks.PLACED_DOUGH.get().defaultBlockState(), 3);
+            }
+
+            level.playSound(null, player.blockPosition(), SoundEvents.WOOL_PLACE, SoundSource.PLAYERS);
+            if (!player.getAbilities().instabuild) {
+                item.shrink(1);
             }
         }
     }

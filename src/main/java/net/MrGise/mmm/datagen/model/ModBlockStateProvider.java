@@ -66,6 +66,11 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.CHEESE_BLOCK);
 
+        block(ModBlocks.PLACED_DOUGH, new ResourceLocation("mmm", "block/dough/dough"));
+
+        cubeBottomTop(ModBlocks.OAK_COUNTER.get(), mcLoc("block/smooth_stone"),
+                modLoc("block/counter/oak_counter_side"), modLoc("block/counter/oak_counter_bottom"), "counter/oak_counter");
+
 
         //| Skyland
         blockWithItem(ModBlocks.BROKEN_SKYSOLID);
@@ -183,6 +188,47 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlockWithItem(block, model);
     }
 
+    private void hotDogCube(Block block, String name, ResourceLocation bottom, ResourceLocation top, ResourceLocation front, ResourceLocation sides) {
+        uniqueCube(block, name, bottom, top, front, sides, sides, sides);
+    }
+
+    private void hotDogCubeRotate(Block block, String name, ResourceLocation bottom, ResourceLocation top, ResourceLocation front, ResourceLocation sides) {
+        getVariantBuilder(block)
+                .forAllStates(state -> {
+                    int yRot = switch (state.getValue(HorizontalDirectionalBlock.FACING)) {
+                        case EAST  -> 90;
+                        case SOUTH -> 180;
+                        case WEST  -> 270;
+                        default -> 0;
+                    };
+
+                    return ConfiguredModel.builder()
+                            .modelFile(models().cube(name, bottom, top, front, sides, sides, sides))
+                            .rotationY(yRot)
+                            .build();
+                });
+    }
+
+    private void hotDogCubeRotateWithItemDirFix(Block block, String name, ResourceLocation bottom, ResourceLocation top, ResourceLocation front, ResourceLocation sides) {
+        ModelFile model = models().cube("block/" + name, bottom, top, front, sides, sides, sides).texture("particle", bottom);
+
+        getVariantBuilder(block)
+                .forAllStates(state -> {
+                    int yRot = switch (state.getValue(HorizontalDirectionalBlock.FACING)) {
+                        case EAST  -> 90;
+                        case SOUTH -> 180;
+                        case WEST  -> 270;
+                        default -> 0;
+                    };
+
+                    return ConfiguredModel.builder()
+                            .modelFile(model)
+                            .rotationY(yRot)
+                            .build();
+                });
+        simpleBlockItem(block, model);
+    }
+
     private void pottedFlower(Block block, String name, String plantName) {
         simpleBlock(block, models().singleTexture(name, new ResourceLocation("flower_pot_cross"), "plant",
                 modLoc("block/" + plantName)).renderType("cutout"));
@@ -226,7 +272,21 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 modLoc("block/" + topName)
         );
 
-            simpleBlockWithItem(block, model);
+        simpleBlockWithItem(block, model);
+    }
+    private void cubeBottomTop(Block block,
+                                ResourceLocation top, ResourceLocation side, ResourceLocation bottom,
+                                String modelName) {
+
+        // Block model that uses block/ textures
+        ModelFile model = models().cubeBottomTop(
+                modelName,
+                side,
+                bottom,
+                top
+        );
+
+        simpleBlockWithItem(block, model);
     }
 
     protected void cubeBottomTopRandomRotation(Block block, String bottomName, String topName, String sideName) {
@@ -335,8 +395,16 @@ public class ModBlockStateProvider extends BlockStateProvider {
         simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
     }
 
+    private void block(RegistryObject<Block> blockRegistryObject) {
+        simpleBlock(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+    }
+
     private void blockWithItem(RegistryObject<Block> blockRegistryObject, ResourceLocation customModel) {
         simpleBlockWithItem(blockRegistryObject.get(), models().getExistingFile(customModel));
+    }
+
+    private void block(RegistryObject<Block> blockRegistryObject, ResourceLocation customModel) {
+        simpleBlock(blockRegistryObject.get(), models().getExistingFile(customModel));
     }
 
     private void blockWithItemDirFix(RegistryObject<Block> blockRO) {

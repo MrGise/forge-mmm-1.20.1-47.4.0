@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-17T11:38:17.0195948	Loot Tables
+// 1.20.1	2026-03-19T13:22:47.646089	Loot Tables
 6fdd3e19d045d0890f366a414d6cc70e7ecc6dc4 data/mmm/loot_tables/blocks/acacia_triple_door.json
 304bc14bc9e1f04828096388b5b5c3c6b3be2931 data/mmm/loot_tables/blocks/actinolite_ore.json
 edfc01428b5a8342c066b7e02f5d2d643d992e7c data/mmm/loot_tables/blocks/bamboo_triple_door.json
@@ -13,6 +13,7 @@ c55eae2111ab84ade30f8763d2accf0c4f8e7e90 data/mmm/loot_tables/blocks/cherry_trip
 114b3c63af13092cd3231a30ac6d9578c003964f data/mmm/loot_tables/blocks/crimson_triple_door.json
 426031429c2b1c93b65b061a856d973f3e018308 data/mmm/loot_tables/blocks/cucumber.json
 3a35411df57f409be97a1b3d6589a812f251d4c3 data/mmm/loot_tables/blocks/dark_oak_triple_door.json
+4e88ac94ae89681e49e900df14ad8f4d57e42c75 data/mmm/loot_tables/blocks/dough/dough.json
 9a69bbb5864cb643483f4831a4afc51c6ad86011 data/mmm/loot_tables/blocks/heavenly_grass.json
 62e808048e300570b74b951bbc077231174dbc94 data/mmm/loot_tables/blocks/heavenly_grass_block.json
 806538c2b99b23551ec354f199bdc54bf35cc6e6 data/mmm/loot_tables/blocks/heavenly_grass_block_skydirt.json
@@ -22,6 +23,7 @@ c55eae2111ab84ade30f8763d2accf0c4f8e7e90 data/mmm/loot_tables/blocks/cherry_trip
 8aa9972ed36f35728c82fb0e7c0d73d5afd1da9f data/mmm/loot_tables/blocks/mangrove_triple_door.json
 d8a5cc943dc18da1cebe5b7c8f30a635052b9232 data/mmm/loot_tables/blocks/mimic_block.json
 c696ef42d2254e680b428fe6a5ae8472ab661d91 data/mmm/loot_tables/blocks/null_block.json
+490e7dcd9421cd6f9a36f48802bd72421714d5e5 data/mmm/loot_tables/blocks/oak_counter.json
 76cc47a94083bdb82012451782cc95e1c6f4e19c data/mmm/loot_tables/blocks/oak_triple_door.json
 5f129514e9530e8ff7ad0a2257ea7d4629b1ff1a data/mmm/loot_tables/blocks/oxalis.json
 a51923536eeccd287573a0854ea8fdcddf0eada2 data/mmm/loot_tables/blocks/potted_oxalis.json

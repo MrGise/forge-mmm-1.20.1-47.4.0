@@ -4,6 +4,7 @@ import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.*;
 import net.MrGise.mmm.block.crop.CucumberCropBlock;
 import net.MrGise.mmm.block.crop.StrawberryCropBlock;
+import net.MrGise.mmm.block.dough.DoughBlock;
 import net.MrGise.mmm.item.block_item.*;
 import net.MrGise.mmm.item.block_item.description.DescriptionBlockItem;
 import net.MrGise.mmm.item.block_item.description.DescriptionFuelBlockItem;
@@ -193,6 +194,12 @@ public class ModBlocks {
     public static final RegistryObject<Block> BOWYERY_TABLE = registerBlockWithDescription("bowyery_table",
             () -> new BowyeryTableBlock(BlockBehaviour.Properties.copy(Blocks.CRAFTING_TABLE)),
             "bowyery_table_disclaimer", false);
+
+    public static final RegistryObject<Block> OAK_COUNTER = registerBlock("oak_counter",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)));
+
+    public static final RegistryObject<Block> PLACED_DOUGH = registerBlock_("dough/dough",
+            () -> new DoughBlock(BlockBehaviour.Properties.of().instabreak().mapColor(MapColor.COLOR_BROWN).sound(SoundType.WOOL)));
 
 
     //\ Dimensions

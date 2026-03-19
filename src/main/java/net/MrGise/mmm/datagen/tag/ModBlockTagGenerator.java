@@ -30,6 +30,9 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.HEAVENLY_GRASS_BLOCK_SKYDIRT.get())
                 .add(ModBlocks.SKYDIRT.get());
 
+        this.tag(ModTags.Blocks.COUNTERS)
+                .add(ModBlocks.OAK_COUNTER.get());
+
         this.tag(ModTags.Blocks.DETECTABLE_ORE)
                 .addTag(Tags.Blocks.ORES);
 

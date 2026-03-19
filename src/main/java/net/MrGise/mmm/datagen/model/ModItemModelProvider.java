@@ -58,6 +58,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItemDirFix(ModItems.HONEYED_APPLE_SLICE);
 
         simpleItemDirFix(ModItems.MATZA);
+        simpleItemDirFix(ModItems.UNCOOKED_MATZA);
 
         simpleItemDirFix(ModItems.GOAT_MILK_BUCKET);
 

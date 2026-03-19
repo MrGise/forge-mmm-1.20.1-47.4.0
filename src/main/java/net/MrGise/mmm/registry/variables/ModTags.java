@@ -54,6 +54,8 @@ public class ModTags {
 
         public static final TagKey<Block> HEAVENLY_GRASS_PLACEABLES = tag("heavenly_grass_placeables");
 
+        public static final TagKey<Block> COUNTERS = tag("workstation/counters");
+
         public static final TagKey<Block> MINEABLE_WITH_HAMMER = tag("mineable/hammer");
 
         public static final TagKey<Block> SKYLAND_ORES = forgeTag("ores/skyland");

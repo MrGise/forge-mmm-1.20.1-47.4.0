@@ -1,5 +1,6 @@
 package net.MrGise.mmm.registry.content;
 
+import com.simibubi.create.AllItems;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.create.ModCreateBlocks;
 import net.MrGise.mmm.registry.variants.ModEnchantments;
@@ -161,6 +162,9 @@ public class ModCreativeModeTabs {
     public static final RegistryObject<CreativeModeTab> MMM_CUISINE = CREATIVE_MODE_TABS.register("mmm_cuisine",
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CUCUMBER.get()))
                     .title(Component.translatable("creativetab.mmm_cuisine")).displayItems((displayParameters, output) -> {
+                        output.accept(ModBlocks.OAK_COUNTER.get());
+                        output.accept(AllItems.DOUGH.get());
+
                         output.accept(ModItems.BREADSTICK.get());
 
                         output.accept(ModItems.STRAWBERRY.get());
@@ -179,6 +183,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.HONEYED_APPLE_SLICE.get());
 
                         output.accept(ModItems.MATZA.get());
+                        output.accept(ModItems.UNCOOKED_MATZA.get());
 
                         output.accept(Items.MILK_BUCKET);
                         output.accept(ModItems.GOAT_MILK_BUCKET.get());

@@ -57,6 +57,7 @@
   "item.mmm.food.honeyed_apple_slice": "Honeyed Apple slice",
 
   "item.mmm.food.matza": "Matza",
+  "item.mmm.food.uncooked_matza": "Uncooked Matza",
 
 
   "item.mmm.solidified_mana": "Solidified Mana",
@@ -111,6 +112,10 @@
 
   "trim_material.mmm.skiron": "Skiron Material",
   "trim_pattern.mmm.glide": "Glide Armor Trim",
+
+
+  "block.mmm.oak_counter": "Oak Counter",
+
 
   "block.mmm.heavenly_grass": "Heavenly Grass",
   "block.mmm.heavenly_grass_tall": "Tall Heavenly Grass",
