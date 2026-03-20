@@ -68,7 +68,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         block(ModBlocks.PLACED_DOUGH, new ResourceLocation("mmm", "block/dough/dough"));
 
-        cubeBottomTop(ModBlocks.OAK_COUNTER.get(), mcLoc("block/smooth_stone"),
+        cubeBottomTopDirFix(ModBlocks.OAK_COUNTER.get(), mcLoc("block/smooth_stone"),
                 modLoc("block/counter/oak_counter_side"), modLoc("block/counter/oak_counter_bottom"), "counter/oak_counter");
 
 
@@ -274,17 +274,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         simpleBlockWithItem(block, model);
     }
+
     private void cubeBottomTop(Block block,
                                 ResourceLocation top, ResourceLocation side, ResourceLocation bottom,
                                 String modelName) {
 
         // Block model that uses block/ textures
-        ModelFile model = models().cubeBottomTop(
-                modelName,
-                side,
-                bottom,
-                top
-        );
+        ModelFile model = models().cubeBottomTop(modelName, side, bottom, top);
+
+        simpleBlockWithItem(block, model);
+    }
+
+    private void cubeBottomTopDirFix(Block block,
+                                ResourceLocation top, ResourceLocation side, ResourceLocation bottom,
+                                String modelName) {
+
+        // Block model that uses block/ textures
+        ModelFile model = models().cubeBottomTop("block/" + modelName, side, bottom, top);
 
         simpleBlockWithItem(block, model);
     }

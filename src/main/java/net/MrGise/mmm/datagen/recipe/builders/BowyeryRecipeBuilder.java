@@ -1,4 +1,4 @@
-package net.MrGise.mmm.datagen.recipe.custom;
+package net.MrGise.mmm.datagen.recipe.builders;
 
 import com.google.gson.JsonObject;
 import net.MrGise.mmm.MMM;

@@ -2,8 +2,8 @@ package net.MrGise.mmm.datagen.recipe;
 
 import com.simibubi.create.AllItems;
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.datagen.recipe.custom.BowyeryRecipeBuilder;
-import net.MrGise.mmm.datagen.recipe.custom.ThingamajigRecipeBuilder;
+import net.MrGise.mmm.datagen.recipe.builders.BowyeryRecipeBuilder;
+import net.MrGise.mmm.datagen.recipe.builders.ThingamajigRecipeBuilder;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.registry.variables.ModTags;

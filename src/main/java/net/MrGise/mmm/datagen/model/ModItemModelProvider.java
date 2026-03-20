@@ -1,10 +1,15 @@
 package net.MrGise.mmm.datagen.model;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.datagen.model.builders.SeparateTransformModelBuilder;
+import net.MrGise.mmm.datagen.model.builders.SeparateTransformModelBuilder.*;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.content.ModItems;
+import net.minecraft.data.CachedOutput;
+import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
@@ -13,11 +18,23 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+
 // Generates item models
 public class ModItemModelProvider extends ItemModelProvider {
 
+    private final PackOutput output;
+
+    private final Map<ResourceLocation, SeparateTransformModelBuilder> customModels = new HashMap<>();
+
     public ModItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, MMM.MOD_ID, existingFileHelper);
+        this.output = output;
     }
 
     @Override
@@ -79,6 +96,25 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.SOLIDIFIED_MANA);
 
+        //- Other stuff
+        candleModel(ModItems.LIT_CANDLE, modLoc("custom/candle_lit"), "item/candle/models/candle/candle_lit");
+        candleModel(ModItems.LIT_CANDLE_BLACK, modLoc("custom/black_candle_lit"), "item/candle/models/candle/black_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_BLUE, modLoc("custom/blue_candle_lit"), "item/candle/models/candle/blue_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_BROWN, modLoc("custom/brown_candle_lit"), "item/candle/models/candle/brown_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_CYAN, modLoc("custom/cyan_candle_lit"), "item/candle/models/candle/cyan_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_GRAY, modLoc("custom/gray_candle_lit"), "item/candle/models/candle/gray_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_GREEN, modLoc("custom/green_candle_lit"), "item/candle/models/candle/green_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_LIGHT_BLUE, modLoc("custom/light_blue_candle_lit"), "item/candle/models/candle/light_blue_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_LIGHT_GRAY, modLoc("custom/light_gray_candle_lit"), "item/candle/models/candle/light_gray_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_LIME, modLoc("custom/lime_candle_lit"), "item/candle/models/candle/lime_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_MAGENTA, modLoc("custom/magenta_candle_lit"), "item/candle/models/candle/magenta_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_ORANGE, modLoc("custom/orange_candle_lit"), "item/candle/models/candle/orange_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_PINK, modLoc("custom/pink_candle_lit"), "item/candle/models/candle/pink_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_PURPLE, modLoc("custom/purple_candle_lit"), "item/candle/models/candle/purple_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_RED, modLoc("custom/red_candle_lit"), "item/candle/models/candle/red_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_WHITE, modLoc("custom/white_candle_lit"), "item/candle/models/candle/white_candle_lit");
+        candleModel(ModItems.LIT_CANDLE_YELLOW, modLoc("custom/yellow_candle_lit"), "item/candle/models/candle/yellow_candle_lit");
+
         /*- Tools -*/
         handheldItem(ModItems.ACTINOLITE_SWORD);
         handheldItem(ModItems.ACTINOLITE_PICKAXE);
@@ -104,8 +140,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         wallItem(ModBlocks.SKYGROUND_WALL, ModBlocks.SKYGROUND);
 
-        notSoSimpleBlockItem(ModBlocks.HEAVENLY_GRASS, false, "_top");
-        notSoSimpleBlockItemUnseperate(ModBlocks.HEAVENLY_GRASS, false, "_short");
+        notSoSimpleBlockItem(ModBlocks.HEAVENLY_GRASS, false, "_top", true);
+        notSoSimpleBlockItem(ModBlocks.HEAVENLY_GRASS, false, "_short", false);
         itemWithPredicate(ModBlocks.HEAVENLY_GRASS.get().asItem(), "long",
                 modLoc("item/heavenly_grass_short"), modLoc("item/heavenly_grass_top"));
 
@@ -128,6 +164,28 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     }
 
+    @Override
+    protected CompletableFuture<?> generateAll(CachedOutput cache) {
+        List<CompletableFuture<?>> futures = new ArrayList<>();
+
+        futures.add(super.generateAll(cache));
+
+        for (Map.Entry<ResourceLocation, SeparateTransformModelBuilder> entry : customModels.entrySet()) {
+            ResourceLocation loc = entry.getKey();
+
+            if (existingFileHelper.exists(loc, PackType.CLIENT_RESOURCES, ".json", "models")) {
+                throw new IllegalStateException("Duplicate model: " + loc + " already exists in assets. Remove it from datagen or from your manual assets.");
+            }
+
+            Path path = this.output.getOutputFolder(PackOutput.Target.RESOURCE_PACK)
+                    .resolve(loc.getNamespace() + "/models/" + loc.getPath() + ".json");
+
+            futures.add(DataProvider.saveStable(cache, entry.getValue().toJson(), path));
+        }
+
+        return CompletableFuture.allOf(futures.toArray(CompletableFuture[]::new));
+    }
+
     // Items
     /*
     Armor trims
@@ -135,28 +193,15 @@ public class ModItemModelProvider extends ItemModelProvider {
     */
 
 
-    private ItemModelBuilder notSoSimpleBlockItem(RegistryObject<Block> item, boolean before, String name) {
-        if (before) {
-            return withExistingParent(name + item.getId().getPath(),
-                    new ResourceLocation("item/generated")).texture("layer0",
-                    new ResourceLocation(MMM.MOD_ID, "block/" + name + item.getId().getPath()));
-        } else {
-            return withExistingParent(item.getId().getPath() + name,
-                    new ResourceLocation("item/generated")).texture("layer0",
-                    new ResourceLocation(MMM.MOD_ID, "block/" + item.getId().getPath() + name));
-        }
-    }
+    private ItemModelBuilder notSoSimpleBlockItem(RegistryObject<Block> item, boolean before, String name, boolean separateTexture) {
+        String modelPath = before ? name + item.getId().getPath() : item.getId().getPath() + name;
+        String texturePath = separateTexture
+                ? modelPath
+                : item.getId().getPath();
 
-    private ItemModelBuilder notSoSimpleBlockItemUnseperate(RegistryObject<Block> item, boolean before, String name) {
-        if (before) {
-            return withExistingParent(name + item.getId().getPath(),
-                    new ResourceLocation("item/generated")).texture("layer0",
-                    new ResourceLocation(MMM.MOD_ID, "block/" + item.getId().getPath()));
-        } else {
-            return withExistingParent(item.getId().getPath() + name,
-                    new ResourceLocation("item/generated")).texture("layer0",
-                    new ResourceLocation(MMM.MOD_ID, "block/" + item.getId().getPath()));
-        }
+        return withExistingParent(modelPath,
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(MMM.MOD_ID, "block/" + texturePath));
     }
 
     private ItemModelBuilder notSoSimpleItem(RegistryObject<Item> item, String name) {
@@ -193,6 +238,45 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent("item/" + item.getId().getPath(),
                 new ResourceLocation("item/generated")).texture("layer0",
                 new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
+    private SeparateTransformModelBuilder handModelItem(
+            RegistryObject<Item> item,
+            ResourceLocation model,
+            ResourceLocation flatTexture,
+            Texture... modelTextures) {
+
+        // Construct the proper output path: modid:item/item_name
+        ResourceLocation outputLoc = new ResourceLocation(
+                item.getId().getNamespace(),
+                "item/" + item.getId().getPath()
+        );
+
+        SeparateTransformModelBuilder builder =
+                new SeparateTransformModelBuilder(outputLoc, existingFileHelper)
+                        .base(model, flatTexture)
+                        .addTexturesWithPrefix(MMM.MOD_ID + ":", modelTextures)
+                        .modelInHandBasic();
+
+        customModels.put(outputLoc, builder);
+
+        return builder;
+    }
+
+    private SeparateTransformModelBuilder handModelItem (
+            RegistryObject<Item> item,
+            ResourceLocation model,
+            Texture... modelTextures) {
+        return handModelItem(item, model, ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "item/" + item.getId().getPath()), modelTextures);
+    }
+
+    private SeparateTransformModelBuilder candleModel(
+            RegistryObject<Item> item, ResourceLocation model,
+            String baseTexture) {
+        return handModelItem(item, model, ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "item/candle/" + item.getId().getPath()),
+                new Texture("all", baseTexture),
+                new Texture("particle", baseTexture),
+                new Texture("flame", "item/models/flame"));
     }
 
     //- Blocks

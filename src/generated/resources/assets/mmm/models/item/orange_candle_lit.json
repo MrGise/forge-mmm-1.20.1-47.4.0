@@ -1,0 +1,32 @@
+{
+  "base": {
+    "parent": "mmm:custom/orange_candle_lit",
+    "textures": {
+      "all": "mmm:item/candle/models/candle/orange_candle_lit",
+      "flame": "mmm:item/models/flame",
+      "particle": "mmm:item/candle/models/candle/orange_candle_lit"
+    }
+  },
+  "gui_light": "front",
+  "loader": "forge:separate_transforms",
+  "perspectives": {
+    "fixed": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "mmm:item/candle/orange_candle_lit"
+      }
+    },
+    "ground": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "mmm:item/candle/orange_candle_lit"
+      }
+    },
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "mmm:item/candle/orange_candle_lit"
+      }
+    }
+  }
+}

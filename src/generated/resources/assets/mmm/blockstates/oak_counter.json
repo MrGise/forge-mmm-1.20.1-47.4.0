@@ -1,7 +1,7 @@
 {
   "variants": {
     "": {
-      "model": "mmm:counter/oak_counter"
+      "model": "mmm:block/counter/oak_counter"
     }
   }
 }
