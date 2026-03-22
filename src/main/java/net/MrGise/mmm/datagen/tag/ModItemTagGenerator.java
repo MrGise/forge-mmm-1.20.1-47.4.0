@@ -51,6 +51,9 @@ public class ModItemTagGenerator extends ItemTagsProvider {
                 .add(ModItems.LIT_CANDLE_WHITE.get())
                 .add(ModItems.LIT_CANDLE_YELLOW.get());
 
+        this.tag(ModTags.Items.HOLEABLE)
+                .add(ModItems.IRON_FORK.get());
+
         this.tag(ModTags.Items.CUCUMBERS)
                 .add(ModItems.CUCUMBER.get());
         this.tag(ModTags.Items.CUCUMBER_SEEDS)

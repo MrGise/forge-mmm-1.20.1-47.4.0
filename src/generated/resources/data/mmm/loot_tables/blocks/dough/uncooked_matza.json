@@ -1,0 +1,47 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "block": "mmm:dough/uncooked_matza",
+          "condition": "minecraft:block_state_property",
+          "properties": {
+            "holes": "14"
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "mmm:food/uncooked_matza"
+        }
+      ],
+      "rolls": 1.0
+    },
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:inverted",
+          "term": {
+            "block": "mmm:dough/uncooked_matza",
+            "condition": "minecraft:block_state_property",
+            "properties": {
+              "holes": "14"
+            }
+          }
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "create:dough"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "mmm:blocks/dough/uncooked_matza"
+}

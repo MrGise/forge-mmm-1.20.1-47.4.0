@@ -5,6 +5,8 @@ import net.MrGise.mmm.block.*;
 import net.MrGise.mmm.block.crop.AccessibleCropBlock;
 import net.MrGise.mmm.block.crop.CucumberCropBlock;
 import net.MrGise.mmm.block.crop.StrawberryCropBlock;
+import net.MrGise.mmm.block.dough.FlatteningDoughBlock;
+import net.MrGise.mmm.block.dough.UncookedMatzaBlock;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.create.ModCreateBlocks;
 import net.MrGise.mmm.resource.TripleBlockPart;
@@ -67,6 +69,43 @@ public class ModBlockStateProvider extends BlockStateProvider {
         blockWithItem(ModBlocks.CHEESE_BLOCK);
 
         block(ModBlocks.PLACED_DOUGH, new ResourceLocation("mmm", "block/dough/dough"));
+
+        getVariantBuilder(ModBlocks.FLATTENING_DOUGH.get())
+                .partialState().with(FlatteningDoughBlock.SHAPE, FlatteningDoughBlock.Shape.FLATTENING)
+                .modelForState().modelFile(models().getExistingFile(
+                        ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "block/dough/flattened_dough"))).addModel()
+                .partialState().with(FlatteningDoughBlock.SHAPE, FlatteningDoughBlock.Shape.PIZZA)
+                .modelForState().modelFile(models().getExistingFile(
+                        ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "block/dough/pizza_dough"))).addModel()
+                .partialState().with(FlatteningDoughBlock.SHAPE, FlatteningDoughBlock.Shape.FLAT)
+                .modelForState().modelFile(models().getExistingFile(
+                        ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "block/dough/flat_dough"))).addModel();
+
+        VariantBlockStateBuilder builder = getVariantBuilder(ModBlocks.UNCOOKED_MATZA.get());
+        for (int i = 1; i <= 13; i++) {
+            builder.partialState().with(UncookedMatzaBlock.HOLES, i).with(UncookedMatzaBlock.FACING, Direction.NORTH)
+                    .modelForState().modelFile(models().getExistingFile(
+                            ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "block/dough/uncooked_matza_" + i))).addModel();
+        }
+        for (int i = 1; i <= 13; i++) {
+            builder.partialState().with(UncookedMatzaBlock.HOLES, i).with(UncookedMatzaBlock.FACING, Direction.EAST)
+                    .modelForState().modelFile(models().getExistingFile(
+                            ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "block/dough/uncooked_matza_" + i))).rotationY(90).addModel();
+        }
+        for (int i = 1; i <= 13; i++) {
+            builder.partialState().with(UncookedMatzaBlock.HOLES, i).with(UncookedMatzaBlock.FACING, Direction.SOUTH)
+                    .modelForState().modelFile(models().getExistingFile(
+                            ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "block/dough/uncooked_matza_" + i))).rotationY(180).addModel();
+        }
+        for (int i = 1; i <= 13; i++) {
+            builder.partialState().with(UncookedMatzaBlock.HOLES, i).with(UncookedMatzaBlock.FACING, Direction.WEST)
+                    .modelForState().modelFile(models().getExistingFile(
+                            ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "block/dough/uncooked_matza_" + i))).rotationY(270).addModel();
+        }
+        builder.partialState().with(UncookedMatzaBlock.HOLES, 14)
+                .modelForState().modelFile(models().getExistingFile(
+                        ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "block/dough/uncooked_matza_14"))).addModel();
+
 
         cubeBottomTopDirFix(ModBlocks.OAK_COUNTER.get(), mcLoc("block/smooth_stone"),
                 modLoc("block/counter/oak_counter_side"), modLoc("block/counter/oak_counter_bottom"), "counter/oak_counter");
@@ -388,29 +427,29 @@ public class ModBlockStateProvider extends BlockStateProvider {
         getVariantBuilder(block).forAllStates(function);
     }
 
-    private void blockItem(RegistryObject<Block> blockRegistryObject, String appendix) {
-        simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile("mmm:block/" + ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath() + appendix));
+    private void blockItem(RegistryObject<Block> block, String appendix) {
+        simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile("mmm:block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath() + appendix));
     }
 
-    private void blockItem(RegistryObject<Block> blockRegistryObject) {
-        simpleBlockItem(blockRegistryObject.get(), new ModelFile.UncheckedModelFile("mmm:block/" + ForgeRegistries.BLOCKS.getKey(blockRegistryObject.get()).getPath()));
+    private void blockItem(RegistryObject<Block> block) {
+        simpleBlockItem(block.get(), new ModelFile.UncheckedModelFile("mmm:block/" + ForgeRegistries.BLOCKS.getKey(block.get()).getPath()));
     }
 
 
-    private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
-        simpleBlockWithItem(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+    private void blockWithItem(RegistryObject<Block> block) {
+        simpleBlockWithItem(block.get(), cubeAll(block.get()));
     }
 
-    private void block(RegistryObject<Block> blockRegistryObject) {
-        simpleBlock(blockRegistryObject.get(), cubeAll(blockRegistryObject.get()));
+    private void block(RegistryObject<Block> block) {
+        simpleBlock(block.get(), cubeAll(block.get()));
     }
 
-    private void blockWithItem(RegistryObject<Block> blockRegistryObject, ResourceLocation customModel) {
-        simpleBlockWithItem(blockRegistryObject.get(), models().getExistingFile(customModel));
+    private void blockWithItem(RegistryObject<Block> block, ResourceLocation customModel) {
+        simpleBlockWithItem(block.get(), models().getExistingFile(customModel));
     }
 
-    private void block(RegistryObject<Block> blockRegistryObject, ResourceLocation customModel) {
-        simpleBlock(blockRegistryObject.get(), models().getExistingFile(customModel));
+    private void block(RegistryObject<Block> block, ResourceLocation customModel) {
+        simpleBlock(block.get(), models().getExistingFile(customModel));
     }
 
     private void blockWithItemDirFix(RegistryObject<Block> blockRO) {

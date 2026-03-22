@@ -1,0 +1,13 @@
+{
+  "variants": {
+    "shape=flat": {
+      "model": "mmm:block/dough/flat_dough"
+    },
+    "shape=flattening": {
+      "model": "mmm:block/dough/flattened_dough"
+    },
+    "shape=pizza": {
+      "model": "mmm:block/dough/pizza_dough"
+    }
+  }
+}

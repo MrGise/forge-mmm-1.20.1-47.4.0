@@ -5,6 +5,8 @@ import net.MrGise.mmm.block.*;
 import net.MrGise.mmm.block.crop.CucumberCropBlock;
 import net.MrGise.mmm.block.crop.StrawberryCropBlock;
 import net.MrGise.mmm.block.dough.DoughBlock;
+import net.MrGise.mmm.block.dough.FlatteningDoughBlock;
+import net.MrGise.mmm.block.dough.UncookedMatzaBlock;
 import net.MrGise.mmm.item.block_item.*;
 import net.MrGise.mmm.item.block_item.description.DescriptionBlockItem;
 import net.MrGise.mmm.item.block_item.description.DescriptionFuelBlockItem;
@@ -200,6 +202,12 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> PLACED_DOUGH = registerBlock_("dough/dough",
             () -> new DoughBlock(BlockBehaviour.Properties.of().instabreak().mapColor(MapColor.COLOR_BROWN).sound(SoundType.WOOL)));
+
+    public static final RegistryObject<Block> FLATTENING_DOUGH = registerBlock_("dough/flattening",
+            () -> new FlatteningDoughBlock(BlockBehaviour.Properties.of().instabreak().mapColor(MapColor.COLOR_BROWN).sound(SoundType.WOOL)));
+
+    public static final RegistryObject<Block> UNCOOKED_MATZA = registerBlock_("dough/uncooked_matza",
+            () -> new UncookedMatzaBlock(BlockBehaviour.Properties.of().instabreak().mapColor(MapColor.COLOR_BROWN).sound(SoundType.WOOL).noOcclusion()));
 
 
     //\ Dimensions

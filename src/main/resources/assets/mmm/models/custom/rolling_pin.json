@@ -1,0 +1,73 @@
+{
+	"format_version": "1.9.0",
+	"credit": "Made with Blockbench",
+	"textures": {
+		"particle": "mmm:item/tool/rolling_pin",
+		"all": "mmm:item/tool/rolling_pin"
+	},
+	"elements": [
+		{
+			"from": [13, 1, 7],
+			"to": [16, 3, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [13, 1, 7]},
+			"faces": {
+				"north": {"uv": [13, 10, 16, 12], "texture": "#all"},
+				"east": {"uv": [14, 14, 16, 16], "texture": "#all"},
+				"south": {"uv": [13, 8, 16, 10], "texture": "#all"},
+				"west": {"uv": [14, 12, 16, 14], "texture": "#all"},
+				"up": {"uv": [10, 8, 13, 10], "texture": "#all"},
+				"down": {"uv": [10, 10, 13, 12], "texture": "#all"}
+			}
+		},
+		{
+			"from": [0, 1, 7],
+			"to": [3, 3, 9],
+			"rotation": {"angle": 0, "axis": "y", "origin": [0, 1, 7]},
+			"faces": {
+				"north": {"uv": [13, 10, 16, 12], "texture": "#all"},
+				"east": {"uv": [14, 14, 16, 16], "texture": "#all"},
+				"south": {"uv": [13, 8, 16, 10], "texture": "#all"},
+				"west": {"uv": [14, 12, 16, 14], "texture": "#all"},
+				"up": {"uv": [10, 8, 13, 10], "texture": "#all"},
+				"down": {"uv": [10, 10, 13, 12], "texture": "#all"}
+			}
+		},
+		{
+			"from": [3, 0, 6],
+			"to": [13, 4, 10],
+			"rotation": {"angle": 0, "axis": "y", "origin": [11, 1, 7]},
+			"faces": {
+				"north": {"uv": [0, 12, 10, 16], "texture": "#all"},
+				"east": {"uv": [10, 12, 14, 16], "texture": "#all"},
+				"south": {"uv": [0, 4, 10, 8], "texture": "#all"},
+				"west": {"uv": [10, 0, 14, 4], "texture": "#all"},
+				"up": {"uv": [0, 8, 10, 12], "texture": "#all"},
+				"down": {"uv": [0, 0, 10, 4], "texture": "#all"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [90, 90, 0],
+			"translation": [0, 5.25, 7.75]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [90, 90, 0],
+			"translation": [0, 5.25, 7.75]
+		},
+		"firstperson_righthand": {
+			"rotation": [90, 90, 0],
+			"translation": [0, 5.25, 7.75]
+		},
+		"firstperson_lefthand": {
+			"rotation": [90, 90, 0],
+			"translation": [0, 5.25, 7.75]
+		},
+		"ground": {
+			"translation": [0, 6, 0]
+		},
+		"head": {
+			"translation": [0, 1.75, -7.5]
+		}
+	}
+}

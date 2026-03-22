@@ -2,6 +2,7 @@ package net.MrGise.mmm.datagen.model.builders;
 
 import com.google.gson.JsonObject;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.PackType;
 import net.minecraftforge.client.model.generators.ModelBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -79,6 +80,28 @@ public class SeparateTransformModelBuilder extends ModelBuilder<SeparateTransfor
         }
         if (flatTexture == null) {
             throw new IllegalStateException("Flat texture not set for " + getLocation());
+        }
+
+        if (!existingFileHelper.exists(model, PackType.CLIENT_RESOURCES, ".json", "models")) {
+            throw new IllegalStateException("Base model " + model + " does not exist, required by " + getLocation());
+        }
+
+        for (Map.Entry<String, String> entry : modelTextures.entrySet()) {
+            ResourceLocation texLoc = new ResourceLocation(entry.getValue());
+            if (!existingFileHelper.exists(texLoc, PackType.CLIENT_RESOURCES, ".png", "textures")) {
+                throw new IllegalStateException("Texture " + texLoc + " does not exist, required by " + getLocation() + " for key " + entry.getKey());
+            }
+        }
+
+        if (!existingFileHelper.exists(flatTexture, PackType.CLIENT_RESOURCES, ".png", "textures")) {
+            throw new IllegalStateException("Flat texture " + flatTexture + " does not exist, required by " + getLocation());
+        }
+
+        for (Map.Entry<String, Perspective> entry : perspectives.entrySet()) {
+            ResourceLocation parent = entry.getValue().parent;
+            if (!existingFileHelper.exists(parent, PackType.CLIENT_RESOURCES, ".json", "models")) {
+                throw new IllegalStateException("Perspective model " + parent + " does not exist, required by " + getLocation());
+            }
         }
 
         JsonObject json = new JsonObject();

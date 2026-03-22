@@ -1,0 +1,30 @@
+{
+  "base": {
+    "parent": "mmm:custom/skiron_hammer",
+    "textures": {
+      "0": "mmm:block/skiron_hammer"
+    }
+  },
+  "gui_light": "front",
+  "loader": "forge:separate_transforms",
+  "perspectives": {
+    "fixed": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "mmm:item/skiron_hammer"
+      }
+    },
+    "ground": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "mmm:item/skiron_hammer"
+      }
+    },
+    "gui": {
+      "parent": "minecraft:item/generated",
+      "textures": {
+        "layer0": "mmm:item/skiron_hammer"
+      }
+    }
+  }
+}

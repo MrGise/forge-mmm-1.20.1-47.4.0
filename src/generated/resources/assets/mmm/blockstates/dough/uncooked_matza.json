@@ -1,0 +1,202 @@
+{
+  "variants": {
+    "facing=east,holes=1": {
+      "model": "mmm:block/dough/uncooked_matza_1",
+      "y": 90
+    },
+    "facing=east,holes=10": {
+      "model": "mmm:block/dough/uncooked_matza_10",
+      "y": 90
+    },
+    "facing=east,holes=11": {
+      "model": "mmm:block/dough/uncooked_matza_11",
+      "y": 90
+    },
+    "facing=east,holes=12": {
+      "model": "mmm:block/dough/uncooked_matza_12",
+      "y": 90
+    },
+    "facing=east,holes=13": {
+      "model": "mmm:block/dough/uncooked_matza_13",
+      "y": 90
+    },
+    "facing=east,holes=2": {
+      "model": "mmm:block/dough/uncooked_matza_2",
+      "y": 90
+    },
+    "facing=east,holes=3": {
+      "model": "mmm:block/dough/uncooked_matza_3",
+      "y": 90
+    },
+    "facing=east,holes=4": {
+      "model": "mmm:block/dough/uncooked_matza_4",
+      "y": 90
+    },
+    "facing=east,holes=5": {
+      "model": "mmm:block/dough/uncooked_matza_5",
+      "y": 90
+    },
+    "facing=east,holes=6": {
+      "model": "mmm:block/dough/uncooked_matza_6",
+      "y": 90
+    },
+    "facing=east,holes=7": {
+      "model": "mmm:block/dough/uncooked_matza_7",
+      "y": 90
+    },
+    "facing=east,holes=8": {
+      "model": "mmm:block/dough/uncooked_matza_8",
+      "y": 90
+    },
+    "facing=east,holes=9": {
+      "model": "mmm:block/dough/uncooked_matza_9",
+      "y": 90
+    },
+    "facing=north,holes=1": {
+      "model": "mmm:block/dough/uncooked_matza_1"
+    },
+    "facing=north,holes=10": {
+      "model": "mmm:block/dough/uncooked_matza_10"
+    },
+    "facing=north,holes=11": {
+      "model": "mmm:block/dough/uncooked_matza_11"
+    },
+    "facing=north,holes=12": {
+      "model": "mmm:block/dough/uncooked_matza_12"
+    },
+    "facing=north,holes=13": {
+      "model": "mmm:block/dough/uncooked_matza_13"
+    },
+    "facing=north,holes=2": {
+      "model": "mmm:block/dough/uncooked_matza_2"
+    },
+    "facing=north,holes=3": {
+      "model": "mmm:block/dough/uncooked_matza_3"
+    },
+    "facing=north,holes=4": {
+      "model": "mmm:block/dough/uncooked_matza_4"
+    },
+    "facing=north,holes=5": {
+      "model": "mmm:block/dough/uncooked_matza_5"
+    },
+    "facing=north,holes=6": {
+      "model": "mmm:block/dough/uncooked_matza_6"
+    },
+    "facing=north,holes=7": {
+      "model": "mmm:block/dough/uncooked_matza_7"
+    },
+    "facing=north,holes=8": {
+      "model": "mmm:block/dough/uncooked_matza_8"
+    },
+    "facing=north,holes=9": {
+      "model": "mmm:block/dough/uncooked_matza_9"
+    },
+    "facing=south,holes=1": {
+      "model": "mmm:block/dough/uncooked_matza_1",
+      "y": 180
+    },
+    "facing=south,holes=10": {
+      "model": "mmm:block/dough/uncooked_matza_10",
+      "y": 180
+    },
+    "facing=south,holes=11": {
+      "model": "mmm:block/dough/uncooked_matza_11",
+      "y": 180
+    },
+    "facing=south,holes=12": {
+      "model": "mmm:block/dough/uncooked_matza_12",
+      "y": 180
+    },
+    "facing=south,holes=13": {
+      "model": "mmm:block/dough/uncooked_matza_13",
+      "y": 180
+    },
+    "facing=south,holes=2": {
+      "model": "mmm:block/dough/uncooked_matza_2",
+      "y": 180
+    },
+    "facing=south,holes=3": {
+      "model": "mmm:block/dough/uncooked_matza_3",
+      "y": 180
+    },
+    "facing=south,holes=4": {
+      "model": "mmm:block/dough/uncooked_matza_4",
+      "y": 180
+    },
+    "facing=south,holes=5": {
+      "model": "mmm:block/dough/uncooked_matza_5",
+      "y": 180
+    },
+    "facing=south,holes=6": {
+      "model": "mmm:block/dough/uncooked_matza_6",
+      "y": 180
+    },
+    "facing=south,holes=7": {
+      "model": "mmm:block/dough/uncooked_matza_7",
+      "y": 180
+    },
+    "facing=south,holes=8": {
+      "model": "mmm:block/dough/uncooked_matza_8",
+      "y": 180
+    },
+    "facing=south,holes=9": {
+      "model": "mmm:block/dough/uncooked_matza_9",
+      "y": 180
+    },
+    "facing=west,holes=1": {
+      "model": "mmm:block/dough/uncooked_matza_1",
+      "y": 270
+    },
+    "facing=west,holes=10": {
+      "model": "mmm:block/dough/uncooked_matza_10",
+      "y": 270
+    },
+    "facing=west,holes=11": {
+      "model": "mmm:block/dough/uncooked_matza_11",
+      "y": 270
+    },
+    "facing=west,holes=12": {
+      "model": "mmm:block/dough/uncooked_matza_12",
+      "y": 270
+    },
+    "facing=west,holes=13": {
+      "model": "mmm:block/dough/uncooked_matza_13",
+      "y": 270
+    },
+    "facing=west,holes=2": {
+      "model": "mmm:block/dough/uncooked_matza_2",
+      "y": 270
+    },
+    "facing=west,holes=3": {
+      "model": "mmm:block/dough/uncooked_matza_3",
+      "y": 270
+    },
+    "facing=west,holes=4": {
+      "model": "mmm:block/dough/uncooked_matza_4",
+      "y": 270
+    },
+    "facing=west,holes=5": {
+      "model": "mmm:block/dough/uncooked_matza_5",
+      "y": 270
+    },
+    "facing=west,holes=6": {
+      "model": "mmm:block/dough/uncooked_matza_6",
+      "y": 270
+    },
+    "facing=west,holes=7": {
+      "model": "mmm:block/dough/uncooked_matza_7",
+      "y": 270
+    },
+    "facing=west,holes=8": {
+      "model": "mmm:block/dough/uncooked_matza_8",
+      "y": 270
+    },
+    "facing=west,holes=9": {
+      "model": "mmm:block/dough/uncooked_matza_9",
+      "y": 270
+    },
+    "holes=14": {
+      "model": "mmm:block/dough/uncooked_matza_14"
+    }
+  }
+}

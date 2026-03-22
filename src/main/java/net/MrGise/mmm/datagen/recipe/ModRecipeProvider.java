@@ -7,6 +7,7 @@ import net.MrGise.mmm.datagen.recipe.builders.ThingamajigRecipeBuilder;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.registry.variables.ModTags;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.nbt.CompoundTag;
@@ -43,6 +44,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
         //Recipes here
 
+        //- Forks
+        forkRecipe(pWriter, RecipeCategory.TOOLS, ModItems.IRON_FORK.get(),
+                Ingredient.of(Tags.Items.NUGGETS_IRON), Ingredient.of(Tags.Items.INGOTS_IRON), Items.IRON_INGOT);
+
         shapedRecipe(pWriter, RecipeCategory.MISC, ModItems.GOLD_KEY.get(), Map.of('G', Ingredient.of(Tags.Items.INGOTS_GOLD)), Items.GOLD_INGOT, "  G", "GGG", "GG ");
 
         cuttingRecipe(pWriter, Ingredient.of(ModTags.Items.CUCUMBERS), ModItems.CUT_CUCUMBER.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
@@ -62,10 +67,15 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.CUCUMBERS), ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get());
         exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.STRAWBERRIES), ModItems.STRAWBERRY.get(), ModItems.STRAWBERRY_SEEDS.get());
 
+        //- Actinolite tools
         swordRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_SWORD.get(), ModItems.ACTINOLITE.get(), "sky_ores");
         pickaxeRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_PICKAXE.get(), ModItems.ACTINOLITE.get(), "sky_ores");
+        axeRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_AXE.get(), ModItems.ACTINOLITE.get(), "sky_ores");
+        hoeRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_HOE.get(), ModItems.ACTINOLITE.get(), "sky_ores");
+        shovelRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_SHOVEL.get(), ModItems.ACTINOLITE.get(), "sky_ores");
 
 
+        //- Skiron tools
         swordRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.SKIRON_INGOTS), null, ModItems.SKIRON_SWORD.get(), ModItems.SKIRON.get(), "sky_ores");
         pickaxeRecipe(pWriter, RecipeCategory.TOOLS, Ingredient.of(ModTags.Items.SKIRON_INGOTS), null, ModItems.SKIRON_PICKAXE.get(), ModItems.SKIRON.get(), "sky_ores");
         axeRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.SKIRON_INGOTS), null, ModItems.SKIRON_AXE.get(), ModItems.SKIRON.get(), "sky_ores");
@@ -140,6 +150,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 200, 100, "sky_ores");
 
         smelting(pWriter, Ingredient.of(ModBlocks.BROKEN_SKYSOLID.get()), RecipeCategory.MISC, ModBlocks.SKYSOLID.get(), ModBlocks.BROKEN_SKYSOLID.get(), 100, "skyland_misc");
+
+        //- Food
+        cookingDirFix(pWriter, Ingredient.of(ModItems.UNCOOKED_MATZA.get()), "food/", RecipeCategory.FOOD,
+                ModItems.MATZA.get(), "food/", AllItems.DOUGH, 200, "matza");
 
         //-- Wood
         exchangeRecipe(pWriter, RecipeCategory.MISC, Ingredient.of(ModBlocks.SKYWOOD_LOG.get()), ModBlocks.SKYWOOD_LOG.get(), ModBlocks.SKYWOOD_PLANKS.get(), 4);
@@ -217,6 +231,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         // Save recipe
         builder.save(finishedRecipeConsumer);
+    }
+
+    protected static void forkRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer,
+                                     RecipeCategory category, Item result, Ingredient nugget, Ingredient ingot, ItemLike unlockedBy) {
+        shapedRecipe(finishedRecipeConsumer, category, result, Map.of('N', nugget, 'I', ingot), unlockedBy, "  I", " N ", "N  ");
     }
 
     protected static void exchangeRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer, RecipeCategory category, Ingredient ingredient, ItemLike unlockedBy, ItemLike result) {
@@ -437,6 +456,28 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(output), has(output)).save(writer);
     }
 
+    protected static void cooking(Consumer<FinishedRecipe> finishedRecipeConsumer,
+                                  Ingredient ingredient, RecipeCategory category, ItemLike result, ItemLike unlockedBy,
+                                  int basicCookingTime, String group) {
+        campfireCooking(finishedRecipeConsumer, ingredient, category, result, unlockedBy, basicCookingTime * 3, group);
+        smelting(finishedRecipeConsumer, ingredient, category, result, unlockedBy, basicCookingTime, group);
+        smoking(finishedRecipeConsumer, ingredient, category, result, unlockedBy, Math.round(basicCookingTime / 2f), group);
+    }
+
+    protected static void cookingDirFix(Consumer<FinishedRecipe> finishedRecipeConsumer,
+                                        Ingredient ingredient, String prefix, RecipeCategory category,
+                                        ItemLike result, String prefix1, ItemLike unlockedBy,
+                                        int basicCookingTime, String group) {
+        campfireCookingDirFix(finishedRecipeConsumer, ingredient, prefix, category, result, prefix1, unlockedBy, basicCookingTime * 3, group);
+        smeltingDirFix(finishedRecipeConsumer, ingredient, prefix, category, result, prefix1, unlockedBy, basicCookingTime, group);
+        smokingDirFix(finishedRecipeConsumer, ingredient, prefix, category, result, prefix1, unlockedBy, Math.round(basicCookingTime / 2f), group);
+    }
+
+    protected static void campfireCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, Ingredient pIngredient, RecipeCategory pCategory, ItemLike pResult, ItemLike unlockedBy,
+                                    int pCookingTIme, String pGroup) {
+        cooking(pFinishedRecipeConsumer, RecipeSerializer.CAMPFIRE_COOKING_RECIPE, pIngredient, pCategory, pResult, unlockedBy, pCookingTIme, pGroup, "_from_campfire_cooking");
+    }
+
     protected static void smelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, Ingredient pIngredient, RecipeCategory pCategory, ItemLike pResult, ItemLike unlockedBy,
                                     int pCookingTIme, String pGroup) {
         cooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredient, pCategory, pResult, unlockedBy, pCookingTIme, pGroup, "_from_smelting");
@@ -450,6 +491,38 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected static void smoking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, Ingredient pIngredient, RecipeCategory pCategory, ItemLike pResult, ItemLike unlockedBy,
                                     int pCookingTIme, String pGroup) {
         cooking(pFinishedRecipeConsumer, RecipeSerializer.SMOKING_RECIPE, pIngredient, pCategory, pResult, unlockedBy, pCookingTIme, pGroup, "_from_smoking");
+    }
+
+    protected static void campfireCookingDirFix(Consumer<FinishedRecipe> pFinishedRecipeConsumer,
+                                                Ingredient pIngredient, String prefix, RecipeCategory pCategory,
+                                                ItemLike pResult, String prefix1, ItemLike unlockedBy,
+                                                int pCookingTIme, String pGroup) {
+        cookingDirFix(pFinishedRecipeConsumer, RecipeSerializer.CAMPFIRE_COOKING_RECIPE,
+                pIngredient, prefix, pCategory, pResult, prefix1, unlockedBy, pCookingTIme, pGroup, "_from_campfire_cooking");
+    }
+
+    protected static void smeltingDirFix(Consumer<FinishedRecipe> pFinishedRecipeConsumer,
+                                         Ingredient pIngredient, String prefix, RecipeCategory pCategory,
+                                         ItemLike pResult, String prefix1, ItemLike unlockedBy,
+                                         int pCookingTIme, String pGroup) {
+        cookingDirFix(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE,
+                pIngredient, prefix, pCategory, pResult, prefix1, unlockedBy, pCookingTIme, pGroup, "_from_smelting");
+    }
+
+    protected static void blastingDirFix(Consumer<FinishedRecipe> pFinishedRecipeConsumer,
+                                         Ingredient pIngredient, String prefix, RecipeCategory pCategory,
+                                         ItemLike pResult, String prefix1, ItemLike unlockedBy,
+                                         int pCookingTIme, String pGroup) {
+        cookingDirFix(pFinishedRecipeConsumer, RecipeSerializer.BLASTING_RECIPE,
+                pIngredient, prefix, pCategory, pResult, prefix1, unlockedBy, pCookingTIme, pGroup, "_from_blasting");
+    }
+
+    protected static void smokingDirFix(Consumer<FinishedRecipe> pFinishedRecipeConsumer,
+                                        Ingredient pIngredient, String prefix, RecipeCategory pCategory,
+                                        ItemLike pResult, String prefix1, ItemLike unlockedBy,
+                                        int pCookingTIme, String pGroup) {
+        cookingDirFix(pFinishedRecipeConsumer, RecipeSerializer.SMOKING_RECIPE,
+                pIngredient, prefix, pCategory, pResult, prefix1, unlockedBy, pCookingTIme, pGroup, "_from_smoking");
     }
 
     protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult,
@@ -495,6 +568,20 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                     .save(pFinishedRecipeConsumer, MMM.MOD_ID + ":" + getItemName(pResult) + pRecipeName + "_" + getItemName(unlockedByAndName));
 
     }
+
+    protected static void cookingDirFix(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer,
+                                    Ingredient pIngredient, String prefix, RecipeCategory pCategory, ItemLike pResult, String prefix1, ItemLike unlockedByAndName,
+                                    int pCookingTime, String pGroup, String pRecipeName) {
+
+            SimpleCookingRecipeBuilder.generic(pIngredient, pCategory, pResult, 0, pCookingTime, pCookingSerializer).group(pGroup).unlockedBy(getHasName(unlockedByAndName), has(unlockedByAndName))
+                    .save(pFinishedRecipeConsumer, MMM.MOD_ID + ":" + getItemNameDirFix(pResult, prefix1) + pRecipeName + "_" + getItemNameDirFix(unlockedByAndName, prefix));
+
+    }
+
+    protected static String getItemNameDirFix(ItemLike item, String prefix) {
+        return BuiltInRegistries.ITEM.getKey(item.asItem()).getPath().replaceFirst(prefix, "");
+    }
+
 
     private record resultWithChance(ItemLike result, int count, float chance) {}
 

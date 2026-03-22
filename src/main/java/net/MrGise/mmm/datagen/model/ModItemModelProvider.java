@@ -131,6 +131,11 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.SKIRON_HOE);
         handheldItem(ModItems.SKIRON_KNIFE);
         handheldItem(ModItems.SKIRON_PAXEL);
+        handModelItem(ModItems.SKIRON_HAMMER, modLoc("custom/skiron_hammer"), new Texture("0", "block/skiron_hammer"));
+
+        handModelItem(ModItems.ROLLING_PIN, modLoc("custom/rolling_pin"), new Texture("all", "item/tool/rolling_pin"));
+
+        handheldItem(ModItems.IRON_FORK, modLoc("item/tool/iron_fork"));
 
 
         //- Item models for blocks
@@ -226,6 +231,12 @@ public class ModItemModelProvider extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/handheld")).texture("layer0",
                 new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder handheldItem(RegistryObject<Item> item, ResourceLocation texture) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/handheld")).texture("layer0",
+                texture);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {

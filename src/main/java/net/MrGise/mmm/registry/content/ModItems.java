@@ -242,6 +242,15 @@ public class ModItems {
     () -> new ReinforcedBowItem(new Item.Properties().durability(580), 3.2f));
 
 
+    //- Misc
+
+    public static final RegistryObject<Item> ROLLING_PIN = registerItem("rolling_pin",
+            () -> new RollingPinItem(new Item.Properties().stacksTo(1).durability(1000), 1.6f));
+
+    public static final RegistryObject<Item> IRON_FORK = registerItem("iron_fork",
+            () -> new Item(new Item.Properties().stacksTo(1)));
+
+
     /*. Armor */
     public static final RegistryObject<Item> SKIRON_HELMET = registerItem("skiron_helmet",
             () -> new EffectArmorItem(ModArmorMaterials.SKIRON, ArmorItem.Type.HELMET, new Item.Properties()));

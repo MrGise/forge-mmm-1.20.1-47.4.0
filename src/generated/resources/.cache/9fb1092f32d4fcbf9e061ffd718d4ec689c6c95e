@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-17T11:38:17.0195948	Recipes
+// 1.20.1	2026-03-22T14:50:59.9735055	Recipes
 d6246e5792128ef35b5ee8b0b98b36ce3301c8fb data/minecraft/advancements/recipes/bow.json
 8b17f2245c8f94d607a1810ace38f2ebc3966c93 data/minecraft/advancements/recipes/food/food/cucumber_seeds_from_food/cucumber.json
 52a65e1876c9a6a2d2964f46d39788dcadb44957 data/minecraft/advancements/recipes/food/food/pomegranate_seeds_from_food/pomegranate.json
@@ -10,7 +10,12 @@ ca275c21f92ffee471a6efd25da7538f7f0e1f05 data/minecraft/recipes/food/pomegranate
 b3d3a7adeac5a9add2538cf9bdd4f8e753ad3f89 data/minecraft/recipes/food/strawberry_seeds_from_food/strawberry.json
 5aa4dce5866a7e33e104fde9afad18993ff8dcd5 data/minecraft/recipes/skywood_planks_from_skywood_log.json
 02418e1c26cafd9400261688c644008ed082e9ac data/minecraft/recipes/skywood_planks_from_stripped_skywood_log.json
+03ea0a82397d4df78f9507841979ef74b4386cae data/mmm/advancements/recipes/combat/actinolite_axe_left.json
+76af0f517d700b2bfd314a8f894876138021e468 data/mmm/advancements/recipes/combat/actinolite_axe_right.json
+4e499e815dc9c4bdcd1131b0a5e051b6488f16b0 data/mmm/advancements/recipes/combat/actinolite_hoe_left.json
+f0fc1de6467ec2e8591d9e671cd9e76bbc553150 data/mmm/advancements/recipes/combat/actinolite_hoe_right.json
 da9072fadb602091b226cc2091a712e9c7a97ccc data/mmm/advancements/recipes/combat/actinolite_pickaxe.json
+95bea2ee595db47e99b04b4940827ed13ed42f8e data/mmm/advancements/recipes/combat/actinolite_shovel.json
 4e97fe588d9f0b0691e428875c5b9126e3cd692e data/mmm/advancements/recipes/combat/actinolite_sword.json
 45749a363a7074214d45aa016f7e0ec63d84ecb0 data/mmm/advancements/recipes/combat/skiron_actinolite_boots.json
 a450b2d78e3cf4b21ef119871a224fa921505f6e data/mmm/advancements/recipes/combat/skiron_actinolite_chestplate.json
@@ -23,6 +28,9 @@ f066eb2f4da00fc6ac1ebe064204257dcbaf64e6 data/mmm/advancements/recipes/combat/sk
 e82960041f42934367bbd9c61f3dafdcd563dc00 data/mmm/advancements/recipes/combat/skiron_helmet.json
 11b1c7d22df7b6dc7fec3a5ddfa13ff6999a5a50 data/mmm/advancements/recipes/combat/skiron_leggings.json
 fad59674e32b6ec8fbf6de85b9fce1d2d7e798c3 data/mmm/advancements/recipes/combat/skiron_sword.json
+8aee018d226e226b467ff938a3347194d3c604d8 data/mmm/advancements/recipes/food/matza_from_campfire_cooking_dough.json
+0edcedb88dc42ebe5201e25bddca23a4afcd9eb7 data/mmm/advancements/recipes/food/matza_from_smelting_dough.json
+4ba01da20d6da8e48f381e6130f221d31cc87cb0 data/mmm/advancements/recipes/food/matza_from_smoking_dough.json
 9b56995808ce5891c0429240d231efb33b7cf63c data/mmm/advancements/recipes/misc/glide_armor_trim.json
 768c6b16686b061678fd206b5e674b1e70c13226 data/mmm/advancements/recipes/misc/gold_key.json
 60c26344217b69fbab4c0fbc8976fc910072c1db data/mmm/advancements/recipes/misc/raw_skiron.json
@@ -52,6 +60,7 @@ cbabe1d169a023c07dfcafa3c22072afa8486bca data/mmm/advancements/recipes/reinforce
 b3c88fafd18b7846b16cccd1aa668fee73d7e72a data/mmm/advancements/recipes/reinforced_stone_bow.json
 fa4d1736cd3939d73b3de4f002f13430b214baaa data/mmm/advancements/recipes/test/block.json
 5a3a8ccef1586c46af68db090e6264e8b3ce6874 data/mmm/advancements/recipes/test/directory.json
+3501eb993d8a79310bf6def31e4055ad17c35a94 data/mmm/advancements/recipes/tools/iron_fork.json
 2530d38312fc45dd7fd924512fd42d6671dbfb65 data/mmm/advancements/recipes/tools/skiron_hammer.json
 875be462be55fc7594b29d370359de7fe7c2c226 data/mmm/advancements/recipes/tools/skiron_hoe_left.json
 4bf97254a54710dae01f42b2b77865a31452dd4b data/mmm/advancements/recipes/tools/skiron_hoe_right.json
@@ -59,7 +68,12 @@ f8a8e7a8d7807b9ff812df766ce1c018a5149a28 data/mmm/advancements/recipes/tools/ski
 f79a7af1b0727548d6d11a8735d94630ae01ae03 data/mmm/advancements/recipes/tools/skiron_paxel_right.json
 a9ee22cc5d49d95685f1e0b6368e7f2593f75740 data/mmm/advancements/recipes/tools/skiron_pickaxe.json
 baf39deb9ee9a90fedf1aa5f3f85c3702a92e93b data/mmm/advancements/recipes/tools/skiron_shovel.json
+67994a14af03d091d809027912a92afc7eb190ab data/mmm/recipes/actinolite_axe_left.json
+44289ddadd61573320aef206f6097f5bdc4f5f67 data/mmm/recipes/actinolite_axe_right.json
+fed84220c10b59339ebc03c8fb531bc7e219ad7d data/mmm/recipes/actinolite_hoe_left.json
+319ef9e4507ed4f3dd0d58ac06110a4e06c883ac data/mmm/recipes/actinolite_hoe_right.json
 2f8e9de8546d5e520adc1b55f56f21442116011a data/mmm/recipes/actinolite_pickaxe.json
+9f74daa86d69d12d244ec349dd6f08fa93179ed5 data/mmm/recipes/actinolite_shovel.json
 2ab8e0f45faa3044adc5e51598690d35dc1343ff data/mmm/recipes/actinolite_sword.json
 23485d146d7612d8dca71f7418290c39a38bcb0e data/mmm/recipes/apple_slicing.json
 e75c3426510f66ec062e9a921f4565bc4e162663 data/mmm/recipes/bow_from_bowyery.json
@@ -67,6 +81,10 @@ e75c3426510f66ec062e9a921f4565bc4e162663 data/mmm/recipes/bow_from_bowyery.json
 4eee6a76e2b0c3ce563cbe3b17994245c751d3e2 data/mmm/recipes/glide_armor_trim.json
 8d81750cf3976d0f65257b082e6c989bd23ce216 data/mmm/recipes/gold_key.json
 b9a96dd82085ee206e700ad0367b17d363ba1a22 data/mmm/recipes/honeyed_apple_slicing.json
+64d162211164467b001406f9b96cabe2e63af3d9 data/mmm/recipes/iron_fork.json
+ff10beb14e2bc03282296167b5cd5a8934451f44 data/mmm/recipes/matza_from_campfire_cooking_dough.json
+a5e004b30e424827a75d3d0c29e9c0ad38cfdd4c data/mmm/recipes/matza_from_smelting_dough.json
+ec319e428ac2dcae0582355014d34504f8582cce data/mmm/recipes/matza_from_smoking_dough.json
 b38f34d694d8383bc4e331556be266a482d484b5 data/mmm/recipes/mimic_carrot.json
 00d37f290f878cc28fa2ebca756f686c9b7ce703 data/mmm/recipes/mimic_chest.json
 f0e5764469529d1d175bbb0730a35d456c6543a0 data/mmm/recipes/mimic_shulker_box.json

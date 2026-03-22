@@ -116,6 +116,10 @@
 
   "block.mmm.oak_counter": "Oak Counter",
 
+  "item.mmm.rolling_pin": "Rolling Pin",
+
+  "item.mmm.iron_fork": "Iron Fork",
+
 
   "block.mmm.heavenly_grass": "Heavenly Grass",
   "block.mmm.heavenly_grass_tall": "Tall Heavenly Grass",
@@ -173,7 +177,7 @@
 
 
   "block.mmm.cheese_block": "Block of Cheese",
-  "item.mmm.goat_milk_bucket": "Goat's Milk Bucket",
+  "item.mmm.food.goat_milk_bucket": "Goat's Milk Bucket",
 
 
   "block.mmm.null_block": "Null",

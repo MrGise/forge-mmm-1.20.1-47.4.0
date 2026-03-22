@@ -2,6 +2,7 @@ package net.MrGise.mmm.datagen.loot;
 
 import com.simibubi.create.AllItems;
 import net.MrGise.mmm.block.TripleDoorBlock;
+import net.MrGise.mmm.block.dough.UncookedMatzaBlock;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.block.crop.AccessibleCropBlock;
 import net.MrGise.mmm.registry.content.ModItems;
@@ -13,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.LootTable;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
@@ -21,6 +23,7 @@ import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
 import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCondition;
+import net.minecraft.world.level.storage.loot.providers.number.ConstantValue;
 import net.minecraft.world.level.storage.loot.providers.number.UniformGenerator;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -123,7 +126,25 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.OAK_COUNTER.get());
 
         this.add(ModBlocks.PLACED_DOUGH.get(),
-                (block -> createCustomSingularDrop(ModBlocks.PLACED_DOUGH.get(), AllItems.DOUGH.get())));
+                (block -> createCustomSingularDrop(AllItems.DOUGH.get())));
+
+        this.add(ModBlocks.FLATTENING_DOUGH.get(),
+                (block -> createCustomSingularDrop(AllItems.DOUGH.get())));
+
+        this.add(ModBlocks.UNCOOKED_MATZA.get(),
+            block -> {
+            LootItemCondition.Builder condition = LootItemBlockStatePropertyCondition
+                    .hasBlockStateProperties(block)
+                    .setProperties(StatePropertiesPredicate.Builder.properties().hasProperty(UncookedMatzaBlock.HOLES, 14));
+
+                return LootTable.lootTable()
+                        .withPool(LootPool.lootPool()
+                                .when(condition).setRolls(ConstantValue.exactly(1.0F))
+                                .add(LootItem.lootTableItem(ModItems.UNCOOKED_MATZA.get())))
+                        .withPool(LootPool.lootPool()
+                                .when(condition.invert()).setRolls(ConstantValue.exactly(1.0F))
+                                .add(LootItem.lootTableItem(AllItems.DOUGH)));
+            });
 
 
         //\ Dimensions' blocks loot tables
@@ -260,6 +281,10 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     protected LootTable.Builder createCustomSingularDrop(Block pBlock, ItemLike pItem) {
         return createSilkTouchDispatchTable(pBlock, this.applyExplosionDecay(pBlock, LootItem.lootTableItem(pItem)
                 .apply(ApplyBonusCount.addOreBonusCount(Enchantments.BLOCK_FORTUNE))));
+    }
+
+    protected LootTable.Builder createCustomSingularDrop(ItemLike pItem) {
+        return createSingleItemTable(pItem, ConstantValue.exactly(1.0f));
     }
 
     protected LootTable.Builder createCustomMultipleDrop(Block pBlock, ItemLike pItem, float MinDrop, float MaxDrop) {

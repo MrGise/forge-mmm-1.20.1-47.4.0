@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "I": {
+      "tag": "forge:ingots/iron"
+    },
+    "N": {
+      "tag": "forge:nuggets/iron"
+    }
+  },
+  "pattern": [
+    "  I",
+    " N ",
+    "N  "
+  ],
+  "result": {
+    "item": "mmm:iron_fork"
+  },
+  "show_notification": true
+}
