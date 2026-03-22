@@ -22,6 +22,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import net.minecraftforge.client.model.generators.ModelBuilder.FaceRotation;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -83,24 +85,20 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         VariantBlockStateBuilder builder = getVariantBuilder(ModBlocks.UNCOOKED_MATZA.get());
         for (int i = 1; i <= 13; i++) {
-            builder.partialState().with(UncookedMatzaBlock.HOLES, i).with(UncookedMatzaBlock.FACING, Direction.NORTH)
-                    .modelForState().modelFile(models().getExistingFile(
-                            ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "block/dough/uncooked_matza_" + i))).addModel();
-        }
-        for (int i = 1; i <= 13; i++) {
-            builder.partialState().with(UncookedMatzaBlock.HOLES, i).with(UncookedMatzaBlock.FACING, Direction.EAST)
-                    .modelForState().modelFile(models().getExistingFile(
-                            ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "block/dough/uncooked_matza_" + i))).rotationY(90).addModel();
-        }
-        for (int i = 1; i <= 13; i++) {
-            builder.partialState().with(UncookedMatzaBlock.HOLES, i).with(UncookedMatzaBlock.FACING, Direction.SOUTH)
-                    .modelForState().modelFile(models().getExistingFile(
-                            ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "block/dough/uncooked_matza_" + i))).rotationY(180).addModel();
-        }
-        for (int i = 1; i <= 13; i++) {
-            builder.partialState().with(UncookedMatzaBlock.HOLES, i).with(UncookedMatzaBlock.FACING, Direction.WEST)
-                    .modelForState().modelFile(models().getExistingFile(
-                            ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "block/dough/uncooked_matza_" + i))).rotationY(270).addModel();
+            ModelFile model = models().getExistingFile(ResourceLocation.
+                    fromNamespaceAndPath(MMM.MOD_ID, "block/dough/uncooked_matza_" + i));
+
+            for (Direction dir : new Direction[]{Direction.NORTH, Direction.EAST, Direction.SOUTH, Direction.WEST}) {
+                int yRot = switch (dir) {
+                    case EAST -> 90;
+                    case SOUTH -> 180;
+                    case WEST -> 270;
+                    default -> 0;
+                };
+
+                builder.partialState().with(UncookedMatzaBlock.HOLES, i).with(UncookedMatzaBlock.FACING, Direction.NORTH)
+                        .modelForState().modelFile(model).rotationY(yRot).addModel();
+            }
         }
         builder.partialState().with(UncookedMatzaBlock.HOLES, 14)
                 .modelForState().modelFile(models().getExistingFile(
@@ -175,18 +173,24 @@ public class ModBlockStateProvider extends BlockStateProvider {
         flower(ModBlocks.OXALIS.get());
         pottedFlower(ModBlocks.POTTED_OXALIS.get(), "potted_oxalis", "oxalis");
 
-        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.ACACIA_TRIPLE_DOOR.get(), "door/acacia_triple_door", "cutout");
-        tripleDoorBlock((TripleDoorBlock) ModBlocks.BIRCH_TRIPLE_DOOR.get(), "door/birch_triple_door");
-        tripleDoorBlock((TripleDoorBlock) ModBlocks.CRIMSON_TRIPLE_DOOR.get(), "door/crimson_triple_door");
-        tripleDoorBlock((TripleDoorBlock) ModBlocks.DARK_OAK_TRIPLE_DOOR.get(), "door/dark_oak_triple_door");
-        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.IRON_TRIPLE_DOOR.get(), "door/iron_triple_door", "cutout");
-        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.JUNGLE_TRIPLE_DOOR.get(), "door/jungle_triple_door", "cutout");
-        tripleDoorBlock((TripleDoorBlock) ModBlocks.MANGROVE_TRIPLE_DOOR.get(), "door/mangrove_triple_door");
-        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.OAK_TRIPLE_DOOR.get(), "door/oak_triple_door", "cutout");
-        tripleDoorBlock((TripleDoorBlock) ModBlocks.SPRUCE_TRIPLE_DOOR.get(), "door/spruce_triple_door");
-        tripleDoorBlock((TripleDoorBlock) ModBlocks.WARPED_TRIPLE_DOOR.get(), "door/warped_triple_door");
-        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.BAMBOO_TRIPLE_DOOR.get(), "door/bamboo_triple_door", "cutout");
-        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.CHERRY_TRIPLE_DOOR.get(), "door/cherry_triple_door", "cutout");
+        Map<RegistryObject<Block>, Boolean> tripleDoors = new LinkedHashMap<>();
+        tripleDoors.put(ModBlocks.ACACIA_TRIPLE_DOOR, true);
+        tripleDoors.put(ModBlocks.BIRCH_TRIPLE_DOOR, false);
+        tripleDoors.put(ModBlocks.CRIMSON_TRIPLE_DOOR, false);
+        tripleDoors.put(ModBlocks.DARK_OAK_TRIPLE_DOOR, false);
+        tripleDoors.put(ModBlocks.IRON_TRIPLE_DOOR, true);
+        tripleDoors.put(ModBlocks.JUNGLE_TRIPLE_DOOR, true);
+        tripleDoors.put(ModBlocks.MANGROVE_TRIPLE_DOOR, false);
+        tripleDoors.put(ModBlocks.OAK_TRIPLE_DOOR, true);
+        tripleDoors.put(ModBlocks.SPRUCE_TRIPLE_DOOR, false);
+        tripleDoors.put(ModBlocks.WARPED_TRIPLE_DOOR, false);
+        tripleDoors.put(ModBlocks.BAMBOO_TRIPLE_DOOR, true);
+        tripleDoors.put(ModBlocks.CHERRY_TRIPLE_DOOR, true);
+        tripleDoors.put(ModBlocks.SKYWOOD_TRIPLE_DOOR, true);
+        tripleDoors.forEach((block, cutout) -> {
+            String name = ForgeRegistries.BLOCKS.getKey(block.get()).getPath();
+            tripleDoorBlock(block, name, cutout);
+        });
 
     }
 
@@ -620,6 +624,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
     public void fenceGateBlockWithItem(RegistryObject<Block> block, ResourceLocation location) {
         fenceGateBlock((FenceGateBlock) block.get(), location);
         blockItem(block);
+    }
+
+    private void tripleDoorBlock(RegistryObject<Block> block, String name, boolean cutout) {
+        if (cutout) {
+            tripleDoorBlockWithRenderType((TripleDoorBlock) block.get(), "door/" + name, "cutout");
+        } else {
+            tripleDoorBlock((TripleDoorBlock) block.get(), "door/" + name);
+        }
     }
 
     public void tripleDoorBlockWithRenderType(TripleDoorBlock block, ResourceLocation bottom, ResourceLocation middle, ResourceLocation top, String renderType) {
