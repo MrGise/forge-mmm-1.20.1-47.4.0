@@ -1,6 +1,5 @@
 package net.MrGise.mmm.event;
 
-import com.simibubi.create.AllItems;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.command.*;
@@ -55,6 +54,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.server.command.ConfigCommand;
 import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.common.tag.ForgeTags;
 
 import java.util.*;
 
@@ -156,7 +156,7 @@ public class ModGeneralEvents {
                     player.setItemInHand(event.getHand(), new ItemStack(Items.BUCKET));
                 }
             }
-        } else if (item.is(AllItems.DOUGH.get()) && clickedOn.is(ModTags.Blocks.COUNTERS)
+        } else if (item.is(ForgeTags.DOUGH) && clickedOn.is(ModTags.Blocks.COUNTERS)
                 && event.getHitVec().getDirection() == Direction.UP
                 && level.getBlockState(directionalPos).canBeReplaced()) {
             event.setCanceled(true);
