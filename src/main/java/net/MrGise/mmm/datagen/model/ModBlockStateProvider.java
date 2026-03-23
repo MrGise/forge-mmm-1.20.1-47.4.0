@@ -96,7 +96,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                     default -> 0;
                 };
 
-                builder.partialState().with(UncookedMatzaBlock.HOLES, i).with(UncookedMatzaBlock.FACING, Direction.NORTH)
+                builder.partialState().with(UncookedMatzaBlock.HOLES, i).with(UncookedMatzaBlock.FACING, dir)
                         .modelForState().modelFile(model).rotationY(yRot).addModel();
             }
         }
@@ -162,7 +162,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         wallBlock((WallBlock) ModBlocks.SKYGROUND_WALL.get(), blockTexture(ModBlocks.SKYGROUND.get()));
 
         doorBlockWithRenderType((DoorBlock) ModBlocks.SKYWOOD_DOOR.get(), modLoc("block/skywood_door_bottom"), modLoc("block/skywood_door_top"), "cutout");
-        tripleDoorBlockWithRenderType((TripleDoorBlock) ModBlocks.SKYWOOD_TRIPLE_DOOR.get(), "door/skywood_triple_door", "cutout");
         trapdoorBlockWithRenderTypeAndItem(ModBlocks.SKYWOOD_TRAPDOOR, modLoc("block/skywood_trapdoor"), true, "cutout");
 
         //. World
@@ -174,6 +173,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
         pottedFlower(ModBlocks.POTTED_OXALIS.get(), "potted_oxalis", "oxalis");
 
         Map<RegistryObject<Block>, Boolean> tripleDoors = new LinkedHashMap<>();
+        tripleDoors.put(ModBlocks.SKYWOOD_TRIPLE_DOOR, true);
         tripleDoors.put(ModBlocks.ACACIA_TRIPLE_DOOR, true);
         tripleDoors.put(ModBlocks.BIRCH_TRIPLE_DOOR, false);
         tripleDoors.put(ModBlocks.CRIMSON_TRIPLE_DOOR, false);
@@ -186,7 +186,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
         tripleDoors.put(ModBlocks.WARPED_TRIPLE_DOOR, false);
         tripleDoors.put(ModBlocks.BAMBOO_TRIPLE_DOOR, true);
         tripleDoors.put(ModBlocks.CHERRY_TRIPLE_DOOR, true);
-        tripleDoors.put(ModBlocks.SKYWOOD_TRIPLE_DOOR, true);
         tripleDoors.forEach((block, cutout) -> {
             String name = ForgeRegistries.BLOCKS.getKey(block.get()).getPath();
             tripleDoorBlock(block, name, cutout);
@@ -716,28 +715,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 model = bottomRightOpen;
             } else if (bottom && !right && open) {
                 model = bottomLeftOpen;
-            }
-            if (bottom && right && !open) {
+            }else if (bottom && right && !open) {
                 model = bottomRight;
             } else if (bottom && !right && !open) {
                 model = bottomLeft;
-            }
-            if (middle && right && open) {
+            }else if (middle && right && open) {
                 model = middleRightOpen;
             } else if (middle && !right && open) {
                 model = middleLeftOpen;
-            }
-            if (middle && right && !open) {
+            }else if (middle && right && !open) {
                 model = middleRight;
             } else if (middle && !right && !open) {
                 model = middleLeft;
-            }
-            if (top && right && open) {
+            }else if (top && right && open) {
                 model = topRightOpen;
             } else if (top && !right && open) {
                 model = topLeftOpen;
-            }
-            if (top && right && !open) {
+            }else if (top && right && !open) {
                 model = topRight;
             } else if (top && !right && !open) {
                 model = topLeft;

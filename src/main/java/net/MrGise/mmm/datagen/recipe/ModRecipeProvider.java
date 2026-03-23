@@ -1,13 +1,18 @@
 package net.MrGise.mmm.datagen.recipe;
 
 import com.simibubi.create.AllItems;
+import com.simibubi.create.api.data.recipe.ProcessingRecipeGen;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.datagen.recipe.builders.BowyeryRecipeBuilder;
 import net.MrGise.mmm.datagen.recipe.builders.ThingamajigRecipeBuilder;
+import net.MrGise.mmm.datagen.recipe.create.MMMFillingRecipeGen;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.registry.variables.ModTags;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.data.CachedOutput;
+import net.minecraft.data.DataGenerator;
+import net.minecraft.data.DataProvider;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.nbt.CompoundTag;
@@ -22,16 +27,23 @@ import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
+import net.minecraftforge.fluids.FluidType;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
 // Generates recipes
 public class ModRecipeProvider extends RecipeProvider implements IConditionBuilder {
+
+    static final List<ProcessingRecipeGen> GENERATORS = new ArrayList<>();
+    static final int BUCKET = FluidType.BUCKET_VOLUME;
+    static final int BOTTLE = 250;
 
     public static final List<ItemLike> SKIRON_SMELTABLES = List.of(ModBlocks.SKIRON_ORE.get(), ModItems.RAW_SKIRON.get());
     public static final List<ItemLike> SKOAL_SMELTABLES = List.of(ModBlocks.SKOAL_ORE.get());
@@ -166,6 +178,24 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         // Thingamajig
         thingamajig(ModItems.TEST_ITEM.get(), ModItems.DIRECTORY_TEST.get(), 2, pWriter);
         thingamajig(ModItems.DIRECTORY_TEST.get(), ModBlocks.TEST_BLOCK.get(), 1, pWriter);
+    }
+
+    public static void registerProcessing(DataGenerator gen, PackOutput output) {
+        GENERATORS.add(new MMMFillingRecipeGen(output));
+
+        gen.addProvider(true, new DataProvider() {
+            @Override
+            public String getName() {
+                return "MMM's processing recipes";
+            }
+
+            @Override
+            public CompletableFuture<?> run(CachedOutput cachedOutput) {
+                return CompletableFuture.allOf(GENERATORS.stream()
+                        .map(gen -> gen.run(cachedOutput))
+                        .toArray(CompletableFuture[]::new));
+            }
+        });
     }
 
     protected static void mimicDisguise(String pForm, Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, ItemLike pMimic, ItemLike pToForm, ItemLike pResultMimic, String pName) {

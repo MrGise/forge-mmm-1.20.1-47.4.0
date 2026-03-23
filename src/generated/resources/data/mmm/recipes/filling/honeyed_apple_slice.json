@@ -2,7 +2,7 @@
   "type": "create:filling",
   "ingredients": [
     {
-      "item": "mmm:apple_slice"
+      "item": "mmm:food/apple_slice"
     },
     {
       "amount": 32,
@@ -11,7 +11,7 @@
   ],
   "results": [
     {
-      "item": "mmm:honeyed_apple_slice"
+      "item": "mmm:food/honeyed_apple_slice"
     }
   ]
 }

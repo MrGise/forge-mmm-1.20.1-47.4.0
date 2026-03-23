@@ -53,6 +53,9 @@ public class DataGenerators {
 
         generator.addProvider(event.includeClient(), new ModPaintingVariantTagProvider(packOutput, lookupProvider, existingFileHelper));
 
+        if (event.includeServer()) {
+            ModRecipeProvider.registerProcessing(generator, packOutput);
+        }
     }
 
 }
