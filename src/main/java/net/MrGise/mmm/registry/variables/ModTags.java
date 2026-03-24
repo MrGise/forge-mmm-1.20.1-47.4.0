@@ -62,6 +62,8 @@ public class ModTags {
 
         public static final TagKey<Block> SKYLAND_ORES = forgeTag("ores/skyland");
 
+        public static final TagKey<Block> SKYWOOD_LOGS = forgeTag("skywood_logs");
+
         public static final TagKey<Block> DETECTABLE_ORE = tag("detectable_ore");
 
 

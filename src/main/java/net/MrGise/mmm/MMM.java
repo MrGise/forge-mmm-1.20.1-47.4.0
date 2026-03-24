@@ -132,6 +132,7 @@ public class MMM {
 
 
             ModGeneralEvents.LogMap.put(ModBlocks.SKYWOOD_LOG.get(), ModBlocks.STRIPPED_SKYWOOD_LOG.get());
+            ModGeneralEvents.LogMap.put(ModBlocks.SKYWOOD.get(), ModBlocks.STRIPPED_SKYWOOD.get());
 
 
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.SLOWNESS, Items.SLIME_BALL, ModPotions.LIQUID_SLIME.get()));

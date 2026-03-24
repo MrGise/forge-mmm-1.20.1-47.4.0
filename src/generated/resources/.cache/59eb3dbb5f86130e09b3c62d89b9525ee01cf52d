@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-22T13:12:14.9390721	Loot Tables
+// 1.20.1	2026-03-24T19:18:18.5183977	Loot Tables
 6fdd3e19d045d0890f366a414d6cc70e7ecc6dc4 data/mmm/loot_tables/blocks/acacia_triple_door.json
 304bc14bc9e1f04828096388b5b5c3c6b3be2931 data/mmm/loot_tables/blocks/actinolite_ore.json
 edfc01428b5a8342c066b7e02f5d2d643d992e7c data/mmm/loot_tables/blocks/bamboo_triple_door.json
@@ -40,6 +40,7 @@ e234896969e0a98f85da3871659f7de6b41091c4 data/mmm/loot_tables/blocks/skydirt.jso
 3a18a3ca4815dc981a5041214f1ff5e30a544e32 data/mmm/loot_tables/blocks/skysoil.json
 0a0e71f74934b624b7e5b1c1fb5e5f7d6c8f4b33 data/mmm/loot_tables/blocks/skysolid.json
 e0430f7a286e45d20c45c33704f510e1227bbe79 data/mmm/loot_tables/blocks/skysolid_wall.json
+bfdd79ba889774378e15cde512af73e83adbe53d data/mmm/loot_tables/blocks/skywood.json
 f0711983668f48f728a1fca06ae556408668c6be data/mmm/loot_tables/blocks/skywood_button.json
 b650f6303c71827786eff0fddef22e39e4d8d5ec data/mmm/loot_tables/blocks/skywood_door.json
 1a9dd509995b9fc76667e38485521cc17efe545c data/mmm/loot_tables/blocks/skywood_fence.json
@@ -54,6 +55,7 @@ cebdbc055598ff90c150e8e8a9d3b8face7129a9 data/mmm/loot_tables/blocks/skywood_sta
 005b9f99e831ecd7a53cf3061dd16f138996de01 data/mmm/loot_tables/blocks/spruce_triple_door.json
 3f5157a1a2baeb84f2c069efb362ed82f7c9a819 data/mmm/loot_tables/blocks/strawberry.json
 91a2b62c20d0b5f33898b96f38cd823cb31837ad data/mmm/loot_tables/blocks/strawberry_rclick.json
+f44b59f75eb78f7cd94811513e2b938b11681cbf data/mmm/loot_tables/blocks/stripped_skywood.json
 43f1004c95c2822116eb86c3d6070a602af248d2 data/mmm/loot_tables/blocks/stripped_skywood_log.json
 2f9dd891041d880de03ba0149e656e934ec09c3d data/mmm/loot_tables/blocks/test/animated_block.json
 06f20fc4d7af71de5085c8f3b1fc2aca672bd452 data/mmm/loot_tables/blocks/test/block.json

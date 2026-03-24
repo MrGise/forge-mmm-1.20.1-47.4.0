@@ -1,5 +1,6 @@
 package net.MrGise.mmm.datagen.tag;
 
+import com.simibubi.create.AllTags;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.content.ModItems;
@@ -26,6 +27,12 @@ public class ModItemTagGenerator extends ItemTagsProvider {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         // Tags here
+
+        this.tag(AllTags.AllItemTags.MODDED_STRIPPED_LOGS.tag)
+                .add(ModBlocks.STRIPPED_SKYWOOD_LOG.get().asItem());
+
+        this.tag(AllTags.AllItemTags.MODDED_STRIPPED_WOOD.tag)
+                .add(ModBlocks.STRIPPED_SKYWOOD.get().asItem());
 
         this.tag(ItemTags.MUSIC_DISCS)
                 .add(ModItems.DROPPY_LIKES_RICOCHET_MUSIC_DISC.get())

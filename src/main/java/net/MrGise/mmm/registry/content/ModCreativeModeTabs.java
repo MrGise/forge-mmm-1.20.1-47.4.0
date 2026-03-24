@@ -98,16 +98,23 @@ public class ModCreativeModeTabs {
                         //- Skywood
                         output.accept(ModBlocks.SKYWOOD_LOG.get());
                         output.accept(ModBlocks.STRIPPED_SKYWOOD_LOG.get());
+
+                        output.accept(ModBlocks.SKYWOOD.get());
+                        output.accept(ModBlocks.STRIPPED_SKYWOOD.get());
+
                         output.accept(ModBlocks.SKYWOOD_PLANKS.get());
                         output.accept(ModBlocks.SKYWOOD_STAIRS.get());
                         output.accept(ModBlocks.SKYWOOD_SLAB.get());
                         output.accept(ModBlocks.SKYWOOD_FENCE.get());
                         output.accept(ModBlocks.SKYWOOD_FENCE_GATE.get());
+
                         output.accept(ModBlocks.SKYWOOD_DOOR.get());
                         output.accept(ModBlocks.SKYWOOD_TRIPLE_DOOR.get());
                         output.accept(ModBlocks.SKYWOOD_TRAPDOOR.get());
+
                         output.accept(ModBlocks.SKYWOOD_PRESSURE_PLATE.get());
                         output.accept(ModBlocks.SKYWOOD_BUTTON.get());
+
 
                         output.accept(ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get());
 

@@ -126,6 +126,10 @@ public class ModBlockStateProvider extends BlockStateProvider {
                 "skywood_log", "skywood_log_top", "skywood_log");
         logBlockWithItem((RotatedPillarBlock) ModBlocks.STRIPPED_SKYWOOD_LOG.get(),
                 "stripped_skywood_log", "stripped_skywood_log_top", "stripped_skywood_log");
+        logBlockWithItem((RotatedPillarBlock) ModBlocks.SKYWOOD.get(),
+                "skywood_log", "skywood_log", "skywood");
+        logBlockWithItem((RotatedPillarBlock) ModBlocks.STRIPPED_SKYWOOD.get(),
+                "stripped_skywood_log", "stripped_skywood_log", "stripped_skywood");
 
         blockWithItem(ModBlocks.ACTINOLITE_ORE);
         blockWithItem(ModBlocks.SKIRON_ORE);

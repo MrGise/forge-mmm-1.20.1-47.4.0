@@ -1,4 +1,6 @@
-// 1.20.1	2026-03-22T15:38:40.654392	Item Tags
+// 1.20.1	2026-03-24T19:18:18.5190155	Item Tags
+56faf86c48706e00ea90fa8eeacd7c7772686bc7 data/create/tags/items/modded_stripped_logs.json
+2285ef3a109aea5a308cedb733dfde0bedd6feb1 data/create/tags/items/modded_stripped_wood.json
 785967d38cf4fc489b4fc33ed48714c46958937b data/farmersdelight/tags/items/tools/knives.json
 c4b12e896a35c024c56979813cd3cbb34b49e73b data/forge/tags/items/crops/cucumber.json
 553f48e7754bf2273524fdf7f550a8fb24cbbc9b data/forge/tags/items/crops/pomegranate.json

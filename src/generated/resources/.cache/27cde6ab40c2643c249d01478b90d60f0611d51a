@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-22T16:36:58.2600454	Block States: mmm
+// 1.20.1	2026-03-24T19:21:13.9527246	Block States: mmm
 3842175e09f5d7432ac8c8fb19b475823dd454d9 assets/mmm/blockstates/acacia_triple_door.json
 1fd9342f3c0d5ebccf217996515f997f48dbba36 assets/mmm/blockstates/actinolite_ore.json
 2b23e4973a0af98dc778b1894f8ebc29a0feb832 assets/mmm/blockstates/bamboo_triple_door.json
@@ -41,6 +41,7 @@ a4265610dd93e13855a3d99283bb21e1b9c8ba60 assets/mmm/blockstates/skiron_block.jso
 bd9e6e8914b065ed69e8178b50e6883946089549 assets/mmm/blockstates/skysoil.json
 8f8fc3751543b84cb33fced4a65fc6be7e0de538 assets/mmm/blockstates/skysolid.json
 ab3dd594544f6224cdc2a2d6aac9df52948f3050 assets/mmm/blockstates/skysolid_wall.json
+88d0f0bbabf5fbf02af095ecd0b6b422c03a5200 assets/mmm/blockstates/skywood.json
 df6c61067d0031c3cd7030a9505968b435610afe assets/mmm/blockstates/skywood_button.json
 a23e49cf5457e94425dec76657d0fb3671cb7d68 assets/mmm/blockstates/skywood_door.json
 d4b379127078ecb225ab2fd91092b5b0aa0d835b assets/mmm/blockstates/skywood_fence.json
@@ -55,6 +56,7 @@ e48f62fd606492ef8cace120cbb37edcc9a8d19f assets/mmm/blockstates/skywood_triple_d
 47a57e9e36b9b4c54a24c7c8c8b9f0d5953fbe68 assets/mmm/blockstates/sound_block.json
 69185a533a4bffea3b7dbf44f00d7eb992f583f6 assets/mmm/blockstates/spruce_triple_door.json
 ec207c3aab3df2efa801ba2c771cd7a46b2e6f67 assets/mmm/blockstates/strawberry.json
+c80303de0b2df122c3e7f00c128c86b722efddf3 assets/mmm/blockstates/stripped_skywood.json
 081ac0c057ff0dc00b6b2ceb8a29da9e2e062bc7 assets/mmm/blockstates/stripped_skywood_log.json
 3e131a7ba13b58537dda8fdc3fc79f8b30d0dfde assets/mmm/blockstates/test/animated_block.json
 b8310302a3c46e8882420771f146745f91ccc013 assets/mmm/blockstates/test/block.json
@@ -232,6 +234,7 @@ abdc428575389b2fd67da74ac73b15d3a3fb53e1 assets/mmm/models/block/skysoil.json
 bd090178d446ff856b48501ae2f1b6ce1d274ed5 assets/mmm/models/block/skysolid_wall_post.json
 4d673e6a071f4d0522a6d4e3db1f7c0c3ea2ce5e assets/mmm/models/block/skysolid_wall_side.json
 77529b9e9e886258cda25a27a822382d8d2613a7 assets/mmm/models/block/skysolid_wall_side_tall.json
+86b67cfa11546e168b27873f163bae75dd4e0727 assets/mmm/models/block/skywood.json
 f11f1e5e5007449b38a65ace0024c302f38decbe assets/mmm/models/block/skywood_button.json
 d011e939bd3515449824f9d5238fecf8f4b7f114 assets/mmm/models/block/skywood_button_pressed.json
 0a33ea06067fe8021473d4643e0e91f4883eada7 assets/mmm/models/block/skywood_door_bottom_left.json
@@ -248,6 +251,7 @@ e37c99f664b8c18b028f194d30e50c41cc76188a assets/mmm/models/block/skywood_door_to
 c182f38bfb78ef48fb6b23598367a7d2216c5a5c assets/mmm/models/block/skywood_fence_gate_wall_open.json
 56b8680a3aadb92457d0240b68ec971340f97b3f assets/mmm/models/block/skywood_fence_post.json
 6e5729d8b05b3e6e57e8df38b1810778aee8b002 assets/mmm/models/block/skywood_fence_side.json
+67826363f91c14f0510a6f5f035b1665661d1705 assets/mmm/models/block/skywood_horizontal.json
 4948b96faff5451133cf7f005d2bf5db32db7998 assets/mmm/models/block/skywood_log.json
 147530f1d1deab0d27f39e55dac146958d380d8d assets/mmm/models/block/skywood_log_horizontal.json
 daf3204cdd045739c17fb802b94088703555cde2 assets/mmm/models/block/skywood_planks.json
@@ -293,6 +297,8 @@ afb94eede0497bcd87dcdbbad5734e727094f1a8 assets/mmm/models/block/strawberry3.jso
 97084234504a04b457618bdcc3c0284fc3a05943 assets/mmm/models/block/strawberry4.json
 79f40f24409db95fa2cddd492c8655584d90c661 assets/mmm/models/block/strawberry5.json
 939af8800191ed45a948dab4768c2e88366dff6a assets/mmm/models/block/strawberry6.json
+d36f57e0388785335628d878614fa908626858f0 assets/mmm/models/block/stripped_skywood.json
+5ac0b43629185db2062baa0d180479e85fa34f9a assets/mmm/models/block/stripped_skywood_horizontal.json
 08ce49f34b121c6b26a2a820c159b5b988a8aa65 assets/mmm/models/block/stripped_skywood_log.json
 6cc36b908f84a162785f0d0b374df3447544474d assets/mmm/models/block/stripped_skywood_log_horizontal.json
 a41ad5b4200c427c93411c03e97479ba66283702 assets/mmm/models/block/test/animated_block.json
@@ -336,6 +342,7 @@ e2c8199078777c3a51a2a7393699e82c19c62f44 assets/mmm/models/item/skydirt.json
 0b2bf0571a36b3313b0fdce7f8c4e6266d2f8c99 assets/mmm/models/item/skyground.json
 213484e86b21f00ae8ef8d9b2b6ba265fe5a982a assets/mmm/models/item/skysoil.json
 ab11a43dae5ccaeaa30dbc394601ff5d4d891836 assets/mmm/models/item/skysolid.json
+0e168a6f800a5f50bf292bc79402970f09560d08 assets/mmm/models/item/skywood.json
 877f18c7df9b5ce2b8f488ed6dcc1a746f867f47 assets/mmm/models/item/skywood_fence_gate.json
 ee88b7145f9f555c5567dd392d5213eae3e5fe29 assets/mmm/models/item/skywood_log.json
 5eb91a1b48df0c0e151d88b651e341f42b54e554 assets/mmm/models/item/skywood_planks.json
@@ -344,6 +351,7 @@ c3885f7fc9ad49fe9de49ee805d6bf53fa756a9e assets/mmm/models/item/skywood_pressure
 07298a8bf782de7880a4ea74070f27995baae87d assets/mmm/models/item/skywood_stairs.json
 3f505c7cfe929db3b843caa547eb9e644a6e6a26 assets/mmm/models/item/skywood_trapdoor.json
 4dd5ba9df241273711f3b208e8487f8e92311bef assets/mmm/models/item/sound_block.json
+747976955609ca2a3d00d65fb0d38e7e66f60523 assets/mmm/models/item/stripped_skywood.json
 7b1521d79394b4b3d25685ccfa919289995d952a assets/mmm/models/item/stripped_skywood_log.json
 11018fa95495595b7a9fe5716d54df6fc3c8706d assets/mmm/models/item/test/animated_block.json
 2435409ab1ecf2e773a0f57706dcd1dad1e0f01b assets/mmm/models/item/test/block.json

@@ -24,6 +24,15 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
     protected void addTags(HolderLookup.Provider provider) {
         // Tags here
 
+        this.tag(BlockTags.LOGS)
+                .addTag(ModTags.Blocks.SKYWOOD_LOGS);
+
+        this.tag(ModTags.Blocks.SKYWOOD_LOGS)
+                .add(ModBlocks.SKYWOOD_LOG.get())
+                .add(ModBlocks.SKYWOOD.get())
+                .add(ModBlocks.STRIPPED_SKYWOOD_LOG.get())
+                .add(ModBlocks.STRIPPED_SKYWOOD.get());
+
         this.tag(ModTags.Blocks.HEAVENLY_GRASS_PLACEABLES)
                 .add(ModBlocks.HEAVENLY_GRASS_BLOCK.get())
                 .add(ModBlocks.SKYSOIL.get())
@@ -49,6 +58,8 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
 
         this.tag(BlockTags.MINEABLE_WITH_AXE)
                 .add(ModBlocks.SKYWOOD_PLANKS.get())
+                .add(ModBlocks.SKYWOOD_LOG.get())
+                .add(ModBlocks.SKYWOOD.get())
                 .add(ModBlocks.SKYWOOD_STAIRS.get())
                 .add(ModBlocks.SKYWOOD_SLAB.get())
                 .add(ModBlocks.SKYWOOD_BUTTON.get())
