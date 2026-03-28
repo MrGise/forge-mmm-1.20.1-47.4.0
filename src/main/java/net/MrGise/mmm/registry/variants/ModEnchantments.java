@@ -1,6 +1,7 @@
 package net.MrGise.mmm.registry.variants;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.enchantment.AirWalkEnchantment;
 import net.MrGise.mmm.enchantment.LightningStrikerEnchantment;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -19,6 +20,12 @@ public class ModEnchantments {
             ENCHANTMENTS.register("lightning_striker",
                     () -> new LightningStrikerEnchantment(Enchantment.Rarity.COMMON, EnchantmentCategory.WEAPON,
                             EquipmentSlot.MAINHAND));
+
+    public static final RegistryObject<Enchantment> AIR_WALK =
+            ENCHANTMENTS.register("air_walk",
+                    () -> new AirWalkEnchantment(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.ARMOR,
+                            EquipmentSlot.FEET));
+
 
     public static void register(IEventBus eventBus) {
         ENCHANTMENTS.register(eventBus);

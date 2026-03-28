@@ -163,6 +163,11 @@ public class ModCreativeModeTabs {
                             ItemStack enchantedBook = ItemUtils.enchantedBook(new EnchantmentInstance(enchantment1, level));
                             output.accept(enchantedBook);
                         }
+                        Enchantment enchantment2 = ModEnchantments.AIR_WALK.get();
+                        for (int level = enchantment2.getMinLevel(); level <= enchantment2.getMaxLevel(); level++) {
+                            ItemStack enchantedBook = ItemUtils.enchantedBook(new EnchantmentInstance(enchantment2, level));
+                            output.accept(enchantedBook);
+                        }
                     }).build());
 
     //. Food
