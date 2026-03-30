@@ -30,8 +30,7 @@ public class EnchantEvents {
         if (player.level().isClientSide()) return;
 
         ItemStack boots = player.getItemBySlot(EquipmentSlot.FEET);
-        int level = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.AIR_WALK.get(), boots);
-        if (level <= 0) return;
+        int airWalkLevel = EnchantmentHelper.getItemEnchantmentLevel(ModEnchantments.AIR_WALK.get(), boots);
 
         Vec2 prev = previousPositions.getOrDefault(player.getUUID(), new Vec2((float) player.getX(), (float) player.getZ()));
         boolean isMoving = player.getX() != prev.x || player.getZ() != prev.y;
@@ -39,30 +38,15 @@ public class EnchantEvents {
 
         boolean isFalling = player.getDeltaMovement().y < 0 && !player.onGround();
 
-        if (isFalling && isMoving) {
-            MMM.LOGGER.debug("Applying fall negation because player y velocity is {}, player is {} on ground and player x and z velocity are {} to {} ({}) and {} to {} ({})",
-                    player.getDeltaMovement().y, player.onGround() ? "standing" : "not standing", player.getX(), prev.x, player.getX() != prev.x, player.getZ(), prev.y, player.getZ() != prev.y);
-
-            double fallReduction = (level / (double) ModEnchantments.AIR_WALK.get().getMaxLevel());
-            // Gravity per tick is 0.08, apply full gravity cancellation scaled by level
-            double pushStrength = 0.08 * fallReduction + Math.abs(player.getDeltaMovement().y) * fallReduction * 0.1;
-            player.push(0, pushStrength, 0);
-
-            player.fallDistance = 0;
-
-            if (player.tickCount % 3 == 0) {
-                ServerLevel serverLevel = (ServerLevel) player.level();
-                serverLevel.sendParticles(
-                        ParticleTypes.CLOUD,
-                        player.getX(), player.getY(), player.getZ(),
-                        3,
-                        0.2, 0.1, 0.2,
-                        0.01
-                );
-            }
-        } else {
-            MMM.LOGGER.debug("Not applying fall negation because player y velocity is {}, player is {} on ground and player x and z velocity are {} to {} ({}) and {} to {} ({})",
-                    player.getDeltaMovement().y, player.onGround() ? "standing" : "not standing", player.getX(), prev.x, player.getX() != prev.x, player.getZ(), prev.y, player.getZ() != prev.y);
+        if (isFalling && isMoving && player.tickCount % 3 == 0 && airWalkLevel > 0) {
+            ServerLevel serverLevel = (ServerLevel) player.level();
+            serverLevel.sendParticles(
+                    ParticleTypes.CLOUD,
+                    player.getX(), player.getY(), player.getZ(),
+                    3,
+                    0.2, 0.1, 0.2,
+                    0.01
+            );
         }
     }
 }
