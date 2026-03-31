@@ -2,6 +2,7 @@ package net.MrGise.mmm.registry.variants;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.enchantment.AirWalkEnchantment;
+import net.MrGise.mmm.enchantment.FallNegationEnchantment;
 import net.MrGise.mmm.enchantment.LightningStrikerEnchantment;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.enchantment.Enchantment;
@@ -24,6 +25,11 @@ public class ModEnchantments {
     public static final RegistryObject<Enchantment> AIR_WALK =
             ENCHANTMENTS.register("air_walk",
                     () -> new AirWalkEnchantment(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.ARMOR,
+                            EquipmentSlot.FEET));
+
+    public static final RegistryObject<Enchantment> FALL_NEGATION =
+            ENCHANTMENTS.register("fall_negation",
+                    () -> new FallNegationEnchantment(Enchantment.Rarity.UNCOMMON, EnchantmentCategory.ARMOR,
                             EquipmentSlot.FEET));
 
 

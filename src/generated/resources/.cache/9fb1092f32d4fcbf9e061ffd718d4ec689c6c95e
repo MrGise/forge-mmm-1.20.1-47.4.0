@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-22T14:50:59.9735055	Recipes
+// 1.20.1	2026-03-31T16:41:11.1035355	Recipes
 d6246e5792128ef35b5ee8b0b98b36ce3301c8fb data/minecraft/advancements/recipes/bow.json
 8b17f2245c8f94d607a1810ace38f2ebc3966c93 data/minecraft/advancements/recipes/food/food/cucumber_seeds_from_food/cucumber.json
 52a65e1876c9a6a2d2964f46d39788dcadb44957 data/minecraft/advancements/recipes/food/food/pomegranate_seeds_from_food/pomegranate.json
@@ -82,9 +82,9 @@ e75c3426510f66ec062e9a921f4565bc4e162663 data/mmm/recipes/bow_from_bowyery.json
 8d81750cf3976d0f65257b082e6c989bd23ce216 data/mmm/recipes/gold_key.json
 b9a96dd82085ee206e700ad0367b17d363ba1a22 data/mmm/recipes/honeyed_apple_slicing.json
 64d162211164467b001406f9b96cabe2e63af3d9 data/mmm/recipes/iron_fork.json
-ff10beb14e2bc03282296167b5cd5a8934451f44 data/mmm/recipes/matza_from_campfire_cooking_dough.json
-a5e004b30e424827a75d3d0c29e9c0ad38cfdd4c data/mmm/recipes/matza_from_smelting_dough.json
-ec319e428ac2dcae0582355014d34504f8582cce data/mmm/recipes/matza_from_smoking_dough.json
+e88f740e7cc8a7707ea61b528e3ca035c85e266b data/mmm/recipes/matza_from_campfire_cooking_dough.json
+75b097c1d4a8d535cef5af445d3e47c86dc8aeea data/mmm/recipes/matza_from_smelting_dough.json
+b10e35b6b13132ef4ef85d4561a724daeb2c8edc data/mmm/recipes/matza_from_smoking_dough.json
 b38f34d694d8383bc4e331556be266a482d484b5 data/mmm/recipes/mimic_carrot.json
 00d37f290f878cc28fa2ebca756f686c9b7ce703 data/mmm/recipes/mimic_chest.json
 f0e5764469529d1d175bbb0730a35d456c6543a0 data/mmm/recipes/mimic_shulker_box.json
@@ -95,7 +95,7 @@ f1312edecedd38b801ca180cae4d9774ae62d3eb data/mmm/recipes/reinforced_actinolite_
 24b206524f22b55be5717edef4ed575e4a15085c data/mmm/recipes/reinforced_diamond_bow_from_bowyery.json
 8fb95337d38647646d23e7a95a369f4f5e026b69 data/mmm/recipes/reinforced_gold_bow_from_bowyery.json
 b07c84b03b7041069b945d0a9f1b93426e834705 data/mmm/recipes/reinforced_iron_bow_from_bowyery.json
-1b3c3ff45283d0e5add2409fddfe17e1252c6ca7 data/mmm/recipes/reinforced_netherite_bow_from_bowyery.json
+10ac46265d39402bf555fe44e678914c122a7822 data/mmm/recipes/reinforced_netherite_bow_from_bowyery.json
 532afb5f445afd5fd49a83735d9395266e7f6aa9 data/mmm/recipes/reinforced_skiron_bow_from_bowyery.json
 49442d16dd675d840b8d358d31c9cc3b3b83bca0 data/mmm/recipes/reinforced_stone_bow_from_bowyery.json
 2326cfae97c90e0df97f162345bb3a93fbafd3b2 data/mmm/recipes/skiron.json

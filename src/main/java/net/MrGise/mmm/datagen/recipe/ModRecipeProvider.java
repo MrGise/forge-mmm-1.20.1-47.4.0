@@ -145,7 +145,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         bowyery(Ingredient.of(Items.BOW), Ingredient.of(Tags.Items.GEMS_DIAMOND), Ingredient.of(Tags.Items.GEMS_DIAMOND),
                 ModItems.REINFORCED_DIAMOND_BOW.get(), 1, pWriter);
 
-        bowyery(Ingredient.of(Items.BOW), Ingredient.of(Tags.Items.INGOTS_NETHERITE), Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE),
+        bowyery(Ingredient.of(ModItems.REINFORCED_DIAMOND_BOW.get()), Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(Tags.Items.INGOTS_NETHERITE),
                 ModItems.REINFORCED_NETHERITE_BOW.get(), 1, pWriter);
 
         bowyery(Ingredient.of(Items.BOW), Ingredient.of(ModTags.Items.SKIRON_NUGGETS), Ingredient.of(ModTags.Items.SKIRON_NUGGETS),
@@ -165,7 +165,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         //- Food
         cookingDirFix(pWriter, Ingredient.of(ModItems.UNCOOKED_MATZA.get()), "food/", RecipeCategory.FOOD,
-                ModItems.MATZA.get(), "food/", AllItems.DOUGH, 200, "matza");
+                ModItems.MATZA.get(), "food/", AllItems.DOUGH, 100, "matza");
 
         //-- Wood
         exchangeRecipe(pWriter, RecipeCategory.MISC, Ingredient.of(ModBlocks.SKYWOOD_LOG.get()), ModBlocks.SKYWOOD_LOG.get(), ModBlocks.SKYWOOD_PLANKS.get(), 4);

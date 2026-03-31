@@ -2,13 +2,13 @@
   "type": "mmm:bowyery_shaped",
   "ingredients": {
     "bow": {
-      "item": "minecraft:bow"
+      "item": "mmm:reinforced_diamond_bow"
     },
     "first": {
-      "tag": "forge:ingots/netherite"
+      "item": "minecraft:netherite_upgrade_smithing_template"
     },
     "second": {
-      "item": "minecraft:netherite_upgrade_smithing_template"
+      "tag": "forge:ingots/netherite"
     }
   },
   "result": {

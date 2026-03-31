@@ -19,26 +19,28 @@ public class LivingEntityMixin {
     @Inject(method = "travel", at = @At("HEAD"))
     private void onTravel(Vec3 travelVec, CallbackInfo ci) {
         LivingEntity self = (LivingEntity) (Object) this;
-
         ItemStack boots = self.getItemBySlot(EquipmentSlot.FEET);
-        if (boots.isEmpty() || boots == null) return;
-        int level = EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.AIR_WALK.get(), boots);
-        if (level <= 0) return;
-
         Vec3 movement = self.getDeltaMovement();
-        boolean canApplyEffect = (movement.x != 0 || movement.z != 0) && !(self.isFallFlying() ||
+
+        if (boots.isEmpty() || boots == null) return;
+
+        int airWalkLevel = EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.AIR_WALK.get(), boots);
+        boolean canApplyAirWalk = (movement.x != 0 || movement.z != 0) && !(self.isFallFlying() ||
                 (self instanceof Player player && player.getAbilities().flying))
                 && !self.onGround() && movement.y < 0;
 
-        if (canApplyEffect) {
-            double fallAngle = level < 6 ? (5 - level) * -10 : 0;
+        if (canApplyAirWalk && airWalkLevel > 0) {
+            double fallAngle = airWalkLevel < 6 ? (5 - airWalkLevel) * -10 : 0;
 
             double horizontalSpeed = Math.sqrt(movement.x * movement.x + movement.z * movement.z);
-            double targetYVelocity = level < 5 ? horizontalSpeed * Math.tan(Math.toRadians(fallAngle)) : 0;
+            double targetYVelocity = airWalkLevel < 5 ? horizontalSpeed * Math.tan(Math.toRadians(fallAngle)) : 0;
 
-            MMM.LOGGER.info("Applying air walk level {}: {}°, y velocity {} -> {}", level, fallAngle, movement.y, targetYVelocity);
+            MMM.LOGGER.info("Applying air walk level {}: {}°, y velocity {} -> {}, method start", airWalkLevel, fallAngle, movement.y, targetYVelocity);
 
             self.setDeltaMovement(movement.x, Math.min(targetYVelocity, 0), movement.z);
+        }
+        if (EnchantmentHelper.getTagEnchantmentLevel(ModEnchantments.FALL_NEGATION.get(), boots) > 0) {
+            self.resetFallDistance();
         }
     }
 }
