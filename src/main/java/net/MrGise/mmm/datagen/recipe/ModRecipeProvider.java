@@ -4,6 +4,7 @@ import com.simibubi.create.AllItems;
 import com.simibubi.create.api.data.recipe.ProcessingRecipeGen;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.datagen.recipe.builders.BowyeryRecipeBuilder;
+import net.MrGise.mmm.datagen.recipe.builders.NBTSingularShapelessRecipeBuilder;
 import net.MrGise.mmm.datagen.recipe.builders.ThingamajigRecipeBuilder;
 import net.MrGise.mmm.datagen.recipe.create.MMMFillingRecipeGen;
 import net.MrGise.mmm.registry.content.ModBlocks;
@@ -20,21 +21,24 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.alchemy.PotionUtils;
+import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
+import net.minecraftforge.common.crafting.StrictNBTIngredient;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.fluids.FluidType;
+import org.checkerframework.checker.nullness.qual.NonNull;
+import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
+import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
 
@@ -167,6 +171,23 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         cookingDirFix(pWriter, Ingredient.of(ModItems.UNCOOKED_MATZA.get()), "food/", RecipeCategory.FOOD,
                 ModItems.MATZA.get(), "food/", AllItems.DOUGH, 100, "matza");
 
+        potRecipe(pWriter, ModItems.BOILED_EGG.get(), 1, 1200, 5.0f, "boiled_egg_single", CookingPotRecipeBookTab.MEALS,
+                Ingredient.of(Items.EGG),
+                StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)),
+                StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)));
+        potRecipe(pWriter, ModItems.BOILED_EGG.get(), 2, 1200, 5.0f, "boiled_egg_double", CookingPotRecipeBookTab.MEALS,
+                Ingredient.of(Items.EGG), Ingredient.of(Items.EGG),
+                StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)),
+                StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)));
+        potRecipe(pWriter, ModItems.BOILED_EGG.get(), 3, 1200, 5.0f, "boiled_egg_triple", CookingPotRecipeBookTab.MEALS,
+                Ingredient.of(Items.EGG), Ingredient.of(Items.EGG), Ingredient.of(Items.EGG),
+                StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)),
+                StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)));
+        potRecipe(pWriter, ModItems.BOILED_EGG.get(), 4, 1200, 5.0f, "boiled_egg_quadrouple", CookingPotRecipeBookTab.MEALS,
+                Ingredient.of(Items.EGG), Ingredient.of(Items.EGG), Ingredient.of(Items.EGG), Ingredient.of(Items.EGG),
+                StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)),
+                StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)));
+
         //-- Wood
         exchangeRecipe(pWriter, RecipeCategory.MISC, Ingredient.of(ModBlocks.SKYWOOD_LOG.get()), ModBlocks.SKYWOOD_LOG.get(), ModBlocks.SKYWOOD_PLANKS.get(), 4);
         exchangeRecipe(pWriter, RecipeCategory.MISC, Ingredient.of(ModBlocks.STRIPPED_SKYWOOD_LOG.get()), ModBlocks.STRIPPED_SKYWOOD_LOG.get(), ModBlocks.SKYWOOD_PLANKS.get(), 4);
@@ -224,6 +245,40 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             for (int i = 0; i < additionalResults.length; i++) {
                 builder.addResultWithChance(additionalResults[i].result, additionalResults[i].chance, additionalResults[i].count);
             }
+        }
+
+        builder.build(finishedRecipeConsumer, new ResourceLocation(MMM.MOD_ID, name));
+    }
+
+    protected static void potRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer,
+                                    ItemLike result, int count,
+                                    int cookingTime, float xp, String name,
+                                    CookingPotRecipeBookTab tab,
+                                    @NonNull Ingredient... ingredients) {
+        CookingPotRecipeBuilder builder = CookingPotRecipeBuilder.cookingPotRecipe(result, count, cookingTime, xp);
+
+        for (Ingredient ingredient : ingredients) {
+            builder.addIngredient(ingredient);
+        }
+        builder.setRecipeBookTab(tab);
+
+        ItemLike[] unlockedBy = Arrays.stream(ingredients[0].getItems())
+                .map(ItemStack::getItem)
+                .toArray(ItemLike[]::new);
+
+        builder.unlockedByItems("has_for_" + name, unlockedBy);
+
+        builder.build(finishedRecipeConsumer, new ResourceLocation(MMM.MOD_ID, name));
+    }
+
+    protected static void potRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer,
+                                    ItemLike result, int count, int cookingTime,
+                                    float xp, ItemLike container, String name,
+                                    @NonNull Ingredient... ingredients) {
+        CookingPotRecipeBuilder builder = CookingPotRecipeBuilder.cookingPotRecipe(result, count, cookingTime, xp, container);
+
+        for (Ingredient ingredient : ingredients) {
+            builder.addIngredient(ingredient);
         }
 
         builder.build(finishedRecipeConsumer, new ResourceLocation(MMM.MOD_ID, name));

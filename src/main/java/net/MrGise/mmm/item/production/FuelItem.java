@@ -1,4 +1,4 @@
-package net.MrGise.mmm.item;
+package net.MrGise.mmm.item.production;
 
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;

@@ -1,4 +1,4 @@
-package net.MrGise.mmm.item;
+package net.MrGise.mmm.item.production;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;

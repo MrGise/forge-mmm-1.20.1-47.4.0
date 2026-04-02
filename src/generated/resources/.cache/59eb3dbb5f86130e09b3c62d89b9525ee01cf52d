@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-24T19:18:18.5183977	Loot Tables
+// 1.20.1	2026-04-02T13:29:32.8220201	Loot Tables
 6fdd3e19d045d0890f366a414d6cc70e7ecc6dc4 data/mmm/loot_tables/blocks/acacia_triple_door.json
 304bc14bc9e1f04828096388b5b5c3c6b3be2931 data/mmm/loot_tables/blocks/actinolite_ore.json
 edfc01428b5a8342c066b7e02f5d2d643d992e7c data/mmm/loot_tables/blocks/bamboo_triple_door.json
@@ -21,6 +21,7 @@ fd5b3bc12b46b945da4c19b4f9f8bf7de2d407ac data/mmm/loot_tables/blocks/dough/flatt
 806538c2b99b23551ec354f199bdc54bf35cc6e6 data/mmm/loot_tables/blocks/heavenly_grass_block_skydirt.json
 454b077a3943f16430d12c4be254a5edc5fb5114 data/mmm/loot_tables/blocks/iron_triple_door.json
 6d98d03e0f389aab6ad84227f86af9213545ff16 data/mmm/loot_tables/blocks/jungle_triple_door.json
+53667ab00ce2946463896c05a132656e83974755 data/mmm/loot_tables/blocks/kitchen/bowl.json
 39a8697dd170c63061c3c1fa2643236d34612d7b data/mmm/loot_tables/blocks/mana_ore.json
 8aa9972ed36f35728c82fb0e7c0d73d5afd1da9f data/mmm/loot_tables/blocks/mangrove_triple_door.json
 d8a5cc943dc18da1cebe5b7c8f30a635052b9232 data/mmm/loot_tables/blocks/mimic_block.json
@@ -62,3 +63,4 @@ f44b59f75eb78f7cd94811513e2b938b11681cbf data/mmm/loot_tables/blocks/stripped_sk
 8ae8d430610ce000c780916df639678c51fc23f2 data/mmm/loot_tables/blocks/thingamajig.json
 35fab8e72ca60595d79363b85043312af7c5237b data/mmm/loot_tables/blocks/thin_pine_log.json
 5d8570fd7d49de47e4790eef9f6df400099b7ec4 data/mmm/loot_tables/blocks/warped_triple_door.json
+2294daec81a047f574534b58640627b7d031cbc1 data/mmm/loot_tables/crafting/item_click_on/food/boiled_egg.json

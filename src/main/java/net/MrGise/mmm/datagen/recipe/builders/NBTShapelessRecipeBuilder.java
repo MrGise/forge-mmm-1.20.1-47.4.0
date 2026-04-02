@@ -1,14 +1,14 @@
-package net.MrGise.mmm.datagen.recipe;
+package net.MrGise.mmm.datagen.recipe.builders;
 
 import com.google.common.collect.Lists;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.mojang.serialization.JsonOps;
+import com.google.gson.JsonParser;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.ShapelessRecipeBuilder;
-import net.minecraft.nbt.Tag;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
@@ -17,27 +17,27 @@ import net.minecraft.world.item.crafting.RecipeSerializer;
 import java.util.List;
 import java.util.function.Consumer;
 
-public class NBTSingularShapelessRecipeBuilder extends ShapelessRecipeBuilder {
+public class NBTShapelessRecipeBuilder extends ShapelessRecipeBuilder {
 
     private final RecipeCategory category;
     private final ItemStack result;
     private final List<Ingredient> ingredients = Lists.newArrayList();
 
-    public NBTSingularShapelessRecipeBuilder(RecipeCategory pCategory, ItemStack pResult, int pCount) {
+    public NBTShapelessRecipeBuilder(RecipeCategory pCategory, ItemStack pResult, int pCount) {
         super(pCategory, pResult.getItem(), pCount);
         this.category = pCategory;
         this.result = pResult;
     }
 
-    public static NBTSingularShapelessRecipeBuilder shapeless(RecipeCategory pCategory, ItemStack pResult) {
-        return new NBTSingularShapelessRecipeBuilder(pCategory, pResult, 1);
+    public static NBTShapelessRecipeBuilder shapeless(RecipeCategory pCategory, ItemStack pResult) {
+        return new NBTShapelessRecipeBuilder(pCategory, pResult, 1);
     }
 
-    public static NBTSingularShapelessRecipeBuilder shapeless(RecipeCategory pCategory, ItemStack pResult, int pCount) {
-        return new NBTSingularShapelessRecipeBuilder(pCategory, pResult, pCount);
+    public static NBTShapelessRecipeBuilder shapeless(RecipeCategory pCategory, ItemStack pResult, int pCount) {
+        return new NBTShapelessRecipeBuilder(pCategory, pResult, pCount);
     }
 
-    public NBTSingularShapelessRecipeBuilder requires(Ingredient ingredient) {
+    public NBTShapelessRecipeBuilder requires(Ingredient ingredient) {
         ingredients.add(ingredient);
         return this;
     }
@@ -59,9 +59,16 @@ public class NBTSingularShapelessRecipeBuilder extends ShapelessRecipeBuilder {
                     resultJson.addProperty("count", result.getCount());
                 }
                 if (result.hasTag()) {
-                    Tag nbt = result.getTag();
-                    JsonElement nbtJson = net.minecraft.nbt.NbtOps.INSTANCE.convertTo(JsonOps.INSTANCE, nbt);
-                    resultJson.add("nbt", nbtJson);
+                    CompoundTag tag = result.getTag();
+
+                    // Convert tag to SNBT and then parse as JSON
+                    try {
+                        String snbt = tag.toString(); // NBT to SNBT
+                        JsonElement nbtJson = JsonParser.parseString(snbt.replace('\'', '"'));
+                        resultJson.add("nbt", nbtJson);
+                    } catch (Exception e) {
+                        throw new IllegalStateException("Failed to convert NBT to JSON: " + e.getMessage(), e);
+                    }
                 }
                 json.add("result", resultJson);
             }

@@ -3,6 +3,8 @@ package net.MrGise.mmm.registry.content;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.item.*;
 import net.MrGise.mmm.item.description.*;
+import net.MrGise.mmm.item.production.RClickBlockCraftableItem;
+import net.MrGise.mmm.item.production.RollingPinItem;
 import net.MrGise.mmm.registry.decorative.ModSounds;
 import net.MrGise.mmm.registry.variables.ModFoodProperties;
 import net.MrGise.mmm.registry.variables.ModToolTiers;
@@ -19,6 +21,8 @@ import vectorwing.farmersdelight.common.item.KnifeItem;
 
 import java.util.Map;
 import java.util.function.Supplier;
+
+import static net.MrGise.mmm.util.Methods.*;
 
 // Items
 public class ModItems {
@@ -109,10 +113,17 @@ public class ModItems {
     //-- Food
 
     public static final RegistryObject<Item> BREADSTICK = registerItem("food/breadstick",
-            () -> new Item(new Item.Properties().food(ModFoodProperties.BREADSTICK)));
+            () -> new Item(new Item.Properties().food(basicFoodProperty(3, 0.33f))));
+
+    public static final RegistryObject<Item> BROKEN_EGGSHELL = registerItem("food/broken_eggshell",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> BOILED_EGG = registerItem("food/boiled_egg",
+            () -> new RClickBlockCraftableItem(new Item.Properties()));
+    public static final RegistryObject<Item> PEELED_BOILED_EGG = registerItem("food/peeled_boiled_egg",
+            () -> new Item(new Item.Properties().food(basicFoodProperty(5, 8.0f))));
 
     public static final RegistryObject<Item> STRAWBERRY = registerItem("food/strawberry",
-            () -> new Item(new Item.Properties().food(ModFoodProperties.STRAWBERRY)));
+            () -> new Item(new Item.Properties().food(basicFoodProperty(4, 3.5f))));
     public static final RegistryObject<Item> STRAWBERRY_SEEDS = registerItem("food/strawberry_seeds",
             () -> new ItemNameBlockItem(ModBlocks.STRAWBERRY.get(), new Item.Properties()));
 
@@ -133,16 +144,15 @@ public class ModItems {
             () -> new Item(new Item.Properties().craftRemainder(ModItems.POMEGRANATE_EMPTY_SLICE.get())));
 
     public static final RegistryObject<Item> POMEGRANATE_SEEDS = registerItem("food/pomegranate_seeds",
-            () -> new Item(new Item.Properties().food(ModFoodProperties.POMEGRANATE_SEEDS)));
+            () -> new Item(new Item.Properties().food(ModFoodProperties.SMALL)));
 
     public static final RegistryObject<Item> APPLE_SLICE = registerItem("food/apple_slice",
-            () -> new Item(new Item.Properties().food(ModFoodProperties.APPLE_SLICE)));
-
+            () -> new Item(new Item.Properties().food(ModFoodProperties.SMALL)));
     public static final RegistryObject<Item> HONEYED_APPLE_SLICE = registerItem("food/honeyed_apple_slice",
-            () -> new Item(new Item.Properties().food(ModFoodProperties.HONEYED_APPLE_SLICE)));
+            () -> new Item(new Item.Properties().food(basicFoodProperty(1, 0.2f))));
 
     public static final RegistryObject<Item> MATZA = registerItem("food/matza",
-            () -> new Item(new Item.Properties().food(ModFoodProperties.MATZA)));
+            () -> new Item(new Item.Properties().food(basicFoodProperty(3, 0.1f))));
 
     public static final RegistryObject<Item> UNCOOKED_MATZA = registerItem("food/uncooked_matza",
             () -> new Item(new Item.Properties()));

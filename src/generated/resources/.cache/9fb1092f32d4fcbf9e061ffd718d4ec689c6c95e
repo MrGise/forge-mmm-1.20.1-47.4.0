@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-31T16:41:11.1035355	Recipes
+// 1.20.1	2026-04-02T13:38:48.2187955	Recipes
 d6246e5792128ef35b5ee8b0b98b36ce3301c8fb data/minecraft/advancements/recipes/bow.json
 8b17f2245c8f94d607a1810ace38f2ebc3966c93 data/minecraft/advancements/recipes/food/food/cucumber_seeds_from_food/cucumber.json
 52a65e1876c9a6a2d2964f46d39788dcadb44957 data/minecraft/advancements/recipes/food/food/pomegranate_seeds_from_food/pomegranate.json
@@ -10,6 +10,10 @@ ca275c21f92ffee471a6efd25da7538f7f0e1f05 data/minecraft/recipes/food/pomegranate
 b3d3a7adeac5a9add2538cf9bdd4f8e753ad3f89 data/minecraft/recipes/food/strawberry_seeds_from_food/strawberry.json
 5aa4dce5866a7e33e104fde9afad18993ff8dcd5 data/minecraft/recipes/skywood_planks_from_skywood_log.json
 02418e1c26cafd9400261688c644008ed082e9ac data/minecraft/recipes/skywood_planks_from_stripped_skywood_log.json
+a7b74a829cab3079e5c0eba42c95f4c9483f5de7 data/mmm/advancements/recipes/boiled_egg_double.json
+430add1a2b52621f6472b206ad12f925c203ca2f data/mmm/advancements/recipes/boiled_egg_quadrouple.json
+29024981d49f9ce851924575562c832c9e991a5b data/mmm/advancements/recipes/boiled_egg_single.json
+8a007dc0882400fc363a279a41785338ae369034 data/mmm/advancements/recipes/boiled_egg_triple.json
 03ea0a82397d4df78f9507841979ef74b4386cae data/mmm/advancements/recipes/combat/actinolite_axe_left.json
 76af0f517d700b2bfd314a8f894876138021e468 data/mmm/advancements/recipes/combat/actinolite_axe_right.json
 4e499e815dc9c4bdcd1131b0a5e051b6488f16b0 data/mmm/advancements/recipes/combat/actinolite_hoe_left.json
@@ -76,6 +80,10 @@ fed84220c10b59339ebc03c8fb531bc7e219ad7d data/mmm/recipes/actinolite_hoe_left.js
 9f74daa86d69d12d244ec349dd6f08fa93179ed5 data/mmm/recipes/actinolite_shovel.json
 2ab8e0f45faa3044adc5e51598690d35dc1343ff data/mmm/recipes/actinolite_sword.json
 23485d146d7612d8dca71f7418290c39a38bcb0e data/mmm/recipes/apple_slicing.json
+59615b1d54bd989c70b1df86a051f88c9f7ae65b data/mmm/recipes/boiled_egg_double.json
+92b8b3b83a27685971cd132b002c5e5d00af052b data/mmm/recipes/boiled_egg_quadrouple.json
+e04c01188934a400d79e3b3ee32ddd2a8d1e3bfa data/mmm/recipes/boiled_egg_single.json
+b284da0cb43d44d0e6c708b99cfe9fb069999bdf data/mmm/recipes/boiled_egg_triple.json
 e75c3426510f66ec062e9a921f4565bc4e162663 data/mmm/recipes/bow_from_bowyery.json
 6789db5222b74e07a7f95e44c41d2f7cf75fd555 data/mmm/recipes/cucumber_cutting.json
 4eee6a76e2b0c3ce563cbe3b17994245c751d3e2 data/mmm/recipes/glide_armor_trim.json

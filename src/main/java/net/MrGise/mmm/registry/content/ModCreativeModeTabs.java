@@ -196,6 +196,11 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.APPLE_SLICE.get());
                         output.accept(ModItems.HONEYED_APPLE_SLICE.get());
 
+                        output.accept(Items.EGG);
+                        output.accept(ModItems.BOILED_EGG.get());
+                        output.accept(ModItems.PEELED_BOILED_EGG.get());
+                        output.accept(ModItems.BROKEN_EGGSHELL.get());
+
                         output.accept(ModItems.MATZA.get());
                         output.accept(ModItems.UNCOOKED_MATZA.get());
 

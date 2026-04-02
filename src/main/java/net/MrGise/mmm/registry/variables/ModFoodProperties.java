@@ -2,21 +2,13 @@ package net.MrGise.mmm.registry.variables;
 
 import net.minecraft.world.food.FoodProperties;
 
-    // Food properties
+import static net.MrGise.mmm.util.Methods.*;
+
+// Food properties
 public class ModFoodProperties {
+    public static final FoodProperties CUCUMBER = basicFoodProperty(4, 5.3f);
 
-    public static final FoodProperties BREADSTICK = new FoodProperties.Builder().nutrition(3).saturationMod(0.33f).fast().build();
+    public static final FoodProperties SMALL = basicFoodProperty(1, 0.1f);
 
-    public static final FoodProperties STRAWBERRY = new FoodProperties.Builder().nutrition(4).saturationMod(3.5f).build();
-    public static final FoodProperties CUCUMBER = new FoodProperties.Builder().nutrition(4).saturationMod(5.3f).build();
-    public static final FoodProperties POMEGRANATE_SEEDS = new FoodProperties.Builder().nutrition(1).saturationMod(0.1f).build();
-
-    public static final FoodProperties HONEYED_APPLE_SLICE = new FoodProperties.Builder().nutrition(1).saturationMod(0.2f).build();
-    public static final FoodProperties APPLE_SLICE = new FoodProperties.Builder().nutrition(1).saturationMod(0.1f).build();
-
-    public static final FoodProperties OXALIS = new FoodProperties.Builder().nutrition(1).saturationMod(3.0f).build();
-
-    public static final FoodProperties MATZA = new FoodProperties.Builder().nutrition(1).saturationMod(0.1f).build();
-
-    public static final FoodProperties CHEESE = new FoodProperties.Builder().nutrition(6).saturationMod(10.0f).build();
+    public static final FoodProperties CHEESE = basicFoodProperty(6, 10.0f);
 }

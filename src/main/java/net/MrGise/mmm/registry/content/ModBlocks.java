@@ -7,12 +7,12 @@ import net.MrGise.mmm.block.crop.StrawberryCropBlock;
 import net.MrGise.mmm.block.dough.DoughBlock;
 import net.MrGise.mmm.block.dough.FlatteningDoughBlock;
 import net.MrGise.mmm.block.dough.UncookedMatzaBlock;
+import net.MrGise.mmm.block.kitchen.BowlBlock;
 import net.MrGise.mmm.item.block_item.*;
 import net.MrGise.mmm.item.block_item.description.DescriptionBlockItem;
 import net.MrGise.mmm.item.block_item.description.DescriptionFuelBlockItem;
 import net.MrGise.mmm.item.block_item.description.DescriptionPortalBlockItem;
 import net.MrGise.mmm.registry.decorative.ModSounds;
-import net.MrGise.mmm.registry.variables.ModFoodProperties;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.effect.MobEffects;
@@ -32,7 +32,10 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
-    // Blocks
+
+import static net.MrGise.mmm.util.Methods.*;
+
+// Blocks
 public class ModBlocks {
 
     public static final DeferredRegister<Block> BLOCKS =
@@ -185,7 +188,7 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> OXALIS = registerEdibleBlock("oxalis",
             () -> new FlowerBlock(() -> MobEffects.LUCK, 4, BlockBehaviour.Properties.copy(Blocks.OXEYE_DAISY).noCollission().noOcclusion()),
-            ModFoodProperties.OXALIS, false);
+            basicFoodProperty(1, 3.0f), false);
 
     public static final RegistryObject<Block> POTTED_OXALIS = registerBlock_("potted_oxalis",
             () -> new FlowerPotBlock((() -> (FlowerPotBlock) Blocks.FLOWER_POT), OXALIS, BlockBehaviour.Properties.copy(Blocks.POTTED_OXEYE_DAISY).noOcclusion()));
@@ -195,6 +198,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> CHEESE_BLOCK = registerBlock("cheese_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).strength(1.0f, 2.0f).sound(ModSounds.CHEESE_SOUNDS)));
+
+    public static final RegistryObject<Block> PLACED_BOWL = registerBlock_("kitchen/bowl",
+            () -> new BowlBlock(BlockBehaviour.Properties.of().instabreak().mapColor(MapColor.COLOR_BROWN).sound(SoundType.WOOD)));
 
 
     //. Structures

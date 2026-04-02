@@ -11,6 +11,7 @@ import net.minecraft.advancements.critereon.StatePropertiesPredicate;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.block.Block;
@@ -126,6 +127,9 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.dropSelf(ModBlocks.CHEESE_BLOCK.get());
 
         this.dropSelf(ModBlocks.OAK_COUNTER.get());
+
+        this.add(ModBlocks.PLACED_BOWL.get(),
+                (block -> createCustomSingularDrop(Items.BOWL)));
 
         this.add(ModBlocks.PLACED_DOUGH.get(),
                 (block -> createCustomSingularDrop(AllItems.DOUGH.get())));

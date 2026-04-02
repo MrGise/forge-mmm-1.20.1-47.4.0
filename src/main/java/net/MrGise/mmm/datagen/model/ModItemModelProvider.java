@@ -57,6 +57,10 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         //- Food
 
+        simpleItemDirFix(ModItems.BOILED_EGG);
+        simpleItemDirFix(ModItems.PEELED_BOILED_EGG);
+        simpleItemDirFix(ModItems.BROKEN_EGGSHELL);
+
         simpleItemDirFix(ModItems.BREADSTICK);
 
         simpleItemDirFix(ModItems.STRAWBERRY);
