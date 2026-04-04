@@ -1,4 +1,4 @@
-package net.MrGise.mmm.resource;
+package net.MrGise.mmm.network;
 
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent;

@@ -126,7 +126,7 @@ public class ModBlocks {
                     .lightLevel(state -> state.getValue(PortalBlock.EYE) ? 6 : 0).isRedstoneConductor(((blockState, blockGetter, blockPos) -> false)).noLootTable(), ModItems.ACTINOLITE), "actinolite");
 
     public static final RegistryObject<Block> THINGAMAJIG = registerBlock("thingamajig",
-            () -> new ThingamajigBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).emissiveRendering((blockState, blockGetter, blockPos) -> true)));
+            () -> new ThingamajigBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).emissiveRendering((blockState, blockGetter, blockPos) -> true).noOcclusion()));
 
 
     //- Skyland pt. 2

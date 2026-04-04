@@ -1,15 +1,18 @@
-package net.MrGise.mmm.compat.jei;
+package net.MrGise.mmm.compat.jei.thingamajig;
 
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.gui.drawable.IDrawableAnimated;
+import mezz.jei.api.gui.drawable.IDrawableStatic;
+import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
-import mezz.jei.api.recipe.RecipeIngredientRole;
 import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.category.IRecipeCategory;
 import net.MrGise.mmm.recipe.ThingamajigRecipe;
 import net.MrGise.mmm.registry.content.ModBlocks;
+import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
@@ -26,10 +29,19 @@ public class ThingamajigRecipeCategory implements IRecipeCategory<ThingamajigRec
 
     private final IDrawable background;
     private final IDrawable icon;
+    private final IDrawable arrow;
 
     public ThingamajigRecipeCategory(IGuiHelper helper) {
         this.background = helper.createDrawable(TEXTURE, 0, 0, 176, 90);
         this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.THINGAMAJIG.get()));
+
+        IDrawableStatic arrowStatic = helper.createDrawable(TEXTURE, 176, 0, 8, 26);
+        this.arrow = helper.createAnimatedDrawable(arrowStatic, 200, IDrawableAnimated.StartDirection.TOP, false);
+    }
+
+    @Override
+    public void draw(ThingamajigRecipe recipe, IRecipeSlotsView recipeSlotsView, GuiGraphics graphics, double mouseX, double mouseY) {
+        arrow.draw(graphics, 85, 36);
     }
 
     @Override

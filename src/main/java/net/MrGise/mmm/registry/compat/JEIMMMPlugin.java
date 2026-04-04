@@ -2,14 +2,15 @@ package net.MrGise.mmm.registry.compat;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
-import mezz.jei.api.registration.IGuiHandlerRegistration;
-import mezz.jei.api.registration.IRecipeCategoryRegistration;
-import mezz.jei.api.registration.IRecipeRegistration;
+import mezz.jei.api.registration.*;
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.compat.jei.BowyeryRecipeCategory;
-import net.MrGise.mmm.compat.jei.ThingamajigRecipeCategory;
+import net.MrGise.mmm.compat.jei.bowyery.BowyeryRecipeCategory;
+import net.MrGise.mmm.compat.jei.bowyery.BowyeryRecipeTransferHandler;
+import net.MrGise.mmm.compat.jei.thingamajig.ThingamajigRecipeCategory;
+import net.MrGise.mmm.compat.jei.thingamajig.ThingamajigRecipeTransferHandler;
 import net.MrGise.mmm.recipe.BowyeryRecipe;
 import net.MrGise.mmm.recipe.ThingamajigRecipe;
+import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.screen.bowyery_table.BowyeryTableScreen;
 import net.MrGise.mmm.screen.thingamajig.ThingamajigScreen;
 import net.minecraft.client.Minecraft;
@@ -49,5 +50,19 @@ public class JEIMMMPlugin implements IModPlugin {
 
         registration.addRecipeClickArea(BowyeryTableScreen.class, 84, 27, 22, 15,
                 BowyeryRecipeCategory.BOWYERY_TYPE);
+    }
+
+    @Override
+    public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
+        registration.addRecipeTransferHandler(new ThingamajigRecipeTransferHandler(registration.getTransferHelper()),
+                ThingamajigRecipeCategory.THINGAMAJIG_TYPE);
+        registration.addRecipeTransferHandler(new BowyeryRecipeTransferHandler(registration.getTransferHelper()),
+                BowyeryRecipeCategory.BOWYERY_TYPE);
+    }
+
+    @Override
+    public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
+        registration.addRecipeCatalyst(ModBlocks.THINGAMAJIG.get(), ThingamajigRecipeCategory.THINGAMAJIG_TYPE);
+        registration.addRecipeCatalyst(ModBlocks.BOWYERY_TABLE.get(), BowyeryRecipeCategory.BOWYERY_TYPE);
     }
 }

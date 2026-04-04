@@ -1,6 +1,6 @@
 package net.MrGise.mmm.item.block_item;
 
-import net.MrGise.mmm.resource.ClientKnowledgeData;
+import net.MrGise.mmm.network.ClientKnowledgeData;
 import net.minecraft.ChatFormatting;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.BlockItem;

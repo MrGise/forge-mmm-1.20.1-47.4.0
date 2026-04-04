@@ -44,6 +44,10 @@ public class ThingamajigMenu extends AbstractContainerMenu {
         addDataSlots(data);
     }
 
+    public ThingamajigBlockEntity blockEntity() {
+        return this.blockEntity;
+    }
+
     public boolean isCrafting() {
         return data.get(0) > 0;
     }

@@ -1,4 +1,4 @@
-package net.MrGise.mmm.compat.jei;
+package net.MrGise.mmm.compat.jei.bowyery;
 
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;

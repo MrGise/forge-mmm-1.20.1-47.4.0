@@ -19,7 +19,7 @@ import net.MrGise.mmm.registry.variants.ModPotions;
 import net.MrGise.mmm.registry.variants.ModEnchantments;
 import net.MrGise.mmm.registry.decorative.ModSounds;
 import net.MrGise.mmm.registry.variants.ModVillagers;
-import net.MrGise.mmm.resource.ModNetwork;
+import net.MrGise.mmm.network.ModNetwork;
 import net.MrGise.mmm.screen.bowyery_table.BowyeryTableScreen;
 import net.MrGise.mmm.screen.thingamajig.ThingamajigScreen;
 import net.minecraft.client.gui.screens.MenuScreens;

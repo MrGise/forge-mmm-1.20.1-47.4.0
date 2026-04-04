@@ -16,3 +16,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 04/4/2026: Added Bowyery Table JEI support and required JEI in the
 [mods.toml](/src/main/resources/META-INF/mods.toml) file
 - 04/4/2026 (multiple): Updated README and changelog
+- 04/4/2026: Added transfer handling for JEI compatibility
+and animated the arrow in the Thingamajig JEI screen

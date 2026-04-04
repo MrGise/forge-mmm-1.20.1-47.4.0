@@ -2,11 +2,10 @@ package net.MrGise.mmm.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
-import net.MrGise.mmm.resource.ModNetwork;
-import net.MrGise.mmm.resource.SyncAllKnowingPacket;
+import net.MrGise.mmm.network.ModNetwork;
+import net.MrGise.mmm.network.SyncAllKnowingPacket;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
-import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.network.PacketDistributor;
