@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class BowyeryTableScreen extends AbstractContainerScreen<BowyeryTableMenu> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(MMM.MOD_ID, "textures/gui/bowyery_table_gui.png");
+            new ResourceLocation(MMM.MOD_ID, "textures/gui/bowyery_table/bowyery_table_gui.png");
 
 
     public BowyeryTableScreen(BowyeryTableMenu menu, Inventory inv, Component title) {

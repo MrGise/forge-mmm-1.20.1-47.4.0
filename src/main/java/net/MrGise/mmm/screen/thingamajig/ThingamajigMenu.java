@@ -18,6 +18,8 @@ public class ThingamajigMenu extends AbstractContainerMenu {
     private final Level level;
     private final ContainerData data;
 
+    private static final int invYOffset = 4;
+
     public ThingamajigMenu(int containerId, Inventory inv, FriendlyByteBuf extraData) {
         this(containerId, inv, inv.player.level().getBlockEntity(extraData.readBlockPos()), new SimpleContainerData(2));
     }
@@ -33,10 +35,10 @@ public class ThingamajigMenu extends AbstractContainerMenu {
         addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
-            this.addSlot(new SlotItemHandler(handler, 0, 80, 13));
-            this.addSlot(new SlotItemHandler(handler, 1, 26, 61));
-            this.addSlot(new SlotItemHandler(handler, 2, 80, 61));
-            this.addSlot(new SlotItemHandler(handler, 3, 134, 61));
+            this.addSlot(new SlotItemHandler(handler, 0, 80, 13 + invYOffset));
+            this.addSlot(new SlotItemHandler(handler, 1, 26, 61 + invYOffset));
+            this.addSlot(new SlotItemHandler(handler, 2, 80, 61 + invYOffset));
+            this.addSlot(new SlotItemHandler(handler, 3, 134, 61 + invYOffset));
         });
 
         addDataSlots(data);
@@ -111,16 +113,16 @@ public class ThingamajigMenu extends AbstractContainerMenu {
     }
 
     private void addPlayerInventory(Inventory playerInventory) {
-        for (int i = 0; i < 3; ++i) {
-            for (int l = 0; l < 9; ++l) {
-                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 88 + i * 18));
+        for (int row = 0; row < 3; ++row) {
+            for (int colon = 0; colon < 9; ++colon) {
+                this.addSlot(new Slot(playerInventory, colon + row * 9 + 9, 8 + colon * 18, 88 + invYOffset + row * 18));
             }
         }
     }
 
     private void addPlayerHotbar(Inventory playerInventory) {
         for (int i = 0; i < 9; ++i) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 146));
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 146 + invYOffset));
         }
     }
 }

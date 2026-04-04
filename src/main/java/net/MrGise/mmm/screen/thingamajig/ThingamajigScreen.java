@@ -11,7 +11,7 @@ import net.minecraft.world.entity.player.Inventory;
 
 public class ThingamajigScreen extends AbstractContainerScreen<ThingamajigMenu> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(MMM.MOD_ID, "textures/gui/thingamajig_gui.png");
+            new ResourceLocation(MMM.MOD_ID, "textures/gui/thingamajig/thingamajig_gui.png");
 
 
     public ThingamajigScreen(ThingamajigMenu menu, Inventory inv, Component title) {
@@ -20,10 +20,10 @@ public class ThingamajigScreen extends AbstractContainerScreen<ThingamajigMenu> 
 
     @Override
     protected void init() {
-        super.init();
         this.imageHeight = 174;
-        this.inventoryLabelY += 6;
-        this.titleLabelY -= 4;
+        super.init();
+        this.titleLabelY = 4;
+        this.inventoryLabelY = this.imageHeight - 92;
     }
 
     @Override

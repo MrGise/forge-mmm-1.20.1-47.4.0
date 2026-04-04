@@ -1,4 +1,61 @@
 package net.MrGise.mmm.compat.jei;
 
-public class ThingamajigRecipeCategory {
+import mezz.jei.api.constants.VanillaTypes;
+import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
+import mezz.jei.api.gui.drawable.IDrawable;
+import mezz.jei.api.helpers.IGuiHelper;
+import mezz.jei.api.recipe.IFocusGroup;
+import mezz.jei.api.recipe.RecipeIngredientRole;
+import mezz.jei.api.recipe.RecipeType;
+import mezz.jei.api.recipe.category.IRecipeCategory;
+import net.MrGise.mmm.recipe.ThingamajigRecipe;
+import net.MrGise.mmm.registry.content.ModBlocks;
+import net.minecraft.network.chat.Component;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.Nullable;
+
+import static net.MrGise.mmm.util.Methods.*;
+
+public class ThingamajigRecipeCategory implements IRecipeCategory<ThingamajigRecipe> {
+    private static final ResourceLocation UID = mmm("thingamajig");
+    private static final ResourceLocation TEXTURE = mmm("textures/gui/thingamajig/thingamajig_jei_gui.png");
+
+    public static final RecipeType<ThingamajigRecipe> THINGAMAJIG_TYPE =
+            new RecipeType(UID, ThingamajigRecipe.class);
+
+    private final IDrawable background;
+    private final IDrawable icon;
+
+    public ThingamajigRecipeCategory(IGuiHelper helper) {
+        this.background = helper.createDrawable(TEXTURE, 0, 0, 176, 90);
+        this.icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ModBlocks.THINGAMAJIG.get()));
+    }
+
+    @Override
+    public RecipeType<ThingamajigRecipe> getRecipeType() {
+        return THINGAMAJIG_TYPE;
+    }
+
+    @Override
+    public Component getTitle() {
+        return Component.translatable("block.mmm.thingamajig");
+    }
+
+    @Override
+    public @Nullable IDrawable getBackground() {
+        return this.background;
+    }
+
+    @Override
+    public @Nullable IDrawable getIcon() {
+        return this.icon;
+    }
+
+    @Override
+    public void setRecipe(IRecipeLayoutBuilder builder, ThingamajigRecipe recipe, IFocusGroup focuses) {
+        builder.addInputSlot(80, 17).addIngredients(recipe.getIngredients().get(0));
+
+        builder.addOutputSlot(80, 65).addItemStack(recipe.getResultItem(null));
+    }
 }
