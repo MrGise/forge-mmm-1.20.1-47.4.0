@@ -18,3 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 04/4/2026 (multiple): Updated README and changelog
 - 04/4/2026: Added transfer handling for JEI compatibility
 and animated the arrow in the Thingamajig JEI screen
+- Changed version because it's not that major +
+updated it in the gradle.properties file +
+Reminder to check the changelog for more information
+- Oop, sorry, forgot to update the changelog for the commit
