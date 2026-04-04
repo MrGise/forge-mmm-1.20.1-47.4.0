@@ -1,4 +1,4 @@
-# Changelog (last updated: 3/4/2026)
+# Changelog (last updated: 4/4/2026)
 
 All notable changes to this project will be documented in this file.
 
@@ -13,4 +13,5 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Commits:
 - 04/4/2026: Added Thingamajig JEI support and changed some directories
-- 04/4/2026: Added Bowyery Table JEI support and required JEI in the mods.toml file
+- 04/4/2026: Added Bowyery Table JEI support and required JEI in the
+[mods.toml](/src/main/resources/META-INF/mods.toml) file
