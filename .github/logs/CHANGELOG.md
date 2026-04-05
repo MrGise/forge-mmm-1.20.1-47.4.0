@@ -23,3 +23,4 @@ updated it in the gradle.properties file +
 Reminder to check the changelog for more information
 - Oop, sorry, forgot to update the changelog for the commit
 - Added maxTransfer (filling with shift) support to the bowyery JEI support (buggy AF)
+- Unbugged, for the cost of slight weirdness

@@ -89,22 +89,20 @@ public class BowyeryRecipeTransferHandler implements IRecipeTransferHandler<Bowy
             MMM.LOGGER.debug("Craft count: {}, maxTransfer: {}", craftCount, maxTransfer);
 
             List<Integer> packetData = new ArrayList<>();
+            Map<Integer, Integer> sharedConsumed = new HashMap<>(); // shared across all ingredients
 
             for (int ingredientIndex = 0; ingredientIndex < ingredients.size(); ingredientIndex++) {
                 List<Integer> slots = ingredientToSlots.get(ingredientIndex);
                 int remaining = craftCount;
 
-                // Track per-slot consumption within this ingredient only
-                Map<Integer, Integer> localConsumed = new HashMap<>();
-
                 for (int slot : slots) {
                     if (remaining <= 0) break;
                     ItemStack stack = player.getInventory().getItem(slot);
-                    int alreadyTaking = localConsumed.getOrDefault(slot, 0);
+                    int alreadyTaking = sharedConsumed.getOrDefault(slot, 0);
                     int available = stack.getCount() - alreadyTaking;
+                    if (available <= 0) continue;
                     int taking = Math.min(available, remaining);
-                    localConsumed.put(slot, alreadyTaking + taking);
-                    // menuSlot, inventorySlot, count
+                    sharedConsumed.put(slot, alreadyTaking + taking);
                     packetData.add(ingredientIndex);
                     packetData.add(slot);
                     packetData.add(taking);
