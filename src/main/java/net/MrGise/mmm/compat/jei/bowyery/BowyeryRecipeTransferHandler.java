@@ -7,6 +7,7 @@ import mezz.jei.api.recipe.RecipeType;
 import mezz.jei.api.recipe.transfer.IRecipeTransferError;
 import mezz.jei.api.recipe.transfer.IRecipeTransferHandler;
 import mezz.jei.api.recipe.transfer.IRecipeTransferHandlerHelper;
+import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.network.ModNetwork;
 import net.MrGise.mmm.network.compat.TransferBowyeryRecipePacket;
 import net.MrGise.mmm.recipe.BowyeryRecipe;
@@ -15,11 +16,13 @@ import net.MrGise.mmm.screen.bowyery_table.BowyeryTableMenu;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuType;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class BowyeryRecipeTransferHandler implements IRecipeTransferHandler<BowyeryTableMenu, BowyeryRecipe> {
     private final IRecipeTransferHandlerHelper helper;
@@ -48,40 +51,106 @@ public class BowyeryRecipeTransferHandler implements IRecipeTransferHandler<Bowy
                                                          IRecipeSlotsView recipeSlots, Player player,
                                                          boolean maxTransfer, boolean doTransfer) {
         List<Ingredient> ingredients = recipe.getIngredients();
-        List<Integer> availableSlots = new ArrayList<>();
         List<Integer> missingSlots = new ArrayList<>();
 
-        Map<Integer, Integer> consumed = new HashMap<>();
+        // For each ingredient index, store all matching inventory slots in order
+        Map<Integer, List<Integer>> ingredientToSlots = new HashMap<>();
+        Map<Integer, Integer> consumedList = new HashMap<>();
 
-        int loop = 0;
-        for (Ingredient ingredient : ingredients) {
-            boolean found = false;
-            for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
-                ItemStack stack = player.getInventory().getItem(i);
-                int used = consumed.getOrDefault(i, 0);
+        for (int ingredientIndex = 0; ingredientIndex < ingredients.size(); ingredientIndex++) {
+            Ingredient ingredient = ingredients.get(ingredientIndex);
+            List<Integer> matchingSlots = new ArrayList<>();
 
-                if (ingredient.test(stack) && stack.getCount() > used) {
-                    consumed.put(i, used + 1);
-                    availableSlots.add(i);
-                    found = true;
-                    break;
+            for (int playerSlot = 0; playerSlot < player.getInventory().getContainerSize(); playerSlot++) {
+                ItemStack stack = player.getInventory().getItem(playerSlot);
+                int consumed = consumedList.getOrDefault(playerSlot, 0);
+                if (ingredient.test(stack) && stack.getCount() > consumed) {
+                    matchingSlots.add(playerSlot);
+                    consumedList.put(playerSlot, consumed + 1); // claim one item from this slot
                 }
             }
-            if (!found) {
-                missingSlots.add(loop);
-            }
-            loop++;
-        }
 
+            if (matchingSlots.isEmpty()) {
+                missingSlots.add(ingredientIndex);
+            } else {
+                ingredientToSlots.put(ingredientIndex, matchingSlots);
+            }
+        }
         if (!missingSlots.isEmpty()) {
             List<IRecipeSlotView> allSlotViews = recipeSlots.getSlotViews(RecipeIngredientRole.INPUT);
             List<IRecipeSlotView> missingSlotViews = missingSlots.stream().map(allSlotViews::get).toList();
-            return helper.createUserErrorForMissingSlots(Component.translatable("jei.tooltip.error.recipe.transfer.missing"),
+            return helper.createUserErrorForMissingSlots(
+                    Component.translatable("jei.tooltip.error.recipe.transfer.missing"),
                     missingSlotViews);
         }
+
         if (doTransfer) {
-            ModNetwork.CHANNEL.sendToServer(new TransferBowyeryRecipePacket(availableSlots));
+            int craftCount = maxTransfer ? getMaxCraftCount(ingredients, ingredientToSlots, player, container) : 1;
+            MMM.LOGGER.debug("Craft count: {}, maxTransfer: {}", craftCount, maxTransfer);
+
+            List<Integer> packetData = new ArrayList<>();
+
+            for (int ingredientIndex = 0; ingredientIndex < ingredients.size(); ingredientIndex++) {
+                List<Integer> slots = ingredientToSlots.get(ingredientIndex);
+                int remaining = craftCount;
+
+                // Track per-slot consumption within this ingredient only
+                Map<Integer, Integer> localConsumed = new HashMap<>();
+
+                for (int slot : slots) {
+                    if (remaining <= 0) break;
+                    ItemStack stack = player.getInventory().getItem(slot);
+                    int alreadyTaking = localConsumed.getOrDefault(slot, 0);
+                    int available = stack.getCount() - alreadyTaking;
+                    int taking = Math.min(available, remaining);
+                    localConsumed.put(slot, alreadyTaking + taking);
+                    // menuSlot, inventorySlot, count
+                    packetData.add(ingredientIndex);
+                    packetData.add(slot);
+                    packetData.add(taking);
+                    remaining -= taking;
+                }
+            }
+
+            ModNetwork.CHANNEL.sendToServer(new TransferBowyeryRecipePacket(packetData));
         }
         return null;
+    }
+
+    private int getMaxCraftCount(List<Ingredient> ingredients, Map<Integer, List<Integer>> ingredientToSlots,
+                                 Player player, BowyeryTableMenu container) {
+        int maxCount = Integer.MAX_VALUE;
+
+        for (int i = 0; i < ingredients.size(); i++) {
+            Ingredient ingredient = ingredients.get(i);
+            List<Integer> slots = ingredientToSlots.get(i);
+
+            // Total available across all matching stacks
+            int totalAvailable = slots.stream()
+                    .mapToInt(slot -> player.getInventory().getItem(slot).getCount())
+                    .sum();
+
+            // Add space from existing matching items in the menu slot
+            ItemStack menuStack = container.getSlot(i).getItem();
+            if (!menuStack.isEmpty() && ingredient.test(menuStack)) {
+                totalAvailable += menuStack.getMaxStackSize() - menuStack.getCount();
+            }
+
+            int timesRequired = (int) ingredients.stream().filter(o -> ingredientsMatch(ingredient, o)).count();
+            if (totalAvailable == 0) return 0;
+            maxCount = Math.min(maxCount, totalAvailable / timesRequired);
+        }
+
+        return maxCount == Integer.MAX_VALUE ? 1 : maxCount;
+    }
+
+    private boolean ingredientsMatch(Ingredient a, Ingredient b) {
+        Set<Item> aItems = Arrays.stream(a.getItems())
+                .map(ItemStack::getItem)
+                .collect(Collectors.toSet());
+        Set<Item> bItems = Arrays.stream(b.getItems())
+                .map(ItemStack::getItem)
+                .collect(Collectors.toSet());
+        return aItems.equals(bItems);
     }
 }
