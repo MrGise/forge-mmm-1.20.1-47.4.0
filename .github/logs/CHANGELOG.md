@@ -18,9 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 04/4/2026 (multiple): Updated README and changelog
 - 04/4/2026: Added transfer handling for JEI compatibility
 and animated the arrow in the Thingamajig JEI screen
-- Changed version because it's not that major +
+- 04/4/2026: Changed version because it's not that major +
 updated it in the gradle.properties file +
 Reminder to check the changelog for more information
-- Oop, sorry, forgot to update the changelog for the commit
-- Added maxTransfer (filling with shift) support to the bowyery JEI support (buggy AF)
-- Unbugged, for the cost of slight weirdness
+- 04/4/2026: Oop, sorry, forgot to update the changelog for the commit
+- 05/4/2026: Added maxTransfer (filling with shift) support to the bowyery JEI support (buggy AF)
+- 05/4/2026: Unbugged, for the cost of slight weirdness
+- 06/4/2026: Very small changes

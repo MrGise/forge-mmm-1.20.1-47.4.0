@@ -92,7 +92,9 @@ public class BowyeryRecipeTransferHandler implements IRecipeTransferHandler<Bowy
             Map<Integer, Integer> sharedConsumed = new HashMap<>(); // shared across all ingredients
 
             for (int ingredientIndex = 0; ingredientIndex < ingredients.size(); ingredientIndex++) {
-                List<Integer> slots = ingredientToSlots.get(ingredientIndex);
+                List<Integer> slots = new ArrayList<>(ingredientToSlots.get(ingredientIndex));
+                slots.sort((a, b) -> player.getInventory().getItem(b).getCount()
+                        - player.getInventory().getItem(a).getCount());
                 int remaining = craftCount;
 
                 for (int slot : slots) {
