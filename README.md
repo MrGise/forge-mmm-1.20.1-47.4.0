@@ -2,7 +2,7 @@
 Or MMM, for short
 
 ## Description
-This is my, Mr.Gise's, Mod of unorganized, random ideas™.  
+This is my, Mr.Gise's, Mod of Unorganized, Random Ideas™.  
 I just add whatever I feel like.  
 There ***is*** a general idea,
 which is a fantasy mod with a very complicated magic system with
