@@ -23,9 +23,12 @@ import net.MrGise.mmm.network.ModNetwork;
 import net.MrGise.mmm.screen.bowyery_table.BowyeryTableScreen;
 import net.MrGise.mmm.screen.thingamajig.ThingamajigScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
+import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.ComposterBlock;
 import net.minecraft.world.level.block.FlowerPotBlock;
@@ -42,7 +45,12 @@ import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
-    // The main mod class
+
+import java.lang.reflect.Field;
+import java.util.HashMap;
+import java.util.Map;
+
+// The main mod class
 // The value here should match an entry in the META-INF/mods.toml file
 @Mod(MMM.MOD_ID)
 public class MMM {
@@ -130,9 +138,12 @@ public class MMM {
 
             ((FlowerPotBlock) Blocks.FLOWER_POT).addPlant(ModBlocks.OXALIS.getId(), ModBlocks.POTTED_OXALIS);
 
+            Map<Block, Block> newMap = new HashMap<>(AxeItem.STRIPPABLES);
 
-            ModGeneralEvents.LogMap.put(ModBlocks.SKYWOOD_LOG.get(), ModBlocks.STRIPPED_SKYWOOD_LOG.get());
-            ModGeneralEvents.LogMap.put(ModBlocks.SKYWOOD.get(), ModBlocks.STRIPPED_SKYWOOD.get());
+            newMap.put(ModBlocks.SKYWOOD_LOG.get(), ModBlocks.STRIPPED_SKYWOOD_LOG.get());
+            newMap.put(ModBlocks.SKYWOOD.get(), ModBlocks.STRIPPED_SKYWOOD.get());
+
+            AxeItem.STRIPPABLES = newMap;
 
 
             BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.SLOWNESS, Items.SLIME_BALL, ModPotions.LIQUID_SLIME.get()));

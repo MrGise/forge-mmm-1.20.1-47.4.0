@@ -14,12 +14,9 @@ import net.MrGise.mmm.screen.thingamajig.ThingamajigMenu;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.MenuType;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Optional;
 
 public class ThingamajigRecipeTransferHandler implements IRecipeTransferHandler<ThingamajigMenu, ThingamajigRecipe> {
@@ -53,7 +50,7 @@ public class ThingamajigRecipeTransferHandler implements IRecipeTransferHandler<
         for (int i = 0; i < player.getInventory().getContainerSize(); i++) {
             if (ingredient.test(player.getInventory().getItem(i))) {
                 if (doTransfer) {
-                    ModNetwork.CHANNEL.sendToServer(new TransferThingamajigRecipePacket(i));
+                    ModNetwork.CHANNEL.sendToServer(new TransferThingamajigRecipePacket(i, maxTransfer));
                 }
                 return null;
             }

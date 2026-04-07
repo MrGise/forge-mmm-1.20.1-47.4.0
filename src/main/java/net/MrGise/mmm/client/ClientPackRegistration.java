@@ -5,7 +5,6 @@ import com.google.gson.JsonParser;
 import com.mojang.logging.LogUtils;
 import net.MrGise.mmm.MMM;
 import net.minecraft.network.chat.Component;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.packs.PackType;
 import net.minecraft.server.packs.PathPackResources;
 import net.minecraft.server.packs.repository.Pack;
@@ -21,6 +20,8 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.stream.Stream;
+
+import static net.MrGise.mmm.util.Methods.*;
 
 @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
 public class ClientPackRegistration {
@@ -46,7 +47,7 @@ public class ClientPackRegistration {
                 event.addRepositorySource(packConsumer -> {
                     try {
                         packConsumer.accept(Pack.readMetaAndCreate(
-                                new ResourceLocation(MMM.MOD_ID, folderName).toString(),    // ID
+                                mmm(folderName).toString(),    // ID
                                 displayName,    // Display name from pack.mcmeta or folder name
                                 false,  // Default enabled
                                 id -> new PathPackResources(id, packFolder, false), // Loader

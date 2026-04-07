@@ -1,4 +1,4 @@
-package net.MrGise.mmm.registry.compat;
+package net.MrGise.mmm.compat.jei;
 
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
@@ -58,6 +58,11 @@ public class JEIMMMPlugin implements IModPlugin {
                 ThingamajigRecipeCategory.THINGAMAJIG_TYPE);
         registration.addRecipeTransferHandler(new BowyeryRecipeTransferHandler(registration.getTransferHelper()),
                 BowyeryRecipeCategory.BOWYERY_TYPE);
+    }
+
+    @Override
+    public void registerItemSubtypes(ISubtypeRegistration registration) {
+        registration.registerSubtypeInterpreter(ModBlocks.HEAVENLY_GRASS.get().asItem(), new CustomGrassSubtypeInterpreter());
     }
 
     @Override

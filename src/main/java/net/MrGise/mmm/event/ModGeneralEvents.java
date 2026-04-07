@@ -226,56 +226,6 @@ public class ModGeneralEvents {
         newData.putBoolean("all_knowing", originalData.getBoolean("all_knowing"));
     }
 
-    public static final Map<Block, Block> LogMap = new HashMap<>();
-    public static final Map<Block, ItemLike> BarkMap = new HashMap<>();
-    @SubscribeEvent
-    public static void stripLogs(PlayerInteractEvent.RightClickBlock event) {
-        Level level = event.getLevel();
-        BlockPos pos = event.getPos();
-        Player player = event.getEntity();
-        InteractionHand hand = event.getHand();
-        ItemStack heldStack = player.getItemInHand(hand);
-        Block block = level.getBlockState(pos).getBlock();
-
-        // Only strip if held item is an axe
-        if (heldStack.getItem() instanceof AxeItem && LogMap.containsKey(block)) {
-            Block stripped = LogMap.get(block);
-            Direction.Axis axis = level.getBlockState(pos).getValue(RotatedPillarBlock.AXIS);
-
-            // Play swing animation
-            player.swing(hand);
-
-            // Replace block with stripped version (keep axis)
-            level.setBlock(pos, stripped.defaultBlockState().setValue(RotatedPillarBlock.AXIS, axis), 11);
-
-            // Play strip sound
-            level.playSound(player, pos, SoundEvents.AXE_STRIP, SoundSource.BLOCKS, 1.0f, 1.0f);
-
-            // Drop bark (if exists)
-            if (BarkMap.containsKey(block)) {
-                ItemLike dropped = BarkMap.get(block);
-                ItemStack dropStack = new ItemStack(dropped, 1);
-
-                if (!level.isClientSide) {
-                    ItemEntity drop = new ItemEntity(
-                            level,
-                            pos.getX() + 0.5,
-                            pos.getY() + 0.5,
-                            pos.getZ() + 0.5,
-                            dropStack
-                    );
-                    level.addFreshEntity(drop);
-                }
-            }
-
-            // Damage axe (and break if necessary)
-            heldStack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(hand));
-
-            // Cancel normal interaction to prevent placing the log instead
-            event.setCanceled(true);
-        }
-    }
-
     @SubscribeEvent
     public static void checkAdvancements(TickEvent.PlayerTickEvent event) {
         if (event.phase != TickEvent.Phase.END) return;

@@ -1,6 +1,5 @@
 package net.MrGise.mmm.block.crop;
 
-import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -27,6 +26,8 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import static net.MrGise.mmm.util.Methods.*;
 
 public class StrawberryCropBlock extends AccessibleCropBlock {
     public static final int MAX_AGE = 6;
@@ -84,7 +85,7 @@ public class StrawberryCropBlock extends AccessibleCropBlock {
 
             if (currentAge >= this.getMaxAge()) {
                 // Drop from custom loot table
-                ResourceLocation lootTable = new ResourceLocation(MMM.MOD_ID, "blocks/strawberry_rclick");
+                ResourceLocation lootTable = mmm("blocks/strawberry_rclick");
                 LootTable table = level.getServer().getLootData().getLootTable(lootTable);
 
                 LootParams.Builder params = new LootParams.Builder((ServerLevel) level)

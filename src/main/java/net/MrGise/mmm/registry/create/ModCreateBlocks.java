@@ -18,13 +18,13 @@ public class ModCreateBlocks {
 
     public static final BlockEntry<Block> EXAMPLE_CONNECTION = registrate.block("example_connection", Block::new)
             .transform(BuilderHelper.emptyBlockNoodle(() -> ModSpriteShifts.EXAMPLE, BlockBehaviour.Properties.of()
-                    .requiresCorrectToolForDrops().sound(ModSounds.NULL_BLOCK_SOUNDS).noLootTable()))
+                    .requiresCorrectToolForDrops().sound(ModSounds.NULL_BLOCK_SOUNDS).noLootTable().destroyTime(0.1f)))
             .register();
 
     public static final BlockEntry<PortalBlock> CONNECTING_PORTAL_BLOCK = registrate.block("connecting_portal_block",
                     properties -> new PortalBlock(properties, ModItems.ACTINOLITE))
             .transform(BuilderHelper.portalBlockNoodle(() -> ModSpriteShifts.CONNECTING_PORTAL_OFF, () -> ModSpriteShifts.CONNECTING_PORTAL_ON,
-                    BlockBehaviour.Properties.of().requiresCorrectToolForDrops().sound(SoundType.METAL).noLootTable(), "actinolite"))
+                    BlockBehaviour.Properties.of().requiresCorrectToolForDrops().sound(SoundType.METAL).noLootTable().destroyTime(0.1f), "actinolite"))
             .register();
 
     public static void register(IEventBus eventBus) {

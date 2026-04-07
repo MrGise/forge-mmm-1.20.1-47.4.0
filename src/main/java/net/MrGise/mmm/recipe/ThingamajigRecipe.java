@@ -2,7 +2,6 @@ package net.MrGise.mmm.recipe;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
-import net.MrGise.mmm.MMM;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.FriendlyByteBuf;
@@ -12,6 +11,8 @@ import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
+
+import static net.MrGise.mmm.util.Methods.*;
 
 public class ThingamajigRecipe implements Recipe<SimpleContainer> {
     private final NonNullList<Ingredient> inputItems;
@@ -76,8 +77,7 @@ public class ThingamajigRecipe implements Recipe<SimpleContainer> {
 
     public static class Serializer implements RecipeSerializer<ThingamajigRecipe> {
         public static final Serializer INSTANCE = new Serializer();
-        public static final ResourceLocation ID =
-                new ResourceLocation(MMM.MOD_ID,"thingamajig");
+        public static final ResourceLocation ID = mmm("thingamajig");
 
         @Override
         public ThingamajigRecipe fromJson(ResourceLocation id, JsonObject json) {

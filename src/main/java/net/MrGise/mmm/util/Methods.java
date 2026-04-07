@@ -10,7 +10,7 @@ import java.util.function.Supplier;
 public class Methods {
 
     public static ResourceLocation nAp(String namespace, String path) {
-        return new ResourceLocation(namespace, path);
+        return ResourceLocation.fromNamespaceAndPath(namespace, path);
     }
 
     public static ResourceLocation mmm(String path) {
@@ -22,7 +22,7 @@ public class Methods {
     }
 
     public static ResourceLocation mcr(String path) {
-        return new ResourceLocation(path);
+        return ResourceLocation.withDefaultNamespace(path);
     }
 
     public static FoodProperties basicFoodProperty(int nutrition, float saturation) {

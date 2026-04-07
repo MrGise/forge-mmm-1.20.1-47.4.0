@@ -2,7 +2,6 @@ package net.MrGise.mmm.event;
 
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
-import net.MrGise.mmm.MMM;
 import net.minecraft.advancements.critereon.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -16,8 +15,10 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
+import static net.MrGise.mmm.util.Methods.*;
+
 public class BlockTouchTrigger extends SimpleCriterionTrigger<BlockTouchTrigger.TriggerInstance> {
-    static final ResourceLocation ID = new ResourceLocation(MMM.MOD_ID, "block_touch");
+    static final ResourceLocation ID = mmm("block_touch");
 
     private enum TouchType {
         IN, ON,
@@ -60,7 +61,7 @@ public class BlockTouchTrigger extends SimpleCriterionTrigger<BlockTouchTrigger.
     @Nullable
     private static Block deserializeBlock(JsonObject object) {
         if (object.has("block")) {
-            ResourceLocation resourcelocation = new ResourceLocation(GsonHelper.getAsString(object, "block"));
+            ResourceLocation resourcelocation = mcr(GsonHelper.getAsString(object, "block"));
             return BuiltInRegistries.BLOCK.getOptional(resourcelocation).orElseThrow(() -> {
                 return new JsonSyntaxException("Unknown block type '" + resourcelocation + "'");
             });
