@@ -1,4 +1,4 @@
-# Changelog (last updated: 4/4/2026)
+# Changelog (last updated: 8/4/2026)
 
 All notable changes to this project will be documented in this file.
 
@@ -25,3 +25,5 @@ Reminder to check the changelog for more information
 - 05/4/2026: Added maxTransfer (filling with shift) support to the bowyery JEI support (buggy AF)
 - 05/4/2026: Unbugged, for the cost of slight weirdness
 - 06/4/2026: Very small changes
+- 07/4/2026: Updated README.md
+- 08/4/2026: Updated changelog
