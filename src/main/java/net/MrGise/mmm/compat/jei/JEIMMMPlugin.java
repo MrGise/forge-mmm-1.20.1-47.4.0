@@ -4,14 +4,14 @@ import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.*;
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.compat.jei.bowyery.BowyeryRecipeCategory;
-import net.MrGise.mmm.compat.jei.bowyery.BowyeryRecipeTransferHandler;
-import net.MrGise.mmm.compat.jei.thingamajig.ThingamajigRecipeCategory;
-import net.MrGise.mmm.compat.jei.thingamajig.ThingamajigRecipeTransferHandler;
 import net.MrGise.mmm.recipe.BowyeryRecipe;
 import net.MrGise.mmm.recipe.ThingamajigRecipe;
 import net.MrGise.mmm.registry.content.ModBlocks;
+import net.MrGise.mmm.registry.variables.ModMenuTypes;
+import net.MrGise.mmm.resource.ModRecipeTypes;
+import net.MrGise.mmm.screen.bowyery_table.BowyeryTableMenu;
 import net.MrGise.mmm.screen.bowyery_table.BowyeryTableScreen;
+import net.MrGise.mmm.screen.thingamajig.ThingamajigMenu;
 import net.MrGise.mmm.screen.thingamajig.ThingamajigScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
@@ -54,10 +54,10 @@ public class JEIMMMPlugin implements IModPlugin {
 
     @Override
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
-        registration.addRecipeTransferHandler(new ThingamajigRecipeTransferHandler(registration.getTransferHelper()),
-                ThingamajigRecipeCategory.THINGAMAJIG_TYPE);
-        registration.addRecipeTransferHandler(new BowyeryRecipeTransferHandler(registration.getTransferHelper()),
-                BowyeryRecipeCategory.BOWYERY_TYPE);
+        registration.addRecipeTransferHandler(ThingamajigMenu.class, ModMenuTypes.THINGAMAJIG_MENU.get(), ModRecipeTypes.THINGAMAJIG,
+                36, 4, 0, 36);
+        registration.addRecipeTransferHandler(BowyeryTableMenu.class, ModMenuTypes.BOWYERY_TABLE_MENU.get(), ModRecipeTypes.BOWYERY,
+                0, 3, 3, 36);
     }
 
     @Override
