@@ -1,0 +1,13 @@
+A mod filled with Mystery, Magic, and More!
+It's still in development tho, so there's not much here.
+
+Features:
+- Skyland blocks (nothing with them yet)
+- Null
+- Some random blocks from KaupenJoe's Minecraft modding course
+- More food items, and a §orolling pin
+
+To be implemented:
+- A chance-based race system
+- At least 20 new dimensions
+- A very cool magic system

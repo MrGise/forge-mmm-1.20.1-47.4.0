@@ -28,3 +28,4 @@ Reminder to check the changelog for more information
 - 07/4/2026: Updated README.md
 - 08/4/2026: Updated changelog
 - 09/4/2026: FIXED EVERYTHING
+- 09/4/2026: Description update!
