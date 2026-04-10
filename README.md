@@ -15,10 +15,10 @@ Just maybe.
 ## Changelog
 The changelog is at [.github/logs/CHANGELOG.md](.github/logs/CHANGELOG.md)
 
-## To note
-I am a beginner and I barely know what I'm doing.  
-Because of that, I used AI agents to help me write the code for some parts.  
-**Note that I *DID NOT* entirely generate the code using the agent(s), but
-checked the code for errors and tried to learn from it.**
+> ### To note
+> I am a beginner and I barely know what I'm doing.  
+> Because of that, I used AI agents to help me write the code for some parts.  
+> **Note that I *DID NOT* entirely generate the code using the agent(s), but
+> checked the code for errors and tried to learn from it.**
 
 That's all, thank you for visiting the GitHub repository!

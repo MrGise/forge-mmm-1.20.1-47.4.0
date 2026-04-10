@@ -1,4 +1,4 @@
-# Changelog (last updated: 9/4/2026)
+# Changelog (last updated: 10/4/2026)
 
 All notable changes to this project will be documented in this file.
 
@@ -6,10 +6,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
+For the changelog summary, visit [.github/logs](/.github/logs/0.4.1a-1.20.1.md)
 ### Added:
 - JEI support (advancing the course)
 - Changelog will be updated from now on for new versions
-- Changelog for 0.4a-passover
+- Added changelog for 0.4a-passover
+- Changed, added and updated descriptions
+- Summarized changelog
 
 ### Commits:
 - 04/4/2026: Added Thingamajig JEI support and changed some directories
@@ -29,3 +32,4 @@ Reminder to check the changelog for more information
 - 08/4/2026: Updated changelog
 - 09/4/2026: FIXED EVERYTHING
 - 09/4/2026: Description update!
+- 10/4/2026: Updated changelog (+summary) and small bugfix

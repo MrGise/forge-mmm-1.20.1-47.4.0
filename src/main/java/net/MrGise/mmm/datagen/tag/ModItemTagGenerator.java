@@ -121,6 +121,8 @@ public class ModItemTagGenerator extends ItemTagsProvider {
 
         this.tag(ModTags.Items.SKIRON_NUGGETS).add(ModItems.SKIRON_NUGGET.get());
 
+        this.tag(ModTags.Items.ACTINOLITE).add(ModItems.ACTINOLITE.get());
+
     }
 
     @Override

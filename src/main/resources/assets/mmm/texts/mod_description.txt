@@ -5,7 +5,7 @@ Features:
 - Skyland blocks (nothing with them yet)
 - Null
 - Some random blocks from KaupenJoe's Minecraft modding course
-- More food items, and a §orolling pin
+- More food items, and a §orolling pin§r
 
 To be implemented:
 - A chance-based race system

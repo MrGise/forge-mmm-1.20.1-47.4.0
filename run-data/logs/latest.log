@@ -1,62 +1,62 @@
-[02Apr2026 13:38:32.808] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\GradleTemp\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.4.18, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, mmm, --all, --output, E:\MCMods\mmm-forge-1.20.1-47.4.0\src\generated\resources, --existing, E:\MCMods\mmm-forge-1.20.1-47.4.0\src\main\resources, --mixin.config, mixins.mmm.json]
-[02Apr2026 13:38:32.814] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.18 by Amazon.com Inc.; OS Windows 11 arch amd64 version 10.0
-[02Apr2026 13:38:32.960] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
-[02Apr2026 13:38:33.027] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/GradleTemp/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
-[02Apr2026 13:38:33.507] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\GradleTemp\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.4.18\b526bd87f2544dda5b1348fb2a5047f230e5e679\javafmllanguage-1.20.1-47.4.18.jar is missing mods.toml file
-[02Apr2026 13:38:33.511] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\GradleTemp\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.4.18\312c78291744fbc826551ff8431a9c42e26493f3\lowcodelanguage-1.20.1-47.4.18.jar is missing mods.toml file
-[02Apr2026 13:38:33.514] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\GradleTemp\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.4.18\f6a2d32cb3b5b54788432adafe8b11c99abaf7bd\mclanguage-1.20.1-47.4.18.jar is missing mods.toml file
-[02Apr2026 13:38:33.518] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\GradleTemp\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.4.18\942bd5bf4be190a3681fa76f09d9c14e2434adf9\fmlcore-1.20.1-47.4.18.jar is missing mods.toml file
-[02Apr2026 13:38:33.721] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 1 dependencies adding them to mods collection
-[02Apr2026 13:38:35.722] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
-[02Apr2026 13:38:35.742] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\GradleTemp\caches\forge_gradle\assets, --assetIndex, 5, --mod, mmm, --all, --output, E:\MCMods\mmm-forge-1.20.1-47.4.0\src\generated\resources, --existing, E:\MCMods\mmm-forge-1.20.1-47.4.0\src\main\resources]
-[02Apr2026 13:38:36.230] [main/INFO] [mixin/]: Remapping refMap farmersdelight.refmap.json using E:\MCMods\mmm-forge-1.20.1-47.4.0\build\createSrgToMcp\output.srg
-[02Apr2026 13:38:36.318] [main/INFO] [mixin/]: Remapping refMap backend-flywheel.refmap.json using E:\MCMods\mmm-forge-1.20.1-47.4.0\build\createSrgToMcp\output.srg
-[02Apr2026 13:38:36.319] [main/INFO] [mixin/]: Remapping refMap flywheel.refmap.json using E:\MCMods\mmm-forge-1.20.1-47.4.0\build\createSrgToMcp\output.srg
-[02Apr2026 13:38:36.319] [main/INFO] [mixin/]: Remapping refMap ponder.refmap.json using E:\MCMods\mmm-forge-1.20.1-47.4.0\build\createSrgToMcp\output.srg
-[02Apr2026 13:38:36.320] [main/INFO] [mixin/]: Remapping refMap ponder.refmap.json using E:\MCMods\mmm-forge-1.20.1-47.4.0\build\createSrgToMcp\output.srg
-[02Apr2026 13:38:36.323] [main/INFO] [mixin/]: Remapping refMap create.refmap.json using E:\MCMods\mmm-forge-1.20.1-47.4.0\build\createSrgToMcp\output.srg
-[02Apr2026 13:38:36.467] [main/WARN] [mixin/]: Error loading class: net/minecraft/world/level/lighting/SkyLightSectionStorage/SkyDataLayerStorageMap (java.lang.ClassNotFoundException: net.minecraft.world.level.lighting.SkyLightSectionStorage.SkyDataLayerStorageMap)
-[02Apr2026 13:38:36.467] [main/WARN] [mixin/]: @Mixin target net.minecraft.world.level.lighting.SkyLightSectionStorage.SkyDataLayerStorageMap was not found flywheel.backend.mixins.json:light.SkyDataLayerStorageMapAccessor
-[02Apr2026 13:38:36.861] [main/WARN] [mixin/]: Error loading class: xaero/map/gui/GuiMap (java.lang.ClassNotFoundException: xaero.map.gui.GuiMap)
-[02Apr2026 13:38:36.861] [main/WARN] [mixin/]: @Mixin target xaero.map.gui.GuiMap was not found create.mixins.json:compat.xaeros.XaeroFullscreenMapAccessor
-[02Apr2026 13:38:36.863] [main/WARN] [mixin/]: Error loading class: xaero/map/gui/GuiMap (java.lang.ClassNotFoundException: xaero.map.gui.GuiMap)
-[02Apr2026 13:38:36.863] [main/WARN] [mixin/]: @Mixin target xaero.map.gui.GuiMap was not found create.mixins.json:compat.xaeros.XaeroFullscreenMapMixin
-[02Apr2026 13:38:37.202] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [mmm]
-[02Apr2026 13:38:37.205] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
-[02Apr2026 13:38:43.791] [modloading-worker-0/INFO] [com.simibubi.create.Create/]: Create 6.0.8 initializing! Commit hash: 1a1a9a2819b4f89f78caec41b55ed8cb222fa24b
-[02Apr2026 13:38:43.815] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.18, for MC 1.20.1 with MCP 20230612.114412
-[02Apr2026 13:38:43.816] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.18 Initialized
-[02Apr2026 13:38:44.059] [modloading-worker-0/WARN] [net.MrGise.mmm.MMM/]: Reminder to erase automatic lang files
-[02Apr2026 13:38:44.219] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
-[02Apr2026 13:38:44.228] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 6.288 ms
-[02Apr2026 13:38:47.279] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/GradleTemp/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.18_mapped_official_1.20.1/forge-1.20.1-47.4.18_mapped_official_1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
-[02Apr2026 13:38:47.279] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/C:/GradleTemp/caches/forge_gradle/minecraft_user_repo/net/minecraftforge/forge/1.20.1-47.4.18_mapped_official_1.20.1/forge-1.20.1-47.4.18_mapped_official_1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
-[02Apr2026 13:38:47.623] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registrate Provider for mmm [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
-[02Apr2026 13:38:47.921] [main/INFO] [net.minecraft.data.DataGenerator/]: Registrate Provider for mmm [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)] finished after 297 ms
-[02Apr2026 13:38:47.921] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
-[02Apr2026 13:38:47.960] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 38 ms
-[02Apr2026 13:38:47.960] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Advancements
-[02Apr2026 13:38:47.969] [main/INFO] [net.minecraft.data.DataGenerator/]: Advancements finished after 9 ms
-[02Apr2026 13:38:47.969] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
-[02Apr2026 13:38:48.011] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 43 ms
-[02Apr2026 13:38:48.011] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : mmm
-[02Apr2026 13:38:48.019] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : mmm finished after 7 ms
-[02Apr2026 13:38:48.019] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block Tags
-[02Apr2026 13:38:48.026] [main/INFO] [net.minecraft.data.DataGenerator/]: Block Tags finished after 5 ms
-[02Apr2026 13:38:48.026] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Tags
-[02Apr2026 13:38:48.026] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Tags finished after 1 ms
-[02Apr2026 13:38:48.026] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:point_of_interest_type mod id mmm
-[02Apr2026 13:38:48.030] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:point_of_interest_type mod id mmm finished after 1 ms
-[02Apr2026 13:38:48.030] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:fluid mod id mmm
-[02Apr2026 13:38:48.030] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:fluid mod id mmm finished after 0 ms
-[02Apr2026 13:38:48.030] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: mmm
-[02Apr2026 13:38:48.065] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: mmm finished after 33 ms
-[02Apr2026 13:38:48.065] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: mmm
-[02Apr2026 13:38:48.210] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: mmm finished after 146 ms
-[02Apr2026 13:38:48.210] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:painting_variant mod id mmm
-[02Apr2026 13:38:48.210] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:painting_variant mod id mmm finished after 0 ms
-[02Apr2026 13:38:48.210] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: MMM's processing recipes
-[02Apr2026 13:38:48.218] [main/INFO] [com.simibubi.create.Create/]: mmm's processing recipes: filling registered 1 recipe
-[02Apr2026 13:38:48.218] [main/INFO] [net.minecraft.data.DataGenerator/]: MMM's processing recipes finished after 6 ms
-[02Apr2026 13:38:48.218] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 597 ms
-[02Apr2026 13:38:48.238] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 709, old count: 717, new count: 710, removed stale: 0, written: 5
+[09Apr2026 19:53:40.881] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher running: args [--launchTarget, forgedatauserdev, --assetIndex, 5, --assetsDir, C:\GradleTemp\caches\forge_gradle\assets, --gameDir, ., --fml.forgeVersion, 47.4.18, --fml.mcVersion, 1.20.1, --fml.forgeGroup, net.minecraftforge, --fml.mcpVersion, 20230612.114412, --mod, mmm, --all, --output, E:\MCMods\mmm-forge-1.20.1-47.4.0\src\generated\resources, --existing, E:\MCMods\mmm-forge-1.20.1-47.4.0\src\main\resources, --mixin.config, mixins.mmm.json]
+[09Apr2026 19:53:40.901] [main/INFO] [cpw.mods.modlauncher.Launcher/MODLAUNCHER]: ModLauncher 10.0.9+10.0.9+main.dcd20f30 starting: java version 17.0.18 by Amazon.com Inc.; OS Windows 11 arch amd64 version 10.0
+[09Apr2026 19:53:41.078] [main/INFO] [net.minecraftforge.fml.loading.ImmediateWindowHandler/]: ImmediateWindowProvider not loading because launch target is forgedatauserdev
+[09Apr2026 19:53:41.151] [main/INFO] [mixin/]: SpongePowered MIXIN Subsystem Version=0.8.5 Source=union:/C:/GradleTemp/caches/modules-2/files-2.1/org.spongepowered/mixin/0.8.5/9d1c0c3a304ae6697ecd477218fa61b850bf57fc/mixin-0.8.5.jar%23128!/ Service=ModLauncher Env=CLIENT
+[09Apr2026 19:53:41.648] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\GradleTemp\caches\modules-2\files-2.1\net.minecraftforge\javafmllanguage\1.20.1-47.4.18\b526bd87f2544dda5b1348fb2a5047f230e5e679\javafmllanguage-1.20.1-47.4.18.jar is missing mods.toml file
+[09Apr2026 19:53:41.652] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\GradleTemp\caches\modules-2\files-2.1\net.minecraftforge\lowcodelanguage\1.20.1-47.4.18\312c78291744fbc826551ff8431a9c42e26493f3\lowcodelanguage-1.20.1-47.4.18.jar is missing mods.toml file
+[09Apr2026 19:53:41.655] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\GradleTemp\caches\modules-2\files-2.1\net.minecraftforge\mclanguage\1.20.1-47.4.18\f6a2d32cb3b5b54788432adafe8b11c99abaf7bd\mclanguage-1.20.1-47.4.18.jar is missing mods.toml file
+[09Apr2026 19:53:41.659] [main/WARN] [net.minecraftforge.fml.loading.moddiscovery.ModFileParser/LOADING]: Mod file C:\GradleTemp\caches\modules-2\files-2.1\net.minecraftforge\fmlcore\1.20.1-47.4.18\942bd5bf4be190a3681fa76f09d9c14e2434adf9\fmlcore-1.20.1-47.4.18.jar is missing mods.toml file
+[09Apr2026 19:53:41.859] [main/INFO] [net.minecraftforge.fml.loading.moddiscovery.JarInJarDependencyLocator/]: Found 1 dependencies adding them to mods collection
+[09Apr2026 19:53:45.231] [main/INFO] [mixin/]: Compatibility level set to JAVA_17
+[09Apr2026 19:53:45.257] [main/INFO] [cpw.mods.modlauncher.LaunchServiceHandler/MODLAUNCHER]: Launching target 'forgedatauserdev' with arguments [--gameDir, ., --assetsDir, C:\GradleTemp\caches\forge_gradle\assets, --assetIndex, 5, --mod, mmm, --all, --output, E:\MCMods\mmm-forge-1.20.1-47.4.0\src\generated\resources, --existing, E:\MCMods\mmm-forge-1.20.1-47.4.0\src\main\resources]
+[09Apr2026 19:53:45.811] [main/INFO] [mixin/]: Remapping refMap farmersdelight.refmap.json using E:\MCMods\mmm-forge-1.20.1-47.4.0\build\createSrgToMcp\output.srg
+[09Apr2026 19:53:45.898] [main/INFO] [mixin/]: Remapping refMap backend-flywheel.refmap.json using E:\MCMods\mmm-forge-1.20.1-47.4.0\build\createSrgToMcp\output.srg
+[09Apr2026 19:53:45.901] [main/INFO] [mixin/]: Remapping refMap flywheel.refmap.json using E:\MCMods\mmm-forge-1.20.1-47.4.0\build\createSrgToMcp\output.srg
+[09Apr2026 19:53:45.903] [main/INFO] [mixin/]: Remapping refMap ponder.refmap.json using E:\MCMods\mmm-forge-1.20.1-47.4.0\build\createSrgToMcp\output.srg
+[09Apr2026 19:53:45.904] [main/INFO] [mixin/]: Remapping refMap ponder.refmap.json using E:\MCMods\mmm-forge-1.20.1-47.4.0\build\createSrgToMcp\output.srg
+[09Apr2026 19:53:45.910] [main/INFO] [mixin/]: Remapping refMap create.refmap.json using E:\MCMods\mmm-forge-1.20.1-47.4.0\build\createSrgToMcp\output.srg
+[09Apr2026 19:53:46.063] [main/WARN] [mixin/]: Error loading class: net/minecraft/world/level/lighting/SkyLightSectionStorage/SkyDataLayerStorageMap (java.lang.ClassNotFoundException: net.minecraft.world.level.lighting.SkyLightSectionStorage.SkyDataLayerStorageMap)
+[09Apr2026 19:53:46.064] [main/WARN] [mixin/]: @Mixin target net.minecraft.world.level.lighting.SkyLightSectionStorage.SkyDataLayerStorageMap was not found flywheel.backend.mixins.json:light.SkyDataLayerStorageMapAccessor
+[09Apr2026 19:53:46.496] [main/WARN] [mixin/]: Error loading class: xaero/map/gui/GuiMap (java.lang.ClassNotFoundException: xaero.map.gui.GuiMap)
+[09Apr2026 19:53:46.497] [main/WARN] [mixin/]: @Mixin target xaero.map.gui.GuiMap was not found create.mixins.json:compat.xaeros.XaeroFullscreenMapAccessor
+[09Apr2026 19:53:46.499] [main/WARN] [mixin/]: Error loading class: xaero/map/gui/GuiMap (java.lang.ClassNotFoundException: xaero.map.gui.GuiMap)
+[09Apr2026 19:53:46.499] [main/WARN] [mixin/]: @Mixin target xaero.map.gui.GuiMap was not found create.mixins.json:compat.xaeros.XaeroFullscreenMapMixin
+[09Apr2026 19:53:46.829] [main/INFO] [net.minecraftforge.data.loading.DatagenModLoader/]: Initializing Data Gatherer for mods [mmm]
+[09Apr2026 19:53:46.833] [main/INFO] [MixinExtras|Service/]: Initializing MixinExtras via com.llamalad7.mixinextras.service.MixinExtrasServiceImpl(version=0.4.1).
+[09Apr2026 19:53:51.456] [modloading-worker-0/INFO] [com.simibubi.create.Create/]: Create 6.0.8 initializing! Commit hash: 1a1a9a2819b4f89f78caec41b55ed8cb222fa24b
+[09Apr2026 19:53:51.479] [modloading-worker-0/INFO] [net.minecraftforge.common.ForgeMod/FORGEMOD]: Forge mod loading, version 47.4.18, for MC 1.20.1 with MCP 20230612.114412
+[09Apr2026 19:53:51.480] [modloading-worker-0/INFO] [net.minecraftforge.common.MinecraftForge/FORGE]: MinecraftForge v47.4.18 Initialized
+[09Apr2026 19:53:52.033] [modloading-worker-0/WARN] [net.MrGise.mmm.MMM/]: Reminder to erase automatic lang files
+[09Apr2026 19:53:52.435] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager...
+[09Apr2026 19:53:52.444] [modloading-worker-0/INFO] [mezz.jei.library.load.PluginCaller/]: Sending ConfigManager took 4.528 ms
+[09Apr2026 19:53:55.989] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/E:/MCMods/mmm-forge-1.20.1-47.4.0/build/fg_cache/net/minecraftforge/forge/1.20.1-47.4.18_mapped_official_1.20.1/forge-1.20.1-47.4.18_mapped_official_1.20.1-recomp.jar%23191!/assets/.mcassetsroot' uses unexpected schema
+[09Apr2026 19:53:55.990] [main/WARN] [net.minecraft.server.packs.VanillaPackResourcesBuilder/]: Assets URL 'union:/E:/MCMods/mmm-forge-1.20.1-47.4.0/build/fg_cache/net/minecraftforge/forge/1.20.1-47.4.18_mapped_official_1.20.1/forge-1.20.1-47.4.18_mapped_official_1.20.1-recomp.jar%23191!/data/.mcassetsroot' uses unexpected schema
+[09Apr2026 19:53:56.406] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Registrate Provider for mmm [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)]
+[09Apr2026 19:53:56.581] [main/INFO] [net.minecraft.data.DataGenerator/]: Registrate Provider for mmm [Recipes, Advancements, Loot Tables, Tags (blocks), Tags (items), Tags (fluids), Tags (entity_types), Blockstates, Item models, Lang (en_us/en_ud)] finished after 175 ms
+[09Apr2026 19:53:56.581] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Recipes
+[09Apr2026 19:53:56.616] [main/INFO] [net.minecraft.data.DataGenerator/]: Recipes finished after 33 ms
+[09Apr2026 19:53:56.616] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Advancements
+[09Apr2026 19:53:56.623] [main/INFO] [net.minecraft.data.DataGenerator/]: Advancements finished after 7 ms
+[09Apr2026 19:53:56.623] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Loot Tables
+[09Apr2026 19:53:56.664] [main/INFO] [net.minecraft.data.DataGenerator/]: Loot Tables finished after 40 ms
+[09Apr2026 19:53:56.664] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Global Loot Modifiers : mmm
+[09Apr2026 19:53:56.671] [main/INFO] [net.minecraft.data.DataGenerator/]: Global Loot Modifiers : mmm finished after 6 ms
+[09Apr2026 19:53:56.671] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block Tags
+[09Apr2026 19:53:56.676] [main/INFO] [net.minecraft.data.DataGenerator/]: Block Tags finished after 5 ms
+[09Apr2026 19:53:56.676] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Tags
+[09Apr2026 19:53:56.680] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Tags finished after 3 ms
+[09Apr2026 19:53:56.680] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:point_of_interest_type mod id mmm
+[09Apr2026 19:53:56.682] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:point_of_interest_type mod id mmm finished after 2 ms
+[09Apr2026 19:53:56.682] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:fluid mod id mmm
+[09Apr2026 19:53:56.683] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:fluid mod id mmm finished after 0 ms
+[09Apr2026 19:53:56.683] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Item Models: mmm
+[09Apr2026 19:53:56.727] [main/INFO] [net.minecraft.data.DataGenerator/]: Item Models: mmm finished after 43 ms
+[09Apr2026 19:53:56.727] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Block States: mmm
+[09Apr2026 19:53:56.867] [main/INFO] [net.minecraft.data.DataGenerator/]: Block States: mmm finished after 139 ms
+[09Apr2026 19:53:56.867] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: Tags for minecraft:painting_variant mod id mmm
+[09Apr2026 19:53:56.868] [main/INFO] [net.minecraft.data.DataGenerator/]: Tags for minecraft:painting_variant mod id mmm finished after 0 ms
+[09Apr2026 19:53:56.868] [main/INFO] [net.minecraft.data.DataGenerator/]: Starting provider: MMM's processing recipes
+[09Apr2026 19:53:56.872] [main/INFO] [com.simibubi.create.Create/]: mmm's processing recipes: filling registered 1 recipe
+[09Apr2026 19:53:56.872] [main/INFO] [net.minecraft.data.DataGenerator/]: MMM's processing recipes finished after 4 ms
+[09Apr2026 19:53:56.873] [main/INFO] [net.minecraft.data.DataGenerator/]: All providers took: 467 ms
+[09Apr2026 19:53:56.893] [main/INFO] [net.minecraft.data.HashCache/]: Caching: total files: 710, old count: 717, new count: 711, removed stale: 0, written: 2
