@@ -33,3 +33,4 @@ Reminder to check the changelog for more information
 - 09/4/2026: FIXED EVERYTHING
 - 09/4/2026: Description update!
 - 10/4/2026: Updated changelog (+summary) and small bugfix
+- 10/4/2026: Fixed ModTags.Items.ACTINOLITE link
