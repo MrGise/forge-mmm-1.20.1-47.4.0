@@ -1,9 +1,19 @@
 # Changelog (last updated: 10/4/2026)
 
-All notable changes to this project will be documented in this file.
+All changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+Newer versions' changes are added above the older ones
+
+## [0.5a]
+
+### Added:
+- Sided inventories to Thingamajig, as well as Energy and Fluid handling
+
+### Commits:
+- 11/4/2026: Added sided inventories to Thingamajig
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](/.github/logs/0.4.1a-1.20.1.md)

@@ -1,9 +1,13 @@
 package net.MrGise.mmm.block.entity;
 
+import net.MrGise.mmm.block.ThingamajigBlock;
 import net.MrGise.mmm.recipe.ThingamajigRecipe;
 import net.MrGise.mmm.registry.content.ModBlockEntities;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.screen.thingamajig.ThingamajigMenu;
+import net.MrGise.mmm.util.InventoryDirectionEntry;
+import net.MrGise.mmm.util.InventoryDirectionWrapper;
+import net.MrGise.mmm.util.WrappedHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -29,6 +33,7 @@ import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Map;
 import java.util.Optional;
 
 public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider {
@@ -55,6 +60,14 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
     private static final int ENERGY_ITEM_SLOT = 3;
 
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
+    private final Map<Direction, LazyOptional<WrappedHandler>> directionWrappedHandlerMap =
+            new InventoryDirectionWrapper(itemHandler,
+                    new InventoryDirectionEntry(Direction.DOWN, OUTPUT_SLOT, false),
+                    new InventoryDirectionEntry(Direction.NORTH, INPUT_SLOT, true),
+                    new InventoryDirectionEntry(Direction.SOUTH, OUTPUT_SLOT, false),
+                    new InventoryDirectionEntry(Direction.EAST, OUTPUT_SLOT, false),
+                    new InventoryDirectionEntry(Direction.WEST, INPUT_SLOT, false),
+                    new InventoryDirectionEntry(Direction.UP, INPUT_SLOT, true)).directionsMap;
 
     protected final ContainerData data;
     private int progress = 0;
@@ -109,7 +122,24 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
         if (cap == ForgeCapabilities.ITEM_HANDLER) {
-            return lazyItemHandler.cast();
+            if (side == null) {
+                return lazyItemHandler.cast();
+            }
+
+            if (directionWrappedHandlerMap.containsKey(side)) {
+                Direction localDir = this.getBlockState().getValue(ThingamajigBlock.FACING);
+
+                if (side == Direction.DOWN || side == Direction.UP) {
+                    return directionWrappedHandlerMap.get(side).cast();
+                }
+
+                return switch (localDir) {
+                    case EAST -> directionWrappedHandlerMap.get(side.getClockWise()).cast();
+                    case SOUTH -> directionWrappedHandlerMap.get(side).cast();
+                    case WEST -> directionWrappedHandlerMap.get(side.getCounterClockWise()).cast();
+                    default -> directionWrappedHandlerMap.get(side.getOpposite()).cast();
+                };
+            }
         }
 
         return super.getCapability(cap, side);

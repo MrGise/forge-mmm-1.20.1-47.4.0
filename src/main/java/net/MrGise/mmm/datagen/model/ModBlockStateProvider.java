@@ -53,7 +53,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.SOUND_BLOCK);
 
-        blockWithItem(ModBlocks.THINGAMAJIG, new ResourceLocation(MMM.MOD_ID, "block/thingamajig"));
+        rotatingBlockWithItem(ModBlocks.THINGAMAJIG, new ResourceLocation(MMM.MOD_ID, "block/thingamajig"));
 
         //-- Normal blocks
 
@@ -453,6 +453,23 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     private void blockWithItem(RegistryObject<Block> block, ResourceLocation customModel) {
         simpleBlockWithItem(block.get(), models().getExistingFile(customModel));
+    }
+
+    private void rotatingBlockWithItem(RegistryObject<Block> block, ResourceLocation customModel) {
+        ModelFile model = models().getExistingFile(customModel);
+
+        getVariantBuilder(block.get()).forAllStates(state -> {
+                    int yRot = switch (state.getValue(HorizontalDirectionalBlock.FACING)) {
+                        case EAST  -> 90;
+                        case SOUTH -> 180;
+                        case WEST  -> 270;
+                        default -> 0;
+                    };
+
+                    return ConfiguredModel.builder().modelFile(model).rotationY(yRot).build();
+                });
+
+        simpleBlockItem(block.get(), model);
     }
 
     private void block(RegistryObject<Block> block, ResourceLocation customModel) {

@@ -1,4 +1,4 @@
-// 1.20.1	2026-03-24T19:21:13.9527246	Block States: mmm
+// 1.20.1	2026-04-11T12:31:32.3878987	Block States: mmm
 3842175e09f5d7432ac8c8fb19b475823dd454d9 assets/mmm/blockstates/acacia_triple_door.json
 1fd9342f3c0d5ebccf217996515f997f48dbba36 assets/mmm/blockstates/actinolite_ore.json
 2b23e4973a0af98dc778b1894f8ebc29a0feb832 assets/mmm/blockstates/bamboo_triple_door.json
@@ -60,7 +60,7 @@ c80303de0b2df122c3e7f00c128c86b722efddf3 assets/mmm/blockstates/stripped_skywood
 081ac0c057ff0dc00b6b2ceb8a29da9e2e062bc7 assets/mmm/blockstates/stripped_skywood_log.json
 3e131a7ba13b58537dda8fdc3fc79f8b30d0dfde assets/mmm/blockstates/test/animated_block.json
 b8310302a3c46e8882420771f146745f91ccc013 assets/mmm/blockstates/test/block.json
-755193ee6d938bc189573de2238c944ec305fe14 assets/mmm/blockstates/thingamajig.json
+a3e4e5038816757598bc31b571fa9947b924bf79 assets/mmm/blockstates/thingamajig.json
 a423caaf7e550e66f53d83640fd72f84a8538fdb assets/mmm/blockstates/thin_pine_log.json
 b98a0a1a6e83202d8ce6aabe96ef1b07427d9bc9 assets/mmm/blockstates/warped_triple_door.json
 538743beb9f11a270dca92210108f69bac3435a9 assets/mmm/models/block/acacia_triple_door_bottom_left.json
