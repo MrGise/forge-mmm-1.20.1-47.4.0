@@ -252,6 +252,11 @@
   "sounds.mmm.ore_detector_success": "Ore Detector found an ore",
 
 
+  "fluid_type.mmm.cow_milk": "Milk (placed)",
+  "fluid_type.mmm.goat_milk": "Goat Milk",
+  "fluid_type.mmm.rainstone": "Rainstone",
+
+
   "tooltip.mmm.glyphs.title": "When used as a spell:",
   "tooltip.mmm.glyphs.empty": "No Glyphs",
 

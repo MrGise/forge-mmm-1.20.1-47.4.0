@@ -11,7 +11,7 @@ import net.minecraftforge.registries.RegistryObject;
 import org.joml.Vector3f;
 
 import static net.MrGise.mmm.util.Methods.*;
-
+//Fluid types
 public class ModFluidTypes {
     static ResourceLocation WATER_OVERLAY = mcr("block/water_overlay");
     static ResourceLocation MILK_STILL = crt("fluid/milk_still");
@@ -31,6 +31,11 @@ public class ModFluidTypes {
             new BaseFluidType(MILK_STILL, MILK_FLOWING, WATER_OVERLAY,
                     0xA1FFFFFF, new Vector3f(1f, 1f, 1f),
                     FluidType.Properties.create().viscosity(8).density(15).supportsBoating(true)));
+
+    public static final RegistryObject<FluidType> RAINSTONE = registerFluidType("rainstone",
+            new BaseFluidType(MILK_STILL, MILK_FLOWING, WATER_OVERLAY,
+                    0xA15b5b5b, new Vector3f(0.5f, 0.5f, 0.5f),
+                    FluidType.Properties.create().viscosity(14).density(6)));
 
 
     public static RegistryObject<FluidType> registerFluidType(String name, FluidType type) {

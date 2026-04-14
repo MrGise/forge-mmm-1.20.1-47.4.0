@@ -73,6 +73,9 @@ public class ModItems {
     public static final RegistryObject<Item> GOAT_MILK_BUCKET = registerItem("food/goat_milk_bucket",
             () -> new BucketItem(ModFluids.SOURCE_GOAT_MILK, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
+    public static final RegistryObject<Item> RAINSTONE_BUCKET = registerItem("rainstone_bucket",
+            () -> new BucketItem(ModFluids.SOURCE_RAINSTONE, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+
 
     //-- Candles
     public static final RegistryObject<Item> LIT_CANDLE = registerBasicItem("candle_lit");

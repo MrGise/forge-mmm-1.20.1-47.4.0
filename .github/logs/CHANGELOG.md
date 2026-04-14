@@ -11,9 +11,11 @@ Newer versions' changes are added above the older ones
 
 ### Added:
 - Sided inventories to Thingamajig, as well as Energy and Fluid handling
+- Rainstone, a fluid you can stand on!
 
 ### Commits:
 - 11/4/2026: Added sided inventories to Thingamajig
+- 14/4/2026: Uploading broken code for hopefully some help from other people
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](/.github/logs/0.4.1a-1.20.1.md)
