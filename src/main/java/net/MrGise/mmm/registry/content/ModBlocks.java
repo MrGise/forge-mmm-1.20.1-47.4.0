@@ -241,7 +241,9 @@ public class ModBlocks {
             () -> new LiquidBlock(ModFluids.SOURCE_GOAT_MILK, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
 
     public static final RegistryObject<LiquidBlock> RAINSTONE_BLOCK = registerBlock_("rainstone_block",
-            () -> new SolidFluidBlock(ModFluids.SOURCE_RAINSTONE, BlockBehaviour.Properties.of().mapColor(MapColor.STONE).replaceable().strength(100.0F).pushReaction(PushReaction.DESTROY).noLootTable().liquid().sound(SoundType.EMPTY)));
+            () -> new SolidFluidBlock(ModFluids.SOURCE_RAINSTONE, BlockBehaviour.Properties.of()
+                    .mapColor(MapColor.STONE).replaceable().strength(15.0f).pushReaction(PushReaction.DESTROY)
+                    .noLootTable().liquid().sound(SoundType.EMPTY)));
 
 
     public static final RegistryObject<Block> ACACIA_TRIPLE_DOOR = registerBlock("acacia_triple_door",
