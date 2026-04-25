@@ -4,7 +4,6 @@ import com.mojang.logging.LogUtils;
 import com.simibubi.create.foundation.data.CreateRegistrate;
 import net.MrGise.mmm.datagen.advancement.ModTriggers;
 import net.MrGise.mmm.effect.potion.BetterBrewingRecipe;
-import net.MrGise.mmm.event.ModGeneralEvents;
 import net.MrGise.mmm.registry.variables.ModRecipes;
 import net.MrGise.mmm.registry.decorative.ModParticles;
 import net.MrGise.mmm.registry.variables.ModFluidTypes;
@@ -25,7 +24,6 @@ import net.MrGise.mmm.screen.thingamajig.ThingamajigScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTabs;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
 import net.minecraft.world.level.block.Block;
@@ -46,7 +44,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 
-import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -117,7 +114,6 @@ public class MMM {
 
         ModBlockEntities.register(modEventBus);
         ModMenuTypes.register(modEventBus);
-
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {

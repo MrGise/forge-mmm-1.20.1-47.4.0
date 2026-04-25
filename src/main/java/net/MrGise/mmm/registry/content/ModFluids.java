@@ -1,7 +1,6 @@
 package net.MrGise.mmm.registry.content;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.fluid.SolidFlowingFluid;
 import net.MrGise.mmm.registry.variables.ModFluidTypes;
 import net.minecraft.world.level.material.FlowingFluid;
 import net.minecraft.world.level.material.Fluid;
@@ -34,16 +33,6 @@ public class ModFluids {
     public static final ForgeFlowingFluid.Properties GOAT_MILK_PROPERTIES = new ForgeFlowingFluid.Properties(
             ModFluidTypes.GOAT_MILK, SOURCE_GOAT_MILK, FLOWING_GOAT_MILK)
             .slopeFindDistance(2).levelDecreasePerBlock(1).block(ModBlocks.GOAT_MILK_BLOCK).bucket(ModItems.GOAT_MILK_BUCKET);
-
-
-    public static final RegistryObject<FlowingFluid> SOURCE_RAINSTONE = FLUIDS.register("rainstone",
-            () -> new SolidFlowingFluid.Source(ModFluids.RAINSTONE_PROPERTIES));
-    public static final RegistryObject<FlowingFluid> FLOWING_RAINSTONE = FLUIDS.register("flowing_rainstone",
-            () -> new SolidFlowingFluid.Flowing(ModFluids.RAINSTONE_PROPERTIES));
-
-    public static final ForgeFlowingFluid.Properties RAINSTONE_PROPERTIES = new SolidFlowingFluid.Properties(
-            ModFluidTypes.RAINSTONE, SOURCE_RAINSTONE, FLOWING_RAINSTONE)
-            .slopeFindDistance(2).levelDecreasePerBlock(2).block(ModBlocks.RAINSTONE_BLOCK).bucket(ModItems.RAINSTONE_BUCKET);
 
 
 

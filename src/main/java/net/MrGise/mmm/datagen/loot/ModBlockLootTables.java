@@ -3,6 +3,7 @@ package net.MrGise.mmm.datagen.loot;
 import com.simibubi.create.AllItems;
 import net.MrGise.mmm.block.TripleDoorBlock;
 import net.MrGise.mmm.block.dough.UncookedMatzaBlock;
+import net.MrGise.mmm.block.fluid.SolidFluidBlock;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.block.crop.AccessibleCropBlock;
 import net.MrGise.mmm.registry.content.ModItems;
@@ -105,6 +106,12 @@ public class ModBlockLootTables extends BlockLootSubProvider {
         this.add(ModBlocks.POTTED_OXALIS.get(),
                 Block-> createPotFlowerItemTable(ModBlocks.OXALIS.get()));
 
+
+        this.add(ModBlocks.RAINSTONE.get(),
+                block -> createSolidFluidLootTable((SolidFluidBlock) ModBlocks.RAINSTONE.get(),
+                        ModItems.ACTINOLITE.get(), 4,
+                        ModItems.SOLIDIFIED_MANA.get(), 1));
+
         //- Ores
         //* Skyland
 
@@ -188,6 +195,35 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         //. Miscellaneous
         this.dropSelf(ModBlocks.BOWYERY_TABLE.get());
+    }
+
+    private LootTable.Builder createSolidFluidLootTable(SolidFluidBlock block,
+                                                        ItemLike drop, int count,
+                                                        ItemLike secondaryDrop, int secondaryCount) {
+        return LootTable.lootTable().withPool(LootPool.lootPool()
+                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                        .setProperties(StatePropertiesPredicate.Builder.properties()
+                                .hasProperty(SolidFluidBlock.LEVEL, 6)
+                        )
+                        .or(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                                .setProperties(StatePropertiesPredicate.Builder.properties()
+                                        .hasProperty(SolidFluidBlock.FULL, true)
+                                )
+                        )
+                )
+                .add(LootItem.lootTableItem(drop)
+                        .apply(SetItemCountFunction.setCount(
+                                ConstantValue.exactly(count)
+                                )
+                        )
+                )
+                .add(LootItem.lootTableItem(secondaryDrop)
+                        .apply(SetItemCountFunction.setCount(
+                                ConstantValue.exactly(secondaryCount)
+                                )
+                        )
+                )
+        );
     }
 
     //- Reference:

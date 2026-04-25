@@ -254,7 +254,10 @@
 
   "fluid_type.mmm.cow_milk": "Milk (placed)",
   "fluid_type.mmm.goat_milk": "Goat Milk",
-  "fluid_type.mmm.rainstone": "Rainstone",
+
+
+  "block.mmm.rainstone": "Rainstone",
+  "item.mmm.rainstone_bucket": "Bucket of Rainstone",
 
 
   "tooltip.mmm.glyphs.title": "When used as a spell:",

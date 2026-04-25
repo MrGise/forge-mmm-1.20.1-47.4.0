@@ -7,6 +7,7 @@ import net.MrGise.mmm.block.crop.CucumberCropBlock;
 import net.MrGise.mmm.block.crop.StrawberryCropBlock;
 import net.MrGise.mmm.block.dough.FlatteningDoughBlock;
 import net.MrGise.mmm.block.dough.UncookedMatzaBlock;
+import net.MrGise.mmm.block.fluid.SolidFluidBlock;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.create.ModCreateBlocks;
 import net.MrGise.mmm.resource.TripleBlockPart;
@@ -27,6 +28,8 @@ import java.util.Map;
 import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Supplier;
+
+import static net.MrGise.mmm.util.Methods.*;
 
 // Generates blockstates
 public class ModBlockStateProvider extends BlockStateProvider {
@@ -144,6 +147,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
         thinLogBlockWithItem(((ThinLogBlock) ModBlocks.THIN_PINE_LOG.get()),
                 "thin_pine_log", "thin_pine_log_top", "thin_pine_log");
 
+        solidFluidBlock((SolidFluidBlock) ModBlocks.RAINSTONE.get());
+
         //\ Dimensions
         blockWithItem(ModBlocks.NULL_BLOCK);
 
@@ -195,6 +200,90 @@ public class ModBlockStateProvider extends BlockStateProvider {
             tripleDoorBlock(block, name, cutout);
         });
 
+    }
+
+    private void solidFluidBlock(SolidFluidBlock block) {
+        ResourceLocation texture = mmm("block/" + name(block));
+        ModelFile main_1 = models().withExistingParent(name(block) + "_1", mmm("block/solid_fluid_1")).texture("all", texture).texture("particle", texture);
+        ModelFile main_2 = models().withExistingParent(name(block) + "_2", mmm("block/solid_fluid_2")).texture("all", texture).texture("particle", texture);
+        ModelFile main_3 = models().withExistingParent(name(block) + "_3", mmm("block/solid_fluid_3")).texture("all", texture).texture("particle", texture);
+        ModelFile main_4 = models().withExistingParent(name(block) + "_4", mmm("block/solid_fluid_4")).texture("all", texture).texture("particle", texture);
+        ModelFile main_5 = models().withExistingParent(name(block) + "_5", mmm("block/solid_fluid_5")).texture("all", texture).texture("particle", texture);
+        ModelFile main_6 = models().cubeAll("block/" + name(block) + "_6", texture).texture("particle", texture);
+
+        MultiPartBlockStateBuilder builder = getMultipartBuilder(block)
+                .part().modelFile(main_1).addModel()
+                .condition(SolidFluidBlock.LEVEL, 1).condition(SolidFluidBlock.FULL, false)
+                .end()
+
+                .part().modelFile(main_2).addModel()
+                .condition(SolidFluidBlock.LEVEL, 2).condition(SolidFluidBlock.FULL, false)
+                .end()
+
+                .part().modelFile(main_3).addModel()
+                .condition(SolidFluidBlock.LEVEL, 3).condition(SolidFluidBlock.FULL, false)
+                .end()
+
+                .part().modelFile(main_4).addModel()
+                .condition(SolidFluidBlock.LEVEL, 4).condition(SolidFluidBlock.FULL, false)
+                .end()
+
+                .part().modelFile(main_5).addModel()
+                .condition(SolidFluidBlock.LEVEL, 5).condition(SolidFluidBlock.FULL, false)
+                .end()
+
+                .part().modelFile(main_6).addModel()
+                .condition(SolidFluidBlock.LEVEL, 6).condition(SolidFluidBlock.FULL, false)
+                .end()
+
+                .part().modelFile(main_6).addModel()
+                .condition(SolidFluidBlock.FULL, true)
+                .end();
+
+        for (int level = 1; level <= 6; level++) {
+            ModelFile north_n = models().withExistingParent
+                    (name(block) + "_connect_" + level, mmm("block/solid_fluid_north_" + level)).texture("all", texture);
+            builder.part().modelFile(north_n).addModel()
+                    .condition(SolidFluidBlock.LEVEL, level)
+                    .condition(SolidFluidBlock.NORTH, true).condition(SolidFluidBlock.FULL, false)
+                    .end()
+
+                    .part().modelFile(north_n).rotationY(270).addModel()
+                    .condition(SolidFluidBlock.LEVEL, level)
+                    .condition(SolidFluidBlock.WEST, true).condition(SolidFluidBlock.FULL, false)
+                    .end()
+
+                    .part().modelFile(north_n).rotationY(180).addModel()
+                    .condition(SolidFluidBlock.LEVEL, level)
+                    .condition(SolidFluidBlock.SOUTH, true).condition(SolidFluidBlock.FULL, false)
+                    .end()
+
+                    .part().modelFile(north_n).rotationY(90).addModel()
+                    .condition(SolidFluidBlock.LEVEL, level)
+                    .condition(SolidFluidBlock.EAST, true).condition(SolidFluidBlock.FULL, false)
+                    .end();
+        }
+
+        ModelFile north_6 = models().getExistingFile(mmm(name(block) + "_connect_6"));
+        builder.part().modelFile(north_6).addModel()
+                .condition(SolidFluidBlock.LEVEL, 6)
+                .condition(SolidFluidBlock.NORTH, true).condition(SolidFluidBlock.FULL, true)
+                .end()
+
+                .part().modelFile(north_6).rotationY(270).addModel()
+                .condition(SolidFluidBlock.LEVEL, 6)
+                .condition(SolidFluidBlock.WEST, true).condition(SolidFluidBlock.FULL, true)
+                .end()
+
+                .part().modelFile(north_6).rotationY(180).addModel()
+                .condition(SolidFluidBlock.LEVEL, 6)
+                .condition(SolidFluidBlock.SOUTH, true).condition(SolidFluidBlock.FULL, true)
+                .end()
+
+                .part().modelFile(north_6).rotationY(90).addModel()
+                .condition(SolidFluidBlock.LEVEL, 6)
+                .condition(SolidFluidBlock.EAST, true).condition(SolidFluidBlock.FULL, true)
+                .end();
     }
 
     private void uniqueCubeRotate(Block block, String name, ResourceLocation bottom, ResourceLocation top,

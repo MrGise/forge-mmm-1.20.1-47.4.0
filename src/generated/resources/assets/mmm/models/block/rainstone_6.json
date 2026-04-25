@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "mmm:block/rainstone",
+    "particle": "mmm:block/rainstone"
+  }
+}

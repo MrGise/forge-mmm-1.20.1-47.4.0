@@ -70,22 +70,19 @@ public class ModBlockTagGenerator extends BlockTagsProvider {
                 .add(ModBlocks.SKYWOOD_DOOR.get());
 
         this.tag(BlockTags.MINEABLE_WITH_PICKAXE)
-                .add(ModBlocks.SKYSOLID.get())
-                .add(ModBlocks.BROKEN_SKYSOLID.get())
-                .add(ModBlocks.SKOAL_ORE.get())
-                .add(ModBlocks.SKIRON_ORE.get())
-                .add(ModBlocks.ACTINOLITE_ORE.get())
-                .add(ModBlocks.SKOAL_BLOCK.get())
-                .add(ModBlocks.SKIRON_BLOCK.get())
-                .add(ModBlocks.RAW_SKIRON_BLOCK.get())
+                .add(ModBlocks.SKYSOLID.get(), ModBlocks.BROKEN_SKYSOLID.get(),
+                        ModBlocks.SKOAL_ORE.get(), ModBlocks.SKIRON_ORE.get(), ModBlocks.ACTINOLITE_ORE.get(),
+                        ModBlocks.SKOAL_BLOCK.get(),
+                        ModBlocks.SKIRON_BLOCK.get(), ModBlocks.RAW_SKIRON_BLOCK.get(),
 
-                .add(ModBlocks.CANPHOR.get())
+                        ModBlocks.CANPHOR.get(),
+                        ModBlocks.RAINSTONE.get(),
 
-                .add(ModBlocks.MANA_ORE.get())
+                        ModBlocks.MANA_ORE.get(),
 
-                .add(ModBlocks.NULL_BLOCK.get())
+                        ModBlocks.NULL_BLOCK.get(),
 
-                .add(ModBlocks.IRON_TRIPLE_DOOR.get());
+                        ModBlocks.IRON_TRIPLE_DOOR.get());
 
         this.tag(ModTags.Blocks.MINEABLE_WITH_HAMMER)
                 .addTag(BlockTags.MINEABLE_WITH_PICKAXE);

@@ -32,11 +32,6 @@ public class ModFluidTypes {
                     0xA1FFFFFF, new Vector3f(1f, 1f, 1f),
                     FluidType.Properties.create().viscosity(8).density(15).supportsBoating(true)));
 
-    public static final RegistryObject<FluidType> RAINSTONE = registerFluidType("rainstone",
-            new BaseFluidType(MILK_STILL, MILK_FLOWING, WATER_OVERLAY,
-                    0xA15b5b5b, new Vector3f(0.5f, 0.5f, 0.5f),
-                    FluidType.Properties.create().viscosity(14).density(6)));
-
 
     public static RegistryObject<FluidType> registerFluidType(String name, FluidType type) {
         return FLUID_TYPES.register(name, s(type));

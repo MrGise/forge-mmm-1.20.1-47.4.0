@@ -74,7 +74,8 @@ public class ModItems {
             () -> new BucketItem(ModFluids.SOURCE_GOAT_MILK, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
     public static final RegistryObject<Item> RAINSTONE_BUCKET = registerItem("rainstone_bucket",
-            () -> new BucketItem(ModFluids.SOURCE_RAINSTONE, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
+            () -> new net.MrGise.mmm.item.block_item.BucketItem(ModBlocks.RAINSTONE.get(),
+                    new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1).rarity(Rarity.UNCOMMON)));
 
 
     //-- Candles

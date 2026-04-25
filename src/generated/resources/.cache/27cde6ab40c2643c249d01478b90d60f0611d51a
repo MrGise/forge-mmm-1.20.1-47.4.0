@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-11T12:31:32.3878987	Block States: mmm
+// 1.20.1	2026-04-25T18:22:27.9782696	Block States: mmm
 3842175e09f5d7432ac8c8fb19b475823dd454d9 assets/mmm/blockstates/acacia_triple_door.json
 1fd9342f3c0d5ebccf217996515f997f48dbba36 assets/mmm/blockstates/actinolite_ore.json
 2b23e4973a0af98dc778b1894f8ebc29a0feb832 assets/mmm/blockstates/bamboo_triple_door.json
@@ -30,6 +30,7 @@ b69ef7c2cb26905f4c09872460b750291bed6730 assets/mmm/blockstates/oak_counter.json
 1af7f780a976ebe083ca5ce410fe9b7a51a2ffd0 assets/mmm/blockstates/oxalis.json
 3cb41aed8dc77f1f1122ef7294423ce464118270 assets/mmm/blockstates/portal_block.json
 e8e565fe073a5b2ce50f58f6ead460ebf043a956 assets/mmm/blockstates/potted_oxalis.json
+a5bd49964ba113d956be2c578f0501ca077a3f31 assets/mmm/blockstates/rainstone.json
 a10d0fd44741092d55170d45c6c0d96b548f9522 assets/mmm/blockstates/raw_skiron_block.json
 a4265610dd93e13855a3d99283bb21e1b9c8ba60 assets/mmm/blockstates/skiron_block.json
 6bcbd0122dc2dbcbe6d25a800402f3ce6ca6ff61 assets/mmm/blockstates/skiron_ore.json
@@ -219,6 +220,18 @@ f30ffcc06d52af51eaa40f6ff8a386cd159e8745 assets/mmm/models/block/oxalis.json
 f573ddd7435de95f7f7c011e606f97052a60e9f7 assets/mmm/models/block/portal_block_eye.json
 3fa71dca2bfdb2a131e668844d28935d105dd470 assets/mmm/models/block/portal_block_noeye.json
 24445d82f8ffd88a303e24e70478099bf5f12b87 assets/mmm/models/block/potted_oxalis.json
+43164e93cd516ce327a5def9bcbe80709329a7c8 assets/mmm/models/block/rainstone_1.json
+56ed7d3c8934ba2487cefc410fc8dde580e74d85 assets/mmm/models/block/rainstone_2.json
+00ade4f56d3c398682b9564e4d1febb9188c33a9 assets/mmm/models/block/rainstone_3.json
+d3e71bf262ccc4383ccd384df7bf7bb2c65864a1 assets/mmm/models/block/rainstone_4.json
+13bb857abd5ffba93177275bf1b1d2d10c6c3708 assets/mmm/models/block/rainstone_5.json
+51416c247c6d7c0f5b2aae6c967f48a7f5e17f06 assets/mmm/models/block/rainstone_6.json
+731fb0e78f6ca13bfb567ffaa8d376f62c5e33ab assets/mmm/models/block/rainstone_connect_1.json
+8b83c0c78d79120ec0770d01965fd6b53705651f assets/mmm/models/block/rainstone_connect_2.json
+e631c5dbe1bae00186abaf21e404209fbee85cf9 assets/mmm/models/block/rainstone_connect_3.json
+9722231f58e916233fcfd19046a336993ca0001e assets/mmm/models/block/rainstone_connect_4.json
+98a117464f54e745e53f0b37e8cb6d71fc6f01ab assets/mmm/models/block/rainstone_connect_5.json
+0552a42f427be393f02cc45f5b07d4a531b360b8 assets/mmm/models/block/rainstone_connect_6.json
 c561852fb0ef2acda6f7d62f6e935f5462adc84e assets/mmm/models/block/raw_skiron_block.json
 e3bda103764662416b10f2e85c0effcc39be7b48 assets/mmm/models/block/skiron_block.json
 cc69c67d965a1165fa718b57471dd027366f6000 assets/mmm/models/block/skiron_ore.json

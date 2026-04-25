@@ -1,0 +1,367 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_1"
+      },
+      "when": {
+        "full": "false",
+        "level": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_2"
+      },
+      "when": {
+        "full": "false",
+        "level": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_3"
+      },
+      "when": {
+        "full": "false",
+        "level": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_4"
+      },
+      "when": {
+        "full": "false",
+        "level": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_5"
+      },
+      "when": {
+        "full": "false",
+        "level": "5"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_6"
+      },
+      "when": {
+        "full": "false",
+        "level": "6"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_6"
+      },
+      "when": {
+        "full": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_1"
+      },
+      "when": {
+        "full": "false",
+        "level": "1",
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_1",
+        "y": 270
+      },
+      "when": {
+        "full": "false",
+        "level": "1",
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_1",
+        "y": 180
+      },
+      "when": {
+        "full": "false",
+        "level": "1",
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_1",
+        "y": 90
+      },
+      "when": {
+        "east": "true",
+        "full": "false",
+        "level": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_2"
+      },
+      "when": {
+        "full": "false",
+        "level": "2",
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_2",
+        "y": 270
+      },
+      "when": {
+        "full": "false",
+        "level": "2",
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_2",
+        "y": 180
+      },
+      "when": {
+        "full": "false",
+        "level": "2",
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_2",
+        "y": 90
+      },
+      "when": {
+        "east": "true",
+        "full": "false",
+        "level": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_3"
+      },
+      "when": {
+        "full": "false",
+        "level": "3",
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_3",
+        "y": 270
+      },
+      "when": {
+        "full": "false",
+        "level": "3",
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_3",
+        "y": 180
+      },
+      "when": {
+        "full": "false",
+        "level": "3",
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_3",
+        "y": 90
+      },
+      "when": {
+        "east": "true",
+        "full": "false",
+        "level": "3"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_4"
+      },
+      "when": {
+        "full": "false",
+        "level": "4",
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_4",
+        "y": 270
+      },
+      "when": {
+        "full": "false",
+        "level": "4",
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_4",
+        "y": 180
+      },
+      "when": {
+        "full": "false",
+        "level": "4",
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_4",
+        "y": 90
+      },
+      "when": {
+        "east": "true",
+        "full": "false",
+        "level": "4"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_5"
+      },
+      "when": {
+        "full": "false",
+        "level": "5",
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_5",
+        "y": 270
+      },
+      "when": {
+        "full": "false",
+        "level": "5",
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_5",
+        "y": 180
+      },
+      "when": {
+        "full": "false",
+        "level": "5",
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_5",
+        "y": 90
+      },
+      "when": {
+        "east": "true",
+        "full": "false",
+        "level": "5"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_6"
+      },
+      "when": {
+        "full": "false",
+        "level": "6",
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_6",
+        "y": 270
+      },
+      "when": {
+        "full": "false",
+        "level": "6",
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_6",
+        "y": 180
+      },
+      "when": {
+        "full": "false",
+        "level": "6",
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_6",
+        "y": 90
+      },
+      "when": {
+        "east": "true",
+        "full": "false",
+        "level": "6"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_6"
+      },
+      "when": {
+        "full": "true",
+        "level": "6",
+        "north": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_6",
+        "y": 270
+      },
+      "when": {
+        "full": "true",
+        "level": "6",
+        "west": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_6",
+        "y": 180
+      },
+      "when": {
+        "full": "true",
+        "level": "6",
+        "south": "true"
+      }
+    },
+    {
+      "apply": {
+        "model": "mmm:block/rainstone_connect_6",
+        "y": 90
+      },
+      "when": {
+        "east": "true",
+        "full": "true",
+        "level": "6"
+      }
+    }
+  ]
+}

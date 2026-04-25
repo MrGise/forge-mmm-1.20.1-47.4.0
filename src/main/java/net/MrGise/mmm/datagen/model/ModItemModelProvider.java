@@ -100,6 +100,9 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         simpleItem(ModItems.SOLIDIFIED_MANA);
 
+        //- Stones n' stuff
+        simpleItem(ModItems.RAINSTONE_BUCKET);
+
         //- Other stuff
         candleModel(ModItems.LIT_CANDLE, modLoc("custom/candle_lit"), "item/candle/models/candle/candle_lit");
         candleModel(ModItems.LIT_CANDLE_BLACK, modLoc("custom/black_candle_lit"), "item/candle/models/candle/black_candle_lit");

@@ -1,0 +1,55 @@
+{
+  "type": "minecraft:block",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "minecraft:any_of",
+          "terms": [
+            {
+              "block": "mmm:rainstone",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "level": "6"
+              }
+            },
+            {
+              "block": "mmm:rainstone",
+              "condition": "minecraft:block_state_property",
+              "properties": {
+                "full": "true"
+              }
+            }
+          ]
+        }
+      ],
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 4.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "mmm:actinolite"
+        },
+        {
+          "type": "minecraft:item",
+          "functions": [
+            {
+              "add": false,
+              "count": 1.0,
+              "function": "minecraft:set_count"
+            }
+          ],
+          "name": "mmm:solidified_mana"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "mmm:blocks/rainstone"
+}

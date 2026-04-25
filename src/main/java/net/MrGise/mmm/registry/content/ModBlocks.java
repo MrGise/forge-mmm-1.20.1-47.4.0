@@ -7,6 +7,7 @@ import net.MrGise.mmm.block.crop.StrawberryCropBlock;
 import net.MrGise.mmm.block.dough.DoughBlock;
 import net.MrGise.mmm.block.dough.FlatteningDoughBlock;
 import net.MrGise.mmm.block.dough.UncookedMatzaBlock;
+import net.MrGise.mmm.block.fluid.SolidFluidBlock;
 import net.MrGise.mmm.block.kitchen.BowlBlock;
 import net.MrGise.mmm.item.block_item.*;
 import net.MrGise.mmm.item.block_item.description.DescriptionBlockItem;
@@ -232,6 +233,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> CANPHOR = registerBlock("canphor",
             () -> new Block(BlockBehaviour.Properties.copy(Blocks.STONE).sound(ModSounds.CANPHOR_SOUNDS).requiresCorrectToolForDrops()));
 
+    public static final RegistryObject<Block> RAINSTONE = registerBlock_("rainstone",
+            () -> new SolidFluidBlock(BlockBehaviour.Properties.of().destroyTime(2).mapColor(MapColor.STONE)
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE).pushReaction(PushReaction.DESTROY).dynamicShape(), ModItems.RAINSTONE_BUCKET));
+
 
     //| Expansion
     public static final RegistryObject<LiquidBlock> COW_MILK_BLOCK = registerBlock_("cow_milk_block",
@@ -239,11 +244,6 @@ public class ModBlocks {
 
     public static final RegistryObject<LiquidBlock> GOAT_MILK_BLOCK = registerBlock_("goat_milk_block",
             () -> new LiquidBlock(ModFluids.SOURCE_GOAT_MILK, BlockBehaviour.Properties.copy(Blocks.WATER).noLootTable()));
-
-    public static final RegistryObject<LiquidBlock> RAINSTONE_BLOCK = registerBlock_("rainstone_block",
-            () -> new SolidFluidBlock(ModFluids.SOURCE_RAINSTONE, BlockBehaviour.Properties.of()
-                    .mapColor(MapColor.STONE).replaceable().strength(15.0f).pushReaction(PushReaction.DESTROY)
-                    .noLootTable().liquid().sound(SoundType.EMPTY)));
 
 
     public static final RegistryObject<Block> ACACIA_TRIPLE_DOOR = registerBlock("acacia_triple_door",

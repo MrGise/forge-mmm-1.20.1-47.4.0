@@ -120,14 +120,27 @@ public class ModCreativeModeTabs {
 
 
                         //| World
+                        //- Plants
                         output.accept(ModBlocks.OXALIS.get());
                         output.accept(ModItems.STRAWBERRY_SEEDS.get());
                         output.accept(ModItems.CUCUMBER_SEEDS.get());
+
+
+                        //- Trees
                         output.accept(ModBlocks.THIN_PINE_LOG.get());
+
+
+                        //- Stones
+                        output.accept(ModBlocks.CANPHOR.get());
+                        output.accept(ModItems.RAINSTONE_BUCKET.get());
+
+
+                        //- Mana
                         output.accept(ModBlocks.MANA_ORE.get());
                         output.accept(ModItems.SOLIDIFIED_MANA.get());
 
 
+                        //- Triple doors
                         output.accept(ModBlocks.ACACIA_TRIPLE_DOOR.get());
                         output.accept(ModBlocks.BIRCH_TRIPLE_DOOR.get());
                         output.accept(ModBlocks.CRIMSON_TRIPLE_DOOR.get());

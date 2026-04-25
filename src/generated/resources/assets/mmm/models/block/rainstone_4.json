@@ -1,0 +1,7 @@
+{
+  "parent": "mmm:block/solid_fluid_4",
+  "textures": {
+    "all": "mmm:block/rainstone",
+    "particle": "mmm:block/rainstone"
+  }
+}
