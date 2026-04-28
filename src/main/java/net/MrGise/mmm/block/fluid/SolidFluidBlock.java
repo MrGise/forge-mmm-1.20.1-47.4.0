@@ -166,6 +166,7 @@ public class SolidFluidBlock extends Block {
             stack.shrink(1);
             player.setItemInHand(hand, stack);
             player.addItem(bucket.get().getDefaultInstance());
+            level.destroyBlock(pos, false);
             return InteractionResult.SUCCESS;
         }
 

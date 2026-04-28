@@ -200,29 +200,24 @@ public class ModBlockLootTables extends BlockLootSubProvider {
     private LootTable.Builder createSolidFluidLootTable(SolidFluidBlock block,
                                                         ItemLike drop, int count,
                                                         ItemLike secondaryDrop, int secondaryCount) {
-        return LootTable.lootTable().withPool(LootPool.lootPool()
-                .when(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+        LootItemCondition.Builder condition = LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
+                .setProperties(StatePropertiesPredicate.Builder.properties()
+                        .hasProperty(SolidFluidBlock.LEVEL, 6)
+                )
+                .or(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
                         .setProperties(StatePropertiesPredicate.Builder.properties()
-                                .hasProperty(SolidFluidBlock.LEVEL, 6)
+                                .hasProperty(SolidFluidBlock.FULL, true)
                         )
-                        .or(LootItemBlockStatePropertyCondition.hasBlockStateProperties(block)
-                                .setProperties(StatePropertiesPredicate.Builder.properties()
-                                        .hasProperty(SolidFluidBlock.FULL, true)
-                                )
-                        )
-                )
+                );
+
+        return LootTable.lootTable().withPool(LootPool.lootPool()
+                .when(condition)
                 .add(LootItem.lootTableItem(drop)
-                        .apply(SetItemCountFunction.setCount(
-                                ConstantValue.exactly(count)
-                                )
-                        )
-                )
+                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(count))))
+        ).withPool(LootPool.lootPool()
+                .when(condition)
                 .add(LootItem.lootTableItem(secondaryDrop)
-                        .apply(SetItemCountFunction.setCount(
-                                ConstantValue.exactly(secondaryCount)
-                                )
-                        )
-                )
+                        .apply(SetItemCountFunction.setCount(ConstantValue.exactly(secondaryCount))))
         );
     }
 
