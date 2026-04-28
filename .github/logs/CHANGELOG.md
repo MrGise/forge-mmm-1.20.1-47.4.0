@@ -1,4 +1,4 @@
-# Changelog (last updated: 25/4/2026)
+# Changelog (last updated: 28/4/2026)
 
 All changes to this project will be documented in this file.
 
@@ -17,6 +17,7 @@ Newer versions' changes are added above the older ones
 - 11/4/2026: Added sided inventories to Thingamajig
 - 14/4/2026: Uploading broken code for hopefully some help from other people
 - 25/4/2026: Changed the code, broken in other ways
+- 28/4/2026: **FIXED ALL THE BUGS!!!**
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](/.github/logs/0.4.1a-1.20.1.md)

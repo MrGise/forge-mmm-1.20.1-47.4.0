@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.IntegerProperty;
+import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
@@ -70,26 +71,39 @@ public class SolidFluidBlock extends Block {
         BlockState south = isMaxLevel ? level.getBlockState(pos.south().above()) : level.getBlockState(pos.south());
         BlockState west = isMaxLevel ? level.getBlockState(pos.west().above()) : level.getBlockState(pos.west());
 
-        if (height > 1 && (!level.getBlockState(pos.below()).is(state.getBlock()) || level.getBlockState(pos.below()).getValue(LEVEL) >= height)) {
-            for (Direction dir : Direction.values()) {
-                if (dir == Direction.UP) continue;
-                BlockPos targetPos = pos.relative(dir);
-                BlockState targetState = level.getBlockState(targetPos);
-
-                if (targetState.isAir() || targetState.canBeReplaced()) {
-                    if (!level.getEntities(null, new AABB(targetPos)).isEmpty()) continue;
-
-                    level.setBlock(targetPos, state.setValue(LEVEL, height - 1), 3);
-                }
-            }
-        }
-
         if (height < 6 && !(north.is(state.getBlock()) && north.getValue(LEVEL).equals(height + 1))
                 && !(south.is(state.getBlock()) && south.getValue(LEVEL).equals(height + 1))
                 && !(west.is(state.getBlock()) && west.getValue(LEVEL).equals(height + 1))
                 && !(east.is(state.getBlock()) && east.getValue(LEVEL).equals(height + 1))
-                && !level.getBlockState(pos.below()).is(state.getBlock())) {
+                && !level.getBlockState(pos.above()).is(state.getBlock())) {
             level.destroyBlock(pos, false);
+        } else {
+            if (height > 1 && (!level.getBlockState(pos.below()).isAir())) {
+                if (!level.getBlockState(pos.below()).is(state.getBlock())) {
+                    for (Direction dir : Direction.Plane.HORIZONTAL) {
+                        BlockPos targetPos = pos.relative(dir);
+                        BlockState targetState = level.getBlockState(targetPos);
+
+                        if ((targetState.isAir() || targetState.canBeReplaced())
+                                && level.getEntities(null, new AABB(targetPos)).isEmpty()) {
+                            level.setBlock(targetPos, state.setValue(LEVEL, height - 1)
+                                    .trySetValue(FULL, false), 3);
+
+                            level.updateNeighborsAt(targetPos, targetState.getBlock());
+                        }
+                    }
+                }
+            } else if (height > 1) {
+                BlockState targetState = level.getBlockState(pos.below());
+
+                if (targetState.isAir() || targetState.canBeReplaced()) {
+                    if (level.getEntities(null, new AABB(pos.below())).isEmpty()) {
+                        level.setBlock(pos.below(), state.setValue(LEVEL, height - 1).trySetValue(FULL, true)
+                                .trySetValue(NORTH, false).trySetValue(EAST, false)
+                                .trySetValue(SOUTH, false).trySetValue(WEST, false), 3);
+                    }
+                }
+            }
         }
     }
 
@@ -116,8 +130,10 @@ public class SolidFluidBlock extends Block {
         if (state.getValue(EAST) != connectEast) state = state.setValue(EAST, connectEast);
         if (state.getValue(SOUTH) != connectSouth) state = state.setValue(SOUTH, connectSouth);
         if (state.getValue(WEST) != connectWest) state = state.setValue(WEST, connectWest);
-        if (state.getValue(NORTH) && state.getValue(EAST) && state.getValue(SOUTH) && state.getValue(WEST)) state = state.setValue(FULL, true);
 
+        if (height == 5 && state.getValue(NORTH) && state.getValue(EAST) && state.getValue(SOUTH) && state.getValue(WEST)) {
+            state = state.setValue(FULL, true);
+        }
 
         return state;
     }
