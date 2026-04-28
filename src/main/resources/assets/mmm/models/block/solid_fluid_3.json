@@ -2,8 +2,8 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "block/texture",
-		"all": "block/texture"
+		"particle": "mmm:block/rainstone",
+		"all": "mmm:block/rainstone"
 	},
 	"elements": [
 		{
@@ -11,14 +11,13 @@
 			"to": [16, 7, 16],
 			"rotation": {"angle": 0, "axis": "y", "origin": [7, 0, 7]},
 			"faces": {
-				"north": {"uv": [0, 0, 16, 7], "texture": "#all"},
-				"east": {"uv": [9, 0, 16, 16], "rotation": 90, "texture": "#all"},
+				"north": {"uv": [0, 9, 16, 16], "texture": "#all"},
+				"east": {"uv": [0, 9, 16, 16], "texture": "#all"},
 				"south": {"uv": [0, 9, 16, 16], "texture": "#all"},
-				"west": {"uv": [0, 0, 7, 16], "rotation": 270, "texture": "#all"},
+				"west": {"uv": [0, 9, 16, 16], "texture": "#all"},
 				"up": {"uv": [0, 0, 16, 16], "texture": "#all"},
 				"down": {"uv": [0, 0, 16, 16], "texture": "#all"}
 			}
 		}
-	],
-	"display": {}
+	]
 }

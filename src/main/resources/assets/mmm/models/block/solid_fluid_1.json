@@ -2,8 +2,8 @@
 	"format_version": "1.9.0",
 	"credit": "Made with Blockbench",
 	"textures": {
-		"particle": "block/texture",
-		"all": "block/texture"
+		"particle": "mmm:block/rainstone",
+		"all": "mmm:block/rainstone"
 	},
 	"elements": [
 		{

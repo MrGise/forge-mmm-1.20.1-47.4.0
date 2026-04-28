@@ -18,9 +18,10 @@ Newer versions' changes are added above the older ones
 - 14/4/2026: Uploading broken code for hopefully some help from other people
 - 25/4/2026: Changed the code, broken in other ways
 - 28/4/2026: **FIXED ALL THE BUGS!!!**
+- 28/4/2026: Fixed models a little. Now I can finally play with Create: Aeronautics! (more at [.github/info/minor_setback.md](../info/minor_setback.md))
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
-For the changelog summary, visit [.github/logs](/.github/logs/0.4.1a-1.20.1.md)
+For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)
 ### Added:
 - JEI support (advancing the course)
 - Changelog will be updated from now on for new versions
@@ -33,10 +34,8 @@ For the changelog summary, visit [.github/logs](/.github/logs/0.4.1a-1.20.1.md)
 - 04/4/2026: Added Bowyery Table JEI support and required JEI in the
 [mods.toml](/src/main/resources/META-INF/mods.toml) file
 - 04/4/2026 (multiple): Updated README and changelog
-- 04/4/2026: Added transfer handling for JEI compatibility
-and animated the arrow in the Thingamajig JEI screen
-- 04/4/2026: Changed version because it's not that major +
-updated it in the gradle.properties file +
+- 04/4/2026: Added transfer handling for JEI compatibility and animated the arrow in the Thingamajig JEI screen
+- 04/4/2026: Changed version because it's not that major + updated it in the gradle.properties file +
 Reminder to check the changelog for more information
 - 04/4/2026: Oop, sorry, forgot to update the changelog for the commit
 - 05/4/2026: Added maxTransfer (filling with shift) support to the bowyery JEI support (buggy AF)
