@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-23T17:10:11.3986799	Item Models: mmm
+// 1.20.1	2026-04-30T16:03:00.2988607	Item Models: mmm
 4b12200ca3fac2057d27e77507d76d35940039e3 assets/mmm/models/item/acacia_triple_door.json
 cab82837fca58f2721c0a61040837f5ce1a3b78f assets/mmm/models/item/actinolite.json
 22c4a40423e2f812fb3fcaacc80c0e9da5536ff6 assets/mmm/models/item/actinolite_axe.json
@@ -58,6 +58,7 @@ a002a7a67e81babda70fb3362fcb2faf9f66383d assets/mmm/models/item/oxalis.json
 35913d9843aa4c059d2caf9eebcf92da10b61193 assets/mmm/models/item/pink_candle_lit.json
 a8ef5a9929ec62a67bc620faca13fa7344bfacdf assets/mmm/models/item/purple_candle_lit.json
 d48fa1b5ef6f13618a56720ca5da539151614be2 assets/mmm/models/item/rainstone_bucket.json
+b76cd0404ad4a3c6db7f4fcde2da7567c368486d assets/mmm/models/item/rainstone_shard.json
 14808f6cfa9fcb3378ec94da8cc65ca9ac9e5876 assets/mmm/models/item/raw_skiron.json
 d79cad8a64f8ab2ab89491c6b8c1653861ce876f assets/mmm/models/item/red_candle_lit.json
 e050e2c53da18fe2bd4f204c58b8486ce648a7a9 assets/mmm/models/item/rolling_pin.json

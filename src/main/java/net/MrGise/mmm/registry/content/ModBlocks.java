@@ -235,7 +235,8 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> RAINSTONE = registerBlock_("rainstone",
             () -> new SolidFluidBlock(BlockBehaviour.Properties.of().destroyTime(2).mapColor(MapColor.STONE)
-                    .requiresCorrectToolForDrops().sound(SoundType.STONE).pushReaction(PushReaction.DESTROY).dynamicShape(), ModItems.RAINSTONE_BUCKET));
+                    .requiresCorrectToolForDrops().sound(SoundType.STONE).pushReaction(PushReaction.DESTROY)
+                    .dynamicShape().emissiveRendering((state, getter, pos) -> true), ModItems.RAINSTONE_BUCKET));
 
 
     //| Expansion

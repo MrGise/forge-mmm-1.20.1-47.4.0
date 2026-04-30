@@ -102,6 +102,7 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         //- Stones n' stuff
         simpleItem(ModItems.RAINSTONE_BUCKET);
+        simpleItem(ModItems.RAINSTONE_SHARD);
 
         //- Other stuff
         candleModel(ModItems.LIT_CANDLE, modLoc("custom/candle_lit"), "item/candle/models/candle/candle_lit");

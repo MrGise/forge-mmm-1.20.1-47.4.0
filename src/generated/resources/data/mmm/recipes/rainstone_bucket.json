@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "mmm:rainstone_shard"
+    },
+    {
+      "item": "mmm:rainstone_shard"
+    },
+    {
+      "item": "mmm:rainstone_shard"
+    },
+    {
+      "item": "mmm:rainstone_shard"
+    },
+    {
+      "item": "mmm:solidified_mana"
+    }
+  ],
+  "result": {
+    "item": "mmm:rainstone_bucket"
+  }
+}

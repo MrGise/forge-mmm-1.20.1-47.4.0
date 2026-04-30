@@ -83,6 +83,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.CUCUMBERS), ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get());
         exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.STRAWBERRIES), ModItems.STRAWBERRY.get(), ModItems.STRAWBERRY_SEEDS.get());
 
+        //: Magic
+        shapelessRecipe(pWriter, RecipeCategory.MISC, ModItems.RAINSTONE_BUCKET.get(), 1, ModItems.RAINSTONE_SHARD.get(),
+                Map.of(Ingredient.of(ModItems.RAINSTONE_SHARD.get()), 4, Ingredient.of(ModItems.SOLIDIFIED_MANA.get()), 1, Ingredient.of(Items.BUCKET), 1));
+
+
         //- Actinolite tools
         swordRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_SWORD.get(), ModItems.ACTINOLITE.get(), "sky_ores");
         pickaxeRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_PICKAXE.get(), ModItems.ACTINOLITE.get(), "sky_ores");
@@ -315,6 +320,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         builder.unlockedBy(getHasName(unlockedBy), has(unlockedBy));
 
         // Save recipe
+        builder.save(finishedRecipeConsumer);
+    }
+
+    protected static void shapelessRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer,
+                                          RecipeCategory category,
+                                          ItemLike result, int count, ItemLike unlockedBy,
+                                          Map<Ingredient, Integer> ingredients) {
+        ShapelessRecipeBuilder builder = ShapelessRecipeBuilder.shapeless(category, result, count);
+
+        for (Ingredient ing : ingredients.keySet()) {
+            builder.requires(ing, ingredients.get(ing));
+        }
+
+        builder.unlockedBy(getHasName(unlockedBy), has(unlockedBy));
+
         builder.save(finishedRecipeConsumer);
     }
 

@@ -2,6 +2,7 @@ package net.MrGise.mmm.registry.content;
 
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.item.*;
+import net.MrGise.mmm.item.block_item.AlternateBucketItem;
 import net.MrGise.mmm.item.description.*;
 import net.MrGise.mmm.item.production.RClickBlockCraftableItem;
 import net.MrGise.mmm.item.production.RollingPinItem;
@@ -74,7 +75,7 @@ public class ModItems {
             () -> new BucketItem(ModFluids.SOURCE_GOAT_MILK, new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)));
 
     public static final RegistryObject<Item> RAINSTONE_BUCKET = registerItem("rainstone_bucket",
-            () -> new net.MrGise.mmm.item.block_item.BucketItem(ModBlocks.RAINSTONE.get(),
+            () -> new AlternateBucketItem(ModBlocks.RAINSTONE.get(),
                     new Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1).rarity(Rarity.UNCOMMON)));
 
 
@@ -164,6 +165,9 @@ public class ModItems {
 
     //-- Magic
     public static final RegistryObject<Item> SOLIDIFIED_MANA = registerItem("solidified_mana",
+            () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> RAINSTONE_SHARD = registerItem("rainstone_shard",
             () -> new Item(new Item.Properties()));
 
 

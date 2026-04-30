@@ -109,7 +109,7 @@ public class ModBlockLootTables extends BlockLootSubProvider {
 
         this.add(ModBlocks.RAINSTONE.get(),
                 block -> createSolidFluidLootTable((SolidFluidBlock) ModBlocks.RAINSTONE.get(),
-                        ModItems.ACTINOLITE.get(), 4,
+                        ModItems.RAINSTONE_SHARD.get(), 4,
                         ModItems.SOLIDIFIED_MANA.get(), 1));
 
         //- Ores

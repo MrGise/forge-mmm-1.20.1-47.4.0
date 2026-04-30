@@ -10,10 +10,12 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -84,8 +86,10 @@ public class SolidFluidBlock extends Block {
                         BlockPos targetPos = pos.relative(dir);
                         BlockState targetState = level.getBlockState(targetPos);
 
-                        if ((targetState.isAir() || targetState.canBeReplaced())
-                                && level.getEntities(null, new AABB(targetPos)).isEmpty()) {
+                        if (canFlowTo(targetState, state, targetPos, level)) {
+                            if (targetState.canBeReplaced()) {
+                                level.destroyBlock(targetPos, true);
+                            }
                             level.setBlock(targetPos, state.setValue(LEVEL, height - 1)
                                     .trySetValue(FULL, false), 3);
 
@@ -94,16 +98,36 @@ public class SolidFluidBlock extends Block {
                     }
                 }
             } else if (height > 1) {
-                BlockState targetState = level.getBlockState(pos.below());
+                BlockPos targetPos = pos.below();
+                BlockState targetState = level.getBlockState(targetPos);
 
-                if (targetState.isAir() || targetState.canBeReplaced()) {
-                    if (level.getEntities(null, new AABB(pos.below())).isEmpty()) {
-                        level.setBlock(pos.below(), state.setValue(LEVEL, height - 1).trySetValue(FULL, true)
-                                .trySetValue(NORTH, false).trySetValue(EAST, false)
-                                .trySetValue(SOUTH, false).trySetValue(WEST, false), 3);
+                if (canFlowTo(targetState, state, targetPos, level)) {
+                    if (targetState.canBeReplaced()) {
+                        level.destroyBlock(targetPos, true);
                     }
+                    level.setBlock(targetPos, state.setValue(LEVEL, height - 1).trySetValue(FULL, true)
+                            .trySetValue(NORTH, false).trySetValue(EAST, false)
+                            .trySetValue(SOUTH, false).trySetValue(WEST, false), 3);
                 }
             }
+            boolean connectNorth = isMaxLevel ? north.is(state.getBlock()) && north.getValue(LEVEL) == 1 :
+                    north.is(state.getBlock()) && north.getValue(LEVEL) == height + 1;
+            boolean connectEast = isMaxLevel ? east.is(state.getBlock()) && east.getValue(LEVEL) == 1 :
+                    east.is(state.getBlock()) && east.getValue(LEVEL) == height + 1;
+            boolean connectSouth = isMaxLevel ? south.is(state.getBlock()) && south.getValue(LEVEL) == 1 :
+                    south.is(state.getBlock()) && south.getValue(LEVEL) == height + 1;
+            boolean connectWest = isMaxLevel ? west.is(state.getBlock()) && west.getValue(LEVEL) == 1 :
+                    west.is(state.getBlock()) && west.getValue(LEVEL) == height + 1;
+            if (state.getValue(NORTH) != connectNorth) state = state.setValue(NORTH, connectNorth);
+            if (state.getValue(EAST) != connectEast) state = state.setValue(EAST, connectEast);
+            if (state.getValue(SOUTH) != connectSouth) state = state.setValue(SOUTH, connectSouth);
+            if (state.getValue(WEST) != connectWest) state = state.setValue(WEST, connectWest);
+
+            if (height == 5 && state.getValue(NORTH) && state.getValue(EAST) && state.getValue(SOUTH) && state.getValue(WEST)) {
+                state = state.setValue(FULL, true);
+            }
+
+            level.setBlock(pos, state, 3);
         }
     }
 
@@ -162,11 +186,26 @@ public class SolidFluidBlock extends Block {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         ItemStack stack = player.getItemInHand(hand);
-        if (stack.is(Items.BUCKET)) {
+        if (stack.is(Items.BUCKET) && (state.getValue(LEVEL) == 6 || state.getValue(FULL))) {
             stack.shrink(1);
             player.setItemInHand(hand, stack);
             player.addItem(bucket.get().getDefaultInstance());
             level.destroyBlock(pos, false);
+            return InteractionResult.SUCCESS;
+        }
+        if (stack.is(state.getBlock().asItem()) && (state.isAir() || (state.getValue(LEVEL) < 6 && !state.getValue(FULL)))) {
+            if (!player.getAbilities().instabuild) {
+                stack.shrink(1);
+                player.setItemInHand(hand, stack);
+                if (stack.isEmpty()) {
+                    player.setItemInHand(hand, Items.BUCKET.getDefaultInstance());
+                } else {
+                    player.addItem(Items.BUCKET.getDefaultInstance());
+                }
+            }
+            level.setBlock(pos, state.setValue(LEVEL, 6)
+                    .trySetValue(NORTH, false).trySetValue(SOUTH, false)
+                    .trySetValue(EAST, false).trySetValue(WEST, false), 2);
             return InteractionResult.SUCCESS;
         }
 
@@ -176,5 +215,10 @@ public class SolidFluidBlock extends Block {
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
         return getShape(state, getter, pos, context);
+    }
+
+    public boolean canFlowTo(BlockState target, BlockState origin, BlockPos pos, ServerLevel level) {
+        return (target.isAir() || (target.is(origin.getBlock()) && target.getValue(LEVEL) < origin.getValue(LEVEL) - 1 && !target.getValue(FULL)))
+                && level.getEntities(null, new AABB(pos)).isEmpty();
     }
 }
