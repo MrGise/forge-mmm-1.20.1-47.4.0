@@ -12,6 +12,7 @@ Newer versions' changes are added above the older ones
 ### Added:
 - Sided inventories to Thingamajig, as well as Energy and Fluid handling
 - Rainstone, a fluid you can stand on!
+- Created an included library
 
 ### Commits:
 - 11/4/2026: Added sided inventories to Thingamajig
@@ -21,6 +22,7 @@ Newer versions' changes are added above the older ones
 - 28/4/2026: Fixed models a little. Now I can finally play with Create: Aeronautics! (more at [.github/info/minor_setback.md](../info/minor_setback.md))
 - 28/4/2026: Some little bugfixes I missed
 - 30/4/2026: Added the Rainstone Shard and allowed merging for [SolidFluidBlock](/src/main/java/net/MrGise/mmm/block/fluid/SolidFluidBlock.java)
+- 1/5/2026: Started making the included library, looking for help
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)
