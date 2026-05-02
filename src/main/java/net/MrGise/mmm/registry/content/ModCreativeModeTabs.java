@@ -5,7 +5,7 @@ import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.create.ModCreateBlocks;
 import net.MrGise.mmm.registry.variants.ModEnchantments;
 import net.MrGise.mmm.registry.variants.ModPaintings;
-import net.MrGise.mmm.util.ItemUtils;
+import net.MrGise.floating.helper.ItemUtils;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.decoration.Painting;

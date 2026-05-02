@@ -1,5 +1,6 @@
 package net.MrGise.mmm.block.crop;
 
+import net.MrGise.floating.block.AccessibleCropBlock;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
@@ -27,7 +28,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import static net.MrGise.mmm.util.Methods.*;
+import static net.MrGise.floating.helper.Methods.*;
 
 public class StrawberryCropBlock extends AccessibleCropBlock {
     public static final int MAX_AGE = 6;

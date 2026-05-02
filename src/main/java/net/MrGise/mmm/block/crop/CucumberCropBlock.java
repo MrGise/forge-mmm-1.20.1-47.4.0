@@ -1,5 +1,6 @@
 package net.MrGise.mmm.block.crop;
 
+import net.MrGise.floating.block.AccessibleCropBlock;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;

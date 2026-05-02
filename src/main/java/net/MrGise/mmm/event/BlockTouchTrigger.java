@@ -15,7 +15,7 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 
-import static net.MrGise.mmm.util.Methods.*;
+import static net.MrGise.floating.helper.Methods.*;
 
 public class BlockTouchTrigger extends SimpleCriterionTrigger<BlockTouchTrigger.TriggerInstance> {
     static final ResourceLocation ID = mmm("block_touch");

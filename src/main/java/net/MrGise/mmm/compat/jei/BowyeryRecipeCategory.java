@@ -14,7 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.ItemStack;
 import org.jetbrains.annotations.Nullable;
 
-import static net.MrGise.mmm.util.Methods.*;
+import static net.MrGise.floating.helper.Methods.*;
 
 public class BowyeryRecipeCategory implements IRecipeCategory<BowyeryRecipe> {
     private static final ResourceLocation UID = mmm("bowyery");

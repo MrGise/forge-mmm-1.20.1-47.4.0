@@ -5,7 +5,7 @@ import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.registry.variants.ModVillagers;
-import net.MrGise.mmm.util.ItemUtils;
+import net.MrGise.floating.helper.ItemUtils;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;

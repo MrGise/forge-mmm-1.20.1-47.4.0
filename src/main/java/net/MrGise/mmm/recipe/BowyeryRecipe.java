@@ -11,7 +11,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
-import static net.MrGise.mmm.util.Methods.*;
+import static net.MrGise.floating.helper.Methods.*;
 
 public class BowyeryRecipe implements Recipe<SimpleContainer> {
     private final NonNullList<Ingredient> inputItems;

@@ -1,8 +1,8 @@
 package net.MrGise.mmm.datagen.model;
 
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.datagen.model.builders.SeparateTransformModelBuilder;
-import net.MrGise.mmm.datagen.model.builders.SeparateTransformModelBuilder.*;
+import net.MrGise.floating.datagen.builders.SeparateTransformModelBuilder;
+import net.MrGise.floating.datagen.builders.SeparateTransformModelBuilder.*;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.minecraft.data.CachedOutput;

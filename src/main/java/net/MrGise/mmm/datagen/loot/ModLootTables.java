@@ -16,7 +16,7 @@ import org.checkerframework.checker.nullness.qual.NonNull;
 
 import java.util.function.BiConsumer;
 
-import static net.MrGise.mmm.util.Methods.*;
+import static net.MrGise.floating.helper.Methods.*;
 
 // Miscellaneous loot tables
 public class ModLootTables implements LootTableSubProvider {

@@ -1,5 +1,11 @@
 package net.MrGise.mmm.registry.content;
 
+import net.MrGise.floating.block.CustomGrass;
+import net.MrGise.floating.block.CustomGrassBlock;
+import net.MrGise.floating.item.CustomGrassItem;
+import net.MrGise.floating.item.EdibleBlockItem;
+import net.MrGise.floating.item.description.SecretBlockItem;
+import net.MrGise.floating.item.fuel.FuelBlockItem;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.*;
 import net.MrGise.mmm.block.crop.CucumberCropBlock;
@@ -10,8 +16,8 @@ import net.MrGise.mmm.block.dough.UncookedMatzaBlock;
 import net.MrGise.mmm.block.fluid.SolidFluidBlock;
 import net.MrGise.mmm.block.kitchen.BowlBlock;
 import net.MrGise.mmm.item.block_item.*;
-import net.MrGise.mmm.item.block_item.description.DescriptionBlockItem;
-import net.MrGise.mmm.item.block_item.description.DescriptionFuelBlockItem;
+import net.MrGise.floating.item.description.DescriptionBlockItem;
+import net.MrGise.floating.item.fuel.DescriptionFuelBlockItem;
 import net.MrGise.mmm.item.block_item.description.DescriptionPortalBlockItem;
 import net.MrGise.mmm.registry.decorative.ModSounds;
 import net.minecraft.sounds.SoundEvents;
@@ -35,7 +41,7 @@ import net.minecraftforge.registries.RegistryObject;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static net.MrGise.mmm.util.Methods.*;
+import static net.MrGise.floating.helper.Methods.*;
 
 // Blocks
 public class ModBlocks {

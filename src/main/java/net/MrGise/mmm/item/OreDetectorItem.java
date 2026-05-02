@@ -3,7 +3,7 @@ package net.MrGise.mmm.item;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.registry.decorative.ModParticles;
 import net.MrGise.mmm.registry.decorative.ModSounds;
-import net.MrGise.mmm.util.InventoryUtil;
+import net.MrGise.floating.helper.InventoryUtil;
 import net.MrGise.mmm.registry.variables.ModTags;
 import net.minecraft.client.resources.language.I18n;
 import net.minecraft.core.BlockPos;

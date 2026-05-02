@@ -6,12 +6,18 @@ plugins {
     id 'org.spongepowered.mixin' version '0.7.+'
 }
 
-version = mod_version
+version = "${mod_version}-${minecraft_version}"
 group = mod_group_id
 def description_file = file('src/main/resources/assets/mmm/texts/mod_description.txt').text
 
 base {
     archivesName = mod_id
+}
+
+jarJar.enable()
+
+tasks.named('jarJar') {
+
 }
 
 // Mojang ships Java 17 to end users in 1.18+, so your mod should target Java 17.
@@ -178,6 +184,8 @@ dependencies {
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}-forge-api:${jei_version}")
     // runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
+
+    jarJar("net.MrGise:floating:0.1")
 
     //. Create
     implementation(fg.deobf("com.simibubi.create:create-${minecraft_version}:${create_version}:slim") { transitive = false })

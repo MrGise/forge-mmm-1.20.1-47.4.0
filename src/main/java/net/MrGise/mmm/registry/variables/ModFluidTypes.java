@@ -10,7 +10,7 @@ import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import org.joml.Vector3f;
 
-import static net.MrGise.mmm.util.Methods.*;
+import static net.MrGise.floating.helper.Methods.*;
 //Fluid types
 public class ModFluidTypes {
     static ResourceLocation WATER_OVERLAY = mcr("block/water_overlay");

@@ -1,5 +1,9 @@
 package net.MrGise.mmm.registry.content;
 
+import net.MrGise.floating.item.description.DescriptionItem;
+import net.MrGise.floating.item.description.HiddenShiftDescriptionItem;
+import net.MrGise.floating.item.description.MultiLineDescriptionItem;
+import net.MrGise.floating.item.fuel.DescriptionFuelItem;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.item.*;
 import net.MrGise.mmm.item.block_item.AlternateBucketItem;
@@ -23,7 +27,7 @@ import vectorwing.farmersdelight.common.item.KnifeItem;
 import java.util.Map;
 import java.util.function.Supplier;
 
-import static net.MrGise.mmm.util.Methods.*;
+import static net.MrGise.floating.helper.Methods.*;
 
 // Items
 public class ModItems {

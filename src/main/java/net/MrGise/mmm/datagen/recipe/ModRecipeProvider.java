@@ -4,7 +4,7 @@ import com.simibubi.create.AllItems;
 import com.simibubi.create.api.data.recipe.ProcessingRecipeGen;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.datagen.recipe.builders.BowyeryRecipeBuilder;
-import net.MrGise.mmm.datagen.recipe.builders.NBTSingularShapelessRecipeBuilder;
+import net.MrGise.floating.datagen.builders.NBTSingularShapelessRecipeBuilder;
 import net.MrGise.mmm.datagen.recipe.builders.ThingamajigRecipeBuilder;
 import net.MrGise.mmm.datagen.recipe.create.MMMFillingRecipeGen;
 import net.MrGise.mmm.registry.content.ModBlocks;

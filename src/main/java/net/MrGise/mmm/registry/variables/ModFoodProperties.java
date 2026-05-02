@@ -2,7 +2,7 @@ package net.MrGise.mmm.registry.variables;
 
 import net.minecraft.world.food.FoodProperties;
 
-import static net.MrGise.mmm.util.Methods.*;
+import static net.MrGise.floating.helper.Methods.*;
 
 // Food properties
 public class ModFoodProperties {

@@ -1,8 +1,9 @@
 package net.MrGise.mmm.datagen.model;
 
+import net.MrGise.floating.block.CustomGrass;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.*;
-import net.MrGise.mmm.block.crop.AccessibleCropBlock;
+import net.MrGise.floating.block.AccessibleCropBlock;
 import net.MrGise.mmm.block.crop.CucumberCropBlock;
 import net.MrGise.mmm.block.crop.StrawberryCropBlock;
 import net.MrGise.mmm.block.dough.FlatteningDoughBlock;
@@ -29,7 +30,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.function.Supplier;
 
-import static net.MrGise.mmm.util.Methods.*;
+import static net.MrGise.floating.helper.Methods.*;
 
 // Generates blockstates
 public class ModBlockStateProvider extends BlockStateProvider {
