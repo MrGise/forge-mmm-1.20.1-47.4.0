@@ -1,16 +1,22 @@
 package net.MrGise.mmm.block.entity;
 
+import net.MrGise.floating.handling.FloatingEnergyStorage;
+import net.MrGise.floating.handling.InventoryDirectionEntry;
+import net.MrGise.floating.handling.InventoryDirectionWrapper;
+import net.MrGise.floating.handling.WrappedHandler;
 import net.MrGise.mmm.block.ThingamajigBlock;
 import net.MrGise.mmm.recipe.ThingamajigRecipe;
 import net.MrGise.mmm.registry.content.ModBlockEntities;
+import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.screen.thingamajig.ThingamajigMenu;
-import net.MrGise.floating.helper.InventoryDirectionEntry;
-import net.MrGise.floating.helper.InventoryDirectionWrapper;
-import net.MrGise.floating.helper.WrappedHandler;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.network.Connection;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.protocol.game.ClientGamePacketListener;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.Containers;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.world.SimpleContainer;
@@ -26,6 +32,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.energy.IEnergyStorage;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
@@ -67,9 +74,23 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
                     new InventoryDirectionEntry(Direction.WEST, INPUT_SLOT, false),
                     new InventoryDirectionEntry(Direction.UP, INPUT_SLOT, true)).directionsMap;
 
+    private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
+
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 70;
+
+    private final FloatingEnergyStorage ENERGY_STORAGE = createEnergyStorage();
+
+    private FloatingEnergyStorage createEnergyStorage() {
+        return new FloatingEnergyStorage(64000, 200) {
+            @Override
+            public void onEnergyChanged() {
+                setChanged();
+                getLevel().sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+            }
+        };
+    }
 
     public ThingamajigBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.THINGAMAJIG_BE.get(), pos, state);
@@ -98,6 +119,10 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
         };
     }
 
+    public IEnergyStorage getEnergyStorage() {
+        return this.ENERGY_STORAGE;
+    }
+
     public void drops() {
         SimpleContainer inventory = new SimpleContainer(itemHandler.getSlots());
         for (int i = 0; i < itemHandler.getSlots(); i++) {
@@ -119,6 +144,10 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
 
     @Override
     public @NotNull <T> LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
+        if (cap == ForgeCapabilities.ENERGY) {
+            return lazyEnergyHandler.cast();
+        }
+
         if (cap == ForgeCapabilities.ITEM_HANDLER) {
             if (side == null) {
                 return lazyItemHandler.cast();
@@ -147,17 +176,21 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
     public void onLoad() {
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
+        lazyEnergyHandler = LazyOptional.of(() -> ENERGY_STORAGE);
     }
 
     @Override
     public void invalidateCaps() {
         super.invalidateCaps();
         lazyItemHandler.invalidate();
+        lazyEnergyHandler.invalidate();
     }
 
     @Override
     protected void saveAdditional(CompoundTag tag) {
         tag.put("inventory", itemHandler.serializeNBT());
+        tag.putInt("progress", progress);
+        tag.putInt("energy", ENERGY_STORAGE.getEnergyStored());
 
         super.saveAdditional(tag);
     }
@@ -167,12 +200,16 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
         super.load(tag);
 
         itemHandler.deserializeNBT(tag.getCompound("inventory"));
+        progress = tag.getInt("progress");
+        ENERGY_STORAGE.setEnergy(tag.getInt("energy"));
     }
 
     public void tick(Level level, BlockPos pos, BlockState state) {
+        fillUpOnEnergy();
 
         if (hasRecipe()) {
             progressCrafting();
+            extractEnergy();
             setChanged(level, pos, state);
 
             if (finishedCrafting()) {
@@ -183,6 +220,21 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
             removeProgressGradually(2);
         }
 
+    }
+
+    private void extractEnergy() {
+        this.ENERGY_STORAGE.extractEnergy(100, false);
+    }
+
+    private void fillUpOnEnergy() {
+        if (hasEnergyItemInSlot(ENERGY_ITEM_SLOT)) {
+            this.ENERGY_STORAGE.receiveEnergy(3200, false);
+        }
+    }
+
+    private boolean hasEnergyItemInSlot(int energyItemSlot) {
+        return !this.itemHandler.getStackInSlot(energyItemSlot).isEmpty() &&
+                this.itemHandler.getStackInSlot(energyItemSlot).is(ModItems.STRAWBERRY.get());
     }
 
     private void craftItem() {
@@ -225,7 +277,12 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
 
         ItemStack result = recipe.get().getResultItem(getLevel().registryAccess());
 
-        return isOutputFillable(result.getCount()) && canFillOutput(result.getItem());
+        return isOutputFillable(result.getCount()) && canFillOutput(result.getItem()) &&
+                hasSufficientEnergy();
+    }
+
+    private boolean hasSufficientEnergy() {
+        return this.ENERGY_STORAGE.getEnergyStored() >= 100 * maxProgress;
     }
 
     private Optional<ThingamajigRecipe> getCurrentRecipe() {
@@ -243,5 +300,21 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
 
     private boolean isOutputFillable(int count) {
         return this.itemHandler.getStackInSlot(OUTPUT_SLOT).getCount() + count <= this.itemHandler.getStackInSlot(OUTPUT_SLOT).getMaxStackSize();
+    }
+
+
+    @Override
+    public @Nullable Packet<ClientGamePacketListener> getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
+    }
+
+    @Override
+    public CompoundTag getUpdateTag() {
+        return saveWithoutMetadata();
+    }
+
+    @Override
+    public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
+        super.onDataPacket(net, pkt);
     }
 }

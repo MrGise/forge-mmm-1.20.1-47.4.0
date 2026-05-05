@@ -24,6 +24,7 @@ Newer versions' changes are added above the older ones
 - 30/4/2026: Added the Rainstone Shard and allowed merging for [SolidFluidBlock](/src/main/java/net/MrGise/mmm/block/fluid/SolidFluidBlock.java)
 - 1/5/2026: Started making the included library, looking for help
 - 2/5/2026: Made the included library. It was easier than I expected!
+- 5/5/2026: Added FE handling for [thingamajig](/src/main/java/net/MrGise/mmm/block/entity/ThingamajigBlockEntity.java), advancing the course
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)

@@ -1,4 +1,4 @@
-package net.MrGise.floating.helper;
+package net.MrGise.floating.handling;
 
 import net.minecraft.core.Direction;
 import net.minecraftforge.common.util.LazyOptional;

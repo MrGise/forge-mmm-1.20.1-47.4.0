@@ -1,4 +1,4 @@
-package net.MrGise.floating.helper;
+package net.MrGise.floating.handling;
 
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.items.IItemHandlerModifiable;
