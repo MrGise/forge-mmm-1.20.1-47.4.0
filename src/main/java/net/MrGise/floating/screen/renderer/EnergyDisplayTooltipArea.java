@@ -1,4 +1,4 @@
-package net.MrGise.mmm.screen.renderer;
+package net.MrGise.floating.screen.renderer;
 
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;

@@ -3,7 +3,7 @@ package net.MrGise.mmm.screen.thingamajig;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.MrGise.floating.helper.MouseUtil;
 import net.MrGise.mmm.MMM;
-import net.MrGise.mmm.screen.renderer.EnergyDisplayTooltipArea;
+import net.MrGise.floating.screen.renderer.EnergyDisplayTooltipArea;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;

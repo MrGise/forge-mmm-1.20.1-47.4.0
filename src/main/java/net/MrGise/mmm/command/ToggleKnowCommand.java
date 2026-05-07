@@ -2,6 +2,7 @@ package net.MrGise.mmm.command;
 
 import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.context.CommandContext;
+import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import net.MrGise.mmm.network.ModNetwork;
 import net.MrGise.mmm.network.SyncAllKnowingPacket;
 import net.minecraft.commands.CommandSourceStack;
@@ -20,8 +21,8 @@ public class ToggleKnowCommand {
                         .then(Commands.literal("get").executes(this::get)));
     }
 
-    private int toggle(CommandContext<CommandSourceStack> context) {
-        ServerPlayer player = context.getSource().getPlayer();
+    private int toggle(CommandContext<CommandSourceStack> context) throws CommandSyntaxException {
+        ServerPlayer player = context.getSource().getPlayerOrException();
         if (player.getPersistentData().contains("all_knowing")) {
             boolean current = player.getPersistentData().getBoolean("all_knowing");
             player.getPersistentData().putBoolean("all_knowing", !current);

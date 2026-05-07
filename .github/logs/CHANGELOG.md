@@ -1,4 +1,4 @@
-# Changelog (last updated: 28/4/2026)
+# Changelog (last date I updated this date: 7/5/2026)
 
 All changes to this project will be documented in this file.
 
@@ -13,6 +13,8 @@ Newer versions' changes are added above the older ones
 - Sided inventories to Thingamajig, as well as Energy and Fluid handling
 - Rainstone, a fluid you can stand on!
 - Created an included library
+- Added the Race Selection Screen! (not functional)
+  - Added an open screen command to open said screen on demand
 
 ### Commits:
 - 11/4/2026: Added sided inventories to Thingamajig
@@ -25,6 +27,7 @@ Newer versions' changes are added above the older ones
 - 1/5/2026: Started making the included library, looking for help
 - 2/5/2026: Made the included library. It was easier than I expected!
 - 5/5/2026: Added FE handling for [thingamajig](/src/main/java/net/MrGise/mmm/block/entity/ThingamajigBlockEntity.java), advancing the course
+- 7/5/2026: Added The Race Selection Screen (WIP), it's utterly non-functional at the moment.
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)

@@ -11,6 +11,8 @@ import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.registry.variables.ModTags;
 import net.MrGise.mmm.network.ModNetwork;
 import net.MrGise.mmm.network.SyncAllKnowingPacket;
+import net.MrGise.mmm.screen.race_selection.RaceSelectionScreen;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -69,6 +71,8 @@ public class ModGeneralEvents {
             //. First time Logic
 
             MMM.LOGGER.info("Player {} joined for the first time!", player.getName().getString());
+
+            Minecraft.getInstance().setScreen(new RaceSelectionScreen());
         } else {
             if (data.getBoolean("mmm.first")) {
                 persistent.putBoolean("mmm.first", false);
@@ -214,6 +218,8 @@ public class ModGeneralEvents {
         new ReJoinCommand(event.getDispatcher());
 
         new ToggleKnowCommand(event.getDispatcher());
+
+        new OpenMenuCommand(event.getDispatcher());
 
         ConfigCommand.register(event.getDispatcher());
     }

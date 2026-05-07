@@ -233,6 +233,20 @@
   "creativetab.mmm_cuisine": "Kitchen & Farm's Products",
 
 
+  "menu.mmm.race_selection": "Race Selection",
+  "menu.mmm.race_selection.no_race": "No race selected",
+
+  "menu.mmm.race_selection.select_button": "Select",
+  "menu.mmm.race_selection.next_button.tooltip": "Next Option",
+  "menu.mmm.race_selection.previous_button.tooltip": "Previous Option",
+
+  "race.mmm.human": "Human",
+  "race.mmm.elf": "Elf",
+  "race.mmm.halfling": "Halfling",
+  "race.mmm.hobbit": "Hobbit",
+  "race.mmm.dragonborn": "Dragonborn",
+
+
   "advancement.mmm.dimensions": "MMM: Dimensions",
   "advancement.mmm.dimensions.desc": "§mA§r World§ls§r of Wonder!",
 
