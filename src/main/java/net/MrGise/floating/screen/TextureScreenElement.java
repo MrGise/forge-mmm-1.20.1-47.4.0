@@ -55,4 +55,26 @@ public class TextureScreenElement<T extends Screen> extends ScreenElement<T> {
                     this.uStart, this.vStart, this.elementWidth, this.elementHeight, this.textureWidth, this.textureHeight);
         }
     }
+
+    public static <T extends Screen> AlignmentContext createContext(T screen, int elementWidth, int elementHeight) {
+        return new AlignmentContext(screen.width, screen.height, elementWidth, elementHeight);
+    }
+
+    public static <T extends Screen, E extends ScreenElement<T>> AlignmentContext createContext(T screen, E parent,
+                                                                                                int elementWidth, int elementHeight) {
+        AlignmentContext parentContext = parent.context.apply(screen);
+        double guiScale = screen.getMinecraft().getWindow().getGuiScale();
+        return new AlignmentContext(screen.width, screen.height, parent.xPos(parentContext, guiScale), parent.yPos(parentContext, guiScale),
+                parent.width(screen), parent.height(screen), elementWidth, elementHeight);
+    }
+
+    @Override
+    public int width(T screen) {
+        return this.elementWidth();
+    }
+
+    @Override
+    public int height(T screen) {
+        return this.elementHeight();
+    }
 }

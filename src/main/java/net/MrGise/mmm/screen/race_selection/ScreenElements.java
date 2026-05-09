@@ -36,22 +36,16 @@ public class ScreenElements {
         public static TextureScreenElement<RaceSelectionScreen> title = new TextureScreenElement<>(
                 XAlignment.CENTER, YAlignment.TOP, d -> 0, d -> swapForScale(d, 30, 20, 10, 0, 0),
                 d -> d != 4.0, TEXTURES.TITLE.get(), 0, 0, 128, 50, 128, 50,
-                screen -> new ScreenElement.AlignmentContext(screen.width, screen.height, 128, 50));
+                screen -> TextureScreenElement.createContext(screen, 128, 50));
 
         public static TextureScreenElement<RaceSelectionScreen> raceCard = new TextureScreenElement<>(
                 XAlignment.CENTER, YAlignment.CENTER, d -> 0, d -> swapForScale(d, 0, 0, 10, 0, 0), d -> true,
                 TEXTURES.ELEMENTS.get(), 0, 0, 129, 166, 256, 256,
-                screen -> new ScreenElement.AlignmentContext(screen.width, screen.height, 129, 166));
+                screen -> TextureScreenElement.createContext(screen, 129, 166));
         public static TextureScreenElement<RaceSelectionScreen> raceNameplate = new TextureScreenElement<>(
                 XAlignment.CENTER, YAlignment.RELATIVE_TOP, d -> 0, d -> 3, d -> true,
                 TEXTURES.ELEMENTS.get(), 0, raceCard.vEnd(), 126, 18, 256, 256,
-                screen -> {
-                    double guiScale = screen.getMinecraft().getWindow().getGuiScale();
-                    ScreenElement.AlignmentContext parentContext = raceCard.context().apply(screen);
-                    return new ScreenElement.AlignmentContext(screen.width, screen.height,
-                            raceCard.xPos(parentContext, guiScale), raceCard.yPos(parentContext, guiScale),
-                            raceCard.elementWidth(), raceCard.elementHeight(), 126, 25);
-                });
+                screen -> TextureScreenElement.createContext(screen, raceCard, 126, 25));
 
         public static TextureScreenElement<RaceSelectionScreen> screenNameplate = new TextureScreenElement<>(
                 XAlignment.CENTER, YAlignment.RELATIVE_BELOW, d -> 0, d -> 0, d -> true,
@@ -72,9 +66,7 @@ public class ScreenElements {
                     double guiScale = screen.getMinecraft().getWindow().getGuiScale();
                     ScreenElement.AlignmentContext parentContext = raceNameplate.context().apply(screen);
                     Font font = screen.getMinecraft().font;
-                    return new ScreenElement.AlignmentContext(screen.width, screen.height,
-                            raceNameplate.xPos(parentContext, guiScale), raceNameplate.yPos(parentContext, guiScale),
-                            raceNameplate.elementWidth(), raceNameplate.elementHeight(),
+                    return TextScreenElement.createContext(screen, raceNameplate,
                             font.width(Component.translatable("menu.mmm.race_selection.no_race")), font.lineHeight);
                 });
 
@@ -82,13 +74,9 @@ public class ScreenElements {
                 XAlignment.CENTER, YAlignment.RELATIVE_CENTER, s -> 0, s -> 0, d -> true,
                 s(Component.translatable("menu.mmm.race_selection")), 1.5f,
                 screen -> {
-                    double guiScale = screen.getMinecraft().getWindow().getGuiScale();
-                    ScreenElement.AlignmentContext parentContext = screenNameplate.context().apply(screen);
                     Font font = screen.getMinecraft().font;
                     float scale = 1.5f;
-                    return new ScreenElement.AlignmentContext(screen.width, screen.height,
-                            screenNameplate.xPos(parentContext, guiScale), screenNameplate.yPos(parentContext, guiScale),
-                            screenNameplate.elementWidth(), screenNameplate.elementHeight(),
+                    return TextScreenElement.createContext(screen, screenNameplate,
                             Math.round(font.width(Component.translatable("menu.mmm.race_selection")) * scale),
                             Math.round(font.lineHeight * scale));
                 });

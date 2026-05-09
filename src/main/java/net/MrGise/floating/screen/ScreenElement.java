@@ -103,4 +103,7 @@ public abstract class ScreenElement<T extends Screen> {
             this(screenWidth, screenHeight, 0, 0, screenWidth, screenHeight, elementWidth, elementHeight);
         }
     }
+
+    public abstract int width(T screen);
+    public abstract int height(T screen);
 }
