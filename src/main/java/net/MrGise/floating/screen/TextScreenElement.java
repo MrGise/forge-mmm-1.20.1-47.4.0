@@ -63,11 +63,11 @@ public class TextScreenElement<T extends Screen> extends ScreenElement<T>{
                 gui.pose().scale(scale, scale, 1f);
                 gui.drawString(screen.getMinecraft().font, this.text.get(),
                         (int)(this.xPos(usableContext, guiScale) / scale),
-                        (int)(this.yPos(usableContext, guiScale) / scale), color);
+                        (int)((this.yPos(usableContext, guiScale) + 1) / scale), color);
 
                 gui.pose().popPose();
             } else {
-                gui.drawString(screen.getMinecraft().font, this.text.get(), this.xPos(usableContext, guiScale), this.yPos(usableContext, guiScale), color);
+                gui.drawString(screen.getMinecraft().font, this.text.get(), this.xPos(usableContext, guiScale), this.yPos(usableContext, guiScale) + 1, color);
             }
         }
     }
