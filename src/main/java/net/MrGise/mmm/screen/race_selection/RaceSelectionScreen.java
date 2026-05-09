@@ -2,7 +2,6 @@ package net.MrGise.mmm.screen.race_selection;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.MrGise.floating.screen.ImageButton;
-import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.screens.Screen;
@@ -10,6 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 
 import static net.MrGise.floating.helper.Methods.*;
+import net.MrGise.mmm.screen.race_selection.ScreenElements.*;
 
 public class RaceSelectionScreen extends Screen {
     private ResourceLocation backgroundTile = mcr("textures/block/dirt.png");
@@ -60,52 +60,15 @@ public class RaceSelectionScreen extends Screen {
     public void render(GuiGraphics gui, int mouseX, int mouseY, float partialTick) {
         renderTiledBackground(gui);
 
-        card(gui, cardTexture);
+        RSScreenElements.title().render(gui, this, mouseX, mouseY, partialTick);
+        RSScreenElements.raceCard().render(gui, this, mouseX, mouseY, partialTick);
+        RSScreenElements.raceNameplate().render(gui, this, mouseX, mouseY, partialTick);
+        RSScreenElements.screenNameplate().render(gui, this, mouseX, mouseY, partialTick);
+
+        RSScreenElements.raceName().render(gui, this, mouseX, mouseY, partialTick);
+        RSScreenElements.screenName().render(gui, this, mouseX, mouseY, partialTick);
 
         super.render(gui, mouseX, mouseY, partialTick);
-    }
-
-    private void card(GuiGraphics gui, ResourceLocation texture) {
-        double guiScale = this.minecraft.getWindow().getGuiScale();
-
-        int cardWidth = 129;
-        int cardHeight = 166;
-        gui.blit(texture, middlePivotX(cardWidth), middlePivotY(cardHeight), 0, 0, cardWidth, cardHeight);
-
-        int titleOffset = 70;
-
-        int titleWidth = 126;
-        int titleHeight = 18;
-        gui.blit(texture, middlePivotX(titleWidth), middlePivotY(titleHeight) - titleOffset,
-                0, cardHeight, titleWidth, titleHeight);
-
-        Component title = Component.translatable("menu.mmm.race_selection.no_race");
-        gui.drawString(this.font, title, middlePivotX(this.font.width(title.getString())),
-                middlePivotY(this.font.lineHeight) - titleOffset, 0xFFFFFF);
-
-        int nameOffset = switch((int) guiScale) {
-            case 1 -> 40;
-            case 2 -> 30;
-            case 4 -> 10;
-            default -> 20;
-        };
-
-        int nameWidth = 139;
-        int nameHeight = 30;
-        gui.blit(texture, middlePivotX(nameWidth), nameOffset,
-                0, cardHeight + titleHeight, nameWidth, nameHeight);
-
-        Component name = Component.translatable("menu.mmm.race_selection").withStyle(ChatFormatting.AQUA);
-        gui.pose().pushPose();
-        float scale = 1.5f;
-
-        gui.pose().translate(middlePivotX(this.font.width(name.getString()) * scale),
-                nameOffset + ((nameHeight - (this.font.lineHeight * scale)) / 2), 0);
-        gui.pose().scale(scale, scale, 1f);
-
-        gui.drawString(this.font, name, 0, 0, 0xFFFFFF);
-
-        gui.pose().popPose();
     }
 
     private void renderTiledBackground(GuiGraphics gui) {

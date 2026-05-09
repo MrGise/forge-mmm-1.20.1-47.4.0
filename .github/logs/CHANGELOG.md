@@ -27,7 +27,8 @@ Newer versions' changes are added above the older ones
 - 1/5/2026: Started making the included library, looking for help
 - 2/5/2026: Made the included library. It was easier than I expected!
 - 5/5/2026: Added FE handling for [thingamajig](/src/main/java/net/MrGise/mmm/block/entity/ThingamajigBlockEntity.java), advancing the course
-- 7/5/2026: Added The Race Selection Screen (WIP), it's utterly non-functional at the moment.
+- 7/5/2026: Added the Race Selection Screen (WIP), it's utterly non-functional at the moment.
+- 9/5/2026: Remade this mod's screen rendering to use a more modular system. Also, changed the GUI texture a bit.
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)
