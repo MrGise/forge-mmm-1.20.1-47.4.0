@@ -22,14 +22,22 @@ import net.MrGise.mmm.network.ModNetwork;
 import net.MrGise.mmm.screen.bowyery_table.BowyeryTableScreen;
 import net.MrGise.mmm.screen.thingamajig.ThingamajigScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
+import net.minecraft.core.BlockSource;
+import net.minecraft.core.Direction;
+import net.minecraft.core.Position;
+import net.minecraft.core.dispenser.DefaultDispenseItemBehavior;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.item.AxeItem;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.ComposterBlock;
-import net.minecraft.world.level.block.FlowerPotBlock;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.*;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
@@ -146,6 +154,45 @@ public class MMM {
 
 
             ModTriggers.register();
+
+
+            DispenserBlock.registerBehavior(ModItems.CONFETTI_CANNON.get(), new DefaultDispenseItemBehavior(){
+                @Override
+                protected ItemStack execute(BlockSource source, ItemStack stack) {
+                    double velScatDiff = 0.8;
+
+                    double velocity = 1.0 - velScatDiff;
+                    double scatter = 1.0 + velScatDiff;
+
+                    ServerLevel level = source.getLevel();
+
+                    Direction direction = source.getBlockState().getValue(DispenserBlock.FACING);
+                    Position position = DispenserBlock.getDispensePosition(source);
+
+                    Vec3 forward = new Vec3(direction.getStepX(), direction.getStepY(), direction.getStepZ()).normalize();
+                    Vec3 up = direction.getAxis() == Direction.Axis.Y
+                            ? new Vec3(1, 0, 0) : new Vec3(0, 1, 0);
+                    Vec3 right = forward.cross(up).normalize();
+
+                    up = right.cross(forward).normalize();
+
+                    RandomSource random = level.getRandom();
+
+                    for (int i = 0; i < 60; i++) {
+                        double sideOffset = (random.nextDouble() - 0.5) * scatter;
+                        double upOffset = (random.nextDouble() - 0.5) * scatter;
+
+                        Vec3 velocityVec = forward.add(right.scale(sideOffset)).add(up.scale(upOffset)).scale(velocity).normalize();
+
+                        level.sendParticles(ModParticles.CONFETTI.get(),
+                                position.x() + forward.x(), position.y() + forward.y(), position.z() + forward.z(),
+                                0, velocityVec.x(), velocityVec.y(), velocityVec.z(), 1);
+                    }
+                    level.playSound(null, source.getPos(), SoundEvents.ITEM_PICKUP, SoundSource.BLOCKS, 1.0f, 0.8f);
+
+                    return stack;
+                }
+            });
         });
 
     }

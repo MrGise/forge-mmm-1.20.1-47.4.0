@@ -1,21 +1,13 @@
 package net.MrGise.mmm.screen.race_selection;
 
-import it.unimi.dsi.fastutil.doubles.Double2BooleanFunction;
 import net.MrGise.floating.screen.ScreenElement;
 import net.MrGise.floating.screen.ScreenElement.XAlignment;
 import net.MrGise.floating.screen.ScreenElement.YAlignment;
 import net.MrGise.floating.screen.TextScreenElement;
 import net.MrGise.floating.screen.TextureScreenElement;
-import net.minecraft.ChatFormatting;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
-import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-
-import java.util.function.Function;
-import java.util.function.Supplier;
-import java.util.function.ToIntFunction;
 
 import static net.MrGise.floating.helper.Methods.*;
 

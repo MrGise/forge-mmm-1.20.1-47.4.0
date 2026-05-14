@@ -95,7 +95,6 @@ public class OreDetectorItem extends Item {
     }
 
     private void outputFailure(Player player) {
-
         player.sendSystemMessage(Component.literal(" "));
         player.sendSystemMessage(Component.literal("Failed to find an ore"));
         player.sendSystemMessage(Component.literal(" "));
@@ -109,9 +108,7 @@ public class OreDetectorItem extends Item {
     }
 
     private boolean isOreBlock(BlockState blockState) {
-
         return blockState.is(ModTags.Blocks.DETECTABLE_ORE);
-
     }
 
 }

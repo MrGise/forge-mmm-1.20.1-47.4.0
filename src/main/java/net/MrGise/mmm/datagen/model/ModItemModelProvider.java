@@ -104,7 +104,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.RAINSTONE_BUCKET);
         simpleItem(ModItems.RAINSTONE_SHARD);
 
-        //- Other stuff
+        //- Candles
         candleModel(ModItems.LIT_CANDLE, modLoc("custom/candle_lit"), "item/candle/models/candle/candle_lit");
         candleModel(ModItems.LIT_CANDLE_BLACK, modLoc("custom/black_candle_lit"), "item/candle/models/candle/black_candle_lit");
         candleModel(ModItems.LIT_CANDLE_BLUE, modLoc("custom/blue_candle_lit"), "item/candle/models/candle/blue_candle_lit");
@@ -122,6 +122,9 @@ public class ModItemModelProvider extends ItemModelProvider {
         candleModel(ModItems.LIT_CANDLE_RED, modLoc("custom/red_candle_lit"), "item/candle/models/candle/red_candle_lit");
         candleModel(ModItems.LIT_CANDLE_WHITE, modLoc("custom/white_candle_lit"), "item/candle/models/candle/white_candle_lit");
         candleModel(ModItems.LIT_CANDLE_YELLOW, modLoc("custom/yellow_candle_lit"), "item/candle/models/candle/yellow_candle_lit");
+
+        //- Other items
+        handheldItem(ModItems.CONFETTI_CANNON);
 
         /*- Tools -*/
         handheldItem(ModItems.ACTINOLITE_SWORD);

@@ -175,6 +175,11 @@ public class ModItems {
             () -> new Item(new Item.Properties()));
 
 
+    //\ Decorative
+    public static final RegistryObject<Item> CONFETTI_CANNON = registerItem("confetti_cannon",
+            () -> new ConfettiCannonItem(new Item.Properties()));
+
+
     //-- Actinolite
     public static final RegistryObject<Item> ACTINOLITE = registerItem("actinolite",
             () -> new HiddenShiftDescriptionItem(new Item.Properties(), "actinolite"));

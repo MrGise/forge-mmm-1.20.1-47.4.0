@@ -1,6 +1,7 @@
 package net.MrGise.mmm.event;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.particle.ConfettiParticle;
 import net.MrGise.mmm.particle.ManaParticle;
 import net.MrGise.mmm.registry.decorative.ModParticles;
 import net.minecraftforge.api.distmarker.Dist;
@@ -16,6 +17,8 @@ public class ModBusClientEvents {
         event.registerSpriteSet(ModParticles.PURPLE_MANA.get(), ManaParticle.BasicProvider::new);
         event.registerSpriteSet(ModParticles.RED_MANA.get(), ManaParticle.BasicProvider::new);
         event.registerSpriteSet(ModParticles.SMALL_PURPLE_MANA.get(), ManaParticle.GravProvider::new);
+
+        event.registerSpriteSet(ModParticles.CONFETTI.get(), ConfettiParticle.GravProvider::new);
     }
 
 }

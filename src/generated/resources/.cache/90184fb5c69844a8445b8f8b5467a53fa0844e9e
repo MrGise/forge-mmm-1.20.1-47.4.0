@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-30T16:03:00.2988607	Item Models: mmm
+// 1.20.1	2026-05-11T16:48:00.7266574	Item Models: mmm
 4b12200ca3fac2057d27e77507d76d35940039e3 assets/mmm/models/item/acacia_triple_door.json
 cab82837fca58f2721c0a61040837f5ce1a3b78f assets/mmm/models/item/actinolite.json
 22c4a40423e2f812fb3fcaacc80c0e9da5536ff6 assets/mmm/models/item/actinolite_axe.json
@@ -15,6 +15,7 @@ fe8646a3dfb979fbe97d7812fee7e09b1c1d9661 assets/mmm/models/item/black_candle_lit
 016452e8285315f145696e19277a38cb0949a6ed assets/mmm/models/item/brown_candle_lit.json
 e4d7e29236027d141c3f02826737ec8c2a7d1b51 assets/mmm/models/item/candle_lit.json
 266a1e50e87bf69685a8d33236f09923caabde66 assets/mmm/models/item/cherry_triple_door.json
+32a43ff976a56a12a93b7337893f0a35a81b6445 assets/mmm/models/item/confetti_cannon.json
 5a33944516fc5361c9ac1517d28416dceb4b50b6 assets/mmm/models/item/crimson_triple_door.json
 4bd6ec3d4032c065bce87f1f3fbc920e138c74d8 assets/mmm/models/item/cyan_candle_lit.json
 e74ade30e30e7b070280860cbff05e88eae4a3b2 assets/mmm/models/item/dark_oak_triple_door.json

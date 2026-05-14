@@ -1,4 +1,4 @@
-# Changelog (last date I updated this date: 7/5/2026)
+# Changelog (last date I updated this date: 14/5/2026)
 
 All changes to this project will be documented in this file.
 
@@ -31,6 +31,7 @@ Newer versions' changes are added above the older ones
 - 9/5/2026: Remade this mod's screen rendering to use a more modular system. Also, changed the GUI texture a bit.
 - 9/5/2026: Created a helper method to make Contexts easier
 - 9/5/2026: text y fix
+- 14/5/2026: Added Confetti for my birthday, which is On the same day as Minecraft's!
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)

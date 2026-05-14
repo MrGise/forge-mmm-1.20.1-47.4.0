@@ -14,7 +14,7 @@ public class ManaParticle extends TextureSheetParticle {
         this.yd = ySpeed;
         this.zd = zSpeed;
 
-        this.quadSize += 0.75f;
+        this.quadSize -= 3f;
         this.lifetime = (int) (this.random.nextFloat() * 5 + 15);
 
         this.setSpriteFromAge(spriteSet);

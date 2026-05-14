@@ -18,6 +18,8 @@ public class ModParticles {
     public static final RegistryObject<SimpleParticleType> RED_MANA = createParticle("mana_red");
     public static final RegistryObject<SimpleParticleType> SMALL_PURPLE_MANA = createParticle("mana_purple_small");
 
+    public static final RegistryObject<SimpleParticleType> CONFETTI = createParticle("confetti");
+
 
     private static RegistryObject<SimpleParticleType> createParticle(String name) {
         return PARTICLE_TYPES.register(name, () -> new SimpleParticleType(true));
