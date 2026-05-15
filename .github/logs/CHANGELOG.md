@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 Newer versions' changes are added above the older ones
 
+Branch: Main branch
+
 ## [0.5a]
 
 ### Added:
@@ -33,6 +35,7 @@ Newer versions' changes are added above the older ones
 - 9/5/2026: text y fix
 - 14/5/2026: Added Confetti for my birthday, which is On the same day as Minecraft's!
 - 15/5/2026: Made Party Popper non-stackable
+- 15/5/2026: Finished splitting project
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)
