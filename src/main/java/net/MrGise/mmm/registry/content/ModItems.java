@@ -177,7 +177,7 @@ public class ModItems {
 
     //\ Decorative
     public static final RegistryObject<Item> CONFETTI_CANNON = registerItem("confetti_cannon",
-            () -> new ConfettiCannonItem(new Item.Properties()));
+            () -> new ConfettiCannonItem(new Item.Properties().stacksTo(1)));
 
 
     //-- Actinolite
