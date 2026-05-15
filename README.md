@@ -12,6 +12,13 @@ Also, you might or might not be able to exit the border
 in survival without cheats when I finish the mod.  
 Just maybe.
 
+## About this branch
+While developing my mod, I'm following [KaupenJoe's course on Minecraft modding for forge 1.20.x](https://courses.kaupenjoe.net/courses/2111352).  
+There are some things made in that course that don't fit the main mod, so I'll be developing them here.
+
+This branch will be permanently versioned as 0.5a.  
+There will also be less logging of changes.
+
 ## Changelog
 The changelog is at [.github/logs/CHANGELOG.md](.github/logs/CHANGELOG.md)
 
