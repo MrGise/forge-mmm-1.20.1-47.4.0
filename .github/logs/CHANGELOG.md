@@ -37,6 +37,7 @@ Branch: Main branch
 - 15/5/2026: Made Party Popper non-stackable
 - 15/5/2026: Finished splitting project
 - 17/5/2026: Confettier!
+- 17/5/2026: Confettierer!
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)
