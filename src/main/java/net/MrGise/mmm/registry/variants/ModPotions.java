@@ -14,7 +14,7 @@ public class ModPotions {
     public static final DeferredRegister<Potion> POTIONS =
             DeferredRegister.create(ForgeRegistries.POTIONS, MMM.MOD_ID);
 
-    public static final RegistryObject<Potion> LIQUID_SLIME = potion("liquid_slime", ModEffects.SLIMY_EFFECT, 200);
+
 
 
     private static RegistryObject<Potion> potion(String name, RegistryObject<MobEffect> effect, int duration) {

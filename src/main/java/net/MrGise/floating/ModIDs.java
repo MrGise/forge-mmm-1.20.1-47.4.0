@@ -6,7 +6,8 @@ public enum ModIDs implements StringRepresentable {
     mmm,
     create,
     farmersdelight,
-    jei;
+    jei,
+    forge;
 
     @Override
     public String getSerializedName() {
@@ -24,5 +25,8 @@ public enum ModIDs implements StringRepresentable {
     }
     public static String jei() {
         return jei.getSerializedName();
+    }
+    public static String forge() {
+        return forge.getSerializedName();
     }
 }

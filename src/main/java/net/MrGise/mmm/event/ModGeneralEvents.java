@@ -4,7 +4,6 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.command.*;
 import net.MrGise.mmm.datagen.advancement.ModTriggers;
-import net.MrGise.mmm.item.HammerItem;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.content.ModFluids;
 import net.MrGise.mmm.registry.content.ModItems;
@@ -19,9 +18,7 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
 import net.minecraft.world.entity.player.Player;
@@ -30,11 +27,8 @@ import net.minecraft.world.item.enchantment.Enchantment;
 import net.minecraft.world.item.enchantment.EnchantmentHelper;
 import net.minecraft.world.item.enchantment.Enchantments;
 import net.minecraft.world.item.trading.MerchantOffer;
-import net.minecraft.world.level.ItemLike;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.RotatedPillarBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.HitResult;
@@ -44,7 +38,6 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.player.FillBucketEvent;
 import net.minecraftforge.event.entity.player.PlayerEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
-import net.minecraftforge.event.level.BlockEvent;
 import net.minecraftforge.event.village.VillagerTradesEvent;
 import net.minecraftforge.eventbus.api.Event;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -98,32 +91,6 @@ public class ModGeneralEvents {
                 PacketDistributor.PLAYER.with(() -> player),
                 new SyncAllKnowingPacket(knows)
         );
-    }
-
-    // Done with the help of https://github.com/CoFH/CoFHCore/blob/1.19.x/src/main/java/cofh/core/event/AreaEffectEvents.java
-    public static final Set<BlockPos> HARVESTED_BLOCKS = new HashSet<>();
-    @SubscribeEvent
-    public static void onHammerUsage(BlockEvent.BreakEvent event) {
-
-        Player player = event.getPlayer();
-        ItemStack mainHandItem = player.getMainHandItem();
-
-        if (mainHandItem.getItem() instanceof HammerItem hammer && player instanceof ServerPlayer serverPlayer) {
-            BlockPos initalBlockPos = event.getPos();
-            if (HARVESTED_BLOCKS.contains(initalBlockPos)) {
-                return;
-            }
-
-            for (BlockPos pos : HammerItem.getBlocksToBeDestroyed(HammerItem.range, initalBlockPos, serverPlayer)) {
-                if (pos == initalBlockPos || !hammer.isCorrectToolForDrops(mainHandItem, event.getLevel().getBlockState(pos))) {
-                    continue;
-                }
-
-                HARVESTED_BLOCKS.add(pos);
-                serverPlayer.gameMode.destroyBlock(pos);
-                HARVESTED_BLOCKS.remove(pos);
-            }
-        }
     }
 
     @SubscribeEvent
@@ -211,10 +178,6 @@ public class ModGeneralEvents {
 
     @SubscribeEvent
     public static void onCommandsRegister(RegisterCommandsEvent event) {
-        new SetHomeCommand(event.getDispatcher());
-        new ReturnHomeCommand(event.getDispatcher());
-        new FindHomeCommand(event.getDispatcher());
-
         new ReJoinCommand(event.getDispatcher());
 
         new ToggleKnowCommand(event.getDispatcher());

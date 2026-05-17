@@ -18,9 +18,6 @@
   "item.mmm.reinforced_skiron_bow": "Reinforced Skiron Bow",
   "item.mmm.reinforced_actinolite_bow": "Reinforced Actinolite Bow",
 
-  "item.mmm.ore_detector": "Ore Detector",
-  "item.mmm.ore_redetector": "Ore Redetector",
-
   "item.mmm.confetti_cannon": "Party Popper",
   "item.mmm.confetti_cannon.evil": "Party Pooper",
 
@@ -181,7 +178,6 @@
 
 
   "block.mmm.birthday_cake": "Birthday cake",
-  "block.mmm.sound_block": "Sound Block",
   "block.mmm.portal_block": "Portal Block",
 
 
@@ -190,9 +186,6 @@
 
 
   "block.mmm.null_block": "Null",
-
-
-  "block.mmm.thingamajig": "Thingamajig",
 
 
   "block.mmm.canphor": "Canphor",
@@ -217,12 +210,6 @@
   "block.mmm.warped_triple_door": "Warped Triple Door",
   "block.mmm.bamboo_triple_door": "Bamboo Triple Door",
   "block.mmm.cherry_triple_door": "Cherry Triple Door",
-
-
-  "item.minecraft.potion.effect.liquid_slime": "Liquid Slime",
-  "item.minecraft.splash_potion.effect.liquid_slime": "Splash Liquid Slime",
-  "item.minecraft.lingering_potion.effect.liquid_slime": "Lingering Liquid Slime",
-  "effect.mmm.slimy": "Slimy",
 
 
   "painting.mmm.magery.title": "Magery",
@@ -259,14 +246,8 @@
   "advancement.mmm.null_get.desc": "Get... Something",
 
 
-  "enchantment.mmm.lightning_striker": "Lightning Striker",
-
   "enchantment.mmm.air_walk": "Air Walk",
-
   "enchantment.mmm.fall_negation": "Fall negation",
-
-
-  "sounds.mmm.ore_detector_success": "Ore Detector found an ore",
 
 
   "fluid_type.mmm.cow_milk": "Milk (placed)",
@@ -280,9 +261,6 @@
 
   "tooltip.mmm.glyphs.title": "When used as a spell:",
   "tooltip.mmm.glyphs.empty": "No Glyphs",
-
-  "tooltip.mmm.glyphs.name.quick": " The spell would be quickened",
-  "tooltip.mmm.glyphs.name.fire": " A fire type spell will be cast",
 
   "tooltip.mmm.description_block.tooltip.skoal_block": "A block of Sky Coal. burns for 10x the time of Sky Coal.",
 

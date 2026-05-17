@@ -1,4 +1,4 @@
-# Changelog (last date I updated this date: 14/5/2026)
+# Changelog (last date I updated this date: 17/5/2026, My birthday! 🥳)
 
 All changes to this project will be documented in this file.
 
@@ -12,7 +12,7 @@ Branch: Main branch
 ## [0.5a]
 
 ### Added:
-- Sided inventories to Thingamajig, as well as Energy and Fluid handling
+- ~~Sided inventories to Thingamajig, as well as Energy and Fluid handling~~ Removed Course-specific content that doesn't fit in the mod
 - Rainstone, a fluid you can stand on!
 - Created an included library
 - Added the Race Selection Screen! (not functional)
@@ -38,6 +38,7 @@ Branch: Main branch
 - 15/5/2026: Finished splitting project
 - 17/5/2026: Confettier!
 - 17/5/2026: Confettierer!
+- 17/5/2026: Removed Unnecessary stuff
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)

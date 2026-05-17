@@ -8,14 +8,12 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
 
+import static net.MrGise.floating.helper.Methods.*;
+
 // Custom item properties
 public class ModItemProperties {
 
     public static void addCustomItemProperties() {
-
-        ItemProperties.register(ModItems.ORE_REDETECTOR.get(), new ResourceLocation(MMM.MOD_ID, "on"),
-                (itemStack, clientLevel, livingEntity, i) -> itemStack.hasTag() ? 1f : 0f);
-
         makeShield(ModItems.SKIRON_SHIELD.get());
 
         makeBow(ModItems.REINFORCED_STONE_BOW.get());
@@ -27,7 +25,7 @@ public class ModItemProperties {
         makeBow(ModItems.REINFORCED_SKIRON_BOW.get());
         makeBow(ModItems.REINFORCED_ACTINOLITE_BOW.get());
 
-        ItemProperties.register(ModItems.MIMIC.get(), new ResourceLocation(MMM.MOD_ID, "form"),
+        ItemProperties.register(ModItems.MIMIC.get(), mmm("form"),
                 (itemStack, clientLevel, livingEntity, i) -> {
                     if (itemStack.hasTag()) {
                         CompoundTag tag = itemStack.getTag();
@@ -42,12 +40,12 @@ public class ModItemProperties {
 
                         }
                     }
-                    
+
                     return 0.0f;
 
                 });
 
-        ItemProperties.register(ModBlocks.MIMIC_BLOCK.get().asItem(), new ResourceLocation(MMM.MOD_ID, "form"),
+        ItemProperties.register(ModBlocks.MIMIC_BLOCK.get().asItem(), mmm("form"),
                 (itemStack, clientLevel, livingEntity, i) -> {
                     if (itemStack.hasTag()) {
                         CompoundTag tag = itemStack.getTag();
@@ -68,7 +66,7 @@ public class ModItemProperties {
 
                 });
 
-        ItemProperties.register(ModBlocks.HEAVENLY_GRASS.get().asItem(), new ResourceLocation(MMM.MOD_ID, "long"),
+        ItemProperties.register(ModBlocks.HEAVENLY_GRASS.get().asItem(), mmm("long"),
                 (pStack, pLevel, pEntity, pSeed) -> {
                     if (pStack.hasTag()) {
                         CompoundTag tag = pStack.getTag();
@@ -86,7 +84,7 @@ public class ModItemProperties {
     }
 
     public static void makeBow(Item item) {
-        ItemProperties.register(item, new ResourceLocation("pull"), (stack, level, entity, i) -> {
+        ItemProperties.register(item, mcr("pull"), (stack, level, entity, i) -> {
             if (entity == null) {
                 return 0.0F;
             } else {
@@ -94,13 +92,13 @@ public class ModItemProperties {
             }
         });
 
-        ItemProperties.register(item, new ResourceLocation("pulling"), (stack, level, entity, i) -> {
+        ItemProperties.register(item, mcr("pulling"), (stack, level, entity, i) -> {
             return entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F;
         });
     }
 
     public static void makeShield(Item item) {
-        ItemProperties.register(item, new ResourceLocation("blocking"),
+        ItemProperties.register(item, mcr("blocking"),
                 (stack, level, entity, i) -> {
             return entity != null && entity.isUsingItem() && entity.getUseItem() == stack ? 1.0F : 0.0F;
         });

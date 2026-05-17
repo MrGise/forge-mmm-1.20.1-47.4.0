@@ -51,6 +51,7 @@ public class ModBlocks {
 
     //. Blocks
 
+    @Deprecated
     public static final RegistryObject<Block> MIMIC_BLOCK = registerBlock("mimic_block",
             () -> new MimicBlock(BlockBehaviour.Properties.of().mapColor(MapColor.SAND).strength(2.5F)),
             b -> () -> new MimicBlockItem(b.get(), new Item.Properties()));
@@ -126,15 +127,9 @@ public class ModBlocks {
     public static final RegistryObject<Block> BIRTHDAY_CAKE = registerBlock("birthday_cake",
             () -> new BirthdayCakeBlock(BlockBehaviour.Properties.copy(Blocks.CAKE)));
 
-    public static final RegistryObject<Block> SOUND_BLOCK = registerBlock("sound_block",
-            () -> new SoundBlock(BlockBehaviour.Properties.of().mapColor(MapColor.GLOW_LICHEN).instrument(NoteBlockInstrument.BASS).sound(SoundType.WOOD).noLootTable().strength(-1, 0)));
-
     public static final RegistryObject<Block> PORTAL_BLOCK = registerPortalBlockWithDescription("portal_block",
             () -> new PortalBlock(BlockBehaviour.Properties.of().mapColor(MapColor.ICE).strength(8, 10).sound(SoundType.GLASS)
                     .lightLevel(state -> state.getValue(PortalBlock.EYE) ? 6 : 0).isRedstoneConductor(((blockState, blockGetter, blockPos) -> false)).noLootTable(), ModItems.ACTINOLITE), "actinolite");
-
-    public static final RegistryObject<Block> THINGAMAJIG = registerBlock("thingamajig",
-            () -> new ThingamajigBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).emissiveRendering((blockState, blockGetter, blockPos) -> true).noOcclusion()));
 
 
     //- Skyland pt. 2

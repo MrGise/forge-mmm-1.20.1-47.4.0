@@ -1,7 +1,6 @@
 package net.MrGise.mmm.datagen.recipe.builders;
 
 import com.google.gson.JsonObject;
-import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.recipe.BowyeryRecipe;
 import net.minecraft.advancements.Advancement;
 import net.minecraft.advancements.AdvancementRewards;
@@ -19,6 +18,8 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.function.Consumer;
+
+import static net.MrGise.floating.helper.Methods.*;
 
 public class BowyeryRecipeBuilder implements RecipeBuilder {
     private final Item result;
@@ -58,12 +59,12 @@ public class BowyeryRecipeBuilder implements RecipeBuilder {
 
     @Override
     public void save(Consumer<FinishedRecipe> finishedRecipeConsumer, ResourceLocation recipeId) {
-        this.advancement.parent(new ResourceLocation("recipes/root"))
+        this.advancement.parent(mcr("recipes/root"))
                 .addCriterion("has_the_recipe", RecipeUnlockedTrigger.unlocked(recipeId))
                 .rewards(AdvancementRewards.Builder.recipe(recipeId)).requirements(RequirementsStrategy.OR);
 
         finishedRecipeConsumer.accept(new Result(recipeId, this.result, this.count, this.bowSlot, this.slot1, this.slot2,
-                this.advancement, new ResourceLocation(recipeId.getNamespace(), "recipes/"
+                this.advancement, nAp(recipeId.getNamespace(), "recipes/"
                 + recipeId.getPath())));
 
     }
@@ -110,8 +111,7 @@ public class BowyeryRecipeBuilder implements RecipeBuilder {
 
         @Override
         public ResourceLocation getId() {
-            return new ResourceLocation(MMM.MOD_ID,
-                    ForgeRegistries.ITEMS.getKey(this.result).getPath() + "_from_bowyery");
+            return mmm(ForgeRegistries.ITEMS.getKey(this.result).getPath() + "_from_bowyery");
         }
 
         @Override

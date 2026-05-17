@@ -57,7 +57,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.ACTINOLITE_SHOVEL.get());
                         output.accept(ModItems.ACTINOLITE_HOE.get());
                         output.accept(ModItems.ACTINOLITE_KNIFE.get());
-                        output.accept(ModItems.ACTINOLITE_PAXEL.get());
 
                         //- Skiron
                         output.accept(ModBlocks.SKIRON_ORE.get());
@@ -73,8 +72,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.SKIRON_SHOVEL.get());
                         output.accept(ModItems.SKIRON_HOE.get());
                         output.accept(ModItems.SKIRON_KNIFE.get());
-                        output.accept(ModItems.SKIRON_PAXEL.get());
-                        output.accept(ModItems.SKIRON_HAMMER.get());
 
                         output.accept(ModItems.SKIRON_SHIELD.get());
 
@@ -171,11 +168,6 @@ public class ModCreativeModeTabs {
                         output.accept(ItemUtils.enchantedBook(
                                 new EnchantmentInstance(Enchantments.INFINITY_ARROWS, 1),
                                 new EnchantmentInstance(Enchantments.MENDING, 1)));
-                        Enchantment enchantment1 = ModEnchantments.LIGHTENING_STRIKER.get();
-                        for (int level = enchantment1.getMinLevel(); level <= enchantment1.getMaxLevel(); level++) {
-                            ItemStack enchantedBook = ItemUtils.enchantedBook(new EnchantmentInstance(enchantment1, level));
-                            output.accept(enchantedBook);
-                        }
                         Enchantment enchantment2 = ModEnchantments.AIR_WALK.get();
                         for (int level = enchantment2.getMinLevel(); level <= enchantment2.getMaxLevel(); level++) {
                             ItemStack enchantedBook = ItemUtils.enchantedBook(new EnchantmentInstance(enchantment2, level));
@@ -234,7 +226,7 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder()
                     .withTabsBefore(DIMENSIONS.getId(), MMM_CUISINE.getId(),
                             OVERWORLD.getId(), STRUCTURES.getId())
-                    .icon(() -> new ItemStack(ModItems.ORE_DETECTOR.get()))
+                    .icon(() -> new ItemStack(ModItems.LIT_CANDLE.get(), 5))
                     .title(Component.translatable("creativetab.tools_and_misc")).displayItems((displayParameters, output) -> {
                         output.accept(ModItems.REINFORCED_STONE_BOW.get());
                         output.accept(ModItems.REINFORCED_IRON_BOW.get());
@@ -274,11 +266,6 @@ public class ModCreativeModeTabs {
                         output.accept(ModItems.DIRECTORY_TEST.get());
 
                         output.accept(ModBlocks.BIRTHDAY_CAKE.get());
-
-                        output.accept(ModItems.ORE_DETECTOR.get());
-                        output.accept(ModItems.ORE_REDETECTOR.get());
-
-                        output.accept(ModBlocks.SOUND_BLOCK.get());
 
                         output.accept(ModBlocks.PORTAL_BLOCK.get());
                         output.accept(ModCreateBlocks.CONNECTING_PORTAL_BLOCK.get());

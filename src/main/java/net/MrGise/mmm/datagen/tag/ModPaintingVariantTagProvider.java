@@ -11,7 +11,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
 
-    // Painting Variant Tag provider
+import static net.MrGise.floating.helper.Methods.*;
+
+// Painting Variant Tag provider
 public class ModPaintingVariantTagProvider extends PaintingVariantTagsProvider {
     public ModPaintingVariantTagProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> provider, @Nullable ExistingFileHelper existingFileHelper) {
         super(output, provider, MMM.MOD_ID, existingFileHelper);
@@ -25,6 +27,6 @@ public class ModPaintingVariantTagProvider extends PaintingVariantTagsProvider {
 
 
     private ResourceLocation modLoc(String input) {
-        return new ResourceLocation(MMM.MOD_ID, input);
+        return mmm(input);
     }
 }

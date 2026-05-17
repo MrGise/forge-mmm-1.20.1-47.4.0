@@ -17,8 +17,6 @@ public class ModSounds {
     public static final DeferredRegister<SoundEvent> SOUND_EVENTS =
             DeferredRegister.create(ForgeRegistries.SOUND_EVENTS, MMM.MOD_ID);
 
-    public static final RegistryObject<SoundEvent> ORE_DETECTOR_SUCCESS = registerSoundEvent("ore_detector_success");
-
     public static final RegistryObject<SoundEvent> NULL_BLOCK_BREAK = registerSoundEvent("null_block_break");
     public static final RegistryObject<SoundEvent> NULL_BLOCK_HIT = registerSoundEvent("null_block_hit");
     public static final RegistryObject<SoundEvent> NULL_BLOCK_STEP = registerSoundEvent("null_block_step");
@@ -51,7 +49,7 @@ public class ModSounds {
     //| Registration methods
 
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
-        ResourceLocation id = new ResourceLocation(MMM.MOD_ID, name);
+        ResourceLocation id = mmm(name);
         return SOUND_EVENTS.register(name, s(SoundEvent.createVariableRangeEvent(id)));
     }
 

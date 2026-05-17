@@ -25,13 +25,13 @@ public class EffectArmorItem extends ArmorItem {
         super(pMaterial, pType, pProperties);
     }
 
+    boolean applyEffect = true;
     @Override
     public void onArmorTick(ItemStack stack, Level level, Player player) {
 
-        boolean applyEffect = true;
 
         if(player.isShiftKeyDown()) {
-            if (applyEffect == true) {
+            if (applyEffect) {
                 applyEffect = false;
             }
         }

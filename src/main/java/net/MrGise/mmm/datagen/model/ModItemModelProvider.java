@@ -25,6 +25,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
+import static net.MrGise.floating.helper.Methods.*;
+
 // Generates item models
 public class ModItemModelProvider extends ItemModelProvider {
 
@@ -52,8 +54,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         simpleItem(ModItems.DROPPY_LIKES_RICOCHET_MUSIC_DISC);
         simpleItem(ModItems.DROPPY_LIKES_EVERYTHING_MUSIC_DISC);
         simpleItem(ModItems.TUNE_MUSIC_DISC);
-
-        simpleItem(ModItems.ORE_DETECTOR);
 
         //- Food
 
@@ -133,7 +133,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.ACTINOLITE_SHOVEL);
         handheldItem(ModItems.ACTINOLITE_HOE);
         handheldItem(ModItems.ACTINOLITE_KNIFE);
-        handheldItem(ModItems.ACTINOLITE_PAXEL);
 
         handheldItem(ModItems.SKIRON_SWORD);
         handheldItem(ModItems.SKIRON_PICKAXE);
@@ -141,8 +140,6 @@ public class ModItemModelProvider extends ItemModelProvider {
         handheldItem(ModItems.SKIRON_SHOVEL);
         handheldItem(ModItems.SKIRON_HOE);
         handheldItem(ModItems.SKIRON_KNIFE);
-        handheldItem(ModItems.SKIRON_PAXEL);
-        handModelItem(ModItems.SKIRON_HAMMER, modLoc("custom/skiron_hammer"), new Texture("0", "block/skiron_hammer"));
 
         handModelItem(ModItems.ROLLING_PIN, modLoc("custom/rolling_pin"), new Texture("all", "item/tool/rolling_pin"));
 
@@ -216,14 +213,14 @@ public class ModItemModelProvider extends ItemModelProvider {
                 : item.getId().getPath();
 
         return withExistingParent(modelPath,
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(MMM.MOD_ID, "block/" + texturePath));
+                mcr("item/generated")).texture("layer0",
+                mmm("block/" + texturePath));
     }
 
     private ItemModelBuilder notSoSimpleItem(RegistryObject<Item> item, String name) {
         return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath() + name));
+                mcr("item/generated")).texture("layer0",
+                mmm("item/" + item.getId().getPath() + name));
     }
 
     private void itemWithPredicate(Item item, String predicateName,
@@ -233,33 +230,33 @@ public class ModItemModelProvider extends ItemModelProvider {
                 .parent(getExistingFile(baseModel));
 
         builder.override()
-                .predicate(new ResourceLocation(MMM.MOD_ID, predicateName), 1.0f)
+                .predicate(mmm(predicateName), 1.0f)
                 .model(getExistingFile(overrideModel));
     }
 
     /* Normal Items */
     private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/handheld")).texture("layer0",
-                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
+                mcr("item/handheld")).texture("layer0",
+                mmm("item/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder handheldItem(RegistryObject<Item> item, ResourceLocation texture) {
         return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/handheld")).texture("layer0",
+                mcr("item/handheld")).texture("layer0",
                 texture);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
         return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
+                mcr("item/generated")).texture("layer0",
+                mmm("item/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder simpleItemDirFix(RegistryObject<Item> item) {
         return withExistingParent("item/" + item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
+                mcr("item/generated")).texture("layer0",
+                mmm("item/" + item.getId().getPath()));
     }
 
     private SeparateTransformModelBuilder handModelItem(
@@ -269,10 +266,7 @@ public class ModItemModelProvider extends ItemModelProvider {
             Texture... modelTextures) {
 
         // Construct the proper output path: modid:item/item_name
-        ResourceLocation outputLoc = new ResourceLocation(
-                item.getId().getNamespace(),
-                "item/" + item.getId().getPath()
-        );
+        ResourceLocation outputLoc = nAp(item.getId().getNamespace(), "item/" + item.getId().getPath());
 
         SeparateTransformModelBuilder builder =
                 new SeparateTransformModelBuilder(outputLoc, existingFileHelper)
@@ -305,8 +299,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item) {
         return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
+                mcr("item/generated")).texture("layer0",
+                mmm("item/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder tallBlockItemWithDirPF(RegistryObject<Block> item, String dirPF) {
@@ -315,34 +309,33 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     private ItemModelBuilder tallBlockItem(RegistryObject<Block> item) {
         return withExistingParent(item.getId().getPath(),
-                ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "item/tall_generated")).texture("layer0",
-                new ResourceLocation(MMM.MOD_ID, "item/" + item.getId().getPath()));
+                mmm("item/tall_generated")).texture("layer0",
+                mmm("item/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder tallBlockItem(RegistryObject<Block> item, String prefix, String suffix) {
         return withExistingParent(item.getId().getPath(),
-                ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "item/tall_generated")).texture("layer0",
-                new ResourceLocation(MMM.MOD_ID, "item/" + prefix + item.getId().getPath() + suffix));
+                mmm("item/tall_generated")).texture("layer0",
+                mmm("item/" + prefix + item.getId().getPath() + suffix));
     }
 
     private ItemModelBuilder simpleBlockItem(RegistryObject<Block> item, String textureName) {
         return withExistingParent(item.getId().getPath(),
-                new ResourceLocation("item/generated")).texture("layer0",
-                new ResourceLocation(MMM.MOD_ID, textureName));
+                mcr("item/generated")).texture("layer0", mmm(textureName));
     }
 
     public void fenceItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/fence_inventory"))
-                .texture("texture",  new ResourceLocation(MMM.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+                .texture("texture", mmm("block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
 
     public void wallItem(RegistryObject<Block> block, RegistryObject<Block> baseBlock) {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/wall_inventory"))
-                .texture("wall",  new ResourceLocation(MMM.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
+                .texture("wall", mmm("block/" + ForgeRegistries.BLOCKS.getKey(baseBlock.get()).getPath()));
     }
 
     public void buttonItem(RegistryObject<Block> block, RegistryObject<Block> blockTexture) {
         this.withExistingParent(ForgeRegistries.BLOCKS.getKey(block.get()).getPath(), mcLoc("block/button_inventory"))
-                .texture("texture",  new ResourceLocation(MMM.MOD_ID, "block/" + ForgeRegistries.BLOCKS.getKey(blockTexture.get()).getPath()));
+                .texture("texture",  mmm("block/" + ForgeRegistries.BLOCKS.getKey(blockTexture.get()).getPath()));
     }
 }

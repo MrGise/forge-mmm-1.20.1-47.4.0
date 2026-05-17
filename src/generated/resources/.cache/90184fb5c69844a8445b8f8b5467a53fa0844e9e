@@ -1,10 +1,9 @@
-// 1.20.1	2026-05-11T16:48:00.7266574	Item Models: mmm
+// 1.20.1	2026-05-17T19:14:44.0815036	Item Models: mmm
 4b12200ca3fac2057d27e77507d76d35940039e3 assets/mmm/models/item/acacia_triple_door.json
 cab82837fca58f2721c0a61040837f5ce1a3b78f assets/mmm/models/item/actinolite.json
 22c4a40423e2f812fb3fcaacc80c0e9da5536ff6 assets/mmm/models/item/actinolite_axe.json
 5063c3aca9442c362cd08a209a0d02bb98a9acf0 assets/mmm/models/item/actinolite_hoe.json
 d0ae67ac3675abf8617cbe02b650dc3bc951a6bb assets/mmm/models/item/actinolite_knife.json
-1b16428e6223ba2cceb104bdc68835f4b3bac5a9 assets/mmm/models/item/actinolite_paxel.json
 9804b6bda9456b58518303a95fc7368d7164916d assets/mmm/models/item/actinolite_pickaxe.json
 69339e29edecbfdf1aab287b464d65faeab2b5a2 assets/mmm/models/item/actinolite_shovel.json
 367230e390c7ede5f2c1f21626f033e2d7d163ee assets/mmm/models/item/actinolite_sword.json
@@ -54,7 +53,6 @@ ec286205cd26bb8f8ed80fc879a041e9df50d488 assets/mmm/models/item/magenta_candle_l
 64f25ce7df635c897d472fd141870dca0c9ccad8 assets/mmm/models/item/mangrove_triple_door.json
 10d6607cf44fad92a260b8dbe68feb177b939382 assets/mmm/models/item/oak_triple_door.json
 975320415e46f9928a395d860791030dd03ca87e assets/mmm/models/item/orange_candle_lit.json
-3aa7745531bc59f021f6fd049478607e6f8c4163 assets/mmm/models/item/ore_detector.json
 a002a7a67e81babda70fb3362fcb2faf9f66383d assets/mmm/models/item/oxalis.json
 35913d9843aa4c059d2caf9eebcf92da10b61193 assets/mmm/models/item/pink_candle_lit.json
 a8ef5a9929ec62a67bc620faca13fa7344bfacdf assets/mmm/models/item/purple_candle_lit.json
@@ -65,12 +63,10 @@ d79cad8a64f8ab2ab89491c6b8c1653861ce876f assets/mmm/models/item/red_candle_lit.j
 e050e2c53da18fe2bd4f204c58b8486ce648a7a9 assets/mmm/models/item/rolling_pin.json
 79ec4cf78de0324e7687bd13bee02e85ac70a944 assets/mmm/models/item/skiron.json
 8faf13ba3442e94535ec78de3c5a70c23521568e assets/mmm/models/item/skiron_axe.json
-955ae4076c200d6f949369b4d6426dc4c624e04c assets/mmm/models/item/skiron_hammer.json
 b6fddcc0e020c11a2204c4606b66af3f0c7223f9 assets/mmm/models/item/skiron_hoe.json
 a13caf75d7680a9274a1dd69cd873a26cba76f0e assets/mmm/models/item/skiron_horse_armor.json
 7d76dc1c85a39926bd0d706a4b194ba984a45996 assets/mmm/models/item/skiron_knife.json
 b3b35552e55f0e11ee763f3f6f9406347e1dfdc8 assets/mmm/models/item/skiron_nugget.json
-0488b5ec9469fe4ba3702617128bbd46655300b2 assets/mmm/models/item/skiron_paxel.json
 9cf13a0b3f88f3eccda692c990799967ea489c25 assets/mmm/models/item/skiron_pickaxe.json
 f81ce9c6549fa7d08f4c14b93364ca8de099c0ea assets/mmm/models/item/skiron_shovel.json
 e714c18b702e93b7ca2ce369900b61e20b3f1fae assets/mmm/models/item/skiron_sword.json

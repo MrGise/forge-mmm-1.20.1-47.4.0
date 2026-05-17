@@ -16,15 +16,19 @@ public class Methods {
     }
 
     public static ResourceLocation mmm(String path) {
-        return nAp(ModIDs.mmm.getSerializedName(), path);
+        return nAp(ModIDs.mmm(), path);
     }
 
     public static ResourceLocation crt(String path) {
-        return nAp(ModIDs.create.getSerializedName(), path);
+        return nAp(ModIDs.create(), path);
     }
 
     public static ResourceLocation mcr(String path) {
         return ResourceLocation.withDefaultNamespace(path);
+    }
+
+    public static ResourceLocation forge(String path) {
+        return nAp(ModIDs.forge(), path);
     }
 
     public static FoodProperties basicFoodProperty(int nutrition, float saturation) {

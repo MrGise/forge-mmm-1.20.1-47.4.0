@@ -10,6 +10,8 @@ import net.minecraft.world.level.storage.loot.predicates.LootItemRandomChanceCon
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 
+import static net.MrGise.floating.helper.Methods.*;
+
 // Generates loot table modifiers
 public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
     public ModGlobalLootModifierProvider(PackOutput output) {
@@ -21,20 +23,20 @@ public class ModGlobalLootModifierProvider extends GlobalLootModifierProvider {
         //. Loot modifiers here
 
         add("cucumber_from_plains_village_chest", new AddItemModifierC(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("chests/village/village_plains_house")).build(),
+                new LootTableIdCondition.Builder(mcr("chests/village/village_plains_house")).build(),
                 LootItemRandomChanceCondition.randomChance(0.3f).build()
         }, ModItems.CUCUMBER.get(), 3));
         add("cucumber_seeds_from_plains_village_chest", new AddItemModifierC(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("chests/village/village_plains_house")).build(),
+                new LootTableIdCondition.Builder(mcr("chests/village/village_plains_house")).build(),
                 LootItemRandomChanceCondition.randomChance(0.35f).build()
         }, ModItems.CUCUMBER_SEEDS.get(), 5));
 
         add("cucumber_from_taiga_village_chest", new AddItemModifierC(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("chests/village/village_taiga_house")).build(),
+                new LootTableIdCondition.Builder(mcr("chests/village/village_taiga_house")).build(),
                 LootItemRandomChanceCondition.randomChance(0.3f).build()
         }, ModItems.CUCUMBER.get(), 5));
         add("cucumber_seeds_from_taiga_village_chest", new AddItemModifierC(new LootItemCondition[] {
-                new LootTableIdCondition.Builder(new ResourceLocation("chests/village/village_taiga_house")).build(),
+                new LootTableIdCondition.Builder(mcr("chests/village/village_taiga_house")).build(),
                 LootItemRandomChanceCondition.randomChance(0.35f).build()
         }, ModItems.CUCUMBER_SEEDS.get(), 7));
     }

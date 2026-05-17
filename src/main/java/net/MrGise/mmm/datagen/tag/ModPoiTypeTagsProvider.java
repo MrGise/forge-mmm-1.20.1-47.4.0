@@ -4,12 +4,13 @@ import net.MrGise.mmm.MMM;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.PoiTypeTagsProvider;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.PoiTypeTags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.concurrent.CompletableFuture;
+
+import static net.MrGise.floating.helper.Methods.*;
 
 public class ModPoiTypeTagsProvider extends PoiTypeTagsProvider {
     public ModPoiTypeTagsProvider(PackOutput output, CompletableFuture<HolderLookup.Provider> future, @Nullable ExistingFileHelper existingFileHelper) {
@@ -17,8 +18,8 @@ public class ModPoiTypeTagsProvider extends PoiTypeTagsProvider {
     }
 
     @Override
-    protected void addTags(HolderLookup.Provider p_256206_) {
+    protected void addTags(HolderLookup.Provider provider) {
         tag(PoiTypeTags.ACQUIRABLE_JOB_SITE)
-                .addOptional(new ResourceLocation(MMM.MOD_ID, "bowyery_poi"));
+                .addOptional(mmm("bowyery_poi"));
     }
 }

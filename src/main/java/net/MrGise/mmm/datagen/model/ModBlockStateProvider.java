@@ -55,10 +55,6 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModCreateBlocks.EXAMPLE_CONNECTION.get());
 
-        blockWithItem(ModBlocks.SOUND_BLOCK);
-
-        rotatingBlockWithItem(ModBlocks.THINGAMAJIG, new ResourceLocation(MMM.MOD_ID, "block/thingamajig"));
-
         //-- Normal blocks
 
         uniqueCubeRotate(ModBlocks.BOWYERY_TABLE.get(), "bowyery_table",
@@ -74,7 +70,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         blockWithItem(ModBlocks.CHEESE_BLOCK);
 
-        block(ModBlocks.PLACED_DOUGH, new ResourceLocation("mmm", "block/dough/dough"));
+        block(ModBlocks.PLACED_DOUGH, mmm("block/dough/dough"));
 
         getVariantBuilder(ModBlocks.FLATTENING_DOUGH.get())
                 .partialState().with(FlatteningDoughBlock.SHAPE, FlatteningDoughBlock.Shape.FLATTENING)
@@ -176,8 +172,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         //. World
 
-        makeCustomCrop((CucumberCropBlock)ModBlocks.CUCUMBER.get(), "cucumber_", "cucumber_", new ResourceLocation(MMM.MOD_ID, "cucumber_base"), new ResourceLocation(MMM.MOD_ID, "cucumber_base_tiny"), "0", 5, 6);
-        makeCustomCrop((StrawberryCropBlock)ModBlocks.STRAWBERRY.get(), "strawberry", "strawberry_", new ResourceLocation(MMM.MOD_ID, "crop_cross"), new ResourceLocation(MMM.MOD_ID, "crop_cross"), "0", false, "block/strawberry");
+        makeCustomCrop((CucumberCropBlock)ModBlocks.CUCUMBER.get(), "cucumber_", "cucumber_", mmm("cucumber_base"), mmm("cucumber_base_tiny"), "0", 5, 6);
+        makeCustomCrop((StrawberryCropBlock)ModBlocks.STRAWBERRY.get(), "strawberry", "strawberry_", mmm("crop_cross"), mmm("crop_cross"), "0", false, "block/strawberry");
 
         flower(ModBlocks.OXALIS.get());
         pottedFlower(ModBlocks.POTTED_OXALIS.get(), "potted_oxalis", "oxalis");
@@ -366,7 +362,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
     }
 
     private void pottedFlower(Block block, String name, String plantName) {
-        simpleBlock(block, models().singleTexture(name, new ResourceLocation("flower_pot_cross"), "plant",
+        simpleBlock(block, models().singleTexture(name, mcr("flower_pot_cross"), "plant",
                 modLoc("block/" + plantName)).renderType("cutout"));
     }
 
@@ -595,14 +591,14 @@ public class ModBlockStateProvider extends BlockStateProvider {
         getVariantBuilder(pBlock.get()).forAllStates(state -> {
             if(state.getValue(PortalBlock.EYE)) {
                 return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_eye",
-                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_eye")))};
+                        mmm("block/" + name + "_eye")))};
             } else {
                 return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_noeye",
-                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_noeye")))};
+                        mmm("block/" + name + "_noeye")))};
             }
         });
         simpleBlockItem(pBlock.get(), models().cubeAll(name + "_eye",
-                new ResourceLocation(MMM.MOD_ID, "block/" + name + "_eye")));
+                mmm("block/" + name + "_eye")));
     }
 
     private void portalBlockAlt(Supplier<? extends Block> blockSupplier, String name) {
@@ -610,20 +606,20 @@ public class ModBlockStateProvider extends BlockStateProvider {
         getVariantBuilder(pBlock).forAllStates(state -> {
             if(state.getValue(PortalBlock.EYE)) {
                 return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_on",
-                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_on")))};
+                        mmm("block/" + name + "_on")))};
             } else {
                 return new ConfiguredModel[]{new ConfiguredModel(models().cubeAll(name + "_off",
-                        new ResourceLocation(MMM.MOD_ID, "block/" + name + "_off")))};
+                        mmm("block/" + name + "_off")))};
             }
         });
         simpleBlockItem(pBlock, models().cubeAll(name + "_on",
-                new ResourceLocation(MMM.MOD_ID, "block/" + name + "_on")));
+                mmm("block/" + name + "_on")));
     }
 
     private ConfiguredModel[] states(BlockState state, CropBlock block, String modelName, String textureName) {
         ConfiguredModel[] models = new ConfiguredModel[1];
         models[0] = new ConfiguredModel(models().crop(modelName + state.getValue(((CucumberCropBlock) block).getAgeProperty()),
-                new ResourceLocation(MMM.MOD_ID, "block/" + textureName + state.getValue(((CucumberCropBlock) block).getAgeProperty()))).renderType("cutout"));
+                mmm("block/" + textureName + state.getValue(((CucumberCropBlock) block).getAgeProperty()))).renderType("cutout"));
 
         return models;
     }
@@ -643,7 +639,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
                     new ConfiguredModel(
                             models().getBuilder(modelName + age)
                                     .parent(models().getExistingFile(isCustomStage ? customParent : defaultParent))
-                                    .texture(textureLayer, new ResourceLocation(MMM.MOD_ID, "block/" + textureName + age))
+                                    .texture(textureLayer, mmm("block/" + textureName + age))
                                     .renderType("cutout")
                     )
             };
@@ -667,8 +663,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         new ConfiguredModel(
                                 models().getBuilder(modelName + age)
                                         .parent(models().getExistingFile(isCustomStage ? customParent : defaultParent))
-                                        .texture(textureLayer, new ResourceLocation(MMM.MOD_ID, "block/" + textureName + age))
-                                        .texture("particle", new ResourceLocation(MMM.MOD_ID, customParticleName))
+                                        .texture(textureLayer, mmm("block/" + textureName + age))
+                                        .texture("particle", mmm(customParticleName))
                                         .renderType("cutout")
                         )
                 };
@@ -677,8 +673,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
                         new ConfiguredModel(
                                 models().getBuilder(modelName + age)
                                         .parent(models().getExistingFile(isCustomStage ? customParent : defaultParent))
-                                        .texture(textureLayer, new ResourceLocation(MMM.MOD_ID, "block/" + textureName + age))
-                                        .texture("particle", new ResourceLocation(MMM.MOD_ID, "block/" + textureName + age))
+                                        .texture(textureLayer, mmm("block/" + textureName + age))
+                                        .texture("particle", mmm("block/" + textureName + age))
                                         .renderType("cutout")
                         )
                 };

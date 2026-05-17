@@ -9,6 +9,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import java.util.HashMap;
 import java.util.Map;
 
+import static net.MrGise.floating.helper.Methods.*;
+
 public class SeparateTransformModelBuilder extends ModelBuilder<SeparateTransformModelBuilder> {
 
     private ResourceLocation model;
@@ -57,15 +59,15 @@ public class SeparateTransformModelBuilder extends ModelBuilder<SeparateTransfor
     }
 
     public SeparateTransformModelBuilder guiGenerated() {
-        return perspective("gui", new ResourceLocation("item/generated"), flatTexture);
+        return perspective("gui", mcr("item/generated"), flatTexture);
     }
 
     public SeparateTransformModelBuilder groundGenerated() {
-        return perspective("ground", new ResourceLocation("item/generated"), flatTexture);
+        return perspective("ground", mcr("item/generated"), flatTexture);
     }
 
     public SeparateTransformModelBuilder fixedGenerated() {
-        return perspective("fixed", new ResourceLocation("item/generated"), flatTexture);
+        return perspective("fixed", mcr("item/generated"), flatTexture);
     }
 
     public SeparateTransformModelBuilder modelInHandBasic() {
@@ -87,7 +89,7 @@ public class SeparateTransformModelBuilder extends ModelBuilder<SeparateTransfor
         }
 
         for (Map.Entry<String, String> entry : modelTextures.entrySet()) {
-            ResourceLocation texLoc = new ResourceLocation(entry.getValue());
+            ResourceLocation texLoc = mcr(entry.getValue());
             if (!existingFileHelper.exists(texLoc, PackType.CLIENT_RESOURCES, ".png", "textures")) {
                 throw new IllegalStateException("Texture " + texLoc + " does not exist, required by " + getLocation() + " for key " + entry.getKey());
             }

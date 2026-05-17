@@ -63,15 +63,9 @@ public class ModItems {
             3, ModSounds.TUNE, 800);
 
 
+    @Deprecated
     public static final RegistryObject<Item> MIMIC = registerItem("mimic",
             () -> new MimicItem(new Item.Properties().stacksTo(1)));
-
-    //-- Ore detector
-    public static final RegistryObject<Item> ORE_DETECTOR = registerItem("ore_detector",
-            () -> new OreDetectorItem(new Item.Properties().stacksTo(1).durability(512)));
-
-    public static final RegistryObject<Item> ORE_REDETECTOR = registerItem("ore_redetector",
-            () -> new OreRedetectorItem(new Item.Properties().stacksTo(1)));
 
 
     //-- Buckets
@@ -202,9 +196,6 @@ public class ModItems {
     public static final RegistryObject<Item> ACTINOLITE_KNIFE = registerKnifeItem("actinolite_knife",
             ModToolTiers.ACTINOLITE, 0, 0, 50);
 
-    public static final RegistryObject<Item> ACTINOLITE_PAXEL = registerPaxelItem("actinolite_paxel",
-            ModToolTiers.ACTINOLITE, 5.5f, -1f, 150);
-
 
     //-- Skiron
     public static final RegistryObject<Item> SKIRON = registerItem("skiron",
@@ -236,12 +227,6 @@ public class ModItems {
 
     public static final RegistryObject<Item> SKIRON_KNIFE = registerKnifeItem("skiron_knife", 
             ModToolTiers.SKIRON, 0, -1.0F, 50);
-
-    public static final RegistryObject<Item> SKIRON_PAXEL = registerPaxelItem("skiron_paxel",
-            ModToolTiers.SKIRON, 5.5f, -1f, 150);
-
-    public static final RegistryObject<Item> SKIRON_HAMMER = registerItem("skiron_hammer",
-            () -> new HammerItem(ModToolTiers.SKIRON, 1, 5, -3.5f, new Item.Properties().durability(ModToolTiers.SKIRON.getUses() - 50)));
 
     public static final RegistryObject<Item> SKIRON_SHIELD = registerItem("skiron_shield",
             () -> new ShieldItem(new Item.Properties().durability(ModToolTiers.SKIRON.getUses() - 50)));
@@ -310,7 +295,7 @@ public class ModItems {
 
     //- Horse Armor
     public static final RegistryObject<Item> SKIRON_HORSE_ARMOR = registerItem("skiron_horse_armor",
-            () -> new HorseArmorItem(6, new ResourceLocation(MMM.MOD_ID, "textures/entity/horse/armor/horse_armor_skiron.png"), new Item.Properties()));
+            () -> new HorseArmorItem(6, mmm("textures/entity/horse/armor/horse_armor_skiron.png"), new Item.Properties()));
 
 
     //. Helper Methods
@@ -350,9 +335,6 @@ public class ModItems {
     }
     private static RegistryObject<Item> registerKnifeItem(String name, Tier tier, float attackDamageMod, float attackSpeedMod, int durabilityTierMod) {
         return registerItem(name, () -> new KnifeItem(tier, attackDamageMod, attackSpeedMod, new Item.Properties().durability(tier.getUses() + durabilityTierMod)));
-    }
-    private static RegistryObject<Item> registerPaxelItem(String name, Tier tier, float attackDamageMod, float attackSpeedMod, int durabilityTierMod) {
-        return registerItem(name, () -> new PaxelItem(tier, attackDamageMod, attackSpeedMod, new Item.Properties().durability(tier.getUses() + durabilityTierMod)));
     }
 
     

@@ -20,7 +20,6 @@ import net.MrGise.mmm.registry.decorative.ModSounds;
 import net.MrGise.mmm.registry.variants.ModVillagers;
 import net.MrGise.mmm.network.ModNetwork;
 import net.MrGise.mmm.screen.bowyery_table.BowyeryTableScreen;
-import net.MrGise.mmm.screen.thingamajig.ThingamajigScreen;
 import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.core.BlockSource;
 import net.minecraft.core.Direction;
@@ -35,7 +34,6 @@ import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.alchemy.Potions;
-import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
@@ -150,9 +148,6 @@ public class MMM {
             AxeItem.STRIPPABLES = newMap;
 
 
-            BrewingRecipeRegistry.addRecipe(new BetterBrewingRecipe(Potions.SLOWNESS, Items.SLIME_BALL, ModPotions.LIQUID_SLIME.get()));
-
-
             ModTriggers.register();
 
 
@@ -210,7 +205,7 @@ public class MMM {
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
         if(event.getTabKey() == CreativeModeTabs.FUNCTIONAL_BLOCKS) {
-            event.accept(ModBlocks.THINGAMAJIG);
+            event.accept(ModBlocks.BOWYERY_TABLE);
         }
     }
 
@@ -229,7 +224,6 @@ public class MMM {
             event.enqueueWork(() -> {
                 ModItemProperties.addCustomItemProperties();
 
-                MenuScreens.register(ModMenuTypes.THINGAMAJIG_MENU.get(), ThingamajigScreen::new);
                 MenuScreens.register(ModMenuTypes.BOWYERY_TABLE_MENU.get(), BowyeryTableScreen::new);
             });
         }

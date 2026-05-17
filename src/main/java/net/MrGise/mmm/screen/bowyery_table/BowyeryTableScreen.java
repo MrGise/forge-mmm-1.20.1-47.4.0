@@ -1,7 +1,6 @@
 package net.MrGise.mmm.screen.bowyery_table;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import net.MrGise.mmm.MMM;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import net.minecraft.client.renderer.GameRenderer;
@@ -9,9 +8,11 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
+import static net.MrGise.floating.helper.Methods.*;
+
 public class BowyeryTableScreen extends AbstractContainerScreen<BowyeryTableMenu> {
     private static final ResourceLocation TEXTURE =
-            new ResourceLocation(MMM.MOD_ID, "textures/gui/bowyery_table/bowyery_table_gui.png");
+            mmm("textures/gui/bowyery_table/bowyery_table_gui.png");
 
 
     public BowyeryTableScreen(BowyeryTableMenu menu, Inventory inv, Component title) {

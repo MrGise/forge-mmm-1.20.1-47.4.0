@@ -8,6 +8,8 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
+import static net.MrGise.floating.helper.Methods.*;
+
 // Creating custom tags
 public class ModTags {
 
@@ -37,11 +39,11 @@ public class ModTags {
 
 
         private static TagKey<Item> tag(String name) {
-            return ItemTags.create(new ResourceLocation(MMM.MOD_ID, name));
+            return ItemTags.create(mmm(name));
         }
 
         private static TagKey<Item> forgeTag(String name) {
-            return ItemTags.create(new ResourceLocation("forge", name));
+            return ItemTags.create(forge(name));
         }
 
     }
@@ -68,10 +70,10 @@ public class ModTags {
 
 
         private static TagKey<Block> tag(String name) {
-            return BlockTags.create(new ResourceLocation(MMM.MOD_ID, name));
+            return BlockTags.create(forge(name));
         }
         private static TagKey<Block> forgeTag(String name) {
-            return BlockTags.create(new ResourceLocation("forge", name));
+            return BlockTags.create(forge(name));
         }
 
     }
