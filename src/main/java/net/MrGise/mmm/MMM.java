@@ -178,13 +178,23 @@ public class MMM {
 
                     RandomSource random = level.getRandom();
 
-                    for (int i = 0; i < 60; i++) {
+                    for (int i = 0; i < 10; i++) {
                         double sideOffset = (random.nextDouble() - 0.5) * scatter;
                         double upOffset = (random.nextDouble() - 0.5) * scatter;
 
                         Vec3 velocityVec = forward.add(right.scale(sideOffset)).add(up.scale(upOffset)).scale(velocity).normalize();
 
                         level.sendParticles(ModParticles.CONFETTI.get(),
+                                position.x() + forward.x(), position.y() + forward.y(), position.z() + forward.z(),
+                                0, velocityVec.x(), velocityVec.y(), velocityVec.z(), 1);
+                    }
+                    for (int i = 0; i < 80; i++) {
+                        double sideOffset = (random.nextDouble() - 0.5) * scatter;
+                        double upOffset = (random.nextDouble() - 0.5) * scatter;
+
+                        Vec3 velocityVec = forward.add(right.scale(sideOffset)).add(up.scale(upOffset)).scale(velocity).normalize();
+
+                        level.sendParticles(ModParticles.SMALL_CONFETTI.get(),
                                 position.x() + forward.x(), position.y() + forward.y(), position.z() + forward.z(),
                                 0, velocityVec.x(), velocityVec.y(), velocityVec.z(), 1);
                     }

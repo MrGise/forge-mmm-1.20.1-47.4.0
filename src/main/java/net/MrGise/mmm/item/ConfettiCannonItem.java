@@ -35,13 +35,23 @@ public class ConfettiCannonItem extends Item {
             Vec3 up = player.getUpVector(1.0f).normalize();
             Vec3 right = lookAngle.cross(up).normalize();
 
-            for (int i = 0; i < 60; i++) {
+            for (int i = 0; i < 10; i++) {
                 double sideOffset = (random.nextDouble() - 0.5) * scatter;
                 double upOffset = (random.nextDouble() - 0.5) * scatter;
 
                 Vec3 velocityVec = lookAngle.add(right.scale(sideOffset)).add(up.scale(upOffset)).scale(velocity).normalize();
 
                 level.addParticle(ModParticles.CONFETTI.get(),
+                        player.getX() + lookAngle.x() / spawnDist, player.getEyeY() + lookAngle.y() / spawnDist, player.getZ() + lookAngle.z() / spawnDist,
+                        velocityVec.x(), velocityVec.y(), velocityVec.z());
+            }
+            for (int i = 0; i < 80; i++) {
+                double sideOffset = (random.nextDouble() - 0.5) * scatter;
+                double upOffset = (random.nextDouble() - 0.5) * scatter;
+
+                Vec3 velocityVec = lookAngle.add(right.scale(sideOffset)).add(up.scale(upOffset)).scale(velocity).normalize();
+
+                level.addParticle(ModParticles.SMALL_CONFETTI.get(),
                         player.getX() + lookAngle.x() / spawnDist, player.getEyeY() + lookAngle.y() / spawnDist, player.getZ() + lookAngle.z() / spawnDist,
                         velocityVec.x(), velocityVec.y(), velocityVec.z());
             }

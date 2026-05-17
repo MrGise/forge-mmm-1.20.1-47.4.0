@@ -4,11 +4,9 @@ import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.particle.*;
 import net.minecraft.core.particles.SimpleParticleType;
 
-public class ConfettiParticle extends TextureSheetParticle {
-    private final SpriteSet sprites;
-
-    protected ConfettiParticle (ClientLevel level, double x, double y, double z,
-                           SpriteSet sprites, double xSpeed, double ySpeed, double zSpeed) {
+public class SmallConfettiParticle extends TextureSheetParticle {
+    protected SmallConfettiParticle(ClientLevel level, double x, double y, double z,
+                                    SpriteSet sprites, double xSpeed, double ySpeed, double zSpeed) {
         super(level, x, y, z, xSpeed, ySpeed, zSpeed);
 
         this.xd = xSpeed;
@@ -17,7 +15,7 @@ public class ConfettiParticle extends TextureSheetParticle {
 
         this.friction = 1f;
 
-        this.quadSize = 0.5f;
+        this.quadSize = 0.75f;
         this.lifetime = 100 + this.random.nextIntBetweenInclusive(-10, 10);
 
         this.rCol = this.random.nextBoolean() ? 1 : 0;
@@ -42,12 +40,11 @@ public class ConfettiParticle extends TextureSheetParticle {
         this.gCol = this.gCol * 0.9f;
         this.bCol = this.bCol * 0.9f;
 
-        this.sprites = sprites;
-        this.pickSprite(this.sprites);
+        this.setSpriteFromAge(sprites);
     }
 
-    protected ConfettiParticle (ClientLevel level, double x, double y, double z,
-                           SpriteSet sprites, double xSpeed, double ySpeed, double zSpeed, float grav) {
+    protected SmallConfettiParticle(ClientLevel level, double x, double y, double z,
+                                    SpriteSet sprites, double xSpeed, double ySpeed, double zSpeed, float grav) {
         this(level, x, y, z, sprites, xSpeed, ySpeed, zSpeed);
 
         this.gravity = grav;
@@ -66,29 +63,7 @@ public class ConfettiParticle extends TextureSheetParticle {
         }
 
         public Particle createParticle(SimpleParticleType particleType, ClientLevel level, double x, double y, double z, double xSpeed, double ySpeed, double zSpeed) {
-            return new ConfettiParticle(level, x, y, z, this.sprites, xSpeed, ySpeed, zSpeed, 0.8f);
+            return new SmallConfettiParticle(level, x, y, z, this.sprites, xSpeed, ySpeed, zSpeed, 0.95f);
         }
-    }
-
-    private int spriteLoopCounterMax = 8;
-    private int spriteLoopCounter = 0;
-    @Override
-    public void tick() {
-        super.tick();
-        if (this.spriteLoopCounter != this.spriteLoopCounterMax) {
-            this.spriteLoopCounter++;
-        } else {
-            this.spriteLoopCounter = 0;
-            this.pickSprite(this.sprites);
-        }
-    }
-
-    private int spriteLoop = 1;
-    private int spriteLoopMax = 2;
-    @Override
-    public void pickSprite(SpriteSet spriteSet) {
-        this.setSprite(spriteSet.get(this.spriteLoop, 2));
-        this.spriteLoop++;
-        if (this.spriteLoop > this.spriteLoopMax) {this.spriteLoop = 1;}
     }
 }
