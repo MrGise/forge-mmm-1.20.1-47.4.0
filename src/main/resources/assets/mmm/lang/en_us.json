@@ -236,6 +236,10 @@
   "creativetab.mmm_cuisine": "Kitchen & Farm's Products",
 
 
+  "tooltip.mmm.liquid.amount": "%s mB",
+  "tooltip.mmm.liquid.amount.with.capacity": "%s / %s mB",
+
+
   "menu.mmm.race_selection": "Race Selection",
   "menu.mmm.race_selection.no_race": "No race selected",
 

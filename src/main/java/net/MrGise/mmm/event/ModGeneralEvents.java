@@ -5,6 +5,7 @@ import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.command.*;
 import net.MrGise.mmm.datagen.advancement.ModTriggers;
 import net.MrGise.mmm.item.HammerItem;
+import net.MrGise.mmm.network.OpenScreenPacket;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.content.ModFluids;
 import net.MrGise.mmm.registry.content.ModItems;
@@ -21,6 +22,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.SimpleMenuProvider;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.entity.npc.VillagerProfession;
 import net.minecraft.world.entity.npc.VillagerTrades;
@@ -72,7 +74,9 @@ public class ModGeneralEvents {
 
             MMM.LOGGER.info("Player {} joined for the first time!", player.getName().getString());
 
-            Minecraft.getInstance().setScreen(new RaceSelectionScreen());
+            if (player instanceof ServerPlayer serverPlayer) {
+                ModNetwork.sendToPlayer(serverPlayer, new OpenScreenPacket("race_selection"));
+            }
         } else {
             if (data.getBoolean("mmm.first")) {
                 persistent.putBoolean("mmm.first", false);

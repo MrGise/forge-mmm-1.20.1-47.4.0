@@ -35,6 +35,7 @@ Branch: Course branch
 - 9/5/2026: text y fix
 - 14/5/2026: Added Confetti for my birthday, which is On the same day as Minecraft's!
 - 15/5/2026: Finished splitting project
+- 21/5/2026: Added fluid handling to Thingamajig
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)

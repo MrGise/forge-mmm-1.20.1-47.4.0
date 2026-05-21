@@ -29,10 +29,14 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.energy.IEnergyStorage;
+import net.minecraftforge.fluids.FluidStack;
+import net.minecraftforge.fluids.capability.IFluidHandler;
+import net.minecraftforge.fluids.capability.templates.FluidTank;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import org.jetbrains.annotations.NotNull;
@@ -51,7 +55,8 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
         @Override
         public boolean isItemValid(int slot, @NotNull ItemStack stack) {
             return switch (slot) {
-                case 0, 1 -> true;
+                case 0 -> true;
+                case 1 -> stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).isPresent();
                 case 2 -> false;
                 case 3 -> stack.getItem().isEdible();
                 default -> super.isItemValid(slot, stack);
@@ -75,12 +80,31 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
                     new InventoryDirectionEntry(Direction.UP, INPUT_SLOT, true)).directionsMap;
 
     private LazyOptional<IEnergyStorage> lazyEnergyHandler = LazyOptional.empty();
+    private LazyOptional<IFluidHandler> lazyFluidHandler = LazyOptional.empty();
 
     protected final ContainerData data;
     private int progress = 0;
     private int maxProgress = 70;
 
     private final FloatingEnergyStorage ENERGY_STORAGE = createEnergyStorage();
+    private final FluidTank FLUID_TANK = createFluidTank();
+
+    private FluidTank createFluidTank() {
+        return new FluidTank(64000) {
+            @Override
+            protected void onContentsChanged() {
+                setChanged();
+                if (!level.isClientSide) {
+                    level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+                }
+            }
+
+            @Override
+            public boolean isFluidValid(FluidStack stack) {
+                return true;
+            }
+        };
+    }
 
     private FloatingEnergyStorage createEnergyStorage() {
         return new FloatingEnergyStorage(64000, 200) {
@@ -148,6 +172,10 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
             return lazyEnergyHandler.cast();
         }
 
+        if (cap == ForgeCapabilities.FLUID_HANDLER) {
+            return lazyFluidHandler.cast();
+        }
+
         if (cap == ForgeCapabilities.ITEM_HANDLER) {
             if (side == null) {
                 return lazyItemHandler.cast();
@@ -177,6 +205,7 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
         super.onLoad();
         lazyItemHandler = LazyOptional.of(() -> itemHandler);
         lazyEnergyHandler = LazyOptional.of(() -> ENERGY_STORAGE);
+        lazyFluidHandler = LazyOptional.of(() -> FLUID_TANK);
     }
 
     @Override
@@ -184,6 +213,7 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
         super.invalidateCaps();
         lazyItemHandler.invalidate();
         lazyEnergyHandler.invalidate();
+        lazyFluidHandler.invalidate();
     }
 
     @Override
@@ -191,6 +221,7 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
         tag.put("inventory", itemHandler.serializeNBT());
         tag.putInt("progress", progress);
         tag.putInt("energy", ENERGY_STORAGE.getEnergyStored());
+        tag = FLUID_TANK.writeToNBT(tag);
 
         super.saveAdditional(tag);
     }
@@ -202,10 +233,12 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
         itemHandler.deserializeNBT(tag.getCompound("inventory"));
         progress = tag.getInt("progress");
         ENERGY_STORAGE.setEnergy(tag.getInt("energy"));
+        FLUID_TANK.readFromNBT(tag);
     }
 
     public void tick(Level level, BlockPos pos, BlockState state) {
         fillUpOnEnergy();
+        fillUpOnFluid();
 
         if (hasRecipe()) {
             progressCrafting();
@@ -214,12 +247,52 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
 
             if (finishedCrafting()) {
                 craftItem();
+                extractFluid();
                 resetProgress();
             }
         } else {
             removeProgressGradually(2);
         }
 
+    }
+
+    public FluidStack getFluid() {
+        return FLUID_TANK.getFluid();
+    }
+
+    private void extractFluid() {
+        this.FLUID_TANK.drain(500, IFluidHandler.FluidAction.EXECUTE);
+    }
+
+    private void fillUpOnFluid() {
+        if (hasFluidSourceInSlot(FLUID_INPUT_SLOT)) {
+            transferFluidItemToTank(FLUID_INPUT_SLOT);
+        }
+    }
+
+    private void transferFluidItemToTank(int slot) {
+        this.itemHandler.getStackInSlot(slot).getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM)
+                .ifPresent(handler -> {
+            int drainAmount = Math.min(this.FLUID_TANK.getSpace(), 1000);
+
+            FluidStack stack = handler.drain(drainAmount, IFluidHandler.FluidAction.SIMULATE);
+            if (stack.getFluid() == Fluids.WATER) {
+                stack = handler.drain(drainAmount, IFluidHandler.FluidAction.EXECUTE);
+                fillTank(stack, handler.getContainer());
+            }
+        });
+    }
+
+    private void fillTank(FluidStack stack, ItemStack container) {
+        this.FLUID_TANK.fill(new FluidStack(stack.getFluid(), stack.getAmount()), IFluidHandler.FluidAction.EXECUTE);
+
+        this.itemHandler.extractItem(FLUID_INPUT_SLOT, 1, false);
+        this.itemHandler.insertItem(FLUID_INPUT_SLOT, container, false);
+    }
+
+    private boolean hasFluidSourceInSlot(int slot) {
+        return this.itemHandler.getStackInSlot(slot).getCount() > 0 &&
+                this.itemHandler.getStackInSlot(slot).getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).isPresent();
     }
 
     private void extractEnergy() {
@@ -278,7 +351,11 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
         ItemStack result = recipe.get().getResultItem(getLevel().registryAccess());
 
         return isOutputFillable(result.getCount()) && canFillOutput(result.getItem()) &&
-                hasSufficientEnergy();
+                hasSufficientEnergy() && hasSufficientFluid();
+    }
+
+    private boolean hasSufficientFluid() {
+        return this.FLUID_TANK.getFluidAmount() >= 500;
     }
 
     private boolean hasSufficientEnergy() {
@@ -317,4 +394,5 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
     public void onDataPacket(Connection net, ClientboundBlockEntityDataPacket pkt) {
         super.onDataPacket(net, pkt);
     }
+
 }
