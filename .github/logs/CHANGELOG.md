@@ -39,6 +39,7 @@ Branch: Main branch
 - 17/5/2026: Confettier!
 - 17/5/2026: Confettierer!
 - 17/5/2026: Removed Unnecessary stuff
+- 21/5/2026: Fixed the race selection menu crashing when the onPlayerFirstJoin event is activated
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)

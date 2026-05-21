@@ -4,14 +4,13 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.command.*;
 import net.MrGise.mmm.datagen.advancement.ModTriggers;
+import net.MrGise.mmm.network.OpenScreenPacket;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.content.ModFluids;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.registry.variables.ModTags;
 import net.MrGise.mmm.network.ModNetwork;
 import net.MrGise.mmm.network.SyncAllKnowingPacket;
-import net.MrGise.mmm.screen.race_selection.RaceSelectionScreen;
-import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -65,7 +64,9 @@ public class ModGeneralEvents {
 
             MMM.LOGGER.info("Player {} joined for the first time!", player.getName().getString());
 
-            Minecraft.getInstance().setScreen(new RaceSelectionScreen());
+            if (player instanceof ServerPlayer serverPlayer) {
+                ModNetwork.sendToPlayer(serverPlayer, new OpenScreenPacket("race_selection"));
+            }
         } else {
             if (data.getBoolean("mmm.first")) {
                 persistent.putBoolean("mmm.first", false);
