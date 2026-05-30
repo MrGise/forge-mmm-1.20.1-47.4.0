@@ -16,6 +16,7 @@ public class ModTags {
     public static class Items {
 
         public static final TagKey<Item> HOLEABLE = tag("tools/holeable");
+        public static final TagKey<Item> MIXER_TOOL = tag("tools/mixer");
 
         public static final TagKey<Item> SKIRON_BLOCKS = forgeTag("storage_blocks/skiron");
         public static final TagKey<Item> SKIRON_INGOTS = forgeTag("ingots/skiron");
