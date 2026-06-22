@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mmm:food/strawberry_seeds_from_food/strawberry"
+        "recipe": "mmm:strawberry_seeds_from_strawberry"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "mmm:food/strawberry_seeds_from_food/strawberry"
+      "mmm:strawberry_seeds_from_strawberry"
     ]
   },
   "sends_telemetry_event": false

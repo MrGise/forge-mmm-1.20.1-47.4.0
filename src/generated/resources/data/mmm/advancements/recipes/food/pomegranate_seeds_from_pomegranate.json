@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mmm:food/pomegranate_seeds_from_food/pomegranate"
+        "recipe": "mmm:pomegranate_seeds_from_pomegranate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "mmm:food/pomegranate_seeds_from_food/pomegranate"
+      "mmm:pomegranate_seeds_from_pomegranate"
     ]
   },
   "sends_telemetry_event": false

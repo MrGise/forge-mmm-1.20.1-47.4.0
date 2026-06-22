@@ -1,4 +1,4 @@
-// 1.20.1	2026-06-22T17:55:12.9711173	Recipes
+// 1.20.1	2026-06-22T19:59:45.3715552	Recipes
 d6246e5792128ef35b5ee8b0b98b36ce3301c8fb data/minecraft/advancements/recipes/bow.json
 9bf30c7e56a845fc0fa3c439e2b4545b00319b07 data/minecraft/advancements/recipes/misc/raw_skiron.json
 4c83603835f8249cba18cee48bc8bfb70050a193 data/minecraft/advancements/recipes/misc/raw_skiron_block.json
@@ -34,12 +34,12 @@ f066eb2f4da00fc6ac1ebe064204257dcbaf64e6 data/mmm/advancements/recipes/combat/sk
 e82960041f42934367bbd9c61f3dafdcd563dc00 data/mmm/advancements/recipes/combat/skiron_helmet.json
 11b1c7d22df7b6dc7fec3a5ddfa13ff6999a5a50 data/mmm/advancements/recipes/combat/skiron_leggings.json
 fad59674e32b6ec8fbf6de85b9fce1d2d7e798c3 data/mmm/advancements/recipes/combat/skiron_sword.json
-73fbbd4e0b5b07edcc100cce8f77d676adb61ebc data/mmm/advancements/recipes/food/food/cucumber_seeds_from_food/cucumber.json
-513f02d91ae96769d26f4f5daf7d1cb0fc00c14b data/mmm/advancements/recipes/food/food/pomegranate_seeds_from_food/pomegranate.json
-baaeacd73bf826ff7dd5918a13fa0c88f67c10e6 data/mmm/advancements/recipes/food/food/strawberry_seeds_from_food/strawberry.json
+f10e52a7e6ca5fd41433c8f5c56db3e5a4c5a2bc data/mmm/advancements/recipes/food/cucumber_seeds_from_cucumber.json
 8aee018d226e226b467ff938a3347194d3c604d8 data/mmm/advancements/recipes/food/matza_from_campfire_cooking_dough.json
 0edcedb88dc42ebe5201e25bddca23a4afcd9eb7 data/mmm/advancements/recipes/food/matza_from_smelting_dough.json
 4ba01da20d6da8e48f381e6130f221d31cc87cb0 data/mmm/advancements/recipes/food/matza_from_smoking_dough.json
+441bb9a97ce54d84254f32d1a71e84bf63ce80f0 data/mmm/advancements/recipes/food/pomegranate_seeds_from_pomegranate.json
+88146d58321b50f9873063c219dec490128fdea9 data/mmm/advancements/recipes/food/strawberry_seeds_from_strawberry.json
 9b56995808ce5891c0429240d231efb33b7cf63c data/mmm/advancements/recipes/misc/glide_armor_trim.json
 768c6b16686b061678fd206b5e674b1e70c13226 data/mmm/advancements/recipes/misc/gold_key.json
 6601b3dc8978d21061fc32d751723f8267143905 data/mmm/advancements/recipes/misc/rainstone_bucket.json
@@ -83,9 +83,7 @@ e04c01188934a400d79e3b3ee32ddd2a8d1e3bfa data/mmm/recipes/boiled_egg_single.json
 b284da0cb43d44d0e6c708b99cfe9fb069999bdf data/mmm/recipes/boiled_egg_triple.json
 e75c3426510f66ec062e9a921f4565bc4e162663 data/mmm/recipes/bow_from_bowyery.json
 6789db5222b74e07a7f95e44c41d2f7cf75fd555 data/mmm/recipes/cucumber_cutting.json
-c3d4847ab2874b754fedbc25bd44197ccfaa44f6 data/mmm/recipes/food/cucumber_seeds_from_food/cucumber.json
-ca275c21f92ffee471a6efd25da7538f7f0e1f05 data/mmm/recipes/food/pomegranate_seeds_from_food/pomegranate.json
-b3d3a7adeac5a9add2538cf9bdd4f8e753ad3f89 data/mmm/recipes/food/strawberry_seeds_from_food/strawberry.json
+c3d4847ab2874b754fedbc25bd44197ccfaa44f6 data/mmm/recipes/cucumber_seeds_from_cucumber.json
 4eee6a76e2b0c3ce563cbe3b17994245c751d3e2 data/mmm/recipes/glide_armor_trim.json
 8d81750cf3976d0f65257b082e6c989bd23ce216 data/mmm/recipes/gold_key.json
 b9a96dd82085ee206e700ad0367b17d363ba1a22 data/mmm/recipes/honeyed_apple_slicing.json
@@ -97,7 +95,8 @@ b38f34d694d8383bc4e331556be266a482d484b5 data/mmm/recipes/mimic_carrot.json
 00d37f290f878cc28fa2ebca756f686c9b7ce703 data/mmm/recipes/mimic_chest.json
 f0e5764469529d1d175bbb0730a35d456c6543a0 data/mmm/recipes/mimic_shulker_box.json
 6f31e0652dfa491b7d78dde6ced8b5186ae56b56 data/mmm/recipes/pomegranate_cutting.json
-f4020d9ec7e9f75fc656ae74f0c4e5725886bc02 data/mmm/recipes/rainstone_bucket.json
+ca275c21f92ffee471a6efd25da7538f7f0e1f05 data/mmm/recipes/pomegranate_seeds_from_pomegranate.json
+32d458a6e803a239abc7c5ed8c1be47994d34759 data/mmm/recipes/rainstone_bucket.json
 f1312edecedd38b801ca180cae4d9774ae62d3eb data/mmm/recipes/reinforced_actinolite_bow_from_bowyery.json
 24b206524f22b55be5717edef4ed575e4a15085c data/mmm/recipes/reinforced_diamond_bow_from_bowyery.json
 8fb95337d38647646d23e7a95a369f4f5e026b69 data/mmm/recipes/reinforced_gold_bow_from_bowyery.json
@@ -134,3 +133,4 @@ c0d8293bb67536ca70c895ed300d85fdec7d4772 data/mmm/recipes/skoal_from_smelting_sk
 cb04047d753fdf90c675d02d3f19c7b34150bd5e data/mmm/recipes/skywood_slab.json
 9c5dd4ad3f4d99c7c51cc683eee1f17db3fc4e94 data/mmm/recipes/skywood_stairs.json
 556b18e340a099c9ca0f938b97f0665532625eac data/mmm/recipes/smithing_template/glide.json
+b3d3a7adeac5a9add2538cf9bdd4f8e753ad3f89 data/mmm/recipes/strawberry_seeds_from_strawberry.json

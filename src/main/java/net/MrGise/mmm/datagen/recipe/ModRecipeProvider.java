@@ -79,10 +79,10 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         cuttingRecipe(pWriter, Ingredient.of(AllItems.HONEYED_APPLE), ModItems.HONEYED_APPLE_SLICE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
                 8, 1.0f, "honeyed_apple_slicing");
 
-        exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.POMEGRANATE_SLICES), ModItems.POMEGRANATE.get(), ModItems.POMEGRANATE_SEEDS.get(), 16);
+        exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.POMEGRANATE_SLICES), ModItems.POMEGRANATE.get(), "food/", ModItems.POMEGRANATE_SEEDS.get(), "food/", 16);
 
-        exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.CUCUMBERS), ModItems.CUCUMBER.get(), ModItems.CUCUMBER_SEEDS.get());
-        exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.STRAWBERRIES), ModItems.STRAWBERRY.get(), ModItems.STRAWBERRY_SEEDS.get());
+        exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.CUCUMBERS), ModItems.CUCUMBER.get(), "food/", ModItems.CUCUMBER_SEEDS.get(), "food/");
+        exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.STRAWBERRIES), ModItems.STRAWBERRY.get(), "food/", ModItems.STRAWBERRY_SEEDS.get(), "food/");
 
         //: Magic
         shapelessRecipe(pWriter, RecipeCategory.MISC, ModItems.RAINSTONE_BUCKET.get(), 1, ModItems.RAINSTONE_SHARD.get(),
@@ -346,6 +346,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapelessRecipeBuilder.shapeless(category, result, count).requires(ingredient)
                 .unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(finishedRecipeConsumer,
                         mmm(result.asItem().toString().toLowerCase() + "_from_" + unlockedBy.asItem().toString().toLowerCase()));
+    }
+
+    protected static void exchangeRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer, RecipeCategory category,
+                                            Ingredient ingredient, ItemLike unlockedBy, String ingredientPrefix, ItemLike result, String resultPrefix, int count) {
+        ShapelessRecipeBuilder.shapeless(category, result, count).requires(ingredient)
+                .unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(finishedRecipeConsumer,
+                        mmm(result.asItem().toString().toLowerCase().replaceFirst(resultPrefix, "") + "_from_" + unlockedBy.asItem().toString().toLowerCase().replaceFirst(ingredientPrefix, "")));
+    }
+
+    protected static void exchangeRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer, RecipeCategory category,
+                                            Ingredient ingredient, ItemLike unlockedBy, String ingredientPrefix, ItemLike result, String resultPrefix) {
+        exchangeRecipe(finishedRecipeConsumer, category, ingredient, unlockedBy, ingredientPrefix, result, resultPrefix, 1);
     }
 
     protected static void nineItemIngotRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pUnpackedCategory,
