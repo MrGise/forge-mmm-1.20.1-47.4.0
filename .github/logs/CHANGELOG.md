@@ -42,6 +42,7 @@ Branch: Main branch
 - 21/5/2026: Fixed the race selection menu crashing when the onPlayerFirstJoin event is activated
 - 30/5/2026: We're going bowling now!
 - 22/6/2026: An incomplete bowl update
+  - 22/6/2026: small fix
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)
