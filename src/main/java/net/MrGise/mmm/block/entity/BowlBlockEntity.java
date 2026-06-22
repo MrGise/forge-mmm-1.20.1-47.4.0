@@ -1,13 +1,21 @@
 package net.MrGise.mmm.block.entity;
 
+import net.MrGise.mmm.recipe.BowlRecipe;
 import net.MrGise.mmm.registry.content.ModBlockEntities;
 import net.MrGise.mmm.registry.variables.ModTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
+import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.Tag;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BundleItem;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.material.Fluids;
@@ -21,8 +29,14 @@ import net.minecraftforge.fluids.capability.templates.FluidTank;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
+import java.util.Optional;
+
 public class BowlBlockEntity extends BlockEntity {
-    private SimpleContainer storedItems = new SimpleContainer(16);
+    public static final int MAX_WEIGHT = 128;
+    private final NonNullList<ItemStack> storedItems = NonNullList.create();
+
+    private BowlRecipe currentRecipe;
 
     public enum ClickResult {
         INSERT, TAKE, POUR, TAKE_FLUID, MIX
@@ -31,6 +45,28 @@ public class BowlBlockEntity extends BlockEntity {
     public BowlBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.BOWL_BE.get(), pos, state);
     }
+
+
+    public static int getSingleWeight(ItemStack stack) {
+        if (stack.is(Items.BUNDLE)) {
+            return BundleItem.BUNDLE_IN_BUNDLE_WEIGHT;
+        }
+
+        return 64 / stack.getMaxStackSize();
+    }
+
+    public static int getWeight(ItemStack stack) {
+        return getSingleWeight(stack) * stack.getCount();
+    }
+
+    public int getContentWeight() {
+        return storedItems.stream().mapToInt(BowlBlockEntity::getWeight).sum();
+    }
+
+    public int getFreeWeight() {
+        return MAX_WEIGHT - this.getContentWeight();
+    }
+
 
     private LazyOptional<IFluidHandler> lazyFluidHandler = LazyOptional.empty();
 
@@ -53,6 +89,77 @@ public class BowlBlockEntity extends BlockEntity {
         };
     }
 
+
+    public BowlRecipe getRecipe() {
+        return this.currentRecipe;
+    }
+
+
+    private int craftProgress = 0;
+    public void startCrafting(Level level) {
+        Optional<BowlRecipe> recipe = level.getRecipeManager().getAllRecipesFor(BowlRecipe.Type.INSTANCE)
+                .stream().filter(r -> r.matches(this.storedItems(), this.getFluid()))
+                .findFirst();
+
+        if (recipe.isEmpty()) return;
+
+        this.currentRecipe = recipe.get();
+        this.craftProgress = 1;
+
+        setChanged();
+    }
+
+    public void progressCrafting(Level level) {
+        if (getRecipe() == null || getRecipe().matches(this.storedItems, this.getFluid())) {
+            cancelCrafting();
+            return;
+        }
+
+        this.craftProgress ++;
+
+        if (this.craftProgress >= getRecipe().getCraftLength()) {
+            completeCrafting(level);
+        }
+
+        setChanged();
+    }
+
+    private void cancelCrafting() {
+        this.craftProgress = 0;
+        this.currentRecipe = null;
+        setChanged();
+    }
+
+    private void completeCrafting(Level level) {
+        if (getRecipe() == null) return;
+
+        for (Ingredient ingredient : getRecipe().getIngredients()) {
+            for (int i = 0; i < this.storedItems.size(); i++) {
+                if (ingredient.test(this.storedItems.get(i))) {
+                    this.storedItems.get(i).shrink(1);
+                    if (this.storedItems.get(i).isEmpty()) {
+                        this.storedItems.remove(i);
+                    }
+                    break;
+                }
+            }
+        }
+
+        if (getRecipe().requiresFluid()) {
+            this.FLUID_TANK.drain(getRecipe().getRequiredFluid().getRequiredAmount(), IFluidHandler.FluidAction.EXECUTE);
+        }
+
+        addItem(getRecipe().getResultItem(level.registryAccess()));
+
+        cancelCrafting();
+    }
+
+
+    public boolean isCrafting() {
+        return craftProgress > 0 && currentRecipe != null;
+    }
+
+
     public FluidStack getFluid() {
         return FLUID_TANK.getFluid();
     }
@@ -65,9 +172,9 @@ public class BowlBlockEntity extends BlockEntity {
         inputFluid(player.getItemInHand(hand), getDrain(player.getItemInHand(hand), 1000));
     }
 
-    public void inputFluid(ItemStack stack, int drain) {
+    public void inputFluid(ItemStack stack, int maxDrain) {
         stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).ifPresent(handler -> {
-            int toDrain = Math.min(FLUID_TANK.getSpace(), drain);
+            int toDrain = Math.min(FLUID_TANK.getSpace(), maxDrain);
 
             FluidStack simulated = handler.drain(toDrain, IFluidHandler.FluidAction.SIMULATE);
 
@@ -77,6 +184,21 @@ public class BowlBlockEntity extends BlockEntity {
                 FluidStack drained = handler.drain(accepted, IFluidHandler.FluidAction.EXECUTE);
 
                 FLUID_TANK.fill(drained, IFluidHandler.FluidAction.EXECUTE);
+            }
+        });
+    }
+
+    public void takeFluid(Player player, InteractionHand hand) {
+        takeFluid(player.getItemInHand(hand), 1000);
+    }
+
+    public void takeFluid(ItemStack stack, int maxInput) {
+        stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).ifPresent(handler -> {
+            int accepted = handler.fill(this.FLUID_TANK.getFluid(), IFluidHandler.FluidAction.SIMULATE);
+
+            if (accepted > 0) {
+                int toDrain = Math.min(accepted, Math.min(FLUID_TANK.getSpace(), maxInput));
+                handler.fill(this.FLUID_TANK.drain(accepted, IFluidHandler.FluidAction.EXECUTE), IFluidHandler.FluidAction.EXECUTE);
             }
         });
     }
@@ -99,7 +221,7 @@ public class BowlBlockEntity extends BlockEntity {
         return super.getCapability(cap, side);
     }
 
-    public SimpleContainer storedItems() {
+    public List<ItemStack> storedItems() {
         return this.storedItems;
     }
 
@@ -109,9 +231,6 @@ public class BowlBlockEntity extends BlockEntity {
         }
         if (stack.is(ModTags.Items.MIXER_TOOL)) {
             return ClickResult.MIX;
-        }
-        if (stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).isPresent()) {
-
         }
         return stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).map(handler -> {
             int accepted = handler.fill(
@@ -124,11 +243,30 @@ public class BowlBlockEntity extends BlockEntity {
     }
 
     public ItemStack addItem(ItemStack stack) {
-        ItemStack remainder = this.storedItems.addItem(stack);
+        int freeWeight = getFreeWeight();
 
+        int typeWeight = getSingleWeight(stack);
+        int toInsert = Math.min(stack.getCount(), freeWeight / typeWeight);
+
+        if (toInsert <= 0) {
+            return stack;
+        }
+
+        ItemStack inserted = stack.copyWithCount(toInsert);
+
+        for (ItemStack existing : this.storedItems) {
+            if (ItemStack.isSameItemSameTags(existing, inserted)) {
+                existing.grow(toInsert);
+                stack.shrink(toInsert);
+                setChanged();
+                return stack;
+            }
+        }
+        storedItems.add(inserted);
+        stack.shrink(toInsert);
         setChanged();
 
-        return remainder;
+        return stack;
     }
 
     public void addItem(Player player, InteractionHand hand) {
@@ -136,30 +274,51 @@ public class BowlBlockEntity extends BlockEntity {
     }
 
     public void takeItem(Player player, InteractionHand hand) {
-        int containerSize = getLastContainerIndex();
-        ItemStack extracted = storedItems().removeItem(containerSize, storedItems().getItem(containerSize).getCount());
+        ItemStack extracted = takeType();
 
         if (!player.addItem(extracted)) {
             player.drop(extracted, false);
         }
     }
 
+    public ItemStack takeType() {
+        if (storedItems().isEmpty()) return ItemStack.EMPTY;
+
+        ItemStack stack = storedItems.remove(0);
+
+        setChanged();
+        return stack;
+    }
+
     @Override
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
 
-        ContainerHelper.saveAllItems(tag, this.storedItems.items);
+        ListTag itemsTag = new ListTag();
+        for (ItemStack stack : this.storedItems) {
+            if (!stack.isEmpty()) {
+                CompoundTag stackTag = new CompoundTag();
+                stack.save(stackTag);
+                itemsTag.add(stackTag);
+            }
+        }
 
-        tag = FLUID_TANK.writeToNBT(tag);
+        tag.put("Items", itemsTag);
+
+        FLUID_TANK.writeToNBT(tag);
     }
 
     @Override
     public void load(CompoundTag tag) {
         super.load(tag);
 
-        this.storedItems.clearContent();
+        this.storedItems.clear();
 
-        ContainerHelper.loadAllItems(tag, this.storedItems.items);
+        ListTag itemsTag = tag.getList("Items", Tag.TAG_COMPOUND);
+
+        for (int i = 0; i < itemsTag.size(); i++) {
+            this.storedItems.add(ItemStack.of(itemsTag.getCompound(i)));
+        }
 
         FLUID_TANK.readFromNBT(tag);
     }
@@ -178,9 +337,5 @@ public class BowlBlockEntity extends BlockEntity {
 
     public void drops() {
         Containers.dropContents(this.level, this.worldPosition, this.storedItems);
-    }
-
-    private int getLastContainerIndex() {
-        return storedItems().getContainerSize() - 1;
     }
 }

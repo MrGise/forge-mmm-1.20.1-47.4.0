@@ -3,22 +3,22 @@
   "category": "misc",
   "ingredients": [
     {
+      "item": "mmm:rainstone_shard"
+    },
+    {
+      "item": "mmm:rainstone_shard"
+    },
+    {
+      "item": "mmm:rainstone_shard"
+    },
+    {
+      "item": "mmm:rainstone_shard"
+    },
+    {
       "item": "mmm:solidified_mana"
     },
     {
       "item": "minecraft:bucket"
-    },
-    {
-      "item": "mmm:rainstone_shard"
-    },
-    {
-      "item": "mmm:rainstone_shard"
-    },
-    {
-      "item": "mmm:rainstone_shard"
-    },
-    {
-      "item": "mmm:rainstone_shard"
     }
   ],
   "result": {

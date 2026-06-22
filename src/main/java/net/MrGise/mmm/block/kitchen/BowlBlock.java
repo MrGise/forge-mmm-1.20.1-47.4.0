@@ -5,7 +5,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
@@ -31,7 +30,7 @@ public class BowlBlock extends BaseEntityBlock {
     @Override
     public InteractionResult use(BlockState state, Level level, BlockPos pos, Player player, InteractionHand hand, BlockHitResult result) {
         if (level.getBlockEntity(pos) instanceof BowlBlockEntity be) {
-            switch(be.getClickResult(player.getItemInHand(hand))) {
+            switch (be.getClickResult(player.getItemInHand(hand))) {
                 case INSERT -> {
                     be.addItem(player, hand);
                     return InteractionResult.SUCCESS;
@@ -45,7 +44,16 @@ public class BowlBlock extends BaseEntityBlock {
                     return InteractionResult.SUCCESS;
                 }
                 case TAKE_FLUID -> {
-
+                    be.takeFluid(player, hand);
+                    return InteractionResult.SUCCESS;
+                }
+                case MIX -> {
+                    if (be.isCrafting()) {
+                        be.progressCrafting(level);
+                    } else {
+                        be.startCrafting(level);
+                    }
+                    return InteractionResult.SUCCESS;
                 }
             }
             return InteractionResult.FAIL;

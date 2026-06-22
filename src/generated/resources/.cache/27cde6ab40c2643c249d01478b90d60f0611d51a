@@ -1,4 +1,4 @@
-// 1.20.1	2026-05-17T19:14:44.0880123	Block States: mmm
+// 1.20.1	2026-06-22T17:55:12.9731195	Block States: mmm
 3842175e09f5d7432ac8c8fb19b475823dd454d9 assets/mmm/blockstates/acacia_triple_door.json
 1fd9342f3c0d5ebccf217996515f997f48dbba36 assets/mmm/blockstates/actinolite_ore.json
 2b23e4973a0af98dc778b1894f8ebc29a0feb832 assets/mmm/blockstates/bamboo_triple_door.json
@@ -22,6 +22,7 @@ d0eb6c6750dd85f72dbd22a4a21dde6e9995a61e assets/mmm/blockstates/heavenly_grass_b
 29ae318c65f5b6e5bc80bd8eb5fb16cabbba157b assets/mmm/blockstates/heavenly_grass_block_skydirt.json
 c7266fb2df197ad316989100470afa8deba2570f assets/mmm/blockstates/iron_triple_door.json
 ba000719e40c4b37decd9a35cc6d2ead134ab1cb assets/mmm/blockstates/jungle_triple_door.json
+f7b743a5244fe999a4d56e589f83a1a58e811efb assets/mmm/blockstates/kitchen/bowl.json
 7d6e63ba163712e7c2e374748594ba83fd208847 assets/mmm/blockstates/mana_ore.json
 0fa1fca474065e0ee683bb7733c40b1b40292111 assets/mmm/blockstates/mangrove_triple_door.json
 623572b930c613986c3811be3384db0a589b803b assets/mmm/blockstates/null_block.json
@@ -339,6 +340,7 @@ e89dcd1098cac52a74a731e7458bbc9d3304835f assets/mmm/models/item/connecting_porta
 1dc9f334ddd4928069ddc6f14a794467eb059f1b assets/mmm/models/item/heavenly_grass.json
 e589db46dc39d267dfef3d1cda74921d8ba9cfff assets/mmm/models/item/heavenly_grass_block.json
 6f49ba3611473085730ff1010089cf84e50433f6 assets/mmm/models/item/heavenly_grass_block_skydirt.json
+c668887b37d1ff94080a50363751e3a51a24503a assets/mmm/models/item/kitchen/bowl.json
 5fe54f55278574e17d1aec6190a656902e81259f assets/mmm/models/item/mana_ore.json
 475d84adce787d3605fce69a40b9218c377bb0d9 assets/mmm/models/item/null_block.json
 0f4ca3d72d2d94c8ff45dacfa2439df88e997e04 assets/mmm/models/item/oak_counter.json

@@ -68,6 +68,8 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         //-- Production
 
+        blockWithItemDirFix(ModBlocks.PLACED_BOWL, mmm("block/kitchen/bowl"));
+
         blockWithItem(ModBlocks.CHEESE_BLOCK);
 
         block(ModBlocks.PLACED_DOUGH, mmm("block/dough/dough"));
@@ -571,6 +573,17 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
         // item model
         itemModels().withExistingParent("item/" + path, modLoc("block/" + path));
+    }
+
+    private void blockWithItemDirFix(RegistryObject<Block> blockRO, ResourceLocation customModel) {
+        Block block = blockRO.get();
+        String path = blockRO.getId().getPath();
+
+        // blockstate
+        simpleBlock(block, models().getExistingFile(customModel));
+
+        // item model
+        itemModels().withExistingParent("item/" + path, customModel);
     }
 
     private void blockWithItem(Block block) {

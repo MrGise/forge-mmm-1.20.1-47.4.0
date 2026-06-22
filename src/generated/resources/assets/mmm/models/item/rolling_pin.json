@@ -2,7 +2,7 @@
   "base": {
     "parent": "mmm:custom/rolling_pin",
     "textures": {
-      "all": "mmm:item/tool/rolling_pin"
+      "all": "item/tool/rolling_pin"
     }
   },
   "gui_light": "front",

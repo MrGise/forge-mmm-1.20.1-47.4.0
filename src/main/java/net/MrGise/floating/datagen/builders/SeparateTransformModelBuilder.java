@@ -89,7 +89,7 @@ public class SeparateTransformModelBuilder extends ModelBuilder<SeparateTransfor
         }
 
         for (Map.Entry<String, String> entry : modelTextures.entrySet()) {
-            ResourceLocation texLoc = mcr(entry.getValue());
+            ResourceLocation texLoc = mmm(entry.getValue());
             if (!existingFileHelper.exists(texLoc, PackType.CLIENT_RESOURCES, ".png", "textures")) {
                 throw new IllegalStateException("Texture " + texLoc + " does not exist, required by " + getLocation() + " for key " + entry.getKey());
             }

@@ -124,18 +124,18 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         // Nine-to-one ratio
         nineBlockStorageRecipes(pWriter, RecipeCategory.MISC, ModItems.SKOAL.get(), RecipeCategory.MISC, ModBlocks.SKOAL_BLOCK.get(),
-                "mmm:skoal_block", "sky_ores", "mmm:skoal", null);
+                "skoal_block", "sky_ores", "skoal", null);
 
         nineBlockStorageRecipes(pWriter, RecipeCategory.MISC, ModItems.SKIRON.get(), RecipeCategory.MISC, ModBlocks.SKIRON_BLOCK.get(),
-                "mmm:skiron_block", "sky_ores", "mmm:skiron", null);
+                "skiron_block", "sky_ores", "skiron", null);
 
         nineBlockStorageRecipes(pWriter, RecipeCategory.MISC, ModItems.RAW_SKIRON.get(), RecipeCategory.MISC, ModBlocks.RAW_SKIRON_BLOCK.get(),
-                "mmm:raw_skiron_block", "sky_ores", "mmm:raw_skiron", null);
+                "raw_skiron_block", "sky_ores", "raw_skiron", null);
 
         nineItemIngotRecipes(pWriter, RecipeCategory.MISC, ModItems.SKIRON_NUGGET.get(), Ingredient.of(ModTags.Items.SKIRON_NUGGETS),
                 RecipeCategory.MISC, ModItems.SKIRON.get(), Ingredient.of(ModTags.Items.SKIRON_INGOTS),
-                "mmm:skiron_nugget_from_skiron", "sky_ores",
-                "mmm:skiron_from_nuggets", "sky_ores");
+                "skiron_nugget_from_skiron", "sky_ores",
+                "skiron_from_nuggets", "sky_ores");
 
         //| Bowyery
         bowyery(Ingredient.of(Items.STICK), Ingredient.of(Tags.Items.STRING), Ingredient.of(Tags.Items.STRING),
@@ -345,19 +345,21 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                                             Ingredient ingredient, ItemLike unlockedBy, ItemLike result, int count) {
         ShapelessRecipeBuilder.shapeless(category, result, count).requires(ingredient)
                 .unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(finishedRecipeConsumer,
-                        mcr(result.asItem().toString().toLowerCase() + "_from_" + unlockedBy.asItem().toString().toLowerCase()));
+                        mmm(result.asItem().toString().toLowerCase() + "_from_" + unlockedBy.asItem().toString().toLowerCase()));
     }
 
     protected static void nineItemIngotRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pUnpackedCategory,
-                                                ItemLike pUnpacked, Ingredient unpack, RecipeCategory pPackedCategory, ItemLike pPacked, Ingredient pack, String pPackedName, @javax.annotation.Nullable String pPackedGroup, String pUnpackedName, @javax.annotation.Nullable String pUnpackedGroup) {
+                                                ItemLike pUnpacked, Ingredient unpack, RecipeCategory pPackedCategory,
+                                               ItemLike pPacked, Ingredient pack, String pPackedName, @javax.annotation.Nullable String pPackedGroup, String pUnpackedName, @javax.annotation.Nullable String pUnpackedGroup) {
         ShapelessRecipeBuilder.shapeless(pUnpackedCategory, pUnpacked, 9)
                 .requires(pack).group(pUnpackedGroup).unlockedBy(getHasName(pPacked), has(pPacked))
-                .save(pFinishedRecipeConsumer, mcr(pUnpackedName));
+                .save(pFinishedRecipeConsumer, mmm(pUnpackedName));
         ShapedRecipeBuilder.shaped(pPackedCategory, pPacked).define('#', unpack)
                 .pattern("###")
                 .pattern("###")
                 .pattern("###")
-                .group(pPackedGroup).unlockedBy(getHasName(pUnpacked), has(pUnpacked)).save(pFinishedRecipeConsumer, mcr(pPackedName));
+                .group(pPackedGroup).unlockedBy(getHasName(pUnpacked), has(pUnpacked))
+                .save(pFinishedRecipeConsumer, mmm(pPackedName));
     }
 
     protected static void imbuedArmorRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory,
@@ -365,19 +367,19 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         ShapelessRecipeBuilder.shapeless(pCategory, pImbuedHelmet).requires(pImbued).requires(pHelmet)
                 .group(pCollectiveGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).unlockedBy(getHasName(pHelmet), has(pHelmet))
-                .save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pImbuedHelmet)));
+                .save(pFinishedRecipeConsumer, mmm(getItemName(pImbuedHelmet)));
 
         ShapelessRecipeBuilder.shapeless(pCategory, pImbuedChestplate).requires(pImbued).requires(pChestplate)
                 .group(pCollectiveGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).unlockedBy(getHasName(pChestplate), has(pChestplate))
-                .save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pImbuedChestplate)));
+                .save(pFinishedRecipeConsumer, mmm(getItemName(pImbuedChestplate)));
 
         ShapelessRecipeBuilder.shapeless(pCategory, pImbuedLeggings).requires(pImbued).requires(pLeggings)
                 .group(pCollectiveGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).unlockedBy(getHasName(pLeggings), has(pLeggings))
-                .save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pImbuedLeggings)));
+                .save(pFinishedRecipeConsumer, mmm(getItemName(pImbuedLeggings)));
 
         ShapelessRecipeBuilder.shapeless(pCategory, pImbuedBoots).requires(pImbued).requires(pBoots)
                 .group(pCollectiveGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).unlockedBy(getHasName(pBoots), has(pBoots))
-                .save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pImbuedBoots)));
+                .save(pFinishedRecipeConsumer, mmm(getItemName(pImbuedBoots)));
 
     }
 
@@ -395,7 +397,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapedRecipeBuilder.shaped(pCategory, pHelmet).define('#', pMaterial)
                 .pattern("###")
                 .pattern("# #")
-                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pHelmet)));
+                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mmm(getItemName(pHelmet)));
     }
 
     protected static void chestplateRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory,
@@ -404,7 +406,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("# #")
                 .pattern("###")
                 .pattern("###")
-                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pChestplate)));
+                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mmm(getItemName(pChestplate)));
     }
 
     protected static void leggingsRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory,
@@ -413,14 +415,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("###")
                 .pattern("# #")
                 .pattern("# #")
-                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pLeggings)));
+                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mmm(getItemName(pLeggings)));
     }
 
     protected static void bootsRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory, Ingredient pMaterial, ItemLike unlockedBy, Item pBoots, String pGroup) {
         ShapedRecipeBuilder.shaped(pCategory, pBoots).define('#', pMaterial)
                 .pattern("# #")
                 .pattern("# #")
-                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pBoots)));
+                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mmm(getItemName(pBoots)));
     }
 
     protected static void swordRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory,
@@ -432,7 +434,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("#")
                 .pattern("#")
                 .pattern("S")
-                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pResult)));
+                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mmm(getItemName(pResult)));
     }
 
     protected static void pickaxeRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory,
@@ -444,7 +446,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("###")
                 .pattern(" S ")
                 .pattern(" S ")
-                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pResult)));
+                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mmm(getItemName(pResult)));
     }
 
     protected static void axeRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory,
@@ -456,13 +458,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("##")
                 .pattern("S#")
                 .pattern("S ")
-                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pResult) + "_right"));
+                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mmm(getItemName(pResult) + "_right"));
 
         ShapedRecipeBuilder.shaped(pCategory, pResult).define('#', pMaterial).define('S', pStick)
                 .pattern("##")
                 .pattern("#S")
                 .pattern(" S")
-                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pResult) + "_left"));
+                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mmm(getItemName(pResult) + "_left"));
     }
 
     protected static void hoeRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory,
@@ -474,13 +476,13 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("##")
                 .pattern("S ")
                 .pattern("S ")
-                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pResult) + "_right"));
+                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mmm(getItemName(pResult) + "_right"));
 
         ShapedRecipeBuilder.shaped(pCategory, pResult).define('#', pMaterial).define('S', pStick)
                 .pattern("##")
                 .pattern(" S")
                 .pattern(" S")
-                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pResult) + "_left"));
+                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mmm(getItemName(pResult) + "_left"));
     }
 
     protected static void shovelRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory,
@@ -493,7 +495,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("S")
                 .pattern("S")
                 .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy))
-                .save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pResult)));
+                .save(pFinishedRecipeConsumer, mmm(getItemName(pResult)));
     }
 
     protected static void knifeRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory,
@@ -504,7 +506,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         ShapedRecipeBuilder.shaped(pCategory, pResult).define('#', pMaterial).define('S', pStick)
                 .pattern("#")
                 .pattern("S")
-                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pResult)));
+                .group(pGroup).unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(pFinishedRecipeConsumer, mmm(getItemName(pResult)));
     }
 
     protected static void hammerRecipe(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory,
@@ -516,7 +518,7 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .pattern("###")
                 .pattern(" S ")
                 .pattern(" S ")
-                .group(pGroup).unlockedBy(getHasName(pUnlockedBy), has(pUnlockedBy)).save(pFinishedRecipeConsumer, mcr(MMM.MOD_ID + ":" + getItemName(pResult)));
+                .group(pGroup).unlockedBy(getHasName(pUnlockedBy), has(pUnlockedBy)).save(pFinishedRecipeConsumer, mmm(getItemName(pResult)));
     }
 
     protected static void stairs(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory,

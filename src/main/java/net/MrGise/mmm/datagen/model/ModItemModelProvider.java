@@ -236,9 +236,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
     /* Normal Items */
     private ItemModelBuilder handheldItem(RegistryObject<Item> item) {
-        return withExistingParent(item.getId().getPath(),
-                mcr("item/handheld")).texture("layer0",
-                mmm("item/" + item.getId().getPath()));
+        return withExistingParent(item.getId().getPath(), mcr("item/handheld"))
+                .texture("layer0", mmm("item/" + item.getId().getPath()));
     }
 
     private ItemModelBuilder handheldItem(RegistryObject<Item> item, ResourceLocation texture) {
@@ -271,7 +270,7 @@ public class ModItemModelProvider extends ItemModelProvider {
         SeparateTransformModelBuilder builder =
                 new SeparateTransformModelBuilder(outputLoc, existingFileHelper)
                         .base(model, flatTexture)
-                        .addTexturesWithPrefix(MMM.MOD_ID + ":", modelTextures)
+                        .addTextures(modelTextures)
                         .modelInHandBasic();
 
         customModels.put(outputLoc, builder);
@@ -289,7 +288,7 @@ public class ModItemModelProvider extends ItemModelProvider {
     private SeparateTransformModelBuilder candleModel(
             RegistryObject<Item> item, ResourceLocation model,
             String baseTexture) {
-        return handModelItem(item, model, ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "item/candle/" + item.getId().getPath()),
+        return handModelItem(item, model, mmm("item/candle/" + item.getId().getPath()),
                 new Texture("all", baseTexture),
                 new Texture("particle", baseTexture),
                 new Texture("flame", "item/models/flame"));

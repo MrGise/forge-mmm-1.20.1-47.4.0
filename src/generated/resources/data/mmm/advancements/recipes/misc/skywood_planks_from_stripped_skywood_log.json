@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_food/pomegranate": {
+    "has_stripped_skywood_log": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mmm:food/pomegranate"
+              "mmm:stripped_skywood_log"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:food/pomegranate_seeds_from_food/pomegranate"
+        "recipe": "mmm:skywood_planks_from_stripped_skywood_log"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_food/pomegranate",
+      "has_stripped_skywood_log",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:food/pomegranate_seeds_from_food/pomegranate"
+      "mmm:skywood_planks_from_stripped_skywood_log"
     ]
   },
   "sends_telemetry_event": false

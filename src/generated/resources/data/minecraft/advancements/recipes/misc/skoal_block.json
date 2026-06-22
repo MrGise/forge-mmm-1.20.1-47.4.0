@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skoal_block": {
+    "has_skoal": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mmm:skoal_block"
+              "mmm:skoal"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mmm:skoal"
+        "recipe": "minecraft:skoal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_skoal_block",
+      "has_skoal",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mmm:skoal"
+      "minecraft:skoal_block"
     ]
   },
   "sends_telemetry_event": false

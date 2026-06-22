@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skoal": {
+    "has_food/pomegranate": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mmm:skoal"
+              "mmm:food/pomegranate"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "mmm:skoal_block"
+        "recipe": "mmm:food/pomegranate_seeds_from_food/pomegranate"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_skoal",
+      "has_food/pomegranate",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "mmm:skoal_block"
+      "mmm:food/pomegranate_seeds_from_food/pomegranate"
     ]
   },
   "sends_telemetry_event": false

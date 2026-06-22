@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_food/strawberry": {
+    "has_skywood_log": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mmm:food/strawberry"
+              "mmm:skywood_log"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:food/strawberry_seeds_from_food/strawberry"
+        "recipe": "mmm:skywood_planks_from_skywood_log"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_food/strawberry",
+      "has_skywood_log",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:food/strawberry_seeds_from_food/strawberry"
+      "mmm:skywood_planks_from_skywood_log"
     ]
   },
   "sends_telemetry_event": false

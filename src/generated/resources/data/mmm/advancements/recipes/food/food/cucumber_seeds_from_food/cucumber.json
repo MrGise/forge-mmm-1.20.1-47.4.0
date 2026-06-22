@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skywood_log": {
+    "has_food/cucumber": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mmm:skywood_log"
+              "mmm:food/cucumber"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:skywood_planks_from_skywood_log"
+        "recipe": "mmm:food/cucumber_seeds_from_food/cucumber"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_skywood_log",
+      "has_food/cucumber",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:skywood_planks_from_skywood_log"
+      "mmm:food/cucumber_seeds_from_food/cucumber"
     ]
   },
   "sends_telemetry_event": false

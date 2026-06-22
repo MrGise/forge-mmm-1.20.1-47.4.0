@@ -202,7 +202,7 @@ public class ModBlocks {
     public static final RegistryObject<Block> CHEESE_BLOCK = registerBlock("cheese_block",
             () -> new Block(BlockBehaviour.Properties.of().mapColor(MapColor.GOLD).strength(1.0f, 2.0f).sound(ModSounds.CHEESE_SOUNDS)));
 
-    public static final RegistryObject<Block> PLACED_BOWL = registerBlock_("kitchen/bowl",
+    public static final RegistryObject<Block> PLACED_BOWL = registerBlock("kitchen/bowl",
             () -> new BowlBlock(BlockBehaviour.Properties.of().instabreak().mapColor(MapColor.COLOR_BROWN).sound(SoundType.WOOD)));
 
 

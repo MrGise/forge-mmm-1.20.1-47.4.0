@@ -2,9 +2,9 @@
   "base": {
     "parent": "mmm:custom/red_candle_lit",
     "textures": {
-      "all": "mmm:item/candle/models/candle/red_candle_lit",
-      "flame": "mmm:item/models/flame",
-      "particle": "mmm:item/candle/models/candle/red_candle_lit"
+      "all": "item/candle/models/candle/red_candle_lit",
+      "flame": "item/models/flame",
+      "particle": "item/candle/models/candle/red_candle_lit"
     }
   },
   "gui_light": "front",
