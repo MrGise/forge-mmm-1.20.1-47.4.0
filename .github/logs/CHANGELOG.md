@@ -1,4 +1,4 @@
-# Changelog (last date I updated this date: 17/5/2026, My birthday! 🥳)
+# Changelog (last date I updated this date: 22/6/2026 :D)
 
 All changes to this project will be documented in this file.
 
@@ -41,6 +41,7 @@ Branch: Main branch
 - 17/5/2026: Removed Unnecessary stuff
 - 21/5/2026: Fixed the race selection menu crashing when the onPlayerFirstJoin event is activated
 - 30/5/2026: We're going bowling now!
+- 22/6/2026: An incomplete bowl update
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)
