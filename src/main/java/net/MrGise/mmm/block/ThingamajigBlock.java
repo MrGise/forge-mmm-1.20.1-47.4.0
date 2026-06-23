@@ -60,9 +60,8 @@ public class ThingamajigBlock extends BaseEntityBlock {
     @Override
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
         if (state.getBlock() != newState.getBlock()) {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-            if (blockEntity instanceof ThingamajigBlockEntity) {
-                ((ThingamajigBlockEntity) blockEntity).drops();
+            if (level.getBlockEntity(pos) instanceof ThingamajigBlockEntity blockEntity) {
+                blockEntity.drops();
             }
         }
 

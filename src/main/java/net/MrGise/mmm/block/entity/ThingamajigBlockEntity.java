@@ -50,6 +50,9 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
         @Override
         protected void onContentsChanged(int slot) {
             setChanged();
+            if (!level.isClientSide()) {
+                level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+            }
         }
 
         @Override
@@ -114,6 +117,15 @@ public class ThingamajigBlockEntity extends BlockEntity implements MenuProvider 
                 getLevel().sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
             }
         };
+    }
+
+    public ItemStack getRenderStack() {
+        ItemStack stack = itemHandler.getStackInSlot(OUTPUT_SLOT);
+        if (stack.isEmpty()) {
+            stack = itemHandler.getStackInSlot(INPUT_SLOT);
+        }
+
+        return stack;
     }
 
     public ThingamajigBlockEntity(BlockPos pos, BlockState state) {
