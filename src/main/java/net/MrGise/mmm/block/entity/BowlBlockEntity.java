@@ -110,7 +110,7 @@ public class BowlBlockEntity extends BlockEntity {
     }
 
     public void progressCrafting(Level level) {
-        if (getRecipe() == null || getRecipe().matches(this.storedItems, this.getFluid())) {
+        if (getRecipe() == null || !getRecipe().matches(this.storedItems, this.getFluid())) {
             cancelCrafting();
             return;
         }
@@ -259,6 +259,7 @@ public class BowlBlockEntity extends BlockEntity {
                 existing.grow(toInsert);
                 stack.shrink(toInsert);
                 setChanged();
+
                 return stack;
             }
         }
@@ -279,6 +280,8 @@ public class BowlBlockEntity extends BlockEntity {
         if (!player.addItem(extracted)) {
             player.drop(extracted, false);
         }
+
+        setChanged();
     }
 
     public ItemStack takeType() {
@@ -287,6 +290,7 @@ public class BowlBlockEntity extends BlockEntity {
         ItemStack stack = storedItems.remove(0);
 
         setChanged();
+
         return stack;
     }
 
@@ -321,6 +325,8 @@ public class BowlBlockEntity extends BlockEntity {
         }
 
         FLUID_TANK.readFromNBT(tag);
+
+        setChanged();
     }
 
     @Override
@@ -337,5 +343,13 @@ public class BowlBlockEntity extends BlockEntity {
 
     public void drops() {
         Containers.dropContents(this.level, this.worldPosition, this.storedItems);
+    }
+
+    @Override
+    public void setChanged() {
+        super.setChanged();
+        if (level != null && !level.isClientSide) {
+            level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
+        }
     }
 }

@@ -1,11 +1,14 @@
 package net.MrGise.mmm.event;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.block.entity.renderer.BowlBlockEntityRenderer;
 import net.MrGise.mmm.particle.ConfettiParticle;
 import net.MrGise.mmm.particle.ManaParticle;
 import net.MrGise.mmm.particle.SmallConfettiParticle;
+import net.MrGise.mmm.registry.content.ModBlockEntities;
 import net.MrGise.mmm.registry.decorative.ModParticles;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.client.event.EntityRenderersEvent;
 import net.minecraftforge.client.event.RegisterParticleProvidersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -23,4 +26,9 @@ public class ModBusClientEvents {
         event.registerSpriteSet(ModParticles.SMALL_CONFETTI.get(), SmallConfettiParticle.GravProvider::new);
     }
 
+    @SubscribeEvent
+    public static void registerBERenderers(EntityRenderersEvent.RegisterRenderers event) {
+        event.registerBlockEntityRenderer(ModBlockEntities.BOWL_BE.get(),
+                BowlBlockEntityRenderer::new);
+    }
 }

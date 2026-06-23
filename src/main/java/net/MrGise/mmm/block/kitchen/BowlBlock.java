@@ -8,9 +8,11 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
+import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
+import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
@@ -23,8 +25,8 @@ public class BowlBlock extends BaseEntityBlock {
 
     @Override
     public VoxelShape getShape(BlockState state, BlockGetter getter, BlockPos pos, CollisionContext context) {
-        return Shapes.or(Shapes.box(1.0d, 0.0d, 1.0d, 15.0d, 3.0d, 15.0d),
-                Shapes.box(2.0d, 1.0d, 2.0d, 14.0d, 3.0d, 14.0d));
+        return Shapes.join(Shapes.box(1 / 16d, 0 / 16d, 1 / 16d, 15 / 16d, 3 / 16d, 15 / 16d),
+                Shapes.box(2 / 16d, 1 / 16d, 2 / 16d, 14 / 16d, 3 / 16d, 14 / 16d), BooleanOp.NOT_SAME);
     }
 
     @Override
@@ -74,5 +76,10 @@ public class BowlBlock extends BaseEntityBlock {
             }
         }
         super.onRemove(state, level, pos, newState, isMoving);
+    }
+
+    @Override
+    public RenderShape getRenderShape(BlockState state) {
+        return RenderShape.MODEL;
     }
 }
