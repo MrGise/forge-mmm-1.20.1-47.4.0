@@ -44,6 +44,7 @@ Branch: Main branch
 - 22/6/2026: An incomplete bowl update
   - 22/6/2026: small fix
 - 23/6/2026: Added rendering and fixed some things for the bowl. It doesn't render when re-joining a world.
+- 24/6/2026: Fixed a rendering issue! (With ChatGPT's help... >~<)
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)

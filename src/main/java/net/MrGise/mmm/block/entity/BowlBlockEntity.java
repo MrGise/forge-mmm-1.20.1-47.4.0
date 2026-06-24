@@ -1,5 +1,6 @@
 package net.MrGise.mmm.block.entity;
 
+import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.recipe.BowlRecipe;
 import net.MrGise.mmm.registry.content.ModBlockEntities;
 import net.MrGise.mmm.registry.variables.ModTags;
@@ -9,6 +10,7 @@ import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket;
 import net.minecraft.world.*;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.BundleItem;
@@ -198,7 +200,7 @@ public class BowlBlockEntity extends BlockEntity {
 
             if (accepted > 0) {
                 int toDrain = Math.min(accepted, Math.min(FLUID_TANK.getSpace(), maxInput));
-                handler.fill(this.FLUID_TANK.drain(accepted, IFluidHandler.FluidAction.EXECUTE), IFluidHandler.FluidAction.EXECUTE);
+                handler.fill(this.FLUID_TANK.drain(toDrain, IFluidHandler.FluidAction.EXECUTE), IFluidHandler.FluidAction.EXECUTE);
             }
         });
     }
@@ -222,6 +224,7 @@ public class BowlBlockEntity extends BlockEntity {
     }
 
     public List<ItemStack> storedItems() {
+        MMM.LOGGER.info("Providing storedItems: {} (level.isClientSide: {})", this.storedItems.toString(), getLevel().isClientSide());
         return this.storedItems;
     }
 
@@ -348,8 +351,15 @@ public class BowlBlockEntity extends BlockEntity {
     @Override
     public void setChanged() {
         super.setChanged();
-        if (level != null && !level.isClientSide) {
-            level.sendBlockUpdated(getBlockPos(), getBlockState(), getBlockState(), 3);
-        }
+    }
+
+    @Override
+    public CompoundTag getUpdateTag() {
+        return saveWithoutMetadata();
+    }
+
+    @Override
+    public ClientboundBlockEntityDataPacket getUpdatePacket() {
+        return ClientboundBlockEntityDataPacket.create(this);
     }
 }

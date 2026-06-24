@@ -42,7 +42,9 @@ public class BowlBlockEntityRenderer implements BlockEntityRenderer<BowlBlockEnt
 
         float distFromCenter = 0.25f;
 
-        MMM.LOGGER.info("Rendering BowlBlockEntityRenderer; number of items to render are: {} (internal value: {})", items.size(), stackRenderCount);
+        MMM.LOGGER.info("Rendering BowlBlockEntityRenderer;" +
+                " number of items to render are: {} (internal value: {}) [Block Entity's storedItems: {}]",
+                items.size(), stackRenderCount, blockEntity.storedItems().toString());
 
         for (int stackIndex = 0; stackIndex < stackRenderCount; ++stackIndex) {
             poseStack.pushPose();
