@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
+import com.google.gson.annotations.Since;
 import com.simibubi.create.foundation.fluid.FluidIngredient;
 import net.MrGise.mmm.block.entity.BowlBlockEntity;
 import net.minecraft.core.NonNullList;
@@ -16,6 +17,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.fluids.FluidStack;
+import org.checkerframework.framework.qual.Unused;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
@@ -41,14 +43,18 @@ public class BowlRecipe implements Recipe<SimpleContainer> {
 
 
     public boolean matches(List<ItemStack> bowlItems, FluidStack bowlFluid) {
-        List<ItemStack> remaining = new ArrayList<>(bowlItems);
+        List<ItemStack> remaining = new ArrayList<>();
+
+        for (ItemStack stack : bowlItems) {
+            remaining.add(stack.copy());
+        }
 
         for (Ingredient ingredient : inputItems) {
             boolean found = false;
 
-            for (int i = 0; i < remaining.size(); i++) {
-                if (ingredient.test(remaining.get(i))) {
-                    remaining.remove(i);
+            for (ItemStack stack : remaining) {
+                if (!stack.isEmpty() && ingredient.test(stack)) {
+                    stack.shrink(1);
                     found = true;
                     break;
                 }
@@ -117,10 +123,6 @@ public class BowlRecipe implements Recipe<SimpleContainer> {
         return this.craftLength;
     }
 
-    public boolean continueCraft(int currentProgress) {
-        return currentProgress < getCraftLength();
-    }
-
     
     @Override
     public RecipeSerializer<?> getSerializer() {
@@ -139,7 +141,7 @@ public class BowlRecipe implements Recipe<SimpleContainer> {
     }
 
     public static class Serializer implements RecipeSerializer<BowlRecipe> {
-        public static final BowlRecipe.Serializer INSTANCE = new BowlRecipe.Serializer();
+        public static final Serializer INSTANCE = new Serializer();
         public static final ResourceLocation ID =
                 mmm("bowl");
 
@@ -165,7 +167,7 @@ public class BowlRecipe implements Recipe<SimpleContainer> {
                 return max;
             }).sum();
             if (ingredientWeight > BowlBlockEntity.MAX_WEIGHT) {
-                throw new JsonSyntaxException("Invalid ingredient count of " + ingredientWeight + " for " + ingredients);
+                throw new JsonSyntaxException("Invalid ingredient maximum weight of " + ingredientWeight + " for " + ingredients);
             }
 
             int craftLength = GsonHelper.getAsInt(json, "craft_length");
@@ -200,7 +202,7 @@ public class BowlRecipe implements Recipe<SimpleContainer> {
                 ing.toNetwork(buf);
             }
 
-            buf.writeItemStack(recipe.getResultItem(null), false);
+            buf.writeItem(recipe.result.copy());
 
             buf.writeVarInt(recipe.getCraftLength());
         }

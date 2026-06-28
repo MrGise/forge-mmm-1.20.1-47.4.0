@@ -1,8 +1,12 @@
 package net.MrGise.mmm.datagen.recipe;
 
 import com.simibubi.create.AllItems;
+import com.simibubi.create.AllTags;
 import com.simibubi.create.api.data.recipe.ProcessingRecipeGen;
+import com.simibubi.create.foundation.fluid.FluidIngredient;
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.datagen.recipe.builders.BowlRecipeBuilder;
+import net.MrGise.mmm.datagen.recipe.builders.BowlRecipeBuilderBuilder;
 import net.MrGise.mmm.datagen.recipe.builders.BowyeryRecipeBuilder;
 import net.MrGise.floating.datagen.builders.NBTSingularShapelessRecipeBuilder;
 import net.MrGise.mmm.datagen.recipe.create.MMMFillingRecipeGen;
@@ -31,9 +35,11 @@ import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.crafting.StrictNBTIngredient;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 import net.minecraftforge.fluids.FluidType;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
+import vectorwing.farmersdelight.data.ItemTags;
 import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
@@ -58,146 +64,151 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> pWriter) {
+    protected void buildRecipes(Consumer<FinishedRecipe> writer) {
         //Recipes here
 
         //- Forks
-        forkRecipe(pWriter, RecipeCategory.TOOLS, ModItems.IRON_FORK.get(),
+        forkRecipe(writer, RecipeCategory.TOOLS, ModItems.IRON_FORK.get(),
                 Ingredient.of(Tags.Items.NUGGETS_IRON), Ingredient.of(Tags.Items.INGOTS_IRON), Items.IRON_INGOT);
 
-        shapedRecipe(pWriter, RecipeCategory.MISC, ModItems.GOLD_KEY.get(), Map.of('G', Ingredient.of(Tags.Items.INGOTS_GOLD)), Items.GOLD_INGOT, "  G", "GGG", "GG ");
+        shapedRecipe(writer, RecipeCategory.MISC, ModItems.GOLD_KEY.get(), Map.of('G', Ingredient.of(Tags.Items.INGOTS_GOLD)), Items.GOLD_INGOT, "  G", "GGG", "GG ");
 
-        cuttingRecipe(pWriter, Ingredient.of(ModTags.Items.CUCUMBERS), ModItems.CUT_CUCUMBER.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
+        cuttingRecipe(writer, Ingredient.of(ModTags.Items.CUCUMBERS), ModItems.CUT_CUCUMBER.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
                 1, 1.0f, "cucumber_cutting",
                 new resultWithChance(ModItems.CUCUMBER_SEEDS.get(), 1, 0.1f));
 
-        cuttingRecipe(pWriter, Ingredient.of(ModTags.Items.POMEGRANATES), ModItems.POMEGRANATE_SLICE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
+        cuttingRecipe(writer, Ingredient.of(ModTags.Items.POMEGRANATES), ModItems.POMEGRANATE_SLICE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
                 2, 1.0f, "pomegranate_cutting");
 
-        cuttingRecipe(pWriter, Ingredient.of(Items.APPLE), ModItems.APPLE_SLICE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
+        cuttingRecipe(writer, Ingredient.of(Items.APPLE), ModItems.APPLE_SLICE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
                 8, 1.0f, "apple_slicing");
-        cuttingRecipe(pWriter, Ingredient.of(AllItems.HONEYED_APPLE), ModItems.HONEYED_APPLE_SLICE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
+        cuttingRecipe(writer, Ingredient.of(AllItems.HONEYED_APPLE), ModItems.HONEYED_APPLE_SLICE.get(), Ingredient.of(ForgeTags.TOOLS_KNIVES),
                 8, 1.0f, "honeyed_apple_slicing");
 
-        exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.POMEGRANATE_SLICES), ModItems.POMEGRANATE.get(), "food/", ModItems.POMEGRANATE_SEEDS.get(), "food/", 16);
+        exchangeRecipe(writer, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.POMEGRANATE_SLICES), ModItems.POMEGRANATE.get(), "food/", ModItems.POMEGRANATE_SEEDS.get(), "food/", 16);
 
-        exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.CUCUMBERS), ModItems.CUCUMBER.get(), "food/", ModItems.CUCUMBER_SEEDS.get(), "food/");
-        exchangeRecipe(pWriter, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.STRAWBERRIES), ModItems.STRAWBERRY.get(), "food/", ModItems.STRAWBERRY_SEEDS.get(), "food/");
+        exchangeRecipe(writer, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.CUCUMBERS), ModItems.CUCUMBER.get(), "food/", ModItems.CUCUMBER_SEEDS.get(), "food/");
+        exchangeRecipe(writer, RecipeCategory.FOOD, Ingredient.of(ModTags.Items.STRAWBERRIES), ModItems.STRAWBERRY.get(), "food/", ModItems.STRAWBERRY_SEEDS.get(), "food/");
 
         //: Magic
-        shapelessRecipe(pWriter, RecipeCategory.MISC, ModItems.RAINSTONE_BUCKET.get(), 1, ModItems.RAINSTONE_SHARD.get(),
+        shapelessRecipe(writer, RecipeCategory.MISC, ModItems.RAINSTONE_BUCKET.get(), 1, ModItems.RAINSTONE_SHARD.get(),
                 Map.of(Ingredient.of(ModItems.RAINSTONE_SHARD.get()), 4, Ingredient.of(ModItems.SOLIDIFIED_MANA.get()), 1, Ingredient.of(Items.BUCKET), 1));
 
 
         //- Actinolite tools
-        swordRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_SWORD.get(), ModItems.ACTINOLITE.get(), "sky_ores");
-        pickaxeRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_PICKAXE.get(), ModItems.ACTINOLITE.get(), "sky_ores");
-        axeRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_AXE.get(), ModItems.ACTINOLITE.get(), "sky_ores");
-        hoeRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_HOE.get(), ModItems.ACTINOLITE.get(), "sky_ores");
-        shovelRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_SHOVEL.get(), ModItems.ACTINOLITE.get(), "sky_ores");
+        swordRecipe(writer, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_SWORD.get(), ModItems.ACTINOLITE.get(), "sky_ores");
+        pickaxeRecipe(writer, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_PICKAXE.get(), ModItems.ACTINOLITE.get(), "sky_ores");
+        axeRecipe(writer, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_AXE.get(), ModItems.ACTINOLITE.get(), "sky_ores");
+        hoeRecipe(writer, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_HOE.get(), ModItems.ACTINOLITE.get(), "sky_ores");
+        shovelRecipe(writer, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), null, ModItems.ACTINOLITE_SHOVEL.get(), ModItems.ACTINOLITE.get(), "sky_ores");
 
 
         //- Skiron tools
-        swordRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.SKIRON_INGOTS), null, ModItems.SKIRON_SWORD.get(), ModItems.SKIRON.get(), "sky_ores");
-        pickaxeRecipe(pWriter, RecipeCategory.TOOLS, Ingredient.of(ModTags.Items.SKIRON_INGOTS), null, ModItems.SKIRON_PICKAXE.get(), ModItems.SKIRON.get(), "sky_ores");
-        axeRecipe(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.SKIRON_INGOTS), null, ModItems.SKIRON_AXE.get(), ModItems.SKIRON.get(), "sky_ores");
-        shovelRecipe(pWriter, RecipeCategory.TOOLS, Ingredient.of(ModTags.Items.SKIRON_INGOTS), null, ModItems.SKIRON_SHOVEL.get(), ModItems.SKIRON.get(), "sky_ores");
-        hoeRecipe(pWriter, RecipeCategory.TOOLS, Ingredient.of(ModTags.Items.SKIRON_INGOTS), null, ModItems.SKIRON_HOE.get(), ModItems.SKIRON.get(), "sky_ores");
+        swordRecipe(writer, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.SKIRON_INGOTS), null, ModItems.SKIRON_SWORD.get(), ModItems.SKIRON.get(), "sky_ores");
+        pickaxeRecipe(writer, RecipeCategory.TOOLS, Ingredient.of(ModTags.Items.SKIRON_INGOTS), null, ModItems.SKIRON_PICKAXE.get(), ModItems.SKIRON.get(), "sky_ores");
+        axeRecipe(writer, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.SKIRON_INGOTS), null, ModItems.SKIRON_AXE.get(), ModItems.SKIRON.get(), "sky_ores");
+        shovelRecipe(writer, RecipeCategory.TOOLS, Ingredient.of(ModTags.Items.SKIRON_INGOTS), null, ModItems.SKIRON_SHOVEL.get(), ModItems.SKIRON.get(), "sky_ores");
+        hoeRecipe(writer, RecipeCategory.TOOLS, Ingredient.of(ModTags.Items.SKIRON_INGOTS), null, ModItems.SKIRON_HOE.get(), ModItems.SKIRON.get(), "sky_ores");
 
-        armorRecipes(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.SKIRON_INGOTS), ModItems.SKIRON.get(), ModItems.SKIRON_HELMET.get(), ModItems.SKIRON_CHESTPLATE.get(), ModItems.SKIRON_LEGGINGS.get(), ModItems.SKIRON_BOOTS.get(), "sky_ores");
+        armorRecipes(writer, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.SKIRON_INGOTS), ModItems.SKIRON.get(), ModItems.SKIRON_HELMET.get(), ModItems.SKIRON_CHESTPLATE.get(), ModItems.SKIRON_LEGGINGS.get(), ModItems.SKIRON_BOOTS.get(), "sky_ores");
 
-        imbuedArmorRecipes(pWriter, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), ModItems.ACTINOLITE.get(),
+        imbuedArmorRecipes(writer, RecipeCategory.COMBAT, Ingredient.of(ModTags.Items.ACTINOLITE), ModItems.ACTINOLITE.get(),
                 ModItems.SKIRON_HELMET.get(), ModItems.SKIRON_CHESTPLATE.get(), ModItems.SKIRON_LEGGINGS.get(), ModItems.SKIRON_BOOTS.get(),
                 ModItems.SKIRON_ACTINOLITE_HELMET.get(), ModItems.SKIRON_ACTINOLITE_CHESTPLATE.get(), ModItems.SKIRON_ACTINOLITE_LEGGINGS.get(), ModItems.SKIRON_ACTINOLITE_BOOTS.get(), "sky_ores");
 
         //region Mimics
-        mimicDisguise("carrot", pWriter, RecipeCategory.MISC, ModItems.MIMIC.get(), Items.CARROT, ModItems.MIMIC.get(), "mimic_carrot");
+        mimicDisguise("carrot", writer, RecipeCategory.MISC, ModItems.MIMIC.get(), Items.CARROT, ModItems.MIMIC.get(), "mimic_carrot");
 
-        mimicDisguise("chest", pWriter, RecipeCategory.MISC, ModItems.MIMIC.get(), Blocks.CHEST.asItem(), ModBlocks.MIMIC_BLOCK.get(), "mimic_chest");
-        mimicDisguise("shulker_box", pWriter, RecipeCategory.MISC, ModItems.MIMIC.get(), Blocks.SHULKER_BOX.asItem(), ModBlocks.MIMIC_BLOCK.get(), "mimic_shulker_box");
+        mimicDisguise("chest", writer, RecipeCategory.MISC, ModItems.MIMIC.get(), Blocks.CHEST.asItem(), ModBlocks.MIMIC_BLOCK.get(), "mimic_chest");
+        mimicDisguise("shulker_box", writer, RecipeCategory.MISC, ModItems.MIMIC.get(), Blocks.SHULKER_BOX.asItem(), ModBlocks.MIMIC_BLOCK.get(), "mimic_shulker_box");
         //End
 
         //-- Trims
-        trimSmithing(pWriter, ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get(), mmm("glide_armor_trim"));
+        trimSmithing(writer, ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get(), mmm("glide_armor_trim"));
 
-        copySmithingTemplate(pWriter, ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModBlocks.BROKEN_SKYSOLID.get());
+        copySmithingTemplate(writer, ModItems.GLIDE_ARMOR_TRIM_SMITHING_TEMPLATE.get(), ModBlocks.BROKEN_SKYSOLID.get());
 
         // Nine-to-one ratio
-        nineBlockStorageRecipes(pWriter, RecipeCategory.MISC, ModItems.SKOAL.get(), RecipeCategory.MISC, ModBlocks.SKOAL_BLOCK.get(),
+        nineBlockStorageRecipes(writer, RecipeCategory.MISC, ModItems.SKOAL.get(), RecipeCategory.MISC, ModBlocks.SKOAL_BLOCK.get(),
                 "skoal_block", "sky_ores", "skoal", null);
 
-        nineBlockStorageRecipes(pWriter, RecipeCategory.MISC, ModItems.SKIRON.get(), RecipeCategory.MISC, ModBlocks.SKIRON_BLOCK.get(),
+        nineBlockStorageRecipes(writer, RecipeCategory.MISC, ModItems.SKIRON.get(), RecipeCategory.MISC, ModBlocks.SKIRON_BLOCK.get(),
                 "skiron_block", "sky_ores", "skiron", null);
 
-        nineBlockStorageRecipes(pWriter, RecipeCategory.MISC, ModItems.RAW_SKIRON.get(), RecipeCategory.MISC, ModBlocks.RAW_SKIRON_BLOCK.get(),
+        nineBlockStorageRecipes(writer, RecipeCategory.MISC, ModItems.RAW_SKIRON.get(), RecipeCategory.MISC, ModBlocks.RAW_SKIRON_BLOCK.get(),
                 "raw_skiron_block", "sky_ores", "raw_skiron", null);
 
-        nineItemIngotRecipes(pWriter, RecipeCategory.MISC, ModItems.SKIRON_NUGGET.get(), Ingredient.of(ModTags.Items.SKIRON_NUGGETS),
+        nineItemIngotRecipes(writer, RecipeCategory.MISC, ModItems.SKIRON_NUGGET.get(), Ingredient.of(ModTags.Items.SKIRON_NUGGETS),
                 RecipeCategory.MISC, ModItems.SKIRON.get(), Ingredient.of(ModTags.Items.SKIRON_INGOTS),
                 "skiron_nugget_from_skiron", "sky_ores",
                 "skiron_from_nuggets", "sky_ores");
 
         //| Bowyery
         bowyery(Ingredient.of(Items.STICK), Ingredient.of(Tags.Items.STRING), Ingredient.of(Tags.Items.STRING),
-                Items.BOW, 1, pWriter);
+                Items.BOW, 1, writer);
 
         bowyery(Ingredient.of(Items.BOW), Ingredient.of(Tags.Items.STONE), Ingredient.of(Tags.Items.STONE),
-                ModItems.REINFORCED_STONE_BOW.get(), 1, pWriter);
+                ModItems.REINFORCED_STONE_BOW.get(), 1, writer);
 
         bowyery(Ingredient.of(Items.BOW), Ingredient.of(Tags.Items.NUGGETS_IRON), Ingredient.of(Tags.Items.NUGGETS_IRON),
-                ModItems.REINFORCED_IRON_BOW.get(), 1, pWriter);
+                ModItems.REINFORCED_IRON_BOW.get(), 1, writer);
 
         bowyery(Ingredient.of(Items.BOW), Ingredient.of(Tags.Items.NUGGETS_GOLD), Ingredient.of(Tags.Items.NUGGETS_GOLD),
-                ModItems.REINFORCED_GOLD_BOW.get(), 1, pWriter);
+                ModItems.REINFORCED_GOLD_BOW.get(), 1, writer);
 
         bowyery(Ingredient.of(Items.BOW), Ingredient.of(Tags.Items.GEMS_DIAMOND), Ingredient.of(Tags.Items.GEMS_DIAMOND),
-                ModItems.REINFORCED_DIAMOND_BOW.get(), 1, pWriter);
+                ModItems.REINFORCED_DIAMOND_BOW.get(), 1, writer);
 
         bowyery(Ingredient.of(ModItems.REINFORCED_DIAMOND_BOW.get()), Ingredient.of(Items.NETHERITE_UPGRADE_SMITHING_TEMPLATE), Ingredient.of(Tags.Items.INGOTS_NETHERITE),
-                ModItems.REINFORCED_NETHERITE_BOW.get(), 1, pWriter);
+                ModItems.REINFORCED_NETHERITE_BOW.get(), 1, writer);
 
         bowyery(Ingredient.of(Items.BOW), Ingredient.of(ModTags.Items.SKIRON_NUGGETS), Ingredient.of(ModTags.Items.SKIRON_NUGGETS),
-                ModItems.REINFORCED_SKIRON_BOW.get(), 1, pWriter);
+                ModItems.REINFORCED_SKIRON_BOW.get(), 1, writer);
 
         bowyery(Ingredient.of(Items.BOW), Ingredient.of(ModTags.Items.ACTINOLITE), Ingredient.of(ModTags.Items.ACTINOLITE),
-                ModItems.REINFORCED_ACTINOLITE_BOW.get(), 1, pWriter);
+                ModItems.REINFORCED_ACTINOLITE_BOW.get(), 1, writer);
+
+        //| Bowl recipes
+        bowl(BowlRecipeBuilderBuilder.bowl(Items.COOKIE).craftLength(10).ingredient(Ingredient.of(Items.COCOA_BEANS))
+                .ingredient(Ingredient.of(AllTags.AllItemTags.FLOUR.tag)).build()
+                .unlockedBy(getHasName(Items.COOKIE), has(Items.COOKIE)), Items.WHEAT, "bowl_dry", writer);
 
         //-- Smelting and stuff
-        oreSmeltingAndBlasting(pWriter, SKIRON_SMELTABLES, RecipeCategory.MISC, ModItems.SKIRON.get(), 0.15f, 0.25f,
+        oreSmeltingAndBlasting(writer, SKIRON_SMELTABLES, RecipeCategory.MISC, ModItems.SKIRON.get(), 0.15f, 0.25f,
                 200, 100, "sky_ores");
 
-        oreSmeltingAndBlasting(pWriter, SKOAL_SMELTABLES, RecipeCategory.MISC, ModItems.SKOAL.get(), 0.25f, 0.5f,
+        oreSmeltingAndBlasting(writer, SKOAL_SMELTABLES, RecipeCategory.MISC, ModItems.SKOAL.get(), 0.25f, 0.5f,
                 200, 100, "sky_ores");
 
-        smelting(pWriter, Ingredient.of(ModBlocks.BROKEN_SKYSOLID.get()), RecipeCategory.MISC, ModBlocks.SKYSOLID.get(), ModBlocks.BROKEN_SKYSOLID.get(), 100, "skyland_misc");
+        smelting(writer, Ingredient.of(ModBlocks.BROKEN_SKYSOLID.get()), RecipeCategory.MISC, ModBlocks.SKYSOLID.get(), ModBlocks.BROKEN_SKYSOLID.get(), 100, "skyland_misc");
 
         //- Food
-        cookingDirFix(pWriter, Ingredient.of(ModItems.UNCOOKED_MATZA.get()), "food/", RecipeCategory.FOOD,
+        cookingDirFix(writer, Ingredient.of(ModItems.UNCOOKED_MATZA.get()), "food/", RecipeCategory.FOOD,
                 ModItems.MATZA.get(), "food/", AllItems.DOUGH, 100, "matza");
 
-        potRecipe(pWriter, ModItems.BOILED_EGG.get(), 1, 1200, 5.0f, "boiled_egg_single", CookingPotRecipeBookTab.MEALS,
+        potRecipe(writer, ModItems.BOILED_EGG.get(), 1, 1200, 5.0f, "boiled_egg_single", CookingPotRecipeBookTab.MEALS,
                 Ingredient.of(Items.EGG),
                 StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)),
                 StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)));
-        potRecipe(pWriter, ModItems.BOILED_EGG.get(), 2, 1200, 5.0f, "boiled_egg_double", CookingPotRecipeBookTab.MEALS,
+        potRecipe(writer, ModItems.BOILED_EGG.get(), 2, 1200, 5.0f, "boiled_egg_double", CookingPotRecipeBookTab.MEALS,
                 Ingredient.of(Items.EGG), Ingredient.of(Items.EGG),
                 StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)),
                 StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)));
-        potRecipe(pWriter, ModItems.BOILED_EGG.get(), 3, 1200, 5.0f, "boiled_egg_triple", CookingPotRecipeBookTab.MEALS,
+        potRecipe(writer, ModItems.BOILED_EGG.get(), 3, 1200, 5.0f, "boiled_egg_triple", CookingPotRecipeBookTab.MEALS,
                 Ingredient.of(Items.EGG), Ingredient.of(Items.EGG), Ingredient.of(Items.EGG),
                 StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)),
                 StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)));
-        potRecipe(pWriter, ModItems.BOILED_EGG.get(), 4, 1200, 5.0f, "boiled_egg_quadrouple", CookingPotRecipeBookTab.MEALS,
+        potRecipe(writer, ModItems.BOILED_EGG.get(), 4, 1200, 5.0f, "boiled_egg_quadrouple", CookingPotRecipeBookTab.MEALS,
                 Ingredient.of(Items.EGG), Ingredient.of(Items.EGG), Ingredient.of(Items.EGG), Ingredient.of(Items.EGG),
                 StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)),
                 StrictNBTIngredient.of(PotionUtils.setPotion(new ItemStack(Items.POTION), Potions.WATER)));
 
         //-- Wood
-        exchangeRecipe(pWriter, RecipeCategory.MISC, Ingredient.of(ModBlocks.SKYWOOD_LOG.get()), ModBlocks.SKYWOOD_LOG.get(), ModBlocks.SKYWOOD_PLANKS.get(), 4);
-        exchangeRecipe(pWriter, RecipeCategory.MISC, Ingredient.of(ModBlocks.STRIPPED_SKYWOOD_LOG.get()), ModBlocks.STRIPPED_SKYWOOD_LOG.get(), ModBlocks.SKYWOOD_PLANKS.get(), 4);
+        exchangeRecipe(writer, RecipeCategory.MISC, Ingredient.of(ModBlocks.SKYWOOD_LOG.get()), ModBlocks.SKYWOOD_LOG.get(), ModBlocks.SKYWOOD_PLANKS.get(), 4);
+        exchangeRecipe(writer, RecipeCategory.MISC, Ingredient.of(ModBlocks.STRIPPED_SKYWOOD_LOG.get()), ModBlocks.STRIPPED_SKYWOOD_LOG.get(), ModBlocks.SKYWOOD_PLANKS.get(), 4);
 
-        slab(pWriter, RecipeCategory.MISC, ModBlocks.SKYWOOD_SLAB.get(), ModBlocks.SKYWOOD_PLANKS.get());
-        stairs(pWriter, RecipeCategory.MISC, ModBlocks.SKYWOOD_STAIRS.get(), Ingredient.of(ModBlocks.SKYWOOD_PLANKS.get()), ModBlocks.SKYWOOD_PLANKS.get());
+        slab(writer, RecipeCategory.MISC, ModBlocks.SKYWOOD_SLAB.get(), ModBlocks.SKYWOOD_PLANKS.get());
+        stairs(writer, RecipeCategory.MISC, ModBlocks.SKYWOOD_STAIRS.get(), Ingredient.of(ModBlocks.SKYWOOD_PLANKS.get()), ModBlocks.SKYWOOD_PLANKS.get());
     }
 
     public static void registerProcessing(DataGenerator gen, PackOutput output) {
@@ -291,6 +302,14 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     protected static void bowyery(Ingredient bow, Ingredient slot1, Ingredient slot2, ItemLike output, int count, Consumer<FinishedRecipe> writer) {
         new BowyeryRecipeBuilder(bow, slot1, slot2, output, count)
                 .unlockedBy(getHasName(output), has(output)).save(writer);
+    }
+
+    protected static void bowl(Consumer<FinishedRecipe> writer, ItemLike result, int count, FluidIngredient fluidIngredient, int craftLength, ItemLike unlockedBy, String group, @NonNull Ingredient... ingredients) {
+        new BowlRecipeBuilder(result, count, fluidIngredient, craftLength, ingredients)
+                .unlockedBy(getHasName(unlockedBy), has(unlockedBy)).group(group).save(writer);
+    }
+    protected static void bowl(BowlRecipeBuilder builder, ItemLike unlockedBy, String group, Consumer<FinishedRecipe> writer) {
+        builder.unlockedBy(getHasName(unlockedBy), has(unlockedBy)).group(group).save(writer);
     }
 
     protected static void shapedRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer,
@@ -668,9 +687,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     protected static String getItemNameDirFix(ItemLike item, String prefix) {
-        return BuiltInRegistries.ITEM.getKey(item.asItem()).getPath().replaceFirst(prefix, "");
+        return ForgeRegistries.ITEMS.getKey(item.asItem()).getPath().replaceFirst(prefix, "");
     }
-
 
     private record resultWithChance(ItemLike result, int count, float chance) {}
 

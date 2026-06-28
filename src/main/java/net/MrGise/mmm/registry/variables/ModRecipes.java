@@ -1,6 +1,7 @@
 package net.MrGise.mmm.registry.variables;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.recipe.BowlRecipe;
 import net.MrGise.mmm.recipe.BowyeryRecipe;
 import net.minecraft.world.item.crafting.RecipeSerializer;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -16,6 +17,9 @@ public class ModRecipes {
 
     public static final RegistryObject<RecipeSerializer<BowyeryRecipe>> BOWYERY_SHAPED_SERIALIZER =
             SERIALIZERS.register("bowyery_shaped", () -> BowyeryRecipe.Serializer.INSTANCE);
+
+    public static final RegistryObject<RecipeSerializer<BowlRecipe>> BOWL_RECIPE_SERIALIZER =
+            SERIALIZERS.register("bowl", () -> BowlRecipe.Serializer.INSTANCE);
 
 
     public static void register(IEventBus eventBus) {

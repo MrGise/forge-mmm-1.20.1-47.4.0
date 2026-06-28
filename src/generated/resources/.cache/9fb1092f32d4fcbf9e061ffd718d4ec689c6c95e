@@ -1,11 +1,13 @@
-// 1.20.1	2026-06-22T19:59:45.3715552	Recipes
+// 1.20.1	2026-06-28T18:29:08.776587	Recipes
 d6246e5792128ef35b5ee8b0b98b36ce3301c8fb data/minecraft/advancements/recipes/bow.json
+216d1e9e9a0a1c91e484b73196b10654018eb556 data/minecraft/advancements/recipes/cookie.json
 9bf30c7e56a845fc0fa3c439e2b4545b00319b07 data/minecraft/advancements/recipes/misc/raw_skiron.json
 4c83603835f8249cba18cee48bc8bfb70050a193 data/minecraft/advancements/recipes/misc/raw_skiron_block.json
 9fac4338ab3461e590e0029d7c75bbe833bb0035 data/minecraft/advancements/recipes/misc/skiron.json
 77a0af393c5c1b3578f264f61398cdac19c90fc4 data/minecraft/advancements/recipes/misc/skiron_block.json
 7fcb1e0efc5cda514a8b83204b98c7510acb23b3 data/minecraft/advancements/recipes/misc/skoal.json
 effec1d3ab46e3c24c4bfbc677353d8b538051ff data/minecraft/advancements/recipes/misc/skoal_block.json
+f9171937e787507747286d988668ece495240fe5 data/minecraft/recipes/cookie.json
 d384e5aa06ffebb2f2024dfc8e5ecf211905db7b data/minecraft/recipes/raw_skiron.json
 e8717403f401183d9c4a73bbc02315684af3f890 data/minecraft/recipes/raw_skiron_block.json
 2326cfae97c90e0df97f162345bb3a93fbafd3b2 data/minecraft/recipes/skiron.json
@@ -96,7 +98,7 @@ b38f34d694d8383bc4e331556be266a482d484b5 data/mmm/recipes/mimic_carrot.json
 f0e5764469529d1d175bbb0730a35d456c6543a0 data/mmm/recipes/mimic_shulker_box.json
 6f31e0652dfa491b7d78dde6ced8b5186ae56b56 data/mmm/recipes/pomegranate_cutting.json
 ca275c21f92ffee471a6efd25da7538f7f0e1f05 data/mmm/recipes/pomegranate_seeds_from_pomegranate.json
-32d458a6e803a239abc7c5ed8c1be47994d34759 data/mmm/recipes/rainstone_bucket.json
+7581fe45be6939c8edb0ac47a723e524e5ff25c7 data/mmm/recipes/rainstone_bucket.json
 f1312edecedd38b801ca180cae4d9774ae62d3eb data/mmm/recipes/reinforced_actinolite_bow_from_bowyery.json
 24b206524f22b55be5717edef4ed575e4a15085c data/mmm/recipes/reinforced_diamond_bow_from_bowyery.json
 8fb95337d38647646d23e7a95a369f4f5e026b69 data/mmm/recipes/reinforced_gold_bow_from_bowyery.json

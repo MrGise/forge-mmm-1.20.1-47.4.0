@@ -5,14 +5,15 @@ All changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-Newer versions' changes are added above the older ones
+Newer versions' changes are added above the older versions'
 
 Branch: Main branch
 
 ## [0.5a]
 
 ### Added:
-- ~~Sided inventories to Thingamajig, as well as Energy and Fluid handling~~ Removed Course-specific content that doesn't fit in the mod
+- ~~Sided inventories to Thingamajig, as well as Energy and Fluid handling~~
+  - Removed Course-specific content that doesn't fit in the mod
 - Rainstone, a fluid you can stand on!
 - Created an included library
 - Added the Race Selection Screen! (not functional)
@@ -45,6 +46,7 @@ Branch: Main branch
   - 22/6/2026: small fix
 - 23/6/2026: Added rendering and fixed some things for the bowl. It doesn't render when re-joining a world.
 - 24/6/2026: Fixed a rendering issue! (With ChatGPT's help... >~<)
+- 28/6/2026: Added recipe datagen for the [BowlRecipe](/src/main/java/net/MrGise/mmm/recipe/BowlRecipe.java)
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)
