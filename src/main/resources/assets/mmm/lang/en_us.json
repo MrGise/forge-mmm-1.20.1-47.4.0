@@ -294,6 +294,18 @@
   "entity.minecraft.villager.mmm.bowyer": "Bowyer",
 
 
+  "screen.config.mmm.title": "MMM Config",
+  "screen.config.mmm.label.client": "Client Config",
+  "screen.config.mmm.tooltip.client": "Client-side mod feature configuration",
+  "screen.config.mmm.label.common": "Common Config",
+  "screen.config.mmm.tooltip.common": "Mod configuration for features both Client-side and Server-side",
+  "screen.config.mmm.label.server": "Server Config",
+  "screen.config.mmm.tooltip.server": "Server-side mod feature configuration",
+
+  "screen.config.mmm.label.exit": "Done",
+  "screen.config.mmm.label.setting_exit": "Back",
+
+
   "command.mmm.know.get": " knows it all",
   "command.mmm.know.lose": " became oblivious",
   "command.mmm.know.get_first": " achieved enlightenment",

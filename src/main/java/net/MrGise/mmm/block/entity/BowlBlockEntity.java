@@ -35,6 +35,8 @@ import java.util.List;
 import java.util.Optional;
 
 public class BowlBlockEntity extends BlockEntity {
+    private final boolean debug = false;
+
     public static final int MAX_WEIGHT = 128;
     private final NonNullList<ItemStack> storedItems = NonNullList.create();
 
@@ -224,7 +226,9 @@ public class BowlBlockEntity extends BlockEntity {
     }
 
     public List<ItemStack> storedItems() {
-        MMM.LOGGER.info("Providing storedItems: {} (level.isClientSide: {})", this.storedItems.toString(), getLevel().isClientSide());
+        if (debug) {
+            MMM.LOGGER.info("Providing storedItems: {} (level.isClientSide: {})", this.storedItems.toString(), getLevel().isClientSide());
+        }
         return this.storedItems;
     }
 

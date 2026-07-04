@@ -114,6 +114,7 @@ public class RaceSelectionScreen extends Screen {
         if (!texture.equals(backgroundTile)) {
             prevBackgroundTile = backgroundTile;
             newBackgroundTile = texture;
+            fadeProgress = 0.0f;
         }
     }
 
