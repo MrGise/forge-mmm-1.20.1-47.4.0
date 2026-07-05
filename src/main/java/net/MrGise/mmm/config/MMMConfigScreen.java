@@ -74,18 +74,18 @@ public class MMMConfigScreen extends Screen {
     private void initClientPage() {
         setBackground(mmm("textures/block/skysoil.png"));
 
-        ForgeSlider bowlYRotModSlider = new ForgeSlider(width / 2 - 100, height / 2 - 30, 200, 20,
-                Component.literal("Bowl render Y rot modifier: "), Component.empty(),
-                0d, 360d, ClientConfig.BOWL_YROT_OFFSET.get(), true);
-        this.addRenderableWidget(bowlYRotModSlider);
-
-        ForgeSlider bowlXRotModSlider = new ForgeSlider(width / 2 - 100, height / 2 - 10, 200, 20,
-                Component.literal("Bowl render X rot modifier: "), Component.empty(),
+        ForgeSlider bowlXRotModSlider = new ForgeSlider(width / 2 - 180, height / 2 - 30, 360, 20,
+                Component.literal("Bowl render X rot. modifier: "), Component.empty(),
                 0d, 360d, ClientConfig.BOWL_XROT_OFFSET.get(), true);
         this.addRenderableWidget(bowlXRotModSlider);
 
-        ForgeSlider bowlZRotModSlider = new ForgeSlider(width / 2 - 100, height / 2 + 10, 200, 20,
-                Component.literal("Bowl render Z rot modifier: "), Component.empty(),
+        ForgeSlider bowlYRotModSlider = new ForgeSlider(width / 2 - 180, height / 2, 360, 20,
+                Component.literal("Bowl render Y rot. modifier: "), Component.empty(),
+                0d, 360d, ClientConfig.BOWL_YROT_OFFSET.get(), true);
+        this.addRenderableWidget(bowlYRotModSlider);
+
+        ForgeSlider bowlZRotModSlider = new ForgeSlider(width / 2 - 180, height / 2 + 30, 360, 20,
+                Component.literal("Bowl render Z rot. modifier: "), Component.empty(),
                 0d, 360d, ClientConfig.BOWL_ZROT_OFFSET.get(), true);
         this.addRenderableWidget(bowlZRotModSlider);
 

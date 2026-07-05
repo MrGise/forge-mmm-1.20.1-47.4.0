@@ -15,8 +15,6 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.item.ItemDisplayContext;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
-import org.joml.Quaternionf;
-import org.joml.Vector3f;
 
 import java.util.List;
 
@@ -56,8 +54,7 @@ public class BowlBlockEntityRenderer implements BlockEntityRenderer<BowlBlockEnt
         }
 
         int yRotOffset = ClientConfig.BOWL_YROT_OFFSET.get();
-        int xRotOffset = ClientConfig.BOWL_XROT_OFFSET.get();
-        int zRotOffset = ClientConfig.BOWL_ZROT_OFFSET.get();
+        int lean = ClientConfig.BOWL_XROT_OFFSET.get();
 
         for (int stackIndex = 0; stackIndex < stackRenderCount; ++stackIndex) {
             poseStack.pushPose();
@@ -68,15 +65,18 @@ public class BowlBlockEntityRenderer implements BlockEntityRenderer<BowlBlockEnt
             float xOffset = Mth.cos(stackAngleR) * distFromCenter;
             float zOffset = -Mth.sin(stackAngleR) * distFromCenter;
 
-            poseStack.translate(0.5f + xOffset, 0.2f, 0.5f + zOffset);
+            poseStack.translate(0.5f + xOffset, 0.15f, 0.5f + zOffset);
             poseStack.scale(0.5f, 0.5f, 0.5f);
 
-            Vector3f axis = new Vector3f(-Mth.sin(stackAngleR), 0, Mth.cos(stackAngleR));
-            axis.normalize();
-            poseStack.mulPose(new Quaternionf().fromAxisAngleDeg(axis, 70));
-            //poseStack.mulPose(Axis.XP.rotationDegrees(xRotOffset));
-            //poseStack.mulPose(Axis.ZN.rotationDegrees(zRotOffset));  //I should check on this later
-            poseStack.mulPose(Axis.YN.rotationDegrees(stackAngleF - 90 - yRotOffset));
+            poseStack.mulPose(Axis.YP.rotationDegrees(stackAngleF));
+            poseStack.mulPose(Axis.XP.rotationDegrees(180));
+            poseStack.mulPose(Axis.ZN.rotationDegrees(90));
+            poseStack.mulPose(Axis.YP.rotationDegrees(90));
+            poseStack.mulPose(Axis.XP.rotationDegrees(20));
+            poseStack.mulPose(Axis.YP.rotationDegrees(180));
+            poseStack.mulPose(Axis.XP.rotationDegrees(ClientConfig.BOWL_XROT_OFFSET.get()));
+            poseStack.mulPose(Axis.YP.rotationDegrees(ClientConfig.BOWL_YROT_OFFSET.get()));
+            poseStack.mulPose(Axis.ZP.rotationDegrees(ClientConfig.BOWL_ZROT_OFFSET.get()));
 
             itemRenderer.renderStatic(items.get(stackIndex), ItemDisplayContext.FIXED, getLightLevel(level, blockEntity.getBlockPos()),
                     OverlayTexture.NO_OVERLAY, poseStack, bufferSource, level, 1);
