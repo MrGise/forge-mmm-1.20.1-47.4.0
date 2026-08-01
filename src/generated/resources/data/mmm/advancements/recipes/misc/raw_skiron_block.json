@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skoal_block": {
+    "has_raw_skiron": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mmm:skoal_block"
+              "mmm:raw_skiron"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:skoal"
+        "recipe": "mmm:raw_skiron_block"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_skoal_block",
+      "has_raw_skiron",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:skoal"
+      "mmm:raw_skiron_block"
     ]
   },
   "sends_telemetry_event": false

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_cookie": {
+    "has_skoal": {
       "conditions": {
         "items": [
           {
             "items": [
-              "minecraft:cookie"
+              "mmm:skoal"
             ]
           }
         ]
@@ -15,34 +15,21 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:cookie"
+        "recipe": "mmm:skoal_block"
       },
       "trigger": "minecraft:recipe_unlocked"
-    },
-    "has_wheat": {
-      "conditions": {
-        "items": [
-          {
-            "items": [
-              "minecraft:wheat"
-            ]
-          }
-        ]
-      },
-      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_cookie",
-      "has_wheat",
+      "has_skoal",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:cookie"
+      "mmm:skoal_block"
     ]
   },
-  "sends_telemetry_event": true
+  "sends_telemetry_event": false
 }

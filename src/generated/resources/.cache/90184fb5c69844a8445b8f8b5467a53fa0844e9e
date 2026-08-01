@@ -1,4 +1,4 @@
-// 1.20.1	2026-06-22T17:55:12.9681163	Item Models: mmm
+// 1.20.1	2026-07-09T18:07:01.6644616	Item Models: mmm
 4b12200ca3fac2057d27e77507d76d35940039e3 assets/mmm/models/item/acacia_triple_door.json
 cab82837fca58f2721c0a61040837f5ce1a3b78f assets/mmm/models/item/actinolite.json
 22c4a40423e2f812fb3fcaacc80c0e9da5536ff6 assets/mmm/models/item/actinolite_axe.json
@@ -85,4 +85,5 @@ b95945a572db8fdfc9fbdc7556eff12262d95640 assets/mmm/models/item/smithing_templat
 ad596d276162a2881225c8c5ed5362dfe5816a97 assets/mmm/models/item/tune_music_disc.json
 43cac4cacd1510208d78f849d92cbce0af79ef73 assets/mmm/models/item/warped_triple_door.json
 98da1d4e9e661ab895066e676b3667709121f6e3 assets/mmm/models/item/white_candle_lit.json
+32a5fed2cebf7b2bbd9bb17d9436f507c404173b assets/mmm/models/item/wooden_spoon.json
 a2c111c6250b1bbd883241d3e7a1d29e1a3e1140 assets/mmm/models/item/yellow_candle_lit.json

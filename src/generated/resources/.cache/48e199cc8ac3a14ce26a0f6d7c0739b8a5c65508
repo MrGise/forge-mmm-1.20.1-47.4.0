@@ -1,4 +1,4 @@
-// 1.20.1	2026-04-09T19:53:56.87389	Item Tags
+// 1.20.1	2026-07-09T18:07:01.6674612	Item Tags
 56faf86c48706e00ea90fa8eeacd7c7772686bc7 data/create/tags/items/modded_stripped_logs.json
 2285ef3a109aea5a308cedb733dfde0bedd6feb1 data/create/tags/items/modded_stripped_wood.json
 785967d38cf4fc489b4fc33ed48714c46958937b data/farmersdelight/tags/items/tools/knives.json
@@ -24,3 +24,4 @@ bb7b0883d157bf89445e24ff9838bd12e59560f6 data/minecraft/tags/items/trimmable_arm
 2c74e760253c89577f904272ed2739e3ea6e3533 data/mmm/tags/items/items/lit_candles.json
 424f0352fb2e0a054ad6bceac1f93f375821448f data/mmm/tags/items/items/pomegranate_slice.json
 ab1702e8c783b182f83aac627812ff81f2432616 data/mmm/tags/items/tools/holeable.json
+f0848b228c254defe5e1338c5abe4b178dbb2571 data/mmm/tags/items/tools/mixer.json

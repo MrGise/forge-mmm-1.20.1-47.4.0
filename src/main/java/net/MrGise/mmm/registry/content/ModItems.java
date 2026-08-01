@@ -262,6 +262,9 @@ public class ModItems {
     public static final RegistryObject<Item> IRON_FORK = registerItem("iron_fork",
             () -> new Item(new Item.Properties().stacksTo(1)));
 
+    public static final RegistryObject<Item> WOODEN_SPOON = registerItem("wooden_spoon",
+            () -> new Item(new Item.Properties().stacksTo(1)));
+
 
     /*. Armor */
     public static final RegistryObject<Item> SKIRON_HELMET = registerItem("skiron_helmet",

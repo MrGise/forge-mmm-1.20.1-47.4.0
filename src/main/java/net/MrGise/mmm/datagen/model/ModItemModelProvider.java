@@ -145,6 +145,8 @@ public class ModItemModelProvider extends ItemModelProvider {
 
         handheldItem(ModItems.IRON_FORK, modLoc("item/tool/iron_fork"));
 
+        handheldItem(ModItems.WOODEN_SPOON, modLoc("item/tool/wooden_spoon"));
+
 
         //- Item models for blocks
         buttonItem(ModBlocks.SKYWOOD_BUTTON, ModBlocks.SKYWOOD_PLANKS);

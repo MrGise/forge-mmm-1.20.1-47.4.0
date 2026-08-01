@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "equipment",
+  "key": {
+    "M": {
+      "tag": "minecraft:planks"
+    },
+    "S": {
+      "tag": "forge:rods/wooden"
+    }
+  },
+  "pattern": [
+    "S  ",
+    " S ",
+    "  M"
+  ],
+  "result": {
+    "item": "mmm:wooden_spoon"
+  },
+  "show_notification": true
+}

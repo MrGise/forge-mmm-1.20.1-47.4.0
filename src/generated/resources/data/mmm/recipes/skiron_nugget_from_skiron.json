@@ -1,19 +1,37 @@
 {
-  "type": "minecraft:crafting_shaped",
+  "type": "minecraft:crafting_shapeless",
   "category": "misc",
   "group": "sky_ores",
-  "key": {
-    "#": {
+  "ingredients": [
+    {
+      "tag": "forge:nuggets/skiron"
+    },
+    {
+      "tag": "forge:nuggets/skiron"
+    },
+    {
+      "tag": "forge:nuggets/skiron"
+    },
+    {
+      "tag": "forge:nuggets/skiron"
+    },
+    {
+      "tag": "forge:nuggets/skiron"
+    },
+    {
+      "tag": "forge:nuggets/skiron"
+    },
+    {
+      "tag": "forge:nuggets/skiron"
+    },
+    {
+      "tag": "forge:nuggets/skiron"
+    },
+    {
       "tag": "forge:nuggets/skiron"
     }
-  },
-  "pattern": [
-    "###",
-    "###",
-    "###"
   ],
   "result": {
     "item": "mmm:skiron"
-  },
-  "show_notification": true
+  }
 }

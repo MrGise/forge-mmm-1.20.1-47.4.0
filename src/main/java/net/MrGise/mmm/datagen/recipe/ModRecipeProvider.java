@@ -13,7 +13,6 @@ import net.MrGise.mmm.datagen.recipe.create.MMMFillingRecipeGen;
 import net.MrGise.mmm.registry.content.ModBlocks;
 import net.MrGise.mmm.registry.content.ModItems;
 import net.MrGise.mmm.registry.variables.ModTags;
-import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.data.CachedOutput;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.DataProvider;
@@ -21,6 +20,7 @@ import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -39,10 +39,10 @@ import net.minecraftforge.registries.ForgeRegistries;
 import org.checkerframework.checker.nullness.qual.NonNull;
 import vectorwing.farmersdelight.client.recipebook.CookingPotRecipeBookTab;
 import vectorwing.farmersdelight.common.tag.ForgeTags;
-import vectorwing.farmersdelight.data.ItemTags;
 import vectorwing.farmersdelight.data.builder.CookingPotRecipeBuilder;
 import vectorwing.farmersdelight.data.builder.CuttingBoardRecipeBuilder;
 
+import javax.annotation.Nullable;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.Consumer;
@@ -70,6 +70,9 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         //- Forks
         forkRecipe(writer, RecipeCategory.TOOLS, ModItems.IRON_FORK.get(),
                 Ingredient.of(Tags.Items.NUGGETS_IRON), Ingredient.of(Tags.Items.INGOTS_IRON), Items.IRON_INGOT);
+
+        spoonRecipe(writer, RecipeCategory.TOOLS, ModItems.WOODEN_SPOON.get(),
+                Ingredient.of(Tags.Items.RODS_WOODEN), Ingredient.of(ItemTags.PLANKS), ModBlocks.PLACED_BOWL.get());
 
         shapedRecipe(writer, RecipeCategory.MISC, ModItems.GOLD_KEY.get(), Map.of('G', Ingredient.of(Tags.Items.INGOTS_GOLD)), Items.GOLD_INGOT, "  G", "GGG", "GG ");
 
@@ -140,8 +143,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         nineItemIngotRecipes(writer, RecipeCategory.MISC, ModItems.SKIRON_NUGGET.get(), Ingredient.of(ModTags.Items.SKIRON_NUGGETS),
                 RecipeCategory.MISC, ModItems.SKIRON.get(), Ingredient.of(ModTags.Items.SKIRON_INGOTS),
-                "skiron_nugget_from_skiron", "sky_ores",
-                "skiron_from_nuggets", "sky_ores");
+                "skiron_nugget_from_skiron", "sky_ores"
+                ,"skiron_from_nuggets", "sky_ores");
 
         //| Bowyery
         bowyery(Ingredient.of(Items.STICK), Ingredient.of(Tags.Items.STRING), Ingredient.of(Tags.Items.STRING),
@@ -170,8 +173,8 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
 
         //| Bowl recipes
         bowl(BowlRecipeBuilderBuilder.bowl(Items.COOKIE).craftLength(10).ingredient(Ingredient.of(Items.COCOA_BEANS))
-                .ingredient(Ingredient.of(AllTags.AllItemTags.FLOUR.tag)).build()
-                .unlockedBy(getHasName(Items.COOKIE), has(Items.COOKIE)), Items.WHEAT, "bowl_dry", writer);
+                .ingredient(Ingredient.of(AllTags.AllItemTags.WHEAT_FLOUR.tag)).build()
+                .unlockedBy(getHasName(Items.COOKIE), has(Items.COOKIE)), Items.WHEAT, "bowl_dry", writer, mmm("simple_cookie"));
 
         //-- Smelting and stuff
         oreSmeltingAndBlasting(writer, SKIRON_SMELTABLES, RecipeCategory.MISC, ModItems.SKIRON.get(), 0.15f, 0.25f,
@@ -304,12 +307,17 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
                 .unlockedBy(getHasName(output), has(output)).save(writer);
     }
 
-    protected static void bowl(Consumer<FinishedRecipe> writer, ItemLike result, int count, FluidIngredient fluidIngredient, int craftLength, ItemLike unlockedBy, String group, @NonNull Ingredient... ingredients) {
+    protected static void bowl(Consumer<FinishedRecipe> writer, ItemLike result, int count,
+                               FluidIngredient fluidIngredient, int craftLength, ItemLike unlockedBy,
+                               String group, @NonNull Ingredient... ingredients) {
         new BowlRecipeBuilder(result, count, fluidIngredient, craftLength, ingredients)
                 .unlockedBy(getHasName(unlockedBy), has(unlockedBy)).group(group).save(writer);
     }
     protected static void bowl(BowlRecipeBuilder builder, ItemLike unlockedBy, String group, Consumer<FinishedRecipe> writer) {
         builder.unlockedBy(getHasName(unlockedBy), has(unlockedBy)).group(group).save(writer);
+    }
+    protected static void bowl(BowlRecipeBuilder builder, ItemLike unlockedBy, String group, Consumer<FinishedRecipe> writer, ResourceLocation id) {
+        builder.unlockedBy(getHasName(unlockedBy), has(unlockedBy)).group(group).save(writer, id);
     }
 
     protected static void shapedRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer,
@@ -356,6 +364,11 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
         shapedRecipe(finishedRecipeConsumer, category, result, Map.of('N', nugget, 'I', ingot), unlockedBy, "  I", " N ", "N  ");
     }
 
+    protected static void spoonRecipe(Consumer<FinishedRecipe> writer, RecipeCategory category,
+                                      Item result, Ingredient stick, Ingredient material, ItemLike unlockedBy) {
+        shapedRecipe(writer, category, result, Map.of('S', stick, 'M', material), unlockedBy, "S  ", " S ", "  M");
+    }
+
     protected static void exchangeRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer, RecipeCategory category, Ingredient ingredient, ItemLike unlockedBy, ItemLike result) {
         exchangeRecipe(finishedRecipeConsumer, category, ingredient, unlockedBy, result, 1);
     }
@@ -368,29 +381,30 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
     }
 
     protected static void exchangeRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer, RecipeCategory category,
-                                            Ingredient ingredient, ItemLike unlockedBy, String ingredientPrefix, ItemLike result, String resultPrefix, int count) {
+                                            Ingredient ingredient, ItemLike unlockedBy, String ingredientPrefix,
+                                         ItemLike result, String resultPrefix, int count) {
         ShapelessRecipeBuilder.shapeless(category, result, count).requires(ingredient)
                 .unlockedBy(getHasName(unlockedBy), has(unlockedBy)).save(finishedRecipeConsumer,
                         mmm(result.asItem().toString().toLowerCase().replaceFirst(resultPrefix, "") + "_from_" + unlockedBy.asItem().toString().toLowerCase().replaceFirst(ingredientPrefix, "")));
     }
 
     protected static void exchangeRecipe(Consumer<FinishedRecipe> finishedRecipeConsumer, RecipeCategory category,
-                                            Ingredient ingredient, ItemLike unlockedBy, String ingredientPrefix, ItemLike result, String resultPrefix) {
+                                            Ingredient ingredient, ItemLike unlockedBy, String ingredientPrefix,
+                                         ItemLike result, String resultPrefix) {
         exchangeRecipe(finishedRecipeConsumer, category, ingredient, unlockedBy, ingredientPrefix, result, resultPrefix, 1);
     }
 
-    protected static void nineItemIngotRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pUnpackedCategory,
-                                                ItemLike pUnpacked, Ingredient unpack, RecipeCategory pPackedCategory,
-                                               ItemLike pPacked, Ingredient pack, String pPackedName, @javax.annotation.Nullable String pPackedGroup, String pUnpackedName, @javax.annotation.Nullable String pUnpackedGroup) {
-        ShapelessRecipeBuilder.shapeless(pUnpackedCategory, pUnpacked, 9)
-                .requires(pack).group(pUnpackedGroup).unlockedBy(getHasName(pPacked), has(pPacked))
-                .save(pFinishedRecipeConsumer, mmm(pUnpackedName));
-        ShapedRecipeBuilder.shaped(pPackedCategory, pPacked).define('#', unpack)
-                .pattern("###")
-                .pattern("###")
-                .pattern("###")
-                .group(pPackedGroup).unlockedBy(getHasName(pUnpacked), has(pUnpacked))
-                .save(pFinishedRecipeConsumer, mmm(pPackedName));
+    protected static void nineItemIngotRecipes(Consumer<FinishedRecipe> writer, RecipeCategory unpackedCategory,
+                                               ItemLike unpacked, Ingredient toPack, RecipeCategory packedCategory,
+                                               ItemLike packed, Ingredient toUnpack, String packedName,
+                                               @Nullable String packedGroup, String unpackedName,
+                                               @Nullable String unpackedGroup) {
+        ShapelessRecipeBuilder.shapeless(unpackedCategory, unpacked, 9)
+                .requires(toUnpack, 1).group(unpackedGroup).unlockedBy(getHasName(packed), has(packed))
+                .save(writer, mmm(unpackedName));
+        ShapelessRecipeBuilder.shapeless(packedCategory, packed, 1)
+                .requires(toPack, 9).group(packedGroup).unlockedBy(getHasName(unpacked), has(unpacked))
+                .save(writer, mmm(packedName));
     }
 
     protected static void imbuedArmorRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeCategory pCategory,
@@ -684,6 +698,16 @@ public class ModRecipeProvider extends RecipeProvider implements IConditionBuild
             SimpleCookingRecipeBuilder.generic(pIngredient, pCategory, pResult, 0, pCookingTime, pCookingSerializer).group(pGroup).unlockedBy(getHasName(unlockedByAndName), has(unlockedByAndName))
                     .save(pFinishedRecipeConsumer, MMM.MOD_ID + ":" + getItemNameDirFix(pResult, prefix1) + pRecipeName + "_" + getItemNameDirFix(unlockedByAndName, prefix));
 
+    }
+
+    protected static void nineBlockStorageRecipes(Consumer<FinishedRecipe> writer, RecipeCategory unpackedCategory, ItemLike unpacked,
+                                                  RecipeCategory packedCategory, ItemLike packed,
+                                                  String unpackedName, @Nullable String unpackedGroup, String packedName, @Nullable String packedGroup) {
+        ShapelessRecipeBuilder.shapeless(unpackedCategory, unpacked, 9).requires(packed).group(packedGroup)
+                .unlockedBy(getHasName(packed), has(packed)).save(writer, mmm(packedName));
+        ShapedRecipeBuilder.shaped(packedCategory, packed).define('#', unpacked)
+                .pattern("###").pattern("###").pattern("###").group(unpackedGroup)
+                .unlockedBy(getHasName(unpacked), has(unpacked)).save(writer, mmm(unpackedName));
     }
 
     protected static String getItemNameDirFix(ItemLike item, String prefix) {

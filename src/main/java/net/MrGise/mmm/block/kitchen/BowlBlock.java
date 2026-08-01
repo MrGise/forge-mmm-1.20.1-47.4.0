@@ -1,6 +1,7 @@
 package net.MrGise.mmm.block.kitchen;
 
 import net.MrGise.mmm.block.entity.BowlBlockEntity;
+import net.MrGise.mmm.registry.content.ModBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
@@ -10,6 +11,8 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.BooleanOp;
@@ -81,5 +84,12 @@ public class BowlBlock extends BaseEntityBlock {
     @Override
     public RenderShape getRenderShape(BlockState state) {
         return RenderShape.MODEL;
+    }
+
+    @Override
+    public @Nullable <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level level, BlockState state, BlockEntityType<T> type) {
+        if (level.isClientSide) return null;
+        return createTickerHelper(type, ModBlockEntities.BOWL_BE.get(),
+                (level1, pos, state1, be) -> be.tick(level1, pos, state1));
     }
 }

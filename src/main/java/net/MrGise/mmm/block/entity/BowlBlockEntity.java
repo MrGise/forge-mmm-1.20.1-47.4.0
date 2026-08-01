@@ -1,6 +1,7 @@
 package net.MrGise.mmm.block.entity;
 
 import net.MrGise.mmm.MMM;
+import net.MrGise.mmm.constants.Numbers;
 import net.MrGise.mmm.recipe.BowlRecipe;
 import net.MrGise.mmm.registry.content.ModBlockEntities;
 import net.MrGise.mmm.registry.variables.ModTags;
@@ -41,6 +42,7 @@ public class BowlBlockEntity extends BlockEntity {
     private final NonNullList<ItemStack> storedItems = NonNullList.create();
 
     private BowlRecipe currentRecipe;
+    private int stackAngleOffset = 0;
 
     public enum ClickResult {
         INSERT, TAKE, POUR, TAKE_FLUID, MIX
@@ -48,6 +50,36 @@ public class BowlBlockEntity extends BlockEntity {
 
     public BowlBlockEntity(BlockPos pos, BlockState state) {
         super(ModBlockEntities.BOWL_BE.get(), pos, state);
+    }
+
+
+    public int getYRotOffset() {
+        return this.stackAngleOffset;
+    }
+
+    private int rotatedTicks = 0;
+    public void rotate(int degrees) {
+        this.stackAngleOffset += degrees;
+        if (this.stackAngleOffset > 360) {
+            this.stackAngleOffset -= 360;
+        }
+
+    }
+
+    public void tick(Level level, BlockPos pos, BlockState state) {
+        if (level.getBlockEntity(pos) instanceof BowlBlockEntity be) {
+            if (!be.isCrafting() && this.rotatedTicks < 20) {
+                int degreesToRotate = Numbers.CIRCLE_ANGLES - this.stackAngleOffset;
+                int ticksToRotate = 20 - this.rotatedTicks;
+
+                int rotateThisRound = degreesToRotate / ticksToRotate;
+                rotate(rotateThisRound);
+
+                this.rotatedTicks ++;
+            } else if (!be.isCrafting()) {
+                this.rotatedTicks = 0;
+            }
+        }
     }
 
 
@@ -120,6 +152,7 @@ public class BowlBlockEntity extends BlockEntity {
         }
 
         this.craftProgress ++;
+        rotate(5);
 
         if (this.craftProgress >= getRecipe().getCraftLength()) {
             completeCrafting(level);
@@ -131,6 +164,7 @@ public class BowlBlockEntity extends BlockEntity {
     private void cancelCrafting() {
         this.craftProgress = 0;
         this.currentRecipe = null;
+        this.rotatedTicks = 0;
         setChanged();
     }
 
@@ -160,7 +194,7 @@ public class BowlBlockEntity extends BlockEntity {
 
 
     public boolean isCrafting() {
-        return craftProgress > 0 && currentRecipe != null;
+        return this.craftProgress > 0 && this.currentRecipe != null;
     }
 
 
@@ -237,6 +271,7 @@ public class BowlBlockEntity extends BlockEntity {
             return ClickResult.TAKE;
         }
         if (stack.is(ModTags.Items.MIXER_TOOL)) {
+            MMM.LOGGER.info("starting mix in BowlBlock");
             return ClickResult.MIX;
         }
         return stack.getCapability(ForgeCapabilities.FLUID_HANDLER_ITEM).map(handler -> {

@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_skiron": {
+    "has_kitchen/bowl": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mmm:skiron"
+              "mmm:kitchen/bowl"
             ]
           }
         ]
@@ -15,20 +15,20 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:skiron_block"
+        "recipe": "mmm:wooden_spoon"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
   },
   "requirements": [
     [
-      "has_skiron",
+      "has_kitchen/bowl",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:skiron_block"
+      "mmm:wooden_spoon"
     ]
   },
   "sends_telemetry_event": false

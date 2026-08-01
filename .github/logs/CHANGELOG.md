@@ -49,6 +49,7 @@ Branch: Main branch
 - 28/6/2026: Added recipe datagen for the [BowlRecipe](/src/main/java/net/MrGise/mmm/recipe/BowlRecipe.java)
 - 4/7/2026: Added a config and changed Bowl rendering
 - 5/7/2026: Fixed bowl rendering! (It was tough)
+- 1/8/2026: Added base for bowl crafting, tags in recipes are broken
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)

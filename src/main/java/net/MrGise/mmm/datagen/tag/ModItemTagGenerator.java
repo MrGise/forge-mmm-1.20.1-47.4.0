@@ -61,6 +61,9 @@ public class ModItemTagGenerator extends ItemTagsProvider {
         this.tag(ModTags.Items.HOLEABLE)
                 .add(ModItems.IRON_FORK.get());
 
+        this.tag(ModTags.Items.MIXER_TOOL)
+                .add(ModItems.WOODEN_SPOON.get());
+
         this.tag(ModTags.Items.CUCUMBERS)
                 .add(ModItems.CUCUMBER.get());
         this.tag(ModTags.Items.CUCUMBER_SEEDS)

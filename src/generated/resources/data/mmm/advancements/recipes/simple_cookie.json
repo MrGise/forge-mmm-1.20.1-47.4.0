@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:recipes/root",
   "criteria": {
-    "has_raw_skiron": {
+    "has_cookie": {
       "conditions": {
         "items": [
           {
             "items": [
-              "mmm:raw_skiron"
+              "minecraft:cookie"
             ]
           }
         ]
@@ -15,21 +15,34 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:raw_skiron_block"
+        "recipe": "mmm:simple_cookie"
       },
       "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_wheat": {
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:wheat"
+            ]
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
     }
   },
   "requirements": [
     [
-      "has_raw_skiron",
+      "has_cookie",
+      "has_wheat",
       "has_the_recipe"
     ]
   ],
   "rewards": {
     "recipes": [
-      "minecraft:raw_skiron_block"
+      "mmm:simple_cookie"
     ]
   },
-  "sends_telemetry_event": false
+  "sends_telemetry_event": true
 }

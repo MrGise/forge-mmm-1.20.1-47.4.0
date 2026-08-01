@@ -3,9 +3,6 @@
   "category": "misc",
   "ingredients": [
     {
-      "item": "mmm:solidified_mana"
-    },
-    {
       "item": "mmm:rainstone_shard"
     },
     {
@@ -19,6 +16,9 @@
     },
     {
       "item": "minecraft:bucket"
+    },
+    {
+      "item": "mmm:solidified_mana"
     }
   ],
   "result": {

@@ -181,6 +181,7 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.mmm_cuisine")).displayItems((displayParameters, output) -> {
                         output.accept(ModBlocks.OAK_COUNTER.get());
                         output.accept(ModBlocks.PLACED_BOWL.get());
+                        output.accept(ModItems.WOODEN_SPOON.get());
                         output.accept(ModItems.ROLLING_PIN.get());
                         output.accept(ModItems.IRON_FORK.get());
                         output.accept(AllItems.DOUGH.get());
