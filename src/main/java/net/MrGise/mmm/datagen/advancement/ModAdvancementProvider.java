@@ -11,12 +11,13 @@ import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.ForgeAdvancementProvider;
 
 import java.util.function.Consumer;
+
+import static net.MrGise.floating.helper.Methods.nAp;
 
 public class ModAdvancementProvider implements ForgeAdvancementProvider.AdvancementGenerator {
     @Override
@@ -24,11 +25,11 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
         Advancement dimensionAdvancement = Advancement.Builder.advancement()
                 .display(ModBlocks.NULL_BLOCK.get(),
                         Component.translatable("advancement.mmm.dimensions"), Component.translatable("advancement.mmm.dimensions.desc"),
-                        ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "textures/block/skysolid.png"), FrameType.GOAL,
+                        nAp(MMM.MOD_ID, "textures/block/skysolid.png"), FrameType.GOAL,
                         true, true, false)
                 .addCriterion("exit_overworld",
                         ChangeDimensionTrigger.TriggerInstance.changedDimensionTo(ResourceKey.create(Registries.DIMENSION, Level.END.location())))
-                .save(saver, ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "dimensions"), existingFileHelper);
+                .save(saver, nAp(MMM.MOD_ID, "dimensions"), existingFileHelper);
         Advancement nullAdvancement = Advancement.Builder.advancement()
                 .display(ModBlocks.NULL_BLOCK.get(),
                         Component.translatable("advancement.mmm.null"), Component.translatable("advancement.mmm.null.desc"),
@@ -36,7 +37,7 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                         true, true, false)
                 .parent(dimensionAdvancement)
                 .addCriterion("on_null", BlockTouchTrigger.TriggerInstance.onBlock(ModBlocks.NULL_BLOCK.get()))
-                .save(saver, ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "null"), existingFileHelper);
+                .save(saver, nAp(MMM.MOD_ID, "null"), existingFileHelper);
         Advancement nullGetAdvancement = Advancement.Builder.advancement()
                 .display(ModBlocks.NULL_BLOCK.get(),
                         Component.translatable("advancement.mmm.null_get"), Component.translatable("advancement.mmm.null_get.desc"),
@@ -44,7 +45,7 @@ public class ModAdvancementProvider implements ForgeAdvancementProvider.Advancem
                         true, true, true)
                 .parent(nullAdvancement)
                 .addCriterion("has_null", InventoryChangeTrigger.TriggerInstance.hasItems(ModBlocks.NULL_BLOCK.get()))
-                .save(saver, ResourceLocation.fromNamespaceAndPath(MMM.MOD_ID, "null_get"), existingFileHelper);
+                .save(saver, nAp(MMM.MOD_ID, "null_get"), existingFileHelper);
 
 
     }

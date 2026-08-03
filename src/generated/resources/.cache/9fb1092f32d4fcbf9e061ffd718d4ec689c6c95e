@@ -1,4 +1,4 @@
-// 1.20.1	2026-07-10T20:07:57.318133	Recipes
+// 1.20.1	2026-08-03T13:37:47.4419883	Recipes
 d6246e5792128ef35b5ee8b0b98b36ce3301c8fb data/minecraft/advancements/recipes/bow.json
 a7b74a829cab3079e5c0eba42c95f4c9483f5de7 data/mmm/advancements/recipes/boiled_egg_double.json
 430add1a2b52621f6472b206ad12f925c203ca2f data/mmm/advancements/recipes/boiled_egg_quadrouple.json
@@ -92,7 +92,6 @@ b38f34d694d8383bc4e331556be266a482d484b5 data/mmm/recipes/mimic_carrot.json
 f0e5764469529d1d175bbb0730a35d456c6543a0 data/mmm/recipes/mimic_shulker_box.json
 6f31e0652dfa491b7d78dde6ced8b5186ae56b56 data/mmm/recipes/pomegranate_cutting.json
 ca275c21f92ffee471a6efd25da7538f7f0e1f05 data/mmm/recipes/pomegranate_seeds_from_pomegranate.json
-fd504084fce42ef15359c3b97b92eea26776ebc3 data/mmm/recipes/rainstone_bucket.json
 d384e5aa06ffebb2f2024dfc8e5ecf211905db7b data/mmm/recipes/raw_skiron.json
 e8717403f401183d9c4a73bbc02315684af3f890 data/mmm/recipes/raw_skiron_block.json
 f1312edecedd38b801ca180cae4d9774ae62d3eb data/mmm/recipes/reinforced_actinolite_bow_from_bowyery.json

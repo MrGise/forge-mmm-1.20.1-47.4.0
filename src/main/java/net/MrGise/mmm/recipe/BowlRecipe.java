@@ -5,6 +5,7 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonSyntaxException;
 import com.simibubi.create.foundation.fluid.FluidIngredient;
+import net.MrGise.mmm.MMM;
 import net.MrGise.mmm.block.entity.BowlBlockEntity;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
@@ -19,6 +20,7 @@ import net.minecraftforge.fluids.FluidStack;
 
 import javax.annotation.Nullable;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static net.MrGise.floating.helper.Methods.mmm;
@@ -51,6 +53,7 @@ public class BowlRecipe implements Recipe<SimpleContainer> {
             boolean found = false;
 
             for (ItemStack stack : remaining) {
+                MMM.LOGGER.debug("Matching: {}, {}: {}", stack, ingredient.getItems(), ingredient.test(stack));
                 if (!stack.isEmpty() && ingredient.test(stack)) {
                     stack.shrink(1);
                     found = true;
@@ -154,9 +157,15 @@ public class BowlRecipe implements Recipe<SimpleContainer> {
             NonNullList<Ingredient> inputs = NonNullList.create();
 
             for (JsonElement el : ingredients) {
-                inputs.add(Ingredient.fromJson(el));
-            }
+                MMM.LOGGER.info("Ingredient JSON: {}", el);
 
+                Ingredient ingredient = Ingredient.fromJson(el);
+
+                MMM.LOGGER.info("Ingredient: {}", ingredient);
+                MMM.LOGGER.info("Items: {}", Arrays.toString(ingredient.getItems()));
+
+                inputs.add(ingredient);
+            }
             int ingredientWeight = inputs.stream().mapToInt(ingredient -> {
                 int max = 0;
                 for (ItemStack stack : ingredient.getItems()) {
@@ -181,7 +190,9 @@ public class BowlRecipe implements Recipe<SimpleContainer> {
 
             int size = buf.readVarInt();
             for (int i = 0; i < size; i++) {
-                inputs.add(Ingredient.fromNetwork(buf));
+                Ingredient ingredient = Ingredient.fromNetwork(buf);
+                MMM.LOGGER.info("NETWORK ingredient: {}", Arrays.toString(ingredient.getItems()));
+                inputs.add(ingredient);
             }
 
             ItemStack result = buf.readItem();

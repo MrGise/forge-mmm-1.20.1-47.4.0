@@ -12,6 +12,10 @@ Also, you might or might not be able to exit the border
 in survival without cheats when I finish the mod.  
 Just maybe.
 
+# Announcement
+I will rewrite the project in a new directory sometime soon, to make it more organized and to get rid of some of the AI-generated code.  
+But I _will_ make another mod first- a GUI creation API.
+
 ## Changelog
 The changelog is at [.github/logs/CHANGELOG.md](.github/logs/CHANGELOG.md)
 

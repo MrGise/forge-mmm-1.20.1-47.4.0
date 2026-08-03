@@ -50,6 +50,7 @@ Branch: Main branch
 - 4/7/2026: Added a config and changed Bowl rendering
 - 5/7/2026: Fixed bowl rendering! (It was tough)
 - 1/8/2026: Added base for bowl crafting, tags in recipes are broken
+- 3/8/2026: Added logging I removed for no reason
 
 ## [0.4.1a] (skipping the -1.20.1 because it's not important)
 For the changelog summary, visit [.github/logs](../logs/0.4.1a-1.20.1.md)
